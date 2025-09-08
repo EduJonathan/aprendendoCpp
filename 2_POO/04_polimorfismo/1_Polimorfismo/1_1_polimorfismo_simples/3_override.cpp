@@ -11,8 +11,8 @@
  * incorreta, garantindo que a sobrescrita seja intencional sem o compilador gerar erro
  * caso se não for.
  *
- * Use `override` quando estiver sobrescrevendo um método virtual da classe base
- * que não é const. EXE: `virtual void foo()`;, use `void foo() override`;
+ * Use `override` quando estiver sobrescrevendo um método virtual da classe base que não é const.
+ * EXE: `virtual void foo()`; ou `virtual void foo() = 0`, use `void foo() override`;
  *
  * Use `const override` quando estiver sobrescrevendo um método virtual que foi declarado
  * como const na classe base. Se a função na base for `virtual void foo() const`;

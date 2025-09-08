@@ -186,7 +186,8 @@ int main(int argc, char **argv)
 
     // Podemos acessar o `prev` de node2 sem manter a contagem de referência.
     if (auto prevNode = node2->prev.lock())
-    { // lock() cria um `shared_ptr` temporário
+    { 
+        // lock() cria um `shared_ptr` temporário
         std::cout << "prevNode ainda está vivo" << '\n';
     }
 

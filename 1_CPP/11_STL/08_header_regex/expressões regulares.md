@@ -33,13 +33,13 @@ Exemplo: 1 corresponde ao dígito '1'.
 
 Caracteres especiais com significados específicos em Regex.
 
-Ponto (.): Corresponde a qualquer caractere, exceto quebras de linha.
+Ponto (.): Corresponde a qualquer caractere, exceto quebras de linha.  
 Exemplo: a.c casa com abc, axc, a1c, etc.
 
-Cifrão ($): Indica o final da string.
+Cifrão ($): Indica o final da string.  
 Exemplo: abc$ casa com strings que terminam com "abc".
 
-Circunflexo (^): Indica o início da string.
+Circunflexo (^): Indica o início da string.  
 Exemplo: ^abc casa com strings que começam com "abc".
 
 ---

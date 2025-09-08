@@ -1,8 +1,8 @@
 # METAPROGRAMMING (METAPROGRAMAÇÃO)
 
-Uma das grandes invenções e elementos chaves de todo C++ é a metaprogramming(ou metaprogração)
-que consiste em trabalhar o código e ver a ação e resultado do código antes de compilar
-e executar código, com auxílios e uso de structs, templates, e técnicas de SFINAE
+Uma das grandes invenções e elementos chaves de todo C++ é a metaprogramming(ou metaprogramação)
+que consiste em trabalhar o código e ver a ação e resultado do código antes mesmo de compilar
+e executar código, com auxílios e uso de `structs`, `templates`, e técnicas de `SFINAE`
 (Substitution Failure Is Not An Error), entre outros.
 
 Metaprogramação em C++ geralmente envolve manipulação de código em tempo de compilação

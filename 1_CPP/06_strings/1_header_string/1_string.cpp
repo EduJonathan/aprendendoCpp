@@ -36,31 +36,18 @@ int main(int argc, char **argv)
     {
         if (email[index] >= 65 && email[index] <= 90)
         {
-            /**
-             * Caracteres ASCII que pertencem ao intervalo 65 a 90 correspondem aos
-             * caracteres maiúsculos('A' a 'Z')
-             */
             carateresMaiusculas++;
         }
         else if (email[index] >= 97 && email[index] <= 122)
         {
-            /**
-             * Caracteres ASCII que pertencem ao intervalo 97 a 122 correspondem aos
-             * caracteres minúsculos('a' a 'z')
-             */
             carateresMinusculas++;
         }
         else if (email[index] >= 48 && email[index] <= 57)
         {
-            // Caracteres ASCII que pertencem ao intervalo 48 a 57 correspondem aos dígitos(0 a 9)
             digitos++;
         }
         else
         {
-            /**
-             * Os caracteres ASCII que não pertencem ao intervalo 48 a 57 correspondem aos
-             * caracteres especiais('!', '@', '#', '$', '%', '.', etc...).
-             */
             caracteresEspeciais++;
         }
     }

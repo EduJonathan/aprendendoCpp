@@ -8,7 +8,7 @@ const int SIZE = 1000; // Número de iterações
  *
  * @param size Tamanho do array a ser alocado em cada iteração.
  */
-void AlocandoNaStack(std::size_t size)
+void AlocandoNaStack(int size)
 {
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -58,8 +58,8 @@ int main(int argc, char **argv)
     AlocandoNaHeap(10000);
 
     /**
-     * @note Explicação: Foi me posto a pergunta o que é mais rápido alocar entre 1000 e 10000
-     * na stack ou heap
+     * @note Explicação: O código consiste em medir o tempo que é mais rápido alocar
+     * entre 1000 e 10000 na stack ou heap
      *
      * Stack: Muito mais rápida para alocações, pois só precisa mover o ponteiro da stack.
      * - A alocação na stack é basicamente um ajuste em um ponteiro (como mover o "topo
