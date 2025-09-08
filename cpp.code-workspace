@@ -111,7 +111,8 @@
       "resumable": "cpp",
       "future": "cpp",
       "stop_token": "cpp",
-      "filesystem": "cpp"
+      "filesystem": "cpp",
+      "semaphore": "cpp"
     }
   }
 }

@@ -10,4 +10,5 @@ int main(int argc, char **argv)
 {
     std::future<int> f = std::async(tarefa);
     std::cout << "Resultado futuro: " << f.get() << '\n';
+    return 0;
 }

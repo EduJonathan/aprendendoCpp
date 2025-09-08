@@ -25,4 +25,6 @@ int main(int argc, char **argv)
         std::cout << "a não tem valor\n";
 
     std::cout << "b = " << b.value() << '\n'; // b tem valor
+
+    return 0;
 }

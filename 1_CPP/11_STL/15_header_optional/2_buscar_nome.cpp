@@ -29,4 +29,6 @@ int main(int argc, char **argv)
 
     auto outro = buscar_nome(false);
     std::cout << "Outro: " << (outro ? *outro : "não existe") << '\n';
+
+    return 0;
 }

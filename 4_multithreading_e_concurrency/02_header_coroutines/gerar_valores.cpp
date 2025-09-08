@@ -39,4 +39,5 @@ int main(int argc, char **argv)
      * g++ -std=c++17 gerar_valores.cpp -o gerar_valores -pthread
      * ./gerar_valores
      */
+    return 0;
 }
