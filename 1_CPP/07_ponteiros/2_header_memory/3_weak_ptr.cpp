@@ -142,7 +142,7 @@ public:
 
 int main(int argc, char **argv)
 {
-    std::weak_ptr<int> weakPtr; // weak_ptr não pode ser inicializado com nullptr
+    std::weak_ptr<int> weakPtr;                                 // weak_ptr não pode ser inicializado com nullptr
     std::shared_ptr<int> sharedPtr = std::make_shared<int>(10); // shared_ptr inicializado com 10
 
     weakPtr = sharedPtr; // weak_ptr agora aponta para o mesmo objeto que shared_ptr
@@ -186,8 +186,8 @@ int main(int argc, char **argv)
 
     // Podemos acessar o `prev` de node2 sem manter a contagem de referência.
     if (auto prevNode = node2->prev.lock())
-    { 
-        // lock() cria um `shared_ptr` temporário
+    {
+        // .lock() cria um `shared_ptr` temporário
         std::cout << "prevNode ainda está vivo" << '\n';
     }
 

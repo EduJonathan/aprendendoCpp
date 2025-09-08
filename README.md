@@ -11,12 +11,12 @@ A ideia é servir como **material de estudo** e **referência prática** de prog
 - Variáveis, tipos de dados e constantes
 - Operadores (Aritméticos, Ternário, Lógicos, Bitwise, Incremento e Decremento)
 - Estruturas Condicionais (`if-else`, `switch-case`)
-- Laços de Repetição (`for`, `while`, `do-while`)
+- Laços de Repetição (`for`, `while`, `do-while`, `for each`)
 - Arrays, Vetores e Matrizes
 - Strings e manipulação de caracteres
 - Ponteiros e Referências
 - Funções (simples, recursivas, sobrecargas)
-- Arquivos (`fstream`, `ofstream`, `filesystem`, `ostream`, além do header sstream)
+- Arquivos (`fstream`, `ofstream`, `filesystem`, `ostream`, além do `header sstream`)
 
 ---
 

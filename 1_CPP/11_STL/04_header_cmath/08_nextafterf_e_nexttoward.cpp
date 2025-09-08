@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-/**
- * std::nextafter, std::nexttoward(): Calcula o próximo valor representável em direção a outro valor.
- */
+// std::nextafter, std::nexttoward(): Calcula o próximo valor representável em direção a outro valor.
 
 int main(int argc, char **argv)
 {
