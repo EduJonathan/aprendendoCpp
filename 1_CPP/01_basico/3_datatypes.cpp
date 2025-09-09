@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>  // Incluindo a biblioteca string, necessária para declarar std::string
-#include <limits>  // Para acessar constantes definidas para tipos númericos
-#include <climits> // Para constantes relacionadas a valores inteiros
-#include <cfloat>  // Para constantes relacionadas a valores flutuantes
+#include <limits>  // Para acessar constantes definidas para tipos númericos em C++
+#include <climits> // Para constantes relacionadas a valores inteiros (Relacionado ao limits.h de C)
+#include <cfloat>  // Para constantes relacionadas a valores flutuantes (Relacionado ao float.h de C)
 
 /**
  * DATATYPES: Declarações que definem os tipos de dados, como inteiros, reais, caracteres,

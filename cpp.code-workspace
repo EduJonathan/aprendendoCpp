@@ -112,7 +112,8 @@
       "future": "cpp",
       "stop_token": "cpp",
       "filesystem": "cpp",
-      "semaphore": "cpp"
+      "semaphore": "cpp",
+      "cfloat": "cpp"
     }
   }
 }

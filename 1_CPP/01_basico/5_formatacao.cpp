@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip> // Biblioteca para controle de formato de saída de dados
 #include <bitset>  // Biblioteca para conversão e exibição em binário
-#include <cstdint> // Biblioteca para tipos de dados inteiros com tamanho fixo
+#include <cstdint> // Biblioteca para tipos de dados inteiros com tamanho fixo (Relacionado ao stdint.h ou inttypes.h do C)
 
 /**
  * Este código demonstra como formatar saídas em C++ utilizando as bibliotecas

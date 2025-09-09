@@ -12,7 +12,7 @@
  */
 
 /* using namespace std; */ // Linha para usar o namespace std globalmente
-/* using std::cin; */      // Usar APENAS o std::cout globalmente, inserindo no código cin
+/* using std::cin; */      // Usar APENAS o std::cin globalmente, inserindo no código cin
 
 int main(int argc, char **argv)
 {
