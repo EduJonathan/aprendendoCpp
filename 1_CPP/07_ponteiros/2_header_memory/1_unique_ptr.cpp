@@ -76,8 +76,8 @@ void usarCarro(std::unique_ptr<Carro> &carro)
 class MyClass
 {
 public:
-    MyClass() { std::cout << "MyClass criada!" << std::endl; }
-    ~MyClass() { std::cout << "MyClass destruída!" << std::endl; }
+    MyClass() { std::cout << "MyClass criada!" << '\n'; }
+    ~MyClass() { std::cout << "MyClass destruída!" << '\n'; }
 };
 
 int main(int argc, char **argv)
@@ -96,7 +96,7 @@ int main(int argc, char **argv)
     // ptr1 agora é nulo, a posse foi transferida para ptr2
     if (!ptr1)
     {
-        std::cout << "ptr1 não possui mais a posse do recurso." << std::endl;
+        std::cout << "ptr1 não possui mais a posse do recurso." << '\n';
     }
 
     std::cout << "--------------------------------\n";

@@ -44,18 +44,18 @@ int main(int argc, char **argv)
 
         case 4:
         {
-            int q;
+            int q = 0;
             std::cout << "Enter quantum: ";
             std::cin >> q;
             scheduler.roundRobin(q);
             break;
         }
-        case 6:
+        case 5:
             break;
 
         default:
             std::cout << "Opção inválida!\n";
         }
-    } while (choice != 6);
+    } while (choice != 5);
     return 0;
 }

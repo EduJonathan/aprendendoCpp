@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     std::thread t1(incrementar), t2(incrementar);
     t1.join();
     t2.join();
-    std::cout << "Contador final: " << contador << "\n";
+    std::cout << "Contador final: " << contador << '\n';
 
     /**
      * Compile e execute

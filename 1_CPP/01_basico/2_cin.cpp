@@ -6,11 +6,13 @@
  * Mesmo conceito do std::cout, mas para entrada de dados. Com a diferença na
  * sua sobrecarga, sendo ele o `>>` do tipo istream(input stream), que permite
  * a leitura sobrecarregando diferentes tipos de dados.
- * Podendo ter escopo global utilizando o `using namespace std;` para que não 
+ *
+ * Podendo ter escopo global utilizando o `using namespace std;` para que não
  * fique utilizando `std::` para cada elemento, ficando assim `cin >> variável`.
  */
 
 /* using namespace std; */ // Linha para usar o namespace std globalmente
+/* using std::cin; */      // Usar APENAS o std::cout globalmente, inserindo no código cin
 
 int main(int argc, char **argv)
 {

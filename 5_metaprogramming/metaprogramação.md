@@ -43,9 +43,9 @@ tipos que são passados para templates, garantindo que certos requisitos sejam a
 
 Além disso, Podemos Contar Com Bibliotecas Externas
 
-- Boost.Hana: Uma biblioteca moderna para metaprogramação, otimizada para C++14/17,
+- **`Boost.Hana`**: Uma biblioteca moderna para metaprogramação, otimizada para C++14/17,
   que simplifica o trabalho com tuplas e tipos em tempo de compilação.
-- Boost.MPL: Biblioteca mais antiga, voltada para metaprogramação em C++03/11, ainda
+- **`Boost.MPL`**: Biblioteca mais antiga, voltada para metaprogramação em C++03/11, ainda
   usada em projetos legados.
 
 ---
@@ -75,8 +75,8 @@ garantida para não lançar exceções. Em termos de metaprogramação, ela pode
 a análise do código durante a compilação, melhorando a performance e garantindo uma semântica clara
 para o comportamento de exceções.
 
-**const noexcept**: E existe a combinação **const noexcept** que em metódos de uma **classe** implica
-de não modificar o estado do objeto e não lançar nenhuma exceção.
+**const noexcept**: E existe a combinação **const noexcept** que em metódos de uma **classe**
+implica de não modificar o estado do objeto e não lançar nenhuma exceção.
 
 ---
 
@@ -157,8 +157,9 @@ mais legíveis e seguros, baseados nas propriedades dos tipos.
 
 A metaprogramação em C++ é usada para:
 
-Otimizar desempenho: Avaliar cálculos complexos em tempo de compilação, como no exemplo do fatorial.
-Aumentar reutilização: Criar funções e classes genéricas que funcionam com múltiplos tipos.
-Garantir segurança de tipos: Usar `<type_traits>` e `<concepts>` para restringir templates e
-evitar erros. Reduzir código repetitivo: Técnicas como if constexpr e SFINAE eliminam a necessidade
-de múltiplas implementações.
+- Otimizar desempenho: Avaliar cálculos complexos em tempo de compilação, como no exemplo do fatorial.
+- Aumentar reutilização: Criar funções e classes genéricas que funcionam com múltiplos tipos.
+- Garantir segurança de tipos: Usar `<type_traits>` e `<concepts>` para restringir templates
+  e evitar erros.
+- Reduzir código repetitivo: Técnicas como if constexpr e SFINAE eliminam a necessidade de múltiplas
+  implementações.

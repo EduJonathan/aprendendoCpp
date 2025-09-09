@@ -18,9 +18,7 @@
 std::function<int(const std::vector<int> &)> lambda_sum_of_squares = [](const std::vector<int> &v) -> int
 {
     return std::accumulate(v.begin(), v.end(), 0, [](int acc, int val)
-    {
-        return acc + val * val;
-    });
+                           { return acc + val * val; });
 };
 
 int main(int argc, char **argv)
@@ -31,7 +29,7 @@ int main(int argc, char **argv)
 
     std::vector<int> nums = {1, 2, 3, 4};
 
-    std::cout << "Soma dos quadrados: " << lambda_sum_of_squares(nums) << std::endl; // Output: 30 (1^2 + 2^2 + 3^2 + 4^2)
+    std::cout << "Soma dos quadrados: " << lambda_sum_of_squares(nums) << '\n'; // Output: 30 (1^2 + 2^2 + 3^2 + 4^2)
 
     return 0;
 }

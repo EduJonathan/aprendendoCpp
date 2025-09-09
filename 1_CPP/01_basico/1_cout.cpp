@@ -28,7 +28,9 @@
  * porém deve ser usado com cautela para evitar conflitos de nomes em programas maiores.
  */
 
-/* using namespace std; */ // Linha para usar o namespace std globalmente
+/* using namespace std; */ // Para usar o namespace std globalmente
+/* using std::cout; */     // Usar APENAS o std::cout globalmente, inserindo no código cout
+/* using std::endl; */     // Usar APENAS o std::endl globalmente, inserindo no código endl
 
 int main(int argc, char **argv)
 {

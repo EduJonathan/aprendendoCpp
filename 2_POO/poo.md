@@ -20,17 +20,20 @@ de código, facilidade de manutenção e maior organização no desenvolvimento 
 
 Este paradigma promove:
 
-- Modularidade (divisão do sistema em partes menores e independentes, facilitando o desenvolvimento e testes separados).
+- Modularidade (divisão do sistema em partes menores e independentes, facilitando o desenvolvimento
+  e testes separados).
 
-- Reutilização de código (uso de partes do código em diferentes programas ou módulos, economizando tempo e esforço).
+- Reutilização de código (uso de partes do código em diferentes programas ou módulos, economizando
+  tempo e esforço).
 
-- Facilidade de manutenção (mais simples corrigir erros ou atualizar o sistema, já que as partes são bem organizadas
-  e separadas).
+- Facilidade de manutenção (mais simples corrigir erros ou atualizar o sistema, já que as partes
+  são bem organizadas e separadas).
 
-- Maior organização no desenvolvimento de software (estrutura clara do projeto, facilitando o trabalho em equipe e
-  a compreensão do sistema).
+- Maior organização no desenvolvimento de software (estrutura clara do projeto, facilitando o
+  trabalho em equipe e a compreensão do sistema).
 
-- Escalabilidade (Estrutura flexível que facilita a adição de novas funcionalidadessem afetar o restante do sistema).
+- Escalabilidade (Estrutura flexível que facilita a adição de novas funcionalidadessem afetar
+  o restante do sistema).
 
 ---
 

@@ -71,11 +71,11 @@ int main(int argc, char **argv)
 
     /**
      * RESSALTANDO:
-     * => TEMPO DE EXECUÇÃO: É o processo de execução do programa, onde
-     * as variáveis, funções são avaliadas ENQUANTO o programa roda.
+     * => TEMPO DE EXECUÇÃO: É o processo de execução do programa,
+     * onde as variáveis, funções são avaliadas ENQUANTO o programa roda.
      *
-     * => TEMPO DE COMPILAÇÃO: É o processo de compilação do código, onde as
-     * constantes são avaliadas ANTES do programa rodar.
+     * => TEMPO DE COMPILAÇÃO: É o processo de compilação do código,
+     * onde as constantes são avaliadas ANTES do programa rodar.
      *
      * DICA: Quando estiver pensando em usar o constexpr, pense assim:
      * "Isso poderia ser resolvido completamente antes do programa começar a rodar?"

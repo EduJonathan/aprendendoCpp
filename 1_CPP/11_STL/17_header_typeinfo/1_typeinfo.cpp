@@ -6,7 +6,7 @@
 /**
  * A <typeinfo> é uma biblioteca da STL em C++ que fornece informações sobre os tipos dos objetos
  * em tempo de execução. Ela faz parte do mecanismo de RTTI (Run-Time Type Information).
- * 
+ *
  * Permite consultar o tipo estático ou dinâmico de uma expressão em tempo de execução (RTTI)
  * com o operador typeid.
  */
@@ -25,7 +25,9 @@ public:
     virtual ~base() = default; // Necessário para RTTI funcionar corretamente
 };
 
-class Derived : public base {};
+class Derived : public base
+{
+};
 
 int main(int argc, char **argv)
 {
@@ -37,8 +39,6 @@ int main(int argc, char **argv)
 
     Base *obj = new Derivada;
     std::cout << "Tipo dinâmico: " << typeid(*obj).name() << '\n';
-    delete obj;
-    delete ponteiro;
 
     // Criando objeto com smart pointer (unique_ptr)
     std::unique_ptr<base> object = std::make_unique<Derived>();
@@ -46,6 +46,8 @@ int main(int argc, char **argv)
     // typeid no objeto apontado (*object) – RTTI
     std::cout << "Tipo dinâmico com smart Pointers: " << typeid(*object).name() << '\n';
 
+    delete obj;
+    delete ponteiro;
     // Não precisa de delete – o unique_ptr faz isso automaticamente
 
     return 0;

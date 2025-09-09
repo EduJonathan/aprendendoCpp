@@ -48,36 +48,36 @@ Exemplo: ^abc casa com strings que começam com "abc".
 
 Definem a quantidade de vezes que um caractere ou grupo deve aparecer.
 
-Asterisco (_): Zero ou mais ocorrências.
+Asterisco (_): Zero ou mais ocorrências.  
 Exemplo: a_ casa com "", "a", "aa", "aaa", etc.
 
-Mais (+): Uma ou mais ocorrências.
+Mais (+): Uma ou mais ocorrências.  
 Exemplo: a+ casa com "a", "aa", "aaa", etc.
 
-Interrogação (?): Zero ou uma ocorrência.
+Interrogação (?): Zero ou uma ocorrência.  
 Exemplo: a? casa com "" ou "a".
 
 ---
 
 ## Agrupamentos e Classes
 
-Parênteses (( )): Agrupam partes da expressão para capturar ou aplicar quantificadores.
+Parênteses (( )): Agrupam partes da expressão para capturar ou aplicar quantificadores.  
 Exemplo: (ab)+ casa com "ab", "abab", "ababab".
 
-Colchetes ([ ]): Definem um conjunto de caracteres possíveis.
-Exemplo: [aeiou] casa com qualquer vogal.
+Colchetes ([ ]): Definem um conjunto de caracteres possíveis.  
+Exemplo: [aeiou] casa com qualquer vogal.  
 Exemplo: [a-z] casa com qualquer letra minúscula.
 
-Barra invertida (\): Escapa metacaracteres ou invoca sequências especiais.
-Exemplo: \. corresponde ao caractere literal ponto.
+Barra invertida (\): Escapa metacaracteres ou invoca sequências especiais.  
+Exemplo: \. corresponde ao caractere literal ponto.  
 Exemplo: \d corresponde a qualquer dígito ([0-9]).
 
 ---
 
-Exemplo da extração de um número de telefone: ^\(\d{2}\)\s\d{4}-\d{4}$ no formato (xx) xxxx-xxxx.
+Exemplo da extração de um número de telefone: ^\(\d{2}\)\s\d{4}-\d{4}$ no formato (xx) xxxx-xxxx.  
 
-\d{2} → dois dígitos
-\s → espaço
+\d{2} → dois dígitos  
+\s → espaço  
 \d{4}-\d{4} → quatro dígitos, hífen e mais quatro dígitos
 
 Pode parecer um pouco complexa à primeira vista, mas com uma boa compreensão
