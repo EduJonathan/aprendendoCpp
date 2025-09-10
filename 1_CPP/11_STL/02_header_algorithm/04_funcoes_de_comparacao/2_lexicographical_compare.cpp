@@ -4,9 +4,7 @@
 #include <functional>
 #include <algorithm>
 
-/**
- * std::lexicographical_compare() compara dois ranges como se fossem palavras em um dicionário.
- */
+// std::lexicographical_compare() compara dois ranges como se fossem palavras em um dicionário.
 
 /**
  * @brief Retorna uma lambda que compara caracteres ignorando letras maiúsculas e minúsculas.

@@ -6,11 +6,11 @@
  * Os parâmetros da função main():
  *
  * @param argc Arguments count - Total de número de argumentos na linha de comando.
- *
  * @param argv Arguments vector - Array de string no C-style que contém cada argumento,
  * normalmente o argv[0] contém o nome do programa.
- *
- * @return int retorna 0 para confirmar êxito do programa
+ * @return int retorna 0 para confirmar êxito do programa.
+ * 
+ * @note Lembrando que eles não são obrigatórios a está em seu código.
  */
 int main(int argc, char **argv)
 {
@@ -69,6 +69,12 @@ int main(int argc, char **argv)
 
         std::cout << num1 << " / " << num2 << ": " << num1 / num2 << '\n';
         break;
-    }    
+    }
+
+    /**
+     * Compile e execute com
+     * g++ .\03_param_main.cpp
+     * .\a.exe 12 + 45
+     */
     return 0;
 }

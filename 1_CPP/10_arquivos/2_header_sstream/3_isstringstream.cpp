@@ -2,9 +2,7 @@
 #include <string>
 #include <sstream>
 
-/**
- * classe std::istringstream: Usa-se para ler dados de uma string (como um fluxo de entrada)
- */
+// classe std::istringstream: Usa-se para ler dados de uma string (como um fluxo de entrada).
 
 int main(int argv, char **argc)
 {

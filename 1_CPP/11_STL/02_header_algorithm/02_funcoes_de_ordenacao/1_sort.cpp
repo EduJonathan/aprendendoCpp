@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-/* std::sort(): Função que deixa em ordem os elementos de um container. */
+// std::sort(): Função que deixa em ordem os elementos de um container.
 
 /**
  * @brief Ordena o vetor de inteiros de forma decrescente utilizando a função std::sort com 

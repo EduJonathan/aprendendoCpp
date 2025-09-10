@@ -9,9 +9,7 @@ struct Pessoa
 
 int main(int argc, char **argv)
 {
-    /**
-     * std::ofstream(): Para escrita em arquivos, exclusivamente para escrever dados em um arquivo.
-     */
+    // std::ofstream(): Para escrita em arquivos, exclusivamente para escrever dados em um arquivo.
     std::ofstream arquivoSaida("Arquivo.txt");
 
     if (arquivoSaida.is_open())

@@ -4,10 +4,7 @@
 
 int main(int argc, char **argv)
 {
-    /**
-     * std::ifstream(): Para leitura de arquivos, usada exclusivamente para ler dados
-     * de um arquivo.
-     */
+    // std::ifstream(): Para leitura de arquivos, usada exclusivamente para ler dados de um arquivo.
     std::ifstream arquivo("exemplo.txt");
 
     if (arquivo.is_open())

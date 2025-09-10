@@ -10,7 +10,7 @@
  * - std::transform(): Aplica uma função a cada elemento de um container.
  * - std::accumulate(): Realiza a soma acumulada dos elementos.
  * 
- * - (Comentado no cabeçalho) std::transform_reduce, std::transform_inclusive_scan,
+ * - std::transform_reduce, std::transform_inclusive_scan,
  *   std::transform_exclusive_scan: requerem C++17 ou superior.
  */
 

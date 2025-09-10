@@ -1,5 +1,4 @@
 #include <iostream>
-#include <type_traits>
 
 /**
  * Se `constexpr` trata-se de uma constante que só é avaliada em tempo de compilação,
@@ -43,10 +42,10 @@ int main(int argc, char **argv)
 {
     // 1. Verificação de tipo
     double circle1 = PI * 2.0 * 2.0; // OK, mas sem verificação de tipo
-    // int bad = PI * "2";                 // Erro só aparece após substituição
+    // int bad = PI * "2";           // Erro só aparece após substituição
 
     double circle2 = pi * 2.0 * 2.0; // Verificação de tipo em tempo de compilação
-    // int bad2 = pi * "2";                // Erro imediato: não pode multiplicar double por string
+    // int bad2 = pi * "2";         // Erro imediato: não pode multiplicar double por string
 
 #undef PI
 

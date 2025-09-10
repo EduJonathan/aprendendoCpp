@@ -3,14 +3,48 @@
 #include <algorithm>
 #include <functional>
 
+/**
+ * Ponteiro para função?
+ * Um ponteiro para função é uma variável que armazena o endereço de uma função,
+ * permitindo que a função seja chamada através desse endereço, em vez de diretamente
+ * pelo nome. Isso é útil quando queremos passar funções como argumentos para outras
+ * funções, ou quando queremos escolher dinamicamente qual função chamar.
+ *
+ * Como funciona o ponteiro para função no C/C++?
+ * No C/C++, um ponteiro para função é declarado especificando o
+ * tipo de retorno e os tipos de parâmetros da função que ele pode apontar.
+ *
+ * Por exemplo:
+ * // Declaração de um ponteiro para função que recebe uma string, dois inteiros, e retorna void
+ * typedef void (*OperacaoTextoOld)(std::string &, int, int);
+ */
+
 // Área de transferência
 std::string clipboard;
 
-// Tipos de operações usando typedef e using (C++11)
-typedef void (*OperacaoTextoOld)(std::string &, int, int);          // Estilo C
-using OperacaoTexto = std::function<void(std::string &, int, int)>; // Moderno C++
+/**
+ * @typedef OperacaoTextoOld
+ *
+ * @brief Tipo de ponteiro para função no estilo C, que aceita uma string,
+ * um índice de início e um tamanho como parâmetros.
+ */
+typedef void (*OperacaoTextoOld)(std::string &, int, int); // Estilo C
 
-// Funções de operação de texto
+/**
+ * @typedef OperacaoTexto
+ *
+ * @brief Tipo de ponteiro para função moderno usando std::function do C++11,
+ * que também recebe uma string, um índice de início e um tamanho como parâmetros.
+ */
+using OperacaoTexto = std::function<void(std::string &, int, int)>; // Estilo moderno C++
+
+/**
+ * @brief Função que simula a operação de copiar um trecho de texto para a área de transferência.
+ *
+ * @param texto String de onde o trecho será copiado.
+ * @param inicio Posição inicial do trecho a ser copiado.
+ * @param tamanho Quantidade de caracteres a serem copiados.
+ */
 void copiar(std::string &texto, int inicio, int tamanho)
 {
     if (inicio >= 0 && inicio + tamanho <= texto.size())
@@ -24,6 +58,13 @@ void copiar(std::string &texto, int inicio, int tamanho)
     }
 }
 
+/**
+ * @brief Função que simula a operação de recortar um trecho de texto (copiar + apagar).
+ *
+ * @param texto String de onde o trecho será recortado.
+ * @param inicio Posição inicial do trecho a ser recortado.
+ * @param tamanho Quantidade de caracteres a serem recortados.
+ */
 void recortar(std::string &texto, int inicio, int tamanho)
 {
     if (inicio >= 0 && inicio + tamanho <= texto.size())
@@ -39,6 +80,14 @@ void recortar(std::string &texto, int inicio, int tamanho)
     }
 }
 
+/**
+ * @brief Função que simula a operação de colar um trecho de texto da área de transferência
+ * em uma posição específica de uma string.
+ *
+ * @param texto String onde o conteúdo será colado.
+ * @param posicao Posição onde o conteúdo será inserido.
+ * @param ignorado Parâmetro adicional que não é utilizado.
+ */
 void colar(std::string &texto, int posicao, int = 0)
 {
     // Parâmetro adicional ignorado
@@ -53,7 +102,14 @@ void colar(std::string &texto, int posicao, int = 0)
     }
 }
 
-// Função que aplica operação (agora mais genérica)
+/**
+ * @brief Função que aplica uma operação sobre uma string usando um ponteiro para função.
+ *
+ * @param texto String sobre a qual a operação será realizada.
+ * @param operacao Função que executa a operação sobre a string.
+ * @param arg1 Primeiro argumento da operação.
+ * @param arg2 Segundo argumento da operação (opcional, padrão é 0).
+ */
 void operarString(std::string &texto, OperacaoTexto operacao, int arg1, int arg2 = 0)
 {
     operacao(texto, arg1, arg2);

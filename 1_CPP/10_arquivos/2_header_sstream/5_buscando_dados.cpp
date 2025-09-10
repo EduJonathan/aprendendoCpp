@@ -5,7 +5,7 @@
 #include <algorithm>
 
 const int MAX_LINHAS = 50;
-const int MAX_COLUNAS = 500; // Aumentado para suportar mais nomes
+const int MAX_COLUNAS = 500;
 
 void swap(std::string &a, std::string &b)
 {

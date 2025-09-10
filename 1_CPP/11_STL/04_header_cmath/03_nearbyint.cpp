@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-/**
- * std::nearbyint(): Realiza o arredondamento do valor flutuante que esteja mais
- * próximo ao inteiro.
- */
+// std::nearbyint(): Realiza o arredondamento do valor flutuante que esteja mais próximo ao inteiro.
 
 int main(int argc, char **argv)
 {

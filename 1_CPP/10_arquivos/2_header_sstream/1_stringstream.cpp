@@ -6,8 +6,8 @@
 #include <sstream>
 
 /**
- * classe std::stringstream: É a combinação das funcionalidades
- * std::istringstream e std::ostringstream permitindo tanto a leitura e escrita
+ * classe std::stringstream: É a combinação das funcionalidades std::istringstream
+ * e std::ostringstream permitindo tanto a leitura e escrita
  */
 
 /**

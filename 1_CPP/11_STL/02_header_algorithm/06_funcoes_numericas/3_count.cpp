@@ -3,9 +3,8 @@
 #include <algorithm>
 
 /**
- * std::count(): Contabiliza valores existente em um conjunto.
- *
- * std::count_if(): Contabiliza valores existente em um conjunto, que satisfaçam uma condição
+ * - std::count(): Contabiliza valores existente em um conjunto.
+ * - std::count_if(): Contabiliza valores existente em um conjunto, que satisfaçam uma condição
  * específica.
  */
 

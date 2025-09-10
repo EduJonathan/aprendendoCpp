@@ -15,19 +15,17 @@
  * - Para objetos grandes (como structs ou classes), passe por referência constante (`const T&`)
  * para evitar cópias e garantir que o objeto não será modificado.
  *
- * - Quando você precisa de um nome alternativo para uma variável existente, sem manipular
- * endereços de memória.
+ * - Quando você precisa de um nome alternativo para uma variável existente, sem manipular endereços de memória.
  *
  * -------------------
  *
  * - QUANDO NÃO USAR:
  *
  * - Se referências não podem ser nulas, então não as use se a variável pode não existir ou ser opcional.
- *
  * - Referências não podem ser reatribuídas para referenciar outra variável após a inicialização.
  *
- * - Referências não são adequadas para estruturas como listas encadeadas ou árvores,
- * onde você precisa manipular endereços de memória dinamicamente.
+ * - Referências não são adequadas para estruturas como listas encadeadas ou árvores, onde você precisa
+ * manipular endereços de memória dinamicamente.
  *
  * -------------------
  *
@@ -41,8 +39,7 @@
  *
  * - Para alocação dinâmica (ex.: new) ou estruturas complexas (ex.: listas encadeadas).
  * - Ponteiros podem ser nullptr, úteis para indicar ausência de valor ou inicialização.
- * - Use em listas encadeadas, árvores ou grafos, onde você precisa armazenar e manipular
- * endereços de memória.
+ * - Use em listas encadeadas, árvores ou grafos, onde você precisa armazenar e manipular endereços de memória.
  *
  * -------------------
  *

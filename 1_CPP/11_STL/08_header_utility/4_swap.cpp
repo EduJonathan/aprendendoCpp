@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 
-/* std::swap(): Troca dois valores. */
+// std::swap(): Troca dois valores.
 
 int main(int argc, char **argv)
 {

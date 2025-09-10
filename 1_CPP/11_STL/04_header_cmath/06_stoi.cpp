@@ -16,7 +16,7 @@
 int main(int argc, char **argv)
 {
     std::string str = "12345";
-    size_t idx = 0ull;
+    std::size_t idx = 0ull;
     int base = 10;
 
     try

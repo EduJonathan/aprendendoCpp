@@ -99,6 +99,7 @@ int main(int argc, char **argv)
     /**
      * Compile e execute com
      * > g++ -std=c++11 -Wall -Wextra -pedantic nome_arquivo.cpp -o programa
+     * .\programa.exe
      */
     return 0;
 }

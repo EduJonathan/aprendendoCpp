@@ -46,7 +46,7 @@ public:
             return;
         }
 
-        double quantia;
+        double quantia = 0.0;
         std::cout << "Qual valor deseja depositar? ";
         std::cin >> quantia;
 
@@ -72,7 +72,7 @@ public:
             return;
         }
 
-        double quantia;
+        double quantia = 0.0;
         std::cout << "Qual valor deseja sacar? ";
         std::cin >> quantia;
 
@@ -104,7 +104,7 @@ public:
 
     void realizarOperacao()
     {
-        char operacao;
+        char operacao = '\0';
         std::cout << "Deseja realizar um depósito ou saque? (D/S): ";
         std::cin >> operacao;
 

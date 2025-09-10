@@ -2,9 +2,7 @@
 #include <iomanip>
 #include <sstream>
 
-/**
- * std::osstringstream Usada para escrever dados em uma string(fluxo de dados em saída)
- */
+// std::osstringstream Usada para escrever dados em uma string(fluxo de dados em saída).
 
 int main(int argc, char **agv)
 {

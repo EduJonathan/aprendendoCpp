@@ -11,8 +11,7 @@
  * usuário escolher o tipo de dado a ser armazenado (int, double, string),
  * exibir o valor armazenado e limpar o valor.
  *
- * O programa utiliza `std::any_cast` para acessar o valor armazenado e
- * exibir mensagens apropriadas.
+ * O programa utiliza `std::any_cast` para acessar o valor armazenado e exibir mensagens apropriadas.
  *
  * @param a Referência para o objeto std::any a ser exibido
  */

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <uchar.h>
 #include <string_view>
 
 /**
