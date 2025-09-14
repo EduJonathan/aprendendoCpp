@@ -85,8 +85,7 @@ int main(int argc, char **argv)
 
     unsigned char c = 0b00101111; // 0x2F = 47, que é o caractere '/'
 
-    // << (Shift à esquerda): Desloca os bits de um número para a esquerda,
-    // adicionando 0s à direita.
+    // << (Shift à esquerda): Desloca os bits de um número para a esquerda, adicionando 0s à direita.
     std::cout << "\nc = " << std::bitset<8>(c)
               << " (bin) = " << static_cast<int>(c)
               << " (dec) = '" << static_cast<char>(c)

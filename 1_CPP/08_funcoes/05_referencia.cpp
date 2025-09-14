@@ -7,11 +7,11 @@
  *
  * @param str String a ser verificada
  *
- * @note O '&' passa diretamente a referência à variável, ou seja, a variável original é
+ * @note O `&` passa diretamente a referência à variável, ou seja, a variável original é
  * manipulada diretamente. Não há necessidade de usar o operador de desreferência (*)
  * dentro da função, modifica diretamente a variável original.
  *
- * O uso do '&' deve ser feita eficiente de passar parâmetros, especialmente quando o
+ * O uso do `&` deve ser feita eficiente de passar parâmetros, especialmente quando o
  * objetivo é evitar cópias ou quando você deseja modificar a variável original.
  */
 void frequenciaDeCaracteres(const std::string &str)

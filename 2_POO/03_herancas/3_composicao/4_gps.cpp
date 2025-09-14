@@ -74,7 +74,8 @@ public:
 class Carro
 {
 private:
-    std::unique_ptr<GPS> gps; // GPS do carro
+    std::unique_ptr<GPS> gps; // GPS exclusivo do carro
+    // Alternativa: std::shared_ptr<GPS> gps; // Se o GPS fosse compartilhado entre carros
 
 public:
     // Construtor que cria um GPS com latitude e longitude passadas pelo usuário
@@ -84,16 +85,29 @@ public:
     }
 
     // Método para verificar a localização do GPS
-    void verificarGPS(void)
+    void verificarGPS() const
     {
-        gps->obterLocalizacao();
+        if (gps)
+        { // Verifica se o GPS é válido
+            gps->obterLocalizacao();
+        }
+        else
+        {
+            std::cout << "Erro: GPS não inicializado!\n";
+        }
     }
-
     // Método para calcular a distância até o destino
-    void calcularDistanciaDestino(double latDestino, double lonDestino)
+    void calcularDistanciaDestino(double latDestino, double lonDestino) const
     {
-        double distancia = gps->calcularDistancia(latDestino, lonDestino);
-        std::cout << "A distância até o destino é: " << distancia << " km\n";
+        if (gps)
+        {
+            double distancia = gps->calcularDistancia(latDestino, lonDestino);
+            std::cout << "A distância até o destino é: " << distancia << " km\n";
+        }
+        else
+        {
+            std::cout << "Erro: GPS não inicializado!\n";
+        }
     }
 };
 
@@ -107,6 +121,12 @@ int main(int argc, char **argv)
 
     // Calcula e exibe a distância até o destino
     meuCarro.calcularDistanciaDestino(-23.5505, -46.6333);
+
+    auto gpsCompartilhado = std::make_shared<GPS>(-22.9068, -43.1729);
+    Carro carro1(-22.9068, -43.1729); // Usa unique_ptr internamente
+    Carro carro2(-22.9068, -43.1729);
+    carro1.verificarGPS();
+    carro2.verificarGPS();
 
     return 0;
 }

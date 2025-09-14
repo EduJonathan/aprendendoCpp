@@ -57,8 +57,7 @@ int main(int argc, char **argv)
      * - Prefira a inicialização uniforme ({}) para evitar conversões implícitas e
      * narrowing conversions(narrowing conversions ou perda de dados).
      *
-     * - Use a inicialização por cópia (=) apenas quando necessário para compatibilidade
-     * ou legibilidade.
+     * - Use a inicialização por cópia (=) apenas quando necessário para compatibilidade ou legibilidade.
      *
      * +--------------------------------------------------------------------------------+
      * | Forma                         | Aceita Narrowing | Segurança  | Introduzida em |

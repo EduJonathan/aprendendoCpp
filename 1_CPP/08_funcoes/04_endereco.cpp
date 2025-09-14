@@ -8,7 +8,7 @@
  * @param numeros Vetor de números
  * @param quantidade Quantidade de números no vetor
  *
- * @note Com o ponteiro '*' passa-se o endereço de memória da variável, e deve-se usar
+ * @note Com o ponteiro `*` passa-se o endereço de memória da variável, e deve-se usar
  * o operador de desreferência (*) dentro da função para acessar ou modificar o valor
  * da variável original, modificando o valor apontado pelo ponteiro.
  */

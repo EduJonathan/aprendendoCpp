@@ -1,15 +1,13 @@
 #include <iostream> // (input/output stream): Biblioteca para realizar entrada e saída de dados
 
 /**
- * std::cout (standard console output): É um objeto da classe std::ostream que permite
- * imprimir textos e valores no console.
+ * std::cout (standard console output): É um objeto da classe std::ostream que permite imprimir textos e valores no console.
  *
  * `std` => É um namespace (espaço de nomes), um contêiner que agrupa classes, objetos
  * e funções relacionadas da biblioteca padrão C++ (STL). Ele garante que os nomes
  * definidos dentro dele não entrem em conflito com outros nomes fora dele.
  *
- * `::` => É o operador de resolução de escopo, usado para acessar membros dentro de
- * um namespace ou classe.
+ * `::` => É o operador de resolução de escopo, usado para acessar membros dentro de um namespace ou classe.
  *
  * `cout(console output)` => É o objeto de saída padrão (console), assim como `cin`
  * é para entrada e `cerr` para saída de erros, dentre outros. Todos fazem parte do

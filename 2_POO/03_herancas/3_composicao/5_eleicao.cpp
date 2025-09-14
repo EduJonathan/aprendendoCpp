@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <memory>
 
 struct CandidatosEleicao
 {
@@ -8,9 +9,11 @@ struct CandidatosEleicao
     int numeroDoCandidato;
     int quantidadeDeVotos;
 
-    CandidatosEleicao(std::string nome, int numero) : nomeCandidato(nome),
-                                                      numeroDoCandidato(numero),
-                                                      quantidadeDeVotos(0) {}
+    CandidatosEleicao(std::string nome, int numero)
+        : nomeCandidato(std::move(nome)), // Usa move para maior eficiência
+          numeroDoCandidato(numero), quantidadeDeVotos(0)
+    {
+    }
 };
 
 class Urna
@@ -21,7 +24,7 @@ private:
 public:
     void adicionarCandidato(const std::string &nome, int numero)
     {
-        candidatos.push_back(CandidatosEleicao(nome, numero));
+        candidatos.emplace_back(nome, numero); // Usa emplace_back para construção direta
     }
 
     void registrarVoto(int numeroDoCandidato)
@@ -35,11 +38,11 @@ public:
                 return;
             }
         }
-        std::cout << "Candidato não encontrado!" << '\n';
+        std::cout << "Candidato não encontrado!\n";
     }
 
-    void exibirResultados(void) const
-    {
+    void exibirResultados() const
+    { // Removido "void" desnecessário nos parênteses
         std::cout << "\n=== Resultados da eleição ===\n";
         for (const auto &candidato : candidatos)
         {
@@ -53,33 +56,41 @@ class Eleitor
 {
 private:
     std::string nome;
-    Urna *urna; // Ponteiro para a urna
+    std::shared_ptr<Urna> urna; // Substituído Urna* por std::shared_ptr<Urna>
 
 public:
-    Eleitor(const std::string &nomeEleitor, Urna *urnaReferenciada)
+    Eleitor(const std::string &nomeEleitor, std::shared_ptr<Urna> urnaReferenciada)
         : nome(nomeEleitor), urna(urnaReferenciada) {}
 
     void votar(int numeroDoCandidato)
     {
         std::cout << nome << " está votando...\n";
-        urna->registrarVoto(numeroDoCandidato);
+        if (urna)
+        { // Verifica se o ponteiro é válido
+            urna->registrarVoto(numeroDoCandidato);
+        }
+        else
+        {
+            std::cout << "Erro: Urna não inicializada!\n";
+        }
     }
 
-    std::string getNome(void) const { return nome; }
+    std::string getNome() const { return nome; }
 };
 
 int main(int argc, char **argv)
 {
-    Urna urna;
+    // Cria a urna como um shared_ptr
+    auto urna = std::make_shared<Urna>();
 
     // Adiciona candidatos
-    urna.adicionarCandidato("Candidato A", 1);
-    urna.adicionarCandidato("Candidato B", 2);
+    urna->adicionarCandidato("Candidato A", 1);
+    urna->adicionarCandidato("Candidato B", 2);
 
-    // Cria eleitores que usam a mesma urna
-    Eleitor eleitor1("Eleitor 1", &urna);
-    Eleitor eleitor2("Eleitor 2", &urna);
-    Eleitor eleitor3("Eleitor 3", &urna);
+    // Cria eleitores passando o shared_ptr da urna
+    Eleitor eleitor1("Eleitor 1", urna);
+    Eleitor eleitor2("Eleitor 2", urna);
+    Eleitor eleitor3("Eleitor 3", urna);
 
     // Votação
     eleitor1.votar(1); // Vota no Candidato A
@@ -87,7 +98,7 @@ int main(int argc, char **argv)
     eleitor3.votar(1); // Vota no Candidato A
 
     // Exibe resultados
-    urna.exibirResultados();
+    urna->exibirResultados();
 
     return 0;
 }
