@@ -41,6 +41,13 @@ verificar as propriedades de tipos em tempo de compilação, criando restriçõe
 legíveis para os templates. Em outras palavras, ela permite que você defina conceitos para os
 tipos que são passados para templates, garantindo que certos requisitos sejam atendidos.
 
+**`<ratio>`**: A biblioteca `<ratio>` fornece a classe std::ratio para representar frações
+em tempo de compilação. Ela é útil em sistemas que lidam com escalas e unidades de medida,
+como em cálculos de física ou engenharia. A metaprogramação de frações simplifica transformações
+de valores em projetos que exigem precisão, como gráficos e engenharia de sinais.
+Ao realizar cálculos com frações em tempo de compilação, o uso de std::ratio ajuda
+a reduzir a sobrecarga em tempo de execução, otimizando o desempenho.
+
 Além disso, Podemos Contar Com Bibliotecas Externas
 
 - **`Boost.Hana`**: Uma biblioteca moderna para metaprogramação, otimizada para C++14/17,

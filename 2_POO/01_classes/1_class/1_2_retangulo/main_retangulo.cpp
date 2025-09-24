@@ -2,19 +2,16 @@
 #include <iomanip>
 #include "class_rectangle.hpp"
 
-/// @brief Implementa o método para definir a largura.
 void Rectangle::setWidht(double widht)
 {
     largura = widht;
 }
 
-/// @brief Implementa o método para definir a altura.
 void Rectangle::setHeight(double height)
 {
     altura = height;
 }
 
-/// @brief Implementa o cálculo da área do retângulo.
 double Rectangle::getAreaDoRetangulo(void) const
 {
     return largura * altura;
