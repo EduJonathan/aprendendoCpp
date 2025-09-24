@@ -1,7 +1,9 @@
 # COMPLEXIDADE DE ALGUNS ALGORITMOS DO HEADER `<algorithm>`
 
-| **Função/Algoritmo**    | **Melhor Caso/Pior**                        | **Descrição**                                                                 |
-| ----------------------- | ------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------- |
+---
+
+| **Função/Algoritmo**    | **Melhor/Pior Caso**                        | **Descrição**                                                                 |
+| ----------------------- | ------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
 | `std::begin` / `end`    | **O(1)**                                    | Apenas obtêm iteradores.                                                      |
 | `std::find`             | **O(1)–O(n)**                               | Para se encontrar cedo, mas pior caso percorre todo intervalo.                |
 | `std::find_if`          | **O(1)–O(n)**                               | Idem `find`, depende do predicado.                                            |
@@ -32,11 +34,23 @@
 | `std::rotate`           | **Θ(n)** (melhor `O(1)` se nenhuma rotação) | Casos triviais: middle==first ou last.                                        |
 | `std::shuffle`          | **Θ(n)**                                    | Fisher–Yates embaralha todos os elementos.                                    |
 | `std::transform`        | **Θ(n)**                                    | Aplica operação e grava resultado.                                            |
-| `std::unique`           | `O(n)`                                      | `O(n)`                                                                        | Remove duplicatas consecutivas.                      |
-| `std::upper_bound`      | `O(log n)`                                  | `O(log n)`                                                                    | Primeiro elemento > valor dado (intervalo ordenado). |
+| `std::unique`           | `O(n)`                                      | `O(n)`                                                                        | Remove duplicatas consecutivas |
+| `std::upper_bound`      | `O(log n)`                                  | Requer intervalo ordenado.                                                    |
+
+---
 
 ## Como Interpretar
 
 - `Θ(n)` – Sempre percorre `n` elementos (melhor e pior caso idênticos).
 - `O(1)` – `O(n)` – pode terminar antes, mas o padrão só garante `O(n)` no pior caso.
 - `O(log n)` – busca binária em intervalo ordenado.
+
+---
+
+## Notas
+
+- **Complexidade**: As complexidades são baseadas em iteradores de acesso aleatório, salvo indicação contrária.
+  Para std::forward_list, algumas operações (std::sort, std::merge) podem ter comportamento diferente devido à
+  natureza simplesmente encadeada.
+- **Pré-requisitos**: Funções como std::lower_bound, std::upper_bound, e std::binary_search exigem intervalos ordenados.
+- **Θ(n) vs. O(n)**: Θ(n) indica que a operação sempre executa exatamente na ordem de n, enquanto O(n) permite casos melhores (parada antecipada em std::find).
