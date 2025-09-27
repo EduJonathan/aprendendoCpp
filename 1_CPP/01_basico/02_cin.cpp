@@ -1,14 +1,24 @@
 #include <iostream>
 
 /**
- * std::cin (stander console input): Objeto este que permite que o usuário digite um valor.
+ * std::cin — Objeto da classe std::istream usado para entrada de dados pelo console (entrada padrão).
  *
- * Mesmo conceito do std::cout, mas para entrada de dados. Com a diferença na
- * sua sobrecarga, sendo ele o `>>` do tipo istream(input stream), que permite
- * a leitura sobrecarregando diferentes tipos de dados.
+ * Conceito:
+ * - Similar ao std::cout, mas utilizado para entrada em vez de saída.
+ * - Permite que o usuário digite valores durante a execução do programa.
  *
- * Podendo ter escopo global utilizando o `using namespace std;` para que não
- * fique utilizando `std::` para cada elemento, ficando assim `cin >> variável`.
+ * Componentes:
+ *
+ * - >> (operador de extração): Lê dados do fluxo de entrada (teclado) e armazena em variáveis.
+ * É sobrecarregado para aceitar diferentes tipos de dados (int, float, string, etc.).
+ * Exemplo: std::cin >> idade;
+ *
+ * - std (namespace): Assim como outros componentes da biblioteca padrão (como cout, cerr, endl),
+ * o cin também está dentro do namespace std.
+ *
+ * - using namespace std;: Permite usar apenas `cin` em vez de `std::cin`.
+ * Exemplo: cin >> nome;
+ * No entanto, deve ser usado com cuidado em projetos maiores para evitar conflitos de nomes.
  */
 
 /* using namespace std; */ // Linha para usar o namespace std globalmente

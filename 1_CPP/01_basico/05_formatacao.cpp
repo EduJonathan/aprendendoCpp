@@ -10,15 +10,15 @@
  * ------------------------------------------------------------------------------------
  * BIBLIOTECA <iomanip> — Manipulação de Formatação de Saída:
  *
- * - std::hex             → Exibe valores inteiros no formato hexadecimal.
- * - std::oct             → Exibe valores inteiros no formato octal.
- * - std::dec             → Retorna à exibição no formato decimal (padrão).
- * - std::showbase        → Adiciona prefixo: "0x" para hex e "0" para octal.
- * - std::setw(n)         → Define a largura mínima do campo de saída como 'n' caracteres.
- * - std::setfill(c)      → Define o caractere 'c' como preenchimento para campos menores.
- * - std::fixed           → Exibe números de ponto flutuante com casas decimais fixas.
+ * - std::hex → Exibe valores inteiros no formato hexadecimal.
+ * - std::oct → Exibe valores inteiros no formato octal.
+ * - std::dec → Retorna à exibição no formato decimal (padrão).
+ * - std::showbase → Adiciona prefixo: "0x" para hex e "0" para octal.
+ * - std::setw(n) → Define a largura mínima do campo de saída como 'n' caracteres.
+ * - std::setfill(c) → Define o caractere 'c' como preenchimento para campos menores.
+ * - std::fixed → Exibe números de ponto flutuante com casas decimais fixas.
  * - std::setprecision(n) → Define o número de casas decimais ou dígitos significativos.
- * - std::scientific      → Exibe números de ponto flutuante em notação científica.
+ * - std::scientific → Exibe números de ponto flutuante em notação científica.
  *
  * ------------------------------------------------------------------------------------
  * BIBLIOTECA <bitset> — Representação Binária:

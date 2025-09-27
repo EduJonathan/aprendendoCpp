@@ -2,18 +2,23 @@
 #include <string>
 
 /**
- * Como visto em C++, não se diferencia muito da linguagem C, principalmente nos
- * tipos de dados, escopos (globais, locais, blocos, parâmetros) e os
- * modificadores de acesso como (const, static, extern, auto, register, volatile),
- * até mesmo os sufixos. Já `constexpr` e `mutable`(São próprios do C++).
+ * Em muitos aspectos, C++ mantém semelhanças com a linguagem C, especialmente nos:
+ * - Tipos de dados básicos (int, float, char, etc.);
+ * - Escopos de variáveis (global, local, em blocos, parâmetros);
+ * - Modificadores de armazenamento: const, static, extern, auto, register, volatile.
  *
- * E tendo até mais algumas funcionalidades e facilidades como o `std::string` para uso
- * de `string` não precisando de (char[] ou char*), e `std::size_t` em substituição ao
- * `size_t` e não precisando mais de formatadores(%d, %f, %c, %s, ...) para impressão
- * dos valores das variáveis.
+ * No entanto, C++ introduz novos recursos, como:
+ * - constexpr: Avalia expressões em tempo de compilação.
+ * - mutable: Permite modificar membros de uma classe mesmo quando o objeto é const.
  *
- * VARIAVEIS: Nomeações abstratas que representam e armazenam os limites do
- * tipo de dado de quaisquer que for utilizá-los, sejam int, float, char, etc...
+ * Algumas facilidades adicionadas em C++ incluem:
+ * - std::string: Classe que facilita o uso de strings, evitando o uso de arrays de char (char[] ou char*).
+ * - std::size_t: Tipo seguro e recomendado para representar tamanhos e índices, usado no lugar de size_t (C).
+ * - Operador de inserção (<<) com std::cout: Elimina a necessidade de formatadores (%d, %f, etc.) usados com printf em C.
+ *
+ * VARIÁVEIS:
+ * São nomes abstratos associados a áreas de memória usadas para armazenar dados de tipos específicos (int, float, char, etc.).
+ * Representam valores que podem ser utilizados e manipulados ao longo da execução do programa.
  */
 
 int main(int argc, char **argv)
