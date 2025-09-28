@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <fstream> // Para escrita em arquivos
+#include <chrono>  // Para medir desempenho entre std::endl e '\n'
 
 /**
  * O uso de std::endl em C++ não é necessariamente uma má prática, mas deve ser feito com
@@ -32,8 +34,9 @@
 
 int main(int argc, char **argv)
 {
+    // 1. Exemplo de saída com '\n' (sem flush)
     std::cout << "Linha normal\n";
-    std::cout << "Pronto, digite algo: " << std::flush;
+    std::cout << "Pronto, digite algo: " << std::flush; // Flush para mostrar o prompt imediatamente
 
     std::string texto;
 
@@ -64,5 +67,71 @@ int main(int argc, char **argv)
     {
         std::cout << i << '\n'; // Apenas insere nova linha, sem flush
     }
+
+    std::cout << "--------------------------" << std::endl;
+
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration_endl = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    // Cenário de exemplo com saída para arquivo (onde std::endl é mais custoso)
+    {
+        std::ofstream out_file("saida_endl.txt");
+        if (out_file.is_open())
+        {
+            start = std::chrono::high_resolution_clock::now();
+            for (int i = 0; i < 10000; ++i)
+            {
+                out_file << i << std::endl; // Força flush a cada iteração
+            }
+            end = std::chrono::high_resolution_clock::now();
+            out_file.close();
+            auto duration_file_endl = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            std::cout << "Tempo com std::endl dentro de um arquivo: " << duration_file_endl.count() << " ms\n";
+        }
+        else
+        {
+            std::cout << "Erro ao abrir saida_endl.txt\n";
+        }
+    }
+
+    {
+        std::ofstream out_file("saida_n.txt");
+        if (out_file.is_open())
+        {
+            start = std::chrono::high_resolution_clock::now();
+            for (int i = 10000; i > 0; --i)
+            {
+                out_file << i << '\n'; // Apenas nova linha
+            }
+            end = std::chrono::high_resolution_clock::now();
+            out_file.close();
+            auto duration_file_n = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            std::cout << "Tempo com \\n dentro de um arquivo: " << duration_file_n.count() << " ms\n";
+        }
+        else
+        {
+            std::cout << "Erro ao abrir saida_n.txt\n";
+        }
+    }
+
+    /**
+     * Resumo sobre std::endl vs. '\n':
+     * 1. O que é std::endl?
+     *    - Insere '\n' e força flush do buffer.
+     *    - Útil em prompts interativos ou depuração.
+     *
+     * 2. Por que std::endl parece rápido no terminal?
+     *    - O terminal usa line buffering, onde '\n' já desencadeia um flush automático.
+     *    - A diferença é menos perceptível em saídas pequenas.
+     *
+     * 3. Quando a lentidão de std::endl é mais evidente?
+     *    - Em saídas para arquivos (full buffering) ou loops grandes.
+     *    - O flush forçado por std::endl é custoso em disco ou saídas redirecionadas.
+     *
+     * 4. Boas práticas:
+     *    - Use '\n' por padrão para eficiência.
+     *    - Use std::endl ou std::flush apenas quando o flush for necessário (ex.: prompts).
+     */
     return 0;
 }

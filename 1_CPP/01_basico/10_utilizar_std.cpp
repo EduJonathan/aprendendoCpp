@@ -30,8 +30,6 @@
  * - Em arquivos .cpp pequenos, como programas de teste ou scripts simples:
  * Pode-se usar `using namespace std;` com cautela.
  *
- * - Melhor ainda: importar apenas o que for necessário com `using std::cout;`, `using std::string;`, etc.
- *
  * - Em arquivos de cabeçalho (.h/.hpp):
  * **Evite sempre** — poluir o namespace de quem incluir o cabeçalho pode gerar sérios problemas.
  *
@@ -55,7 +53,11 @@ using namespace std;
 
 void minhaFuncao(void)
 {
-    using namespace std; // Só afeta o escopo da função
+    // using namespace std; // Só afeta o escopo da função
+    // Porém, tenha preferência pela importação seletiva para evitar poluição do namespace
+    using std::cout;
+    using std::endl;
+
     cout << "Olá" << endl;
 }
 
@@ -63,11 +65,42 @@ int count = 10; // Haverá conflito com std::count (função da STL da header <a
 
 int main(int argc, char **argv)
 {
-    // Uns dos problemas é justamente na sintaxe, exemplo declarando uma string: `std::string string`
+    // `string string` Aqui não haverá ambiguidade, pois a ambiguidade só aparece se você
+    // trouxer todo o namespace std para o escopo onde a variável global count também é visível.
+    // Por isso string não está visível e não será ambíguo
     string string;
+    string = "String";
+    cout << string << endl;
+
+    std::cout << "-----------------------------------" << '\n';
 
     // Qual `count` será usado a variável ou da header <algorithm>? Terá Ambiguidade!
     // cout << count << endl;
 
+    std::cout << "-----------------------------------" << '\n';
+    std::cout << "ESCOPO `::`" << '\n';
+
+    // O operador de resolução de escopo é para acessar membros dentro de um
+    // namespace, classe, funções podendo até mesmo variáveis e funções de outros headers.
+
+    int count = 20;
+    std::cout << count << '\n';   // Imprime 20 (local)
+    std::cout << ::count << '\n'; // Imprime 10 (global)
+
+    /**
+     * Este código é para nós vermos o quão poluido pode ficar a leitura, utilizar `using namespace std`
+     * ou qualquer outro derivado não é errado, mas boas práticas devemos evitar com namespaces:
+     *
+     * 1. Evite `using namespace std;` no escopo global para prevenir:
+     *    - Poluição do namespace.
+     *    - Conflitos de nomes (ex.: std::count vs. variável count).
+     *    - Perda de clareza na origem dos identificadores.
+     *
+     * 2. Prefira qualificadores explícitos (`std::cout`, `std::string`).
+     * 3. Use importações seletivas (`using std::cout;`) em escopos locais, se necessário.
+     * 4. Escolha nomes descritivos para variáveis (ex.: `texto` em vez de `string`).
+     * 5. Use o operador `::` para resolver conflitos de escopo, como em `::global_counter`.
+     * 6. Prefira `\n` a `std::endl` para evitar flushes desnecessários.
+     */
     return 0;
 }

@@ -22,7 +22,7 @@ std::string toLower(const std::string &str)
     // Cria uma cópia da string original
     std::string lowerStr = str;
 
-    // Converte para minúsculas
+    // Converte para minúsculas, ::tolower acessa a função C original da biblioteca <ctype.h>
     std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
 
     // Retorna a string minúscula

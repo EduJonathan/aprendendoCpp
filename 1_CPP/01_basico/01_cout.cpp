@@ -26,7 +26,6 @@
  * para prevenir conflitos de nomes.
  */
 
-
 /* using namespace std; */ // Para usar o namespace std globalmente
 /* using std::cout; */     // Usar APENAS o std::cout globalmente, inserindo no código cout
 /* using std::endl; */     // Usar APENAS o std::endl globalmente, inserindo no código endl
