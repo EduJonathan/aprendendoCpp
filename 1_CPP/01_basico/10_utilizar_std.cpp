@@ -5,9 +5,9 @@
 /**
  * Afinal, utilizar `using namespace std;` é uma má prática?
  *
- * Tecnicamente, não é *intrinsecamente* errado, mas é considerado uma **má prática** em muitos
- * contextos, especialmente em projetos maiores ou bibliotecas, devido aos riscos e problemas
- * que pode causar.
+ * Tecnicamente, não é *intrinsecamente* errado, mas é considerado uma **má prática**
+ * em muitos contextos, especialmente em projetos maiores ou bibliotecas, devido aos
+ * riscos e problemas que pode causar.
  *
  * Por que evitar `using namespace std;`:
  *
@@ -17,8 +17,8 @@
  * o que pode causar colisões com nomes de outras bibliotecas ou do próprio código.
  *
  * 2. Redução da legibilidade:
- * - Escrever `std::cout`, `std::string`, etc., torna o código mais claro ao indicar que
- * esses identificadores pertencem à biblioteca padrão.
+ * - Escrever `std::cout`, `std::string`, etc., torna o código mais claro ao
+ * indicar que esses identificadores pertencem à biblioteca padrão.
  *
  * 3. Manutenção e escalabilidade:
  * - Em projetos maiores, com muitas bibliotecas e arquivos, o uso de `using namespace std;`
@@ -57,7 +57,6 @@ void minhaFuncao(void)
     // Porém, tenha preferência pela importação seletiva para evitar poluição do namespace
     using std::cout;
     using std::endl;
-
     cout << "Olá" << endl;
 }
 
@@ -88,8 +87,9 @@ int main(int argc, char **argv)
     std::cout << ::count << '\n'; // Imprime 10 (global)
 
     /**
-     * Este código é para nós vermos o quão poluido pode ficar a leitura, utilizar `using namespace std`
-     * ou qualquer outro derivado não é errado, mas boas práticas devemos evitar com namespaces:
+     * Este código é para vermos o quão poluido pode ficar a leitura e escrita do código ao utilizar
+     * `using namespace std` ou qualquer outro derivado não é errado, mas boas práticas devemos evitar
+     * com namespaces:
      *
      * 1. Evite `using namespace std;` no escopo global para prevenir:
      *    - Poluição do namespace.

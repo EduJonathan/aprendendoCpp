@@ -4,12 +4,19 @@
  * Operadores condicinais são utilizados para comparar valores, sendo eles:
  *
  * OPERADORES CONDICIONAIS:
- * > (maior que),
- * < (menor que),
- * >= (maior ou igual),
- * <= (menor ou igual),
- * == (igualdade),
- * != (diferença)
+ * +----+-------------------+
+ * | >  | (maior que)       |
+ * +----+-------------------+
+ * | <  | (menor que)       |
+ * +----+-------------------+
+ * | >= | (maior ou igual)  |
+ * +----+-------------------+
+ * | <= | (menor ou igual)  |
+ * +----+-------------------+
+ * | == | (igualdade)       |
+ * +----+-------------------+
+ * | != | (diferença)       |
+ * +----+-------------------+
  */
 
 int main(int argc, char **argv)

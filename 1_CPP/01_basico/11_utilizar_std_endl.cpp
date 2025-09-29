@@ -70,6 +70,7 @@ int main(int argc, char **argv)
 
     std::cout << "--------------------------" << std::endl;
 
+    // Metódos para medir a eficiência entre std::endl e '\n'
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     auto duration_endl = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
@@ -95,6 +96,7 @@ int main(int argc, char **argv)
         }
     }
 
+    // Cenário de exemplo com saída para arquivo (onde vemos o custo com '\n')
     {
         std::ofstream out_file("saida_n.txt");
         if (out_file.is_open())
@@ -132,6 +134,7 @@ int main(int argc, char **argv)
      * 4. Boas práticas:
      *    - Use '\n' por padrão para eficiência.
      *    - Use std::endl ou std::flush apenas quando o flush for necessário (ex.: prompts).
+     *    - Utilize aspas simples ('') em vez de aspas duplas ("") para tratar o caractere propriamente como um char.
      */
     return 0;
 }

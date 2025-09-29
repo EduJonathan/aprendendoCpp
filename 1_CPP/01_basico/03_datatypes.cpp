@@ -5,7 +5,7 @@
 #include <cfloat>  // Para constantes relacionadas a valores flutuantes (Relacionado ao float.h de C)
 
 /**
- * DATATYPES: Declarações que definem os tipos de dados, como inteiros, reais, caracteres,
+ * DATATYPES: São declarações que definem os tipos de dados, como inteiros, reais, caracteres,
  * strings, etc. Todos com seus respectivos tamanhos em bytes de memória e limites de
  * precisão. Praticamente sendo os mesmo da linguagem C.
  */

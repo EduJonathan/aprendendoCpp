@@ -5,12 +5,19 @@
 /**
  * Os operadores aritméticos utilizados para realizar operações matemáticas, sendo eles:
  *
- * OPERADORES ARITMÉTICOS | OPERADORES SHORTCURTS ARITMÉTICOS
- * + (soma)               | += (short soma)
- * - (subtração)          | -= (short subtração)
- * * (multiplicação)      | *= (short multiplicação)
- * / (divisão)            | /= (short divisão)
- * % (resto da divisão)   | %= (short resto da divisão)
+ * +------------------------+-----------------------------------+
+ * | OPERADORES ARITMÉTICOS | OPERADORES SHORTCURTS ARITMÉTICOS |
+ * +------------------------+-----------------------------------+
+ * | + (soma)               | += (short soma)                   |
+ * +------------------------+-----------------------------------+
+ * | - (subtração)          | -= (short subtração)              |
+ * +------------------------+-----------------------------------+
+ * | * (multiplicação)      | *= (short multiplicação)          |
+ * +------------------------+-----------------------------------+
+ * | / (divisão)            | /= (short divisão)                |
+ * +------------------------+-----------------------------------+
+ * | % (resto da divisão)   | %= (short resto da divisão)       |
+ * +------------------------+-----------------------------------+
  */
 
 int main(int argc, char **argv)

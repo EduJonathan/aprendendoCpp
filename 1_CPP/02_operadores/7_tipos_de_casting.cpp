@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 
     int inteiro = 65;
     char caractere = (char)inteiro;
-
     std::cout << "Casting tradicional: " << inteiro << " -> " << caractere << '\n';
 
     std::cout << "\n-----------------------------------" << '\n';
@@ -50,7 +49,6 @@ int main(int argc, char **argv)
 
     int numero = 10;
     double decimal = static_cast<double>(numero);
-
     std::cout << "static_cast: " << numero << " -> " << std::fixed << std::setprecision(2) << decimal << '\n';
 
     std::cout << "\n-----------------------------------" << '\n';
@@ -69,7 +67,7 @@ int main(int argc, char **argv)
 
     std::cout << "4. DYNAMIC_CAST - conversão segura entre classes polimórficas" << '\n';
 
-    Base *base = new Derivada(); // Alocando a classe
+    Base *base = new Derivada(); // Alocando a classe dinamicamente
     Derivada *derivada = dynamic_cast<Derivada *>(base);
 
     if (derivada)
@@ -80,7 +78,6 @@ int main(int argc, char **argv)
     {
         std::cout << "dynamic_cast falhou\n";
     }
-    
     delete base; // liberar memória alocada por new
 
     std::cout << "\n-----------------------------------" << '\n';

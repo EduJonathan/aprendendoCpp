@@ -22,7 +22,6 @@ int main(int argc, char **argv)
         int result = numero % 10; // Pega o último dígito
         soma += result;           // Soma esse dígito à variável 'soma'
     }
-
     std::cout << "O resultado da soma dos digitos é: " << soma << '\n';
 
     std::cout << "-----------------------------------------------\n";
@@ -52,7 +51,8 @@ int main(int argc, char **argv)
     // Imprimindo o LCM
     std::cout << "O LCM de " << numero1 << " e " << numero2 << " é: " << LMC << '\n';
 
-    HCF = (numero1 * numero2) / LMC; // Calculando o HCF
+    // Calculando o HCF
+    HCF = (numero1 * numero2) / LMC;
 
     // Imprimindo o HCF
     std::cout << "O HCF de " << numero1 << " e " << numero2 << " é: " << HCF << '\n';

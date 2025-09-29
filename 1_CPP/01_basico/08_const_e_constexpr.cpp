@@ -53,20 +53,20 @@ int main(int argc, char **argv)
     std::array<int, MAX_BUFFER_SIZE> buffer;
     std::cout << "Tamanho do buffer: " << buffer.size() << "\n\n";
 
-    /// ERRO: std::rand() só pode ser avaliado em tempo de execução.
+    /// ERRO: std::rand() só pode ser avaliado em **TEMPO DE EXECUÇÃO**.
     // constexpr int valorAleatorio = std::rand(); // ERRO de compilação
     // std::cout << "Valor aleatório constexpr: " << valorAleatorio << '\n';
 
     /**
-     * +------------------------------+---------------------------+-----------------------------+
-     * | Característica               | const                     | constexpr                   |
-     * +------------------------------+---------------------------+-----------------------------+
-     * | Avaliação                    | Tempo de execução         | Tempo de compilação         |
-     * | Pode chamar qualquer função  | Sim                       | Não (só constexpr)          |
-     * | Pode depender de entrada ext | Sim                       | Não                         |
-     * | Exemplo válido               | const int x = rand();     | constexpr int y = 2 + 3;    |
-     * | Usado para std::array        | Não (exceto global const) | Sim (exigido por std::array)|
-     * +------------------------------+---------------------------+-----------------------------+
+     * +--------------------------------+---------------------------+-----------------------------+
+     * | Característica                 | const                     | constexpr                   |
+     * +--------------------------------+---------------------------+-----------------------------+
+     * | Avaliação                      | Tempo de execução         | Tempo de compilação         |
+     * | Pode chamar qualquer função    | Sim                       | Não (só constexpr)          |
+     * | Pode depender de entrada extra | Sim                       | Não                         |
+     * | Exemplo válido                 | const int x = rand();     | constexpr int y = 2 + 3;    |
+     * | Usado para std::array          | Não (exceto global const) | Sim (exigido por std::array)|
+     * +--------------------------------+---------------------------+-----------------------------+
      */
 
     /**

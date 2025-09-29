@@ -16,8 +16,7 @@
  * em tempo de compilação, mas com verificação de tipo, respeito ao escopo e melhor suporte
  * a ferramentas de depuração.
  *
- * Assim, sempre que possível, deve-se preferir `constexpr` a `#define`
- * ao trabalhar com constantes.
+ * Assim, sempre que possível, deve-se preferir `constexpr` a `#define` ao trabalhar com constantes.
  *
  * +-----------------------+-----------------------+----------------------------------+
  * | Feature               | #define               | constexpr                        |
