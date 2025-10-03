@@ -4,10 +4,11 @@
 
 /**
  * std::make_pair<>: Estrutura que armazena dois elementos, geralmente de tipos diferentes.
- * Essa função é útil para inicializar pares de valores sem precisar especificar explicitamente
- * os tipos, deduz automaticamente os tipos dos valores fornecidos, mesmo em situações em que
- * os tipos não são óbvios(funcionando com quase todos os tipos de dados, incluindo ponteiros,
- * objetos de classes personalizadas, referências, etc).
+ * 
+ * Essa função é útil para inicializar pares de valores sem precisar especificar
+ * explicitamente os tipos, deduz automaticamente os tipos dos valores fornecidos,
+ * mesmo em situações em que os tipos não são óbvios(funcionando com quase todos os
+ * tipos de dados, incluindo ponteiros, objetos de classes personalizadas, referências, etc).
  */
 
 /**

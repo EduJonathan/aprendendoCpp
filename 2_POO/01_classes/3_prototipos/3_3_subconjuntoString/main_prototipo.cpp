@@ -8,19 +8,16 @@
  * em dois arquivos distintos: o arquivo `.hpp` (cabeçalhos) para declarações e o `.cpp`
  * (implementação) para a lógica dos métodos.
  *
- * A utilização do `#include "implementacao.cpp"` deve ser evitada, apesar de funcionar,
- * por várias razões:
+ * A utilização do `#include "implementacao.cpp"` deve ser evitada, apesar de funcionar, por várias razões:
  *
  * ---------------------
  *
- * 1. **Manutenção difícil**: O código se torna grande e desorganizado, dificultando mudanças
- * e depuração.
+ * 1. **Manutenção difícil**: O código se torna grande e desorganizado, dificultando mudanças e depuração.
  *
  * 2. **Reutilização limitada**: Ao incluir o `arquivo.cpp`, a classe não pode ser facilmente
  * reutilizada em outros arquivos.
  *
- * 3. **Perda de desempenho**: Compilação separada permite otimizações de tempo, o que é
- * perdido ao incluir `.cpp`.
+ * 3. **Perda de desempenho**: Compilação separada permite otimizações de tempo, o que é perdido ao incluir `.cpp`.
  *
  * 4. **Trabalho em equipe**: A abordagem dificulta a colaboração entre diferentes desenvolvedores.
  *
@@ -41,8 +38,8 @@
  *
  * Usar `#include "arquivo.cpp"` pode sim ser utilizado e útil para testes rápidos
  * ou projetos pequenos, mas essa prática não é ideal para projetos maiores.
- * Além disso, lembre-se do `Makefile`, que automatiza a compilação e execução sem
- * a necessidade de recompilação manual.
+ * Além disso, lembre-se do `Makefile` ou do `cmake`, que automatiza a compilação e execução
+ * sem a necessidade de recompilação manual.
  */
 
 int main(int argc, char **argv)

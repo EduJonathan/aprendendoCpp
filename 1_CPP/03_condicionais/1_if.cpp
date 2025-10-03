@@ -65,5 +65,44 @@ int main(int argc, char **argv)
     {
         std::cout << "O valor não entrou na condição" << '\n';
     }
+
+    std::cout << "\n-----------------------------------------------\n";
+    std::cout << "\t EXPRESSÃO Booleana\n";
+
+    bool valorNegado = true;
+
+    if (!valorNegado)
+    {
+        std::cout << "A variável não foi negada? " << valorNegado << '\n';
+    }
+    else
+    {
+        std::cout << "A variável foi negada? " << valorNegado << '\n';
+    }
+
+    std::cout << "\n-----------------------------------------------\n";
+    std::cout << "\t EXPRESSÃO MAIOR DE TRÊS NÚMEROS\n";
+
+    int maior = 0;
+    int valor1 = 15;
+    int valor2 = 20;
+    int valor3 = -35;
+
+    // Verifica qual é o maior valor utilizando if
+    if ((valor1 >= valor2) && (valor1 >= valor3))
+    {
+        maior = valor1;
+    }
+    else if ((valor2 >= valor1) && (valor2 >= valor3))
+    {
+        maior = valor2;
+    }
+    else
+    {
+        maior = valor3;
+    }
+
+    // Exibe o resultado
+    std::cout << "O maior valor é: " << maior << '\n';
     return 0;
 }

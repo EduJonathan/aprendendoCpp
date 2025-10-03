@@ -3,23 +3,24 @@
 /**
  * std::cout — Objeto da classe std::ostream usado para imprimir dados no console (saída padrão).
  *
- * Componentes:
+ * COMPONENTES:
  *
- * - std: É um namespace (espaço de nomes) que agrupa classes, funções e objetos da biblioteca padrão do C++.
- * Ele evita conflitos de nomes entre bibliotecas diferentes.
+ * - std: É um namespace (espaço de nomes) que agrupa classes, funções e objetos da
+ * biblioteca padrão do C++. Ele evita conflitos de nomes entre bibliotecas diferentes.
  *
- * - :: (operador de resolução de escopo): Usado para acessar membros dentro de um namespace ou classe.
- * Exemplo: std::cout acessa o objeto cout dentro do namespace std.
+ * - :: (operador de resolução de escopo): Usado para acessar membros dentro de um
+ * namespace ou classe. Exemplo: std::cout acessa o objeto cout dentro do namespace std.
  *
- * - cout (console output): Objeto responsável por exibir saídas no terminal. Outros objetos semelhantes incluem:
+ * - cout (console output): Objeto responsável por exibir saídas no terminal.
+ * Outros objetos semelhantes incluem:
  * - std::cin: Entrada padrão (teclado)
  * - std::cerr: Saída de erro
  * - std::clog: Saída de log
  *
  * - << (operador de inserção): Envia dados para um fluxo de saída, como std::cout.
- * É sobrecarregado (overloaded) para aceitar vários tipos de dados: strings, inteiros, floats, etc.
- * Isso permite usar o mesmo operador para imprimir diferentes tipos sem precisar de formatadores,
- * como ocorre em C (ex: printf("%d %s %f")).
+ * É sobrecarregado (overloaded) para aceitar vários tipos de dados: strings,
+ * inteiros, floats, etc. Isso permite usar o mesmo operador para imprimir diferentes
+ * tipos sem precisar de formatadores, como ocorre em C (ex: printf("%d %s %f")).
  *
  * - using namespace std;: Permite omitir o prefixo 'std::' em elementos do namespace std.
  * Torna o código mais limpo em exemplos pequenos, mas deve ser evitado em projetos grandes

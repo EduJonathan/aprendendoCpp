@@ -16,26 +16,19 @@ private:
 
 public:
     /**
-     * @brief Define a largura da forma.
+     * @brief Metódo que define a largura e altura do objeto.
      *
-     * Este método define o valor da largura da forma.
+     * Este metódo configura os valores widht(largura) e height(altura)
      *
      * @param widht O valor a ser atribuído à largura.
-     *
-     * @note set(Define): É um método especial que representa a configuração
-     * de um atributo. Com o set podemos alterar/definir valores para atributos.
-     * Neste método, estamos definindo o valor da largura da forma do retângulo.
-     */
-    void setWidht(double widht);
-
-    /**
-     * @brief Define a altura da forma.
-     *
-     * Este método define o valor da altura da forma.
-     *
      * @param height O valor a ser atribuído à altura.
+     *
+     *
+     * @note set(Definir): É um método que representa a configuração de um atributo.
+     * Com a nomeação set fica entendido que podemos alterar/definir valores para atributos.
+     * Neste método, estamos definindo o valor da largura e altura da forma do retângulo.
      */
-    void setHeight(double height);
+    void setDimensoes(double widht, double height);
 
     /**
      * @brief Calcula a área do retângulo.
@@ -44,8 +37,9 @@ public:
      *
      * @return O valor da área do retângulo.
      *
-     * @note get(Pegar/Obter): É um método especial que representa a obtenção
-     * do valor de um atributo. Neste caso, estamos pegando o valor da área do retângulo.
+     * @note get(Pegar/Obter): É um método que representa a obtenção do valor de um atributo.
+     * Fica entedido que com ele possamos obter o retorno/informação do estado atual do objeto.
+     * Neste caso, estamos pegando o valor da área do retângulo.
      */
     double getAreaDoRetangulo(void) const;
 };

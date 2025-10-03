@@ -11,9 +11,9 @@
  * dados compartilhados(contadores globais e caches(caches são estruturas de dados que
  * armazenam resultados de operações caras para reutilização posterior)).
  *
- * PROBLEMAS: Metódos estáticos não têm acesso ao ponteiros "this", por não está vinculado a uma
- * instância específica. E não podem chamar métodos não estáticos diretamente ou acessar atributos
- * não estáticos.
+ * PROBLEMAS: Metódos estáticos não têm acesso ao ponteiros "this", por não está
+ * vinculado a uma instância específica. E não podem chamar métodos não estáticos
+ * diretamente ou acessar atributos não estáticos.
  */
 
 class Matematica

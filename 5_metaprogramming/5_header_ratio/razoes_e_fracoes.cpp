@@ -1,9 +1,6 @@
 #include <iostream>
 #include <ratio>
 
-#include <ratio>
-#include <iostream>
-
 using Half = std::ratio<1, 2>;
 using Third = std::ratio<1, 3>;
 

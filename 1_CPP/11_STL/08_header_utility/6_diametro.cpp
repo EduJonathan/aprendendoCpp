@@ -79,6 +79,7 @@ double diametro(const std::vector<point> &points)
 
     if (n == 1)
         return 0.0;
+        
     if (n == 2)
         return distance(hull[0], hull[1]);
 
@@ -99,7 +100,6 @@ double diametro(const std::vector<point> &points)
             else
                 break;
         }
-
         max_dist = std::max(max_dist, distance(hull[i], hull[j]));
     }
     return max_dist;

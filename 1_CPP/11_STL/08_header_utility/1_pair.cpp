@@ -45,13 +45,13 @@ std::vector<std::pair<int, int>> contadorDePares(const std::vector<int> &arr, in
         if (u_map.find(complement) != u_map.end())
         {
             int count = u_map[complement];
+
             while (count > 0)
             {
                 vetor.push_back({complement, num});
                 count--;
             }
         }
-        
         u_map[num]++; // Adiciona o número atual ao mapa
     }
     return vetor;

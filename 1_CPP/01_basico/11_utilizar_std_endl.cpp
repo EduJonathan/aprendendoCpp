@@ -80,13 +80,20 @@ int main(int argc, char **argv)
         std::ofstream out_file("saida_endl.txt");
         if (out_file.is_open())
         {
+            // Inicia o contador do inicio da iteração
             start = std::chrono::high_resolution_clock::now();
+
+            // Insere no arquivo uma contagem ao contrária de 0 até 9999
             for (int i = 0; i < 10000; ++i)
             {
-                out_file << i << std::endl; // Força flush a cada iteração
+                out_file << i << std::endl; // Força flush a cada iteração com std::endl
             }
+
+            // Demarca até o fim da contagem
             end = std::chrono::high_resolution_clock::now();
-            out_file.close();
+            out_file.close(); // Fecha o arquivo
+
+            // Verifica a quantidade de milisegundos que foi iterar a contagem no arquivo com std::endl
             auto duration_file_endl = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
             std::cout << "Tempo com std::endl dentro de um arquivo: " << duration_file_endl.count() << " ms\n";
         }
@@ -101,13 +108,20 @@ int main(int argc, char **argv)
         std::ofstream out_file("saida_n.txt");
         if (out_file.is_open())
         {
+            // Inicia o contador do inicio da iteração
             start = std::chrono::high_resolution_clock::now();
+
+            // Insere no arquivo uma contagem ao contrária de 10000 até 1
             for (int i = 10000; i > 0; --i)
             {
-                out_file << i << '\n'; // Apenas nova linha
+                out_file << i << '\n'; // Apenas nova linha('\n') a cada iteração
             }
+
+            // Demarca até o fim da contagem
             end = std::chrono::high_resolution_clock::now();
-            out_file.close();
+            out_file.close(); // Fecha o arquivo
+
+            // Verifica a quantidade de milisegundos que foi iterar a contagem no arquivo com '\n'
             auto duration_file_n = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
             std::cout << "Tempo com \\n dentro de um arquivo: " << duration_file_n.count() << " ms\n";
         }

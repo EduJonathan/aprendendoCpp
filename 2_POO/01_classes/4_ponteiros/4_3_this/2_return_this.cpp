@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <new>
+#include <memory>
 
 /**
  * @brief Classe que representa uma pessoa com nome e idade.
@@ -86,13 +88,13 @@ int main(int argc, char **argv)
 
     std::cout << "-----------------------------------\n";
 
-    Pessoa *Leticia = new Pessoa();
-    Pessoa *Mariana = new Pessoa();
+    std::unique_ptr<Pessoa> Leticia = std::make_unique<Pessoa>();
+    std::unique_ptr<Pessoa> Mariana = std::make_unique<Pessoa>();
 
     Mariana->setPessoa("Mariana", 17);
     Leticia->setPessoa("Leticia", 17);
 
-    maior_de_idade = Leticia->maior_de_idade(*Mariana);
+    Pessoa maior_de_idade = Leticia->maior_de_idade(*Mariana);
     maior_de_idade.print_pessoa();
 
     std::cout << "-----------------------------------\n";
@@ -102,7 +104,7 @@ int main(int argc, char **argv)
 
     delete Eduardo;
     delete Matheus;
-    delete Leticia;
-    delete Mariana;
+
+    // Não é necessário chamar delete para Marina e Leticia — o smart pointer cuida disso automaticamente.
     return 0;
 }

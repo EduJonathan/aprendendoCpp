@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 /**
  * Em C++, `this` é um ponteiro implícito que é passado para todos os métodos de
@@ -50,13 +51,13 @@ int main(int argc, char **argv)
 
     std::cout << "\n----------------------------\n";
 
-    // Criando o objeto dinamicamente com new
-    THIS *object_this = new THIS(); // Alocando memória na heap para o objeto THIS
+    // Criando o objeto dinamicamente na heap com new para o objeto THIS
+    THIS *object_this = new THIS();
 
     // Chamando o método para exibir informações sobre o objeto
     object_this->get_this();
 
-    // Liberando a memória alocada com delete
-    delete object_this; // Libera a memória alocada dinamicamente para obj
+    // Liberando a memória alocada com delete para obj
+    delete object_this;
     return 0;
 }

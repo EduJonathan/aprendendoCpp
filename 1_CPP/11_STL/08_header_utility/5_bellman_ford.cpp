@@ -9,8 +9,7 @@ struct Graph
     using Edge = std::pair<int, int>;             // Aresta: (vértice destino, peso)
     using Grafo = std::vector<std::vector<Edge>>; // Lista de adjacência
     Grafo g;                                      // Membro para armazenar o grafo
-
-    Graph(int n) : g(n) {} // Construtor para inicializar com n vértices
+    Graph(int n) : g(n) {}                        // Construtor para inicializar com n vértices
 };
 
 // Valor grande para representar infinito, evitando overflow

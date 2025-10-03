@@ -18,7 +18,9 @@
 std::function<int(const std::vector<int> &)> lambda_sum_of_squares = [](const std::vector<int> &v) -> int
 {
     return std::accumulate(v.begin(), v.end(), 0, [](int acc, int val)
-                           { return acc + val * val; });
+    {
+        return acc + val * val;
+    });
 };
 
 int main(int argc, char **argv)

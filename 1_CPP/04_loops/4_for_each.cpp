@@ -5,71 +5,67 @@ int main(int argc, char **argv)
 {
     std::cout << "1. FOR TRADICIONAL: ";
 
-    int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};        // Definindo o array de inteiros
-    std::size_t array_size = sizeof(array) / sizeof(int); // Calculando o tamanho do array
+    int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::size_t array_size = sizeof(array) / sizeof(int);
 
-    // Laço tradicional usando índice para acessar elementos do array
+    // Laço tradicional com índice
     for (std::size_t i = 0ull; i < array_size; ++i)
     {
-        std::cout << array[i] << ' '; // Imprimindo cada elemento do array
+        std::cout << array[i] << ' ';
     }
 
     std::cout << "\n-----------------------------------------------\n";
     std::cout << "2. FOR EACH: ";
 
-    // Laço for-each para iterar diretamente sobre os elementos de 'array'
-    for (int indice : array)
+    // Laço range-based (for-each)
+    for (const int valor : array)
     {
-        std::cout << indice << ' '; // Imprimindo cada elemento do array
+        std::cout << valor << ' ';
     }
 
     std::cout << "\n-----------------------------------------------\n";
     std::cout << "3. FOR EM STD::STRING: ";
 
-    // Definindo uma string
-    std::string string{"Hello World!"};
+    std::string texto{"Hello World!"};
 
-    // Laço tradicional usando índice para acessar caracteres da string
-    for (std::size_t i = 0ull; i < string.size(); ++i)
+    // Laço tradicional com índice
+    for (std::size_t i = 0ull; i < texto.size(); ++i)
     {
-        std::cout << string[i] << ' '; // Imprimindo cada caractere da string
+        std::cout << texto[i] << ' ';
     }
 
     std::cout << "\n-----------------------------------------------\n";
-    std::cout << "4. FOR EACH:\n";
+    std::cout << "4. FOR EACH (com índice externo):\n";
 
-    // Variável para armazenar o índice
-    int index = 0;
-
-    // Usando for-each para percorrer a string e imprimir índice e caractere
-    for (char caractere : string)
+    int indice = 0; // Variável para armazenar o índice
+    for (const char caractere : texto)
     {
-        std::cout << "Índice " << index << ": " << caractere << '\n'; // Imprimindo índice e caractere
-        ++index;                                                      // Incrementando o índice
+        std::cout << "Índice " << indice << ": " << caractere << '\n';
+        ++indice; // Incrementando o índice
     }
 
     std::cout << "\n-----------------------------------------------\n";
-    std::cout << "5. FOR TRADICIONAL UTILIZANDO ITERADORES:\n";
+    std::cout << "5. FOR TRADICIONAL COM ITERADORES:\n";
 
-    std::string nomes[]{"João", "Maria", "Pedro", "Ana", "Carlos"}; // Array de strings
-    std::size_t indice = 0ull;                                      // Variável para armazenar o índice
+    std::string nomes[]{"João", "Maria", "Pedro", "Ana", "Carlos"};
+    std::size_t i = 0; // Variável para armazenar o índice
 
     // Usando iteradores para percorrer o array de strings e imprimir índice
-    for (auto it = std::begin(nomes); it != std::end(nomes); ++it, ++indice)
+    for (auto it = std::begin(nomes); it != std::end(nomes); ++it, ++i)
     {
-        std::cout << "Índice " << indice << ": " << *it << '\n';
-        // iterators: São utilizados para percorrer os elementos de um container
-        // std::begin: Retorna um iterador para o primeiro elemento do array de strings
-        // std::end: Retorna um iterador para o fim do array de strings
+        std::cout << "Índice " << i << ": " << *it << '\n';
+        // iterators: São utilizados para percorrer os elementos de um container.
+        // std::begin: Retorna um iterador para o primeiro elemento do array de strings.
+        // std::end: Retorna um iterador para o fim do array de strings.
     }
 
     std::cout << "\n-----------------------------------------------\n";
-    std::cout << "5. FOR EACH:\n";
+    std::cout << "6. FOR EACH:\n";
 
     // Usando for-each para percorrer o array de strings
-    for (std::string names : nomes)
+    for (const std::string &nome : nomes)
     {
-        std::cout << names << ' ' << '\n'; // Imprimindo cada nome do array
+        std::cout << nome << '\n';
     }
 
     /**
