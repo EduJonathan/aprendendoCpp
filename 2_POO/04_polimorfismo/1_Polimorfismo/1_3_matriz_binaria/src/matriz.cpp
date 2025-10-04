@@ -28,7 +28,7 @@ void Matriz::exibirMatriz() const
 void Matriz::atualizarLinhaComBinario(Valor *valor)
 {
     std::string binario = valor->paraBinario(); // Obtém o valor binário
-    int linhaAleatoria = rand() % 8;            // Escolhe uma linha aleatória de 0 a 7
+    int linhaAleatoria = std::rand() % 8;       // Escolhe uma linha aleatória de 0 a 7
 
     std::cout << "Atualizando linha " << linhaAleatoria + 1 << " com o valor binário: " << binario << '\n';
 

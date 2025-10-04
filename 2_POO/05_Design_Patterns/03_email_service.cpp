@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 #include <memory>
 
 /**
@@ -18,7 +20,7 @@ class IMessageService
 public:
     /**
      * @brief Envia uma mensagem.
-     * 
+     *
      * @param message Conteúdo da mensagem.
      */
     virtual void sendMessage(const std::string &message) = 0;

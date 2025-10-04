@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <new>
 
 // Classe base abstrata
 class Escrever

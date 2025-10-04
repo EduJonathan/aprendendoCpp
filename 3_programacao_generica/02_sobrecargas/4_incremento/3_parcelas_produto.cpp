@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <new>
 
 // Classe base abstrata para métodos de pagamento
 class MetodoPagamento

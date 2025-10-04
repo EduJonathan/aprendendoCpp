@@ -67,7 +67,6 @@ public:
 int main(int argc, char **argv)
 {
     Terreno atributosTerreno("14X30", "Rua Napoleão", "64089-000");
-
     atributosTerreno.exibirTerreno();
     return 0;
 }

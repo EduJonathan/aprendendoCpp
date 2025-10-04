@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 // Classe Pessoa, sem ser estática
 class Pessoa

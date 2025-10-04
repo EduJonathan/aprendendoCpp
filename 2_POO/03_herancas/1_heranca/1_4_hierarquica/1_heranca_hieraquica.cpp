@@ -45,11 +45,9 @@ int main(int argc, char **argv)
     Professor prof;
     Pesquisador pesq;
 
-    prof.baterPonto(); // Método herdado
-    prof.darAula();    // Método específico de Professor
-
+    prof.baterPonto();    // Método herdado
+    prof.darAula();       // Método específico de Professor
     pesq.baterPonto();    // Método herdado
     pesq.fazerPesquisa(); // Método específico de Pesquisador
-
     return 0;
 }

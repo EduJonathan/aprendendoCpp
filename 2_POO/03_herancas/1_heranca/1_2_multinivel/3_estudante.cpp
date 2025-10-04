@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <new>
+#include <memory>
 
 // Classe Base
 class Pessoa
@@ -34,8 +34,9 @@ class EstudanteUniversitario : public Estudante
 {
 public:
     std::string universidade;
-    EstudanteUniversitario(const std::string &name, const std::string &course, const std::string &uni)
-        : Estudante(name, course), universidade(uni) {}
+    EstudanteUniversitario(const std::string &name, const std::string &course,
+                           const std::string &uni) : Estudante(name, course),
+                                                     universidade(uni) {}
 
     void apresentar(void)
     {
@@ -50,9 +51,7 @@ int main(int argc, char **argv)
     // Formando assim uma cadeia de herança(Pessoa -> Estudante -> EstudanteUniversitario).
     // Pois a herança multi-nível serve como base para outras classes.
 
-    EstudanteUniversitario *eu = new EstudanteUniversitario("Eduardo", "Engenharia de Software", "UFRJ");
+    std::unique_ptr<EstudanteUniversitario> eu = std::make_unique<EstudanteUniversitario>("Eduardo", "Engenharia de Software", "UFRJ");
     eu->apresentar();
-
-    delete eu; // Libera a memória alocada
     return 0;
 }

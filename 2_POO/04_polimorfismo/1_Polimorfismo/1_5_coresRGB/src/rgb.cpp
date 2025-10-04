@@ -1,6 +1,7 @@
 #include "../class/classRgb.hpp"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include <stdexcept>
 
 RGB::RGB(int r, int g, int b) : r(r), g(g), b(b)

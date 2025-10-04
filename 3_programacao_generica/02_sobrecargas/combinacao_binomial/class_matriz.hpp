@@ -1,8 +1,6 @@
 #ifndef CLASS_MATRIZ_HPP
 #define CLASS_MATRIZ_HPP
 
-#include <iostream>
-
 /**
  * @brief Classe genérica para manipulação de matrizes.
  *

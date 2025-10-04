@@ -42,6 +42,5 @@ int main(int argc, char **argv)
     meuCarro.tipo();       // Método da classe Veiculo
     meuCarro.marca();      // Método da classe Carro
     meuCarro.velocidade(); // Método da classe Esportivo
-
     return 0;
 }

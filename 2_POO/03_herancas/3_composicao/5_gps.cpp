@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <new>
 #include <cmath>
 
 // Constante de PI
@@ -87,8 +88,9 @@ public:
     // Método para verificar a localização do GPS
     void verificarGPS() const
     {
+        // Verifica se o GPS é válido
         if (gps)
-        { // Verifica se o GPS é válido
+        {
             gps->obterLocalizacao();
         }
         else
@@ -96,6 +98,7 @@ public:
             std::cout << "Erro: GPS não inicializado!\n";
         }
     }
+
     // Método para calcular a distância até o destino
     void calcularDistanciaDestino(double latDestino, double lonDestino) const
     {
@@ -114,13 +117,13 @@ public:
 int main(int argc, char **argv)
 {
     // Cria o objeto Carro com a localização do motorista
-    Carro meuCarro(-22.9068, -43.1729);
+    Carro *meuCarro = new Carro(-22.9068, -43.1729);
 
     // Verifica a localização atual do motorista
-    meuCarro.verificarGPS();
+    meuCarro->verificarGPS();
 
     // Calcula e exibe a distância até o destino
-    meuCarro.calcularDistanciaDestino(-23.5505, -46.6333);
+    meuCarro->calcularDistanciaDestino(-23.5505, -46.6333);
 
     auto gpsCompartilhado = std::make_shared<GPS>(-22.9068, -43.1729);
     Carro carro1(-22.9068, -43.1729); // Usa unique_ptr internamente
@@ -128,5 +131,6 @@ int main(int argc, char **argv)
     carro1.verificarGPS();
     carro2.verificarGPS();
 
+    delete meuCarro; // Libera a memória alocada para o carro
     return 0;
 }

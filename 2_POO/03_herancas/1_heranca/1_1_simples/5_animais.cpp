@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <new>
 
 // Classe Base
 class AtributosAnimais

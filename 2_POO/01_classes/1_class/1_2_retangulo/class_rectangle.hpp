@@ -23,7 +23,6 @@ public:
      * @param widht O valor a ser atribuído à largura.
      * @param height O valor a ser atribuído à altura.
      *
-     *
      * @note set(Definir): É um método que representa a configuração de um atributo.
      * Com a nomeação set fica entendido que podemos alterar/definir valores para atributos.
      * Neste método, estamos definindo o valor da largura e altura da forma do retângulo.

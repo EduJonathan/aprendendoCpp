@@ -1,7 +1,6 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-#include <iostream>
 #include <vector>
 
 /**
@@ -12,7 +11,6 @@ class Graph
 {
 private:
     std::vector<std::vector<std::pair<int, int>>> adjList; // Lista de adjacência: adjList[u] = pares (v, peso)
-
     int vertice; // Número de vértices do grafo
 
 public:

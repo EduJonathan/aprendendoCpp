@@ -67,8 +67,8 @@ public:
      * @param cvv Código de segurança.
      * @param parcelas Número de parcelas (padrão = 1).
      */
-    CartaoCredito(const std::string &num, const std::string &nome, const std::string &validade,
-                  const std::string &cvv, int parcelas = 1);
+    CartaoCredito(const std::string &num, const std::string &nome,
+                  const std::string &validade, const std::string &cvv, int parcelas = 1);
 
     /**
      * @brief Define o número de parcelas.

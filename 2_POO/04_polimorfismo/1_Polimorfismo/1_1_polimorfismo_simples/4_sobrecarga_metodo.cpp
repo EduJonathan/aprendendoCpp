@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <new>
 
 // Interface abstrata
 class Pessoa
@@ -20,8 +21,8 @@ protected:
     std::string sexo;
 
 public:
-    CaracteristicaPessoa(const std::string &n, int i, const std::string &c, const std::string &s)
-        : nome(n), idade(i), cpf(c), sexo(s) {}
+    CaracteristicaPessoa(const std::string &n, int i, const std::string &c,
+                         const std::string &s) : nome(n), idade(i), cpf(c), sexo(s) {}
 };
 
 // Classe derivada Homem

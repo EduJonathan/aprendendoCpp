@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 class Matriz
 {
@@ -8,7 +9,7 @@ private:
     int **matriz;
 
 public:
-    inline void criarMatriz(int l, int c)
+    void criarMatriz(int l, int c)
     {
         linhas = l;
         colunas = c;
@@ -21,7 +22,7 @@ public:
     }
 
     // Método para preencher a matriz com um valor específico em uma posição (linha, coluna)
-    inline void preencherMatriz(int indice, int linha, int coluna, int valor)
+    void preencherMatriz(int indice, int linha, int coluna, int valor)
     {
         if (linha < 0 || linha >= linhas || coluna < 0 || coluna >= colunas)
         {
@@ -32,7 +33,7 @@ public:
     }
 
     // Método para adicionar valores alternados entre valor1 e valor2
-    inline void adicionarValores(int valor1, int valor2)
+    void adicionarValores(int valor1, int valor2)
     {
         for (int i = 0; i < linhas; ++i)
         {
@@ -50,7 +51,7 @@ public:
         }
     }
 
-    inline void somarLinhas(const Matriz &m)
+    void somarLinhas(const Matriz &m)
     {
         if (linhas != m.linhas || colunas != m.colunas)
         {
@@ -67,7 +68,7 @@ public:
         }
     }
 
-    inline void subtrairDiagonalPrincipal(const Matriz &m)
+    void subtrairDiagonalPrincipal(const Matriz &m)
     {
         if (linhas != m.linhas || colunas != m.colunas)
         {

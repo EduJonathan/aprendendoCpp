@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <new>
 #include <algorithm>
 #include <unordered_map>
 
@@ -41,7 +42,8 @@ public:
             // Quando o inventário está cheio, excluímos o primeiro item
             std::cout << "Inventário cheio! Excluindo o item: " << itens.front()->getNome() << '\n';
 
-            itens.erase(itens.begin()); // Remove o primeiro item do inventário
+            // Remove o primeiro item do inventário
+            itens.erase(itens.begin());
 
             itens.emplace_back(std::make_shared<Item>(nomeItem)); // Adiciona o novo item
             return true;
@@ -90,7 +92,7 @@ public:
     // Jogador agora é criado com sua classe e um inventário com limite baseado na classe
     Jogador(std::string n, std::string c) : nome(n)
     {
-        classe = c;
+        this->classe = c;
 
         std::unordered_map<std::string, std::size_t> limites = {
             {"Arqueiro", 20},
@@ -124,33 +126,34 @@ public:
 
 int main(int argc, char **argv)
 {
-    Jogador jogador1("Eduardo", "Arqueiro");
+    Jogador *jogador1 = new Jogador("Eduardo", "Arqueiro");
 
     // Coletando itens
-    jogador1.coletarItem("Espada de Fogo");
-    jogador1.coletarItem("Poção de Cura");
-    jogador1.coletarItem("Arco Longo");
-    jogador1.coletarItem("Bumerangue");
-    jogador1.coletarItem("Escudo");
-    jogador1.coletarItem("Poção de Mana");
+    jogador1->coletarItem("Espada de Fogo");
+    jogador1->coletarItem("Poção de Cura");
+    jogador1->coletarItem("Arco Longo");
+    jogador1->coletarItem("Bumerangue");
+    jogador1->coletarItem("Escudo");
+    jogador1->coletarItem("Poção de Mana");
 
     // Exibindo o inventário
-    jogador1.exibirInventario();
+    jogador1->exibirInventario();
 
     // Tentando coletar mais itens do que o limite do Arqueiro
-    jogador1.coletarItem("Elixir"); // Isso vai remover o "Espada de Fogo" (primeiro item)
+    jogador1->coletarItem("Elixir"); // Isso vai remover o "Espada de Fogo" (primeiro item)
 
     // Exibindo o inventário após coleta do item extra
-    jogador1.exibirInventario();
+    jogador1->exibirInventario();
 
     // Removendo um item específico ("Espada de Fogo")
-    jogador1.removerItem("Espada de Fogo");
+    jogador1->removerItem("Espada de Fogo");
 
     // Tentando remover um item que não existe ("Poção de Vida")
-    jogador1.removerItem("Poção de Vida");
+    jogador1->removerItem("Poção de Vida");
 
     // Exibindo o inventário após remoções
-    jogador1.exibirInventario();
+    jogador1->exibirInventario();
 
+    delete jogador1; // Liberando a memória alocada para o jogador
     return 0;
 }

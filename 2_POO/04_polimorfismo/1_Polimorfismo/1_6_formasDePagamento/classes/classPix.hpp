@@ -2,7 +2,6 @@
 #define CLASS_PIX_HPP
 
 #include "classModoPagamento.hpp"
-#include <string>
 
 /**
  * @class Pix

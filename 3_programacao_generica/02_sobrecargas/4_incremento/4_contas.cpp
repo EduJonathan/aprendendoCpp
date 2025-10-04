@@ -18,7 +18,8 @@ protected:
     double jurosCIP;
 
 public:
-    ContaEnergia(std::string tipo, double consumo, double valorKwh) : tipo(tipo), consumo(consumo),
+    ContaEnergia(std::string tipo, double consumo, double valorKwh) : tipo(tipo),
+                                                                      consumo(consumo),
                                                                       valorKwh(valorKwh), iluminacaoPublica(0), multa(0), multaCIP(0), juros(0), jurosCIP(0) {}
 
     virtual ~ContaEnergia() {}

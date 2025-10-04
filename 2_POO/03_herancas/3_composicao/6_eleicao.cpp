@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <memory>
 
 struct CandidatosEleicao
@@ -42,7 +43,8 @@ public:
     }
 
     void exibirResultados() const
-    { // Removido "void" desnecessário nos parênteses
+    {
+        // Removido "void" desnecessário nos parênteses
         std::cout << "\n=== Resultados da eleição ===\n";
         for (const auto &candidato : candidatos)
         {
@@ -65,8 +67,10 @@ public:
     void votar(int numeroDoCandidato)
     {
         std::cout << nome << " está votando...\n";
+
+        // Verifica se o ponteiro é válido
         if (urna)
-        { // Verifica se o ponteiro é válido
+        {
             urna->registrarVoto(numeroDoCandidato);
         }
         else

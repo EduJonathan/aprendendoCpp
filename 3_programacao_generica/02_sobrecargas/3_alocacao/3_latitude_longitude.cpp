@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <memory>
+#include <new>
 
 /**
  * @class Loc
@@ -173,6 +174,5 @@ int main(int argc, char **argv)
     // Desaloca a memória dos objetos
     point1.reset(); // Desaloca a memória de um único objeto Loc
     point2.reset(); // Desaloca a memória do array de objetos Loc
-
     return 0;
 }

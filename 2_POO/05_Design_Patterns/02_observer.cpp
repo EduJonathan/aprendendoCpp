@@ -78,8 +78,9 @@ public:
 
     /**
      * @brief Notifica todos os observadores registrados com uma mensagem.
-     * Esta função percorre a lista de observadores e chama o método atualizar de cada um deles.
-     * Antes de notificar, remove os observadores inválidos (expirados) da lista.     *
+     * Esta função percorre a lista de observadores e chama o método atualizar
+     * de cada um deles. Antes de notificar, remove os observadores inválidos (expirados)
+     * da lista.
      *
      * @param mensagem A mensagem a ser enviada aos observadores.
      */

@@ -3,7 +3,6 @@
 
 #include "classCor.hpp"
 #include <tuple>
-#include <string>
 
 /**
  * @brief Classe que representa uma cor em formato hexadecimal.

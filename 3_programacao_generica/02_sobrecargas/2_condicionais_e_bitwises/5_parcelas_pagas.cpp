@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <new>
 
 // Classe base abstrata para métodos de pagamento
 class MetodoPagamento
@@ -234,7 +235,7 @@ void demonstrarOperadoresBitwise(MetodoPagamento *compra)
 
     // Usando operador AND para verificar parcelas
     std::cout << "\n--- Verificando parcelas (operador &) ---" << '\n';
-    for (int i = 1; i <= compra->getParcelasTotal(); i++)
+    for (int i = 1; i <= compra->getParcelasTotal(); ++i)
     {
         if (*compra & i)
         {

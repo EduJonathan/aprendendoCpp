@@ -1,6 +1,7 @@
 #include "../class/classRgb.hpp"
 #include "../class/classHexadecimal.hpp"
 #include <iostream>
+#include <new>
 #include <memory>
 
 /**

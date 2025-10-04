@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 #include <memory>
 
 /**
@@ -121,6 +122,5 @@ int main(int argc, char **argv)
         formas[i]->imprimirTipo(); // Chama o método não-virtual da classe base
         std::cout << "\nÁrea: " << formas[i]->calcularArea() << '\n';
     }
-
     return 0;
 }

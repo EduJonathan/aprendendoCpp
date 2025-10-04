@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 /**
  * PROTECTED: É um nível de encapsulamento semelhante ao private, ou seja, também oculta

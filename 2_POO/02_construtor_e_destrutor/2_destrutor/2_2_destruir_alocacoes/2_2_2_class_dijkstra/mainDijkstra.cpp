@@ -1,3 +1,4 @@
+#include <iostream>
 #include <memory>
 #include "class_graph.hpp"
 

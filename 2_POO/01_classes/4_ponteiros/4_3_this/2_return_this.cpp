@@ -105,6 +105,6 @@ int main(int argc, char **argv)
     delete Eduardo;
     delete Matheus;
 
-    // Não é necessário chamar delete para Marina e Leticia — o smart pointer cuida disso automaticamente.
+    // Não é necessário chamar delete para Mariana e Leticia — o smart pointer cuida disso automaticamente.
     return 0;
 }

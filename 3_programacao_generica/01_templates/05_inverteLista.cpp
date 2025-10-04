@@ -1,7 +1,6 @@
 #include <iostream>
 #include <list>
 #include <string>
-#include <iterator>
 #include <algorithm>
 
 /**

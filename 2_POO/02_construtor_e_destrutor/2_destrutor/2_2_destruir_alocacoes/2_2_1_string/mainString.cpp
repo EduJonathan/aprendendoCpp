@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstring>
-#include <string>
 #include "destrutor_string.hpp"
 
 String::String(const char *str)

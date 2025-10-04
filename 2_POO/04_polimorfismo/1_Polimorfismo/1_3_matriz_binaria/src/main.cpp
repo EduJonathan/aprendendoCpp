@@ -4,11 +4,12 @@
 #include "../class/class_matriz.hpp"
 #include <iostream>
 #include <ctime>
+#include <new>
 
 int main(int argc, char **argv)
 {
-    Matriz matriz;  // Criando a matriz 8x8
-    srand(time(0)); // Inicializa o gerador de números aleatórios
+    Matriz matriz;            // Criando a matriz 8x8
+    std::srand(std::time(0)); // Inicializa o gerador de números aleatórios
 
     // Criando objetos para os três tipos de valores
     Valor *valorDecimal = new Decimal(10);           // Valor decimal 255
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
     /**
      * Compile e Execute com
      *
-     * g++ -std=c++23 .\decimal.cpp .\hexadecimal.cpp .\main.cpp .\matriz.cpp .\octal.cpp -o matriz
+     * g++ -std=c++20 .\decimal.cpp .\hexadecimal.cpp .\main.cpp .\matriz.cpp .\octal.cpp -o matriz
      * .\matriz.exe
      */
 

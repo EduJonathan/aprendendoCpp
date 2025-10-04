@@ -122,8 +122,11 @@ long fibonacci_memoizado(long n)
     if (cache.find(n) != cache.end())
         return cache[n]; // Retorna o resultado se já estiver no cache.
 
-    cache[n] = fibonacci_memoizado(n - 1) + fibonacci_memoizado(n - 2); // Armazena o resultado no cache.
-    return cache[n];                                                    // Retorna o resultado calculado.
+    // Armazena o resultado no cache.
+    cache[n] = fibonacci_memoizado(n - 1) + fibonacci_memoizado(n - 2);
+
+    // Retorna o resultado calculado.
+    return cache[n];
 }
 
 template <typename TFuncao>

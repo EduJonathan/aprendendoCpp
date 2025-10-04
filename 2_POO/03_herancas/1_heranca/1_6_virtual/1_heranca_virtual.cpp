@@ -58,6 +58,5 @@ int main(int argc, char **argv)
     bat.respirar();     // Herdado de Mamifero
     bat.voar();         // Herdado de Ave
     bat.ecolocalizar(); // Definido em Morcego
-
     return 0;
 }

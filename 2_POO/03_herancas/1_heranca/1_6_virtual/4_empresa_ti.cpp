@@ -133,16 +133,19 @@ void testarEmpregado(Empregado &emp)
     {
         eng->projetarSistema();
     }
+
     // Verifica se é Gerente
     if (Gerente *ger = dynamic_cast<Gerente *>(&emp))
     {
         ger->gerenciarProjeto();
     }
+
     // Verifica se é EngenheiroSoftware
     if (EngenheiroSoftware *engSoft = dynamic_cast<EngenheiroSoftware *>(&emp))
     {
         engSoft->codificar();
     }
+
     // Verifica se é EngenheiroGerente
     if (EngenheiroGerente *engGer = dynamic_cast<EngenheiroGerente *>(&emp))
     {
@@ -159,6 +162,5 @@ int main(int argc, char **argv)
     // Testando empregados
     testarEmpregado(*engSoft);
     testarEmpregado(*engGer);
-
     return 0;
 }

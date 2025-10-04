@@ -23,13 +23,12 @@ public:
  *
  * - EXEMPLOS:
  * - Como podemos escrever em uma folha de papel? temos várias formas, como `caneta`, `lápis`).
- * - Ou como podemos pagar um produto? temos várias formas de pagamento, como `cartão`, `dinheiro`,
- * `pix`, etc.).
+ * - Como podemos pagar um produto? temos várias formas de pagamento, como `cartão`, `dinheiro`, `pix`, etc.).
  * - Como podemos nos locomover? temos várias formas, como `carro`, `moto`, `bicicleta`, `a pé`, etc.).
  * - Como podemos nos comunicar? temos várias formas, como `telefone`, `email`, `mensagem de texto`).
  *
- * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando tratar objetos
- * de diferentes classes de forma uniforme.
+ * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando
+ * tratar objetos de diferentes classes de forma uniforme.
  *
  * ----------------------------------
  *

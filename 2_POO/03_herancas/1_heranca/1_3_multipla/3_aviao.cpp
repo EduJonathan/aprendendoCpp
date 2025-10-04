@@ -38,6 +38,5 @@ int main(int argc, char **argv)
 {
     std::unique_ptr<Aviao> meuAviao = std::make_unique<Aviao>();
     meuAviao->decolar();
-
     return 0;
 }

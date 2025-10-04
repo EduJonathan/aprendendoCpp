@@ -2,7 +2,6 @@
 #define CLASS_RGB_HPP
 
 #include "classCor.hpp"
-#include <string>
 
 /**
  * @brief Classe que representa uma cor no formato RGB.

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <new>
 
 /**
  * Em composição, usamos ponteiros para que a classe composta tenha controle total
@@ -16,6 +17,30 @@
  * desalocados antes de perderem o escopo. Além disso, é necessário garantir que a memória
  * seja gerenciada corretamente, especialmente quando se trabalha com ponteiros brutos,
  * o que pode tornar o código mais propenso a erros se não for bem estruturado.
+ *
+ * OBSERVAÇÃO:
+ * A Composição (Relação "tem-um" forte):
+ *
+ * class Casa {
+ * Sala sala; // Composição
+ * // - Sala não existe sem a Casa
+ * // - Se Casa é destruída, Sala também é
+ * // - Ciclo de vida idêntico
+ * };
+ *
+ * --------------
+ *
+ * Ponteiros podem ser conhecidos como Agregação (Relação "tem-um" fraca), ou seja, a
+ * classe composta pode ter um componente que é gerenciado externamente.
+ *
+ * Enquanto a Agregação (Relação "tem-um" fraca):
+ *
+ * class Universidade {
+ * Professor* professores; // Agregação
+ * // - Professor existe sem a Universidade
+ * // - Se Universidade fecha, Professores continuam existindo
+ * // - Ciclo de vida independente
+ * };
  */
 
 class Motor

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <new>
 
 /**
  * Neste exemplo, temos uma herança multinível em que:
@@ -98,23 +99,23 @@ public:
 
 int main(int argc, char **argv)
 {
-    Celular meuCelular("21999999999");
-    Pc meuPC("eduardo");
+    Celular *meuCelular = new Celular("21999999999");
+    Pc *meuPC = new Pc("eduardo");
 
     // Testa com celular
-    meuCelular.ligar();
-    meuCelular.enviarEmail("eduardoJ@gmail.com");
+    meuCelular->ligar();
+    meuCelular->enviarEmail("eduardoJ@gmail.com");
 
     std::cout << '\n';
 
     // Testa com PC sem ligar
-    meuPC.enviarEmail("rh@empresa.com");
+    meuPC->enviarEmail("rh@empresa.com");
 
     std::cout << '\n';
 
     // Liga PC e tenta novamente
-    meuPC.ligar();
-    meuPC.enviarEmail("rh@empresa.com");
+    meuPC->ligar();
+    meuPC->enviarEmail("rh@empresa.com");
 
     return 0;
 }

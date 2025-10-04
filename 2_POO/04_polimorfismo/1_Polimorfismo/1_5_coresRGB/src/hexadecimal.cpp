@@ -1,5 +1,6 @@
 #include "../class/classHexadecimal.hpp"
 #include <iostream>
+#include <cstdlib>
 #include <stdexcept>
 
 Hexadecimal::Hexadecimal(const std::string &hex) : hex(hex)
@@ -17,7 +18,6 @@ void Hexadecimal::exibir() const
     // int b = std::get<2>(rgb);
 
     auto [r, g, b] = paraRGB(); // C++17 Desestruturação de tupla
-
     std::cout << "Hexadecimal: #" << hex << " => RGB(" << r << ", " << g << ", " << b << ")\n";
 }
 

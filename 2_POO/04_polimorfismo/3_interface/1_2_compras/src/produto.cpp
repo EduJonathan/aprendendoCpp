@@ -9,7 +9,7 @@ Gabinete::Gabinete(std::string modelo, double preco) : modelo(modelo), preco(pre
 
 void GPU::exibirDetalhes() const
 {
-    std::cout << "GPU: " << modelo << " - R$" << preco << "\n";
+    std::cout << "GPU: " << modelo << " - R$" << preco << '\n';
 }
 
 double GPU::getPreco() const
@@ -19,7 +19,7 @@ double GPU::getPreco() const
 
 void CPU::exibirDetalhes() const
 {
-    std::cout << "CPU: " << modelo << " - R$" << preco << "\n";
+    std::cout << "CPU: " << modelo << " - R$" << preco << '\n';
 }
 
 double CPU::getPreco() const
@@ -29,7 +29,7 @@ double CPU::getPreco() const
 
 void RAM::exibirDetalhes() const
 {
-    std::cout << "RAM: " << modelo << " - R$" << preco << "\n";
+    std::cout << "RAM: " << modelo << " - R$" << preco << '\n';
 }
 
 double RAM::getPreco() const
@@ -39,7 +39,7 @@ double RAM::getPreco() const
 
 void Gabinete::exibirDetalhes() const
 {
-    std::cout << "Gabinete: " << modelo << " - R$" << preco << "\n";
+    std::cout << "Gabinete: " << modelo << " - R$" << preco << '\n';
 }
 
 double Gabinete::getPreco() const

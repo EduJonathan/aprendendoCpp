@@ -83,7 +83,7 @@ int main(int argc, char **argv)
             // Inicia o contador do inicio da iteração
             start = std::chrono::high_resolution_clock::now();
 
-            // Insere no arquivo uma contagem ao contrária de 0 até 9999
+            // Insere no arquivo uma contagem de 0 até 9999
             for (int i = 0; i < 10000; ++i)
             {
                 out_file << i << std::endl; // Força flush a cada iteração com std::endl

@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iomanip>
 #include <sstream>
+#include <new>
 
 class Academia
 {

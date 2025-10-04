@@ -5,7 +5,9 @@
 #include "../classes/classCartaoCredito.hpp"
 
 CartaoCredito::CartaoCredito(const std::string &num, const std::string &nome,
-                             const std::string &validade, const std::string &cvv, int parcelas) : numeroCartao(num), nomeTitular(nome), dataValidade(validade), cvv(cvv), parcelas(1)
+                             const std::string &validade, const std::string &cvv,
+                             int parcelas) : numeroCartao(num), nomeTitular(nome),
+                                             dataValidade(validade), cvv(cvv), parcelas(1)
 {
     setParcelas(parcelas);
 }
@@ -48,11 +50,11 @@ bool CartaoCredito::validarData() const
     int mes = std::stoi(dataValidade.substr(0, 2));
     int ano = std::stoi(dataValidade.substr(3, 2)) + 2000;
 
+    // Obtém a data atual
     std::time_t t = std::time(nullptr);
     std::tm *agora = std::localtime(&t);
     int anoAtual = agora->tm_year + 1900;
     int mesAtual = agora->tm_mon + 1;
-
     return !(ano < anoAtual || (ano == anoAtual && mes < mesAtual));
 }
 
@@ -119,7 +121,7 @@ void CartaoCredito::processarPagamento(double valor)
 
 std::string CartaoCredito::getDescricao() const
 {
-    return "Cartão de Crédito (" + getUltimosDigitos() + ") - " + std::to_string(parcelas) + "x";
+    return "Cartão de Crédito (" + getUltimosDigitos() + ") - " + std::to_string(parcelas) + 'x';
 }
 
 std::string CartaoCredito::getUltimosDigitos() const

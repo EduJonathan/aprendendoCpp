@@ -2,7 +2,7 @@
 #define CLASS_STRING_HPP
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 constexpr int SIZE = 255; ///< Tamanho máximo da string.
 

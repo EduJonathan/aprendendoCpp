@@ -37,7 +37,6 @@ public:
 int main(int argc, char **argv)
 {
     Object obj('A');
-
     obj.print();
     return 0;
 }

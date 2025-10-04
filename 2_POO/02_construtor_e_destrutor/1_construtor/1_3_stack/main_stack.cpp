@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <new>
 #include "class_stack.hpp"
 
 Stack::Stack(std::size_t capacity)

@@ -15,19 +15,6 @@ template <class Object>
 class Stack
 {
 public:
-    /**
-     * @brief Construtor que inicializa a pilha com uma capacidade específica.
-     *
-     * @param sizeCapacity Capacidade inicial da pilha (valor padrão: 10).
-     *
-     * @note explicit ajuda a evitar comportamentos inesperados ou bugs difíceis
-     * de rastrear causados por conversões implícitas.
-     * Sem o explicit, o compilador pode tentar converter um tipo automaticamente
-     * sempre que for necessário, o que pode não ser o comportamento que você deseja.
-     *
-     * É uma boa prática para evitar conversões automáticas que podem ser difíceis
-     * de entender ou controlar.
-     */
     explicit Stack(std::size_t initialCapacity = 10);
     bool isEmpty() const;
     bool isFull() const;

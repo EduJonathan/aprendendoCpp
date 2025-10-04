@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <locale>
+#include <stdexcept>
+#include <new>
 
 int main(int argc, char **argv)
 {

@@ -60,6 +60,5 @@ int main(int argc, char **argv)
 {
     auto meuVeiculo = std::make_unique<VeiculoAnfibio>("Meu Veículo Anfíbio");
     meuVeiculo->operar();
-
     return 0;
 }

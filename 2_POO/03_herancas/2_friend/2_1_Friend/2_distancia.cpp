@@ -48,7 +48,6 @@ Distancia square(Distancia d)
     // Converte de volta para metros e polegadas
     int metros = static_cast<int>(totalMetros);
     float polegadas = (totalMetros - metros) * 12.0f;
-
     return Distancia(metros, polegadas);
 }
 
