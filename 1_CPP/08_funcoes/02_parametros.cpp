@@ -49,8 +49,8 @@ std::size_t sizeString(std::size_t tamanho, const char *string)
         // Leitura para a nova string
         std::getline(std::cin, novaString);
 
-        // Retorna o tamanho da nova string
-        return novaString.size(); // Retorna o tamanho da nova string inserida
+        // Retorna o tamanho da nova string inserida
+        return novaString.size();
     }
 
     // Caso o tamanho já tenha sido fornecido (diferente de 0), retorna o tamanho

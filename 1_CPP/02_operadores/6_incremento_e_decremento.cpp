@@ -5,6 +5,11 @@
  *
  * - incremento (++var): Adiciona +1 a variável
  * - decremento (--var): Subtrai -1 a variável
+ *
+ * @note Assim como em C, o uso desses operadores pode ser feito de
+ * forma pré-fixada (antes da variável) ou pós-fixada (depois da variável).
+ * A diferença está no momento em que o incremento/decremento ocorre
+ * em relação à avaliação da expressão, podendo ter um impacto significativo.
  */
 
 int main(int argc, char **argv)

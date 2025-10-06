@@ -1,9 +1,30 @@
+#include <iostream>
 #include <algorithm>
 #include "lis.hpp"
 
+/**
+ * @brief Construtor do nó.
+ *
+ * @param x Valor a ser armazenado no nó.
+ */
 LargestIndependentSet::Node::Node(int x) : dado(x), liss(0), left(nullptr), right(nullptr) {}
+
+/**
+ * @brief Construtor da classe LargestIndependentSet.
+ */
 LargestIndependentSet::LargestIndependentSet() : root(nullptr) {}
 
+/**
+ * @brief Constrói uma árvore binária de exemplo com estrutura fixa.
+ *
+ * Estrutura usada:
+ *
+ *        10
+ *       /  \
+ *     20    30
+ *    /     /  \
+ *  40     50   60
+ */
 void LargestIndependentSet::construirExemplo(void)
 {
     root = std::make_unique<Node>(10);
@@ -14,11 +35,28 @@ void LargestIndependentSet::construirExemplo(void)
     root->right->right = std::make_unique<Node>(60);
 }
 
+/**
+ * @brief Calcula o tamanho do maior conjunto independente da árvore.
+ *
+ * @return Um inteiro representando o tamanho do conjunto.
+ *
+ * @note Se você estiver estranhando o retorno de uma função que não foi
+ * declarado antes e sim logo após, tenha calma, na linguagem C++ é normal
+ * este tipo de caso.
+ */
 int LargestIndependentSet::calcularLIS(void)
 {
     return Liss(root.get());
 }
 
+/**
+ * @brief Função auxiliar recursiva para calcular o maior conjunto independente (LIS).
+ *
+ * A função usa memoização com o campo `liss` em cada nó para evitar recomputações.
+ *
+ * @param node Ponteiro para o nó atual.
+ * @return Tamanho do maior conjunto independente na subárvore com raiz em `node`.
+ */
 int LargestIndependentSet::Liss(Node *node)
 {
     if (!node)

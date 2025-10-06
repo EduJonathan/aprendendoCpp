@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <new>
 
 /**
@@ -85,11 +86,32 @@ struct Node
     Node *next;
 };
 
+// Referência: troca valores, sintaxe limpa
+void swap_ref(std::string &x, std::string &y)
+{
+    std::string temp = x;
+    x = y;
+    y = temp;
+}
+
+// Ponteiro: troca valores, permite nulidade
+void swap_ptr(int *x, int *y)
+{
+    if (x && y) // Verifica se não são nulos
+    {
+        int temp = *x;
+        *x = *y;
+        *y = temp;
+    }
+}
+
 int main(int argc, char **argv)
 {
     int a = 10;
     incrementa_ref(a);                          // Referência: modifica diretamente
     std::cout << "a (após ref): " << a << '\n'; // Saída: 11
+
+    std::cout << "-------------------\n";
 
     int b = 20;
     int *p = &b;
@@ -97,12 +119,30 @@ int main(int argc, char **argv)
     std::cout << "b (após ptr): " << b << '\n'; // Saída: 21
     incrementa_ptr(nullptr);                    // Seguro, não altera nada
 
+    std::cout << "-------------------\n";
+
     std::string s = "Exemplo";
     print(s); // Referência constante: evita cópia
+
+    std::cout << "-------------------\n";
 
     Node *node = new Node{42, nullptr};               // Ponteiro: alocação dinâmica
     std::cout << "Node data: " << node->data << '\n'; // Saída: 42
     delete node;                                      // Gerenciamento manual
 
+    std::cout << "-------------------\n";
+
+    std::string x = "Hello", y = "World";
+    std::cout << "x (antes swap): " << x << ", y: " << y << '\n';    // Saída: Hello, World
+    swap_ref(x, y);                                                  // Referência: troca valores
+    std::cout << "x (após swap_ref): " << x << ", y: " << y << '\n'; // Saída: World, Hello
+
+    std::cout << "-------------------\n";
+
+    int x_val = 10, y_val = 5;
+    std::cout << "x (antes swap): " << x_val << ", y: " << y_val << '\n'; // Saída: 10, 5
+
+    swap_ptr(&x_val, &y_val);                                                // Ponteiro: troca valores
+    std::cout << "x (após swap_ptr): " << x_val << ", y: " << y_val << '\n'; // Saída: 5, 10
     return 0;
 }

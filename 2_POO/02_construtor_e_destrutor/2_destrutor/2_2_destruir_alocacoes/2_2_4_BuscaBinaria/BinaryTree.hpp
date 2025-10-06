@@ -12,8 +12,7 @@ struct Node
     int value;                   // Valor armazenado no nó
     std::unique_ptr<Node> left;  // Ponteiro para o filho esquerdo
     std::unique_ptr<Node> right; // Ponteiro para o filho direito
-
-    Node(int val); // Construtor para inicializar o nó com um valor
+    Node(int val);               // Construtor para inicializar o nó com um valor
 };
 
 /**
