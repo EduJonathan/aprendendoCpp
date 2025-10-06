@@ -2,10 +2,9 @@
 #include <set>
 
 /**
- * O std::set<T> É um contêiner que armazena elementos únicos em ordem crescente
- * (ou conforme critério definido). Não permite elementos duplicados e não associa valores
- * a chaves, ou seja, armazena apenas o valor do elemento. Além disso, as operações de
- * busca, inserção e remoção possuem uma complexidade logarítmica, O(log n).
+ * std::set<T> é um container que armazena elementos únicos em ordem (padrão crescente).
+ * Não permite duplicatas e oferece operações de busca, inserção e remoção com complexidade
+ * O(log n).
  */
 
 /**

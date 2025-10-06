@@ -4,8 +4,11 @@
 #include <algorithm>
 
 /**
- * - std::swap(): Troca dois elementos individualmente.
- * - std::swap_ranges(): Troca intervalos (ranges) inteiros entre containers.
+ * - std::swap(a, b)
+ *   → Troca os valores de dois elementos.
+ *
+ * - std::swap_ranges(begin1, end1, begin2)
+ *   → Troca os elementos do intervalo (begin1, end1) pelos elementos a partir de begin2.
  */
 
 /**

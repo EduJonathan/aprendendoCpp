@@ -6,10 +6,17 @@
 #include <algorithm>
 
 /**
- * - std::replace(): Substitui todas as ocorrências de um valor por outro.
- * - std::replace_if(): Substitui elementos com base em uma condição.
- * - std::replace_copy(): Copia elementos substituindo os que correspondem a um valor.
- * - std::replace_copy_if(): Copia elementos substituindo com base em uma condição.
+ * - std::replace(begin, end, old_value, new_value)
+ *   → Substitui todas as ocorrências de `old_value` por `new_value` no intervalo.
+ *
+ * - std::replace_if(begin, end, pred, new_value)
+ *   → Substitui elementos que satisfazem `pred` por `new_value`.
+ *
+ * - std::replace_copy(begin, end, dest, old_value, new_value)
+ *   → Copia elementos para `dest`, substituindo `old_value` por `new_value`.
+ *
+ * - std::replace_copy_if(begin, end, dest, pred, new_value)
+ *   → Copia elementos para `dest`, substituindo os que satisfazem a condição `pred` por `new_value`.
  */
 
 /**

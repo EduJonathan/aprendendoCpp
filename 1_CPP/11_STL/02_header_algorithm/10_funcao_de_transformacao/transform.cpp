@@ -7,11 +7,14 @@
 #include <algorithm>
 
 /**
- * - std::transform(): Aplica uma função a cada elemento de um container.
- * - std::accumulate(): Realiza a soma acumulada dos elementos.
- * 
- * - std::transform_reduce, std::transform_inclusive_scan,
- *   std::transform_exclusive_scan: requerem C++17 ou superior.
+ * - std::transform(begin, end, dest, func)
+ *   → Aplica `func` a cada elemento do intervalo e armazena em `dest`.
+ *
+ * - std::accumulate(begin, end, init)
+ *   → Soma acumulada dos elementos a partir do valor inicial `init`.
+ *
+ * - std::transform_reduce, std::transform_inclusive_scan, std::transform_exclusive_scan
+ *   → Requerem C++17 ou superior; combinam transformação e redução/scan.
  */
 
 /**

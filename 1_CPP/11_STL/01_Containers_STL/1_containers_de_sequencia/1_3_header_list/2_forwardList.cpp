@@ -5,9 +5,8 @@
 #include <forward_list>
 
 /**
- * std::forward_list<T> é uma lista simplesmente encadeada com iteração unidirecional.
- * É mais eficiente em termos de memória que std::list, sendo ideal quando só se precisa 
- * percorrer a lista para frente.
+ * std::forward_list<T> é uma lista simplesmente encadeada com iteração unidirecional,
+ * mais eficiente em memória que std::list, ideal para percorrer apenas para frente.
  */
 
 using namespace std::chrono;

@@ -3,9 +3,11 @@
 #include <algorithm>
 
 /**
- * - std::count(): Contabiliza valores existente em um conjunto.
- * - std::count_if(): Contabiliza valores existente em um conjunto, que satisfaçam uma condição
- * específica.
+ * - std::count(begin, end, value)
+ *   → Conta quantas vezes `value` aparece no intervalo (begin, end).
+ *
+ * - std::count_if(begin, end, pred)
+ *   → Conta quantos elementos no intervalo satisfazem a condição `pred`.
  */
 
 /**

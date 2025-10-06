@@ -5,8 +5,11 @@
 /**
  * @brief Gera permutações lexicográficas crescentes ou decrescentes de um vetor de caracteres.
  *
- * - std::next_permutation() para gerar a próxima permutação lexicográfica.
- * - std::prev_permutation() para gerar a permutação anterior.
+ * - std::next_permutation(begin, end)
+ *   → Gera a próxima permutação lexicográfica crescente.
+ *
+ * - std::prev_permutation(begin, end)
+ *   → Gera a permutação lexicográfica anterior.
  *
  * @param vec Vetor de caracteres a ser permutado.
  * @param crescente Indica se a ordem será crescente (true) ou decrescente (false).

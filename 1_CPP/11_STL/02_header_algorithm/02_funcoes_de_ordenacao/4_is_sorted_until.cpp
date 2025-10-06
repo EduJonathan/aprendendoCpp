@@ -3,8 +3,11 @@
 #include <algorithm>
 
 /**
- * Ele percorre o array até encontrar um par de elementos que viola a ordem definida
- * pelo comparador. Retorna um iterador para o primeiro elemento fora de ordem.
+ * std::is_sorted_until(): Verifica até que ponto uma sequência está ordenada de acordo com
+ * o comparador fornecido. Percorre os elementos até encontrar o primeiro que viola a ordem.
+ *
+ * Retorna um iterador apontando para o primeiro elemento fora de ordem. Se todos os elementos
+ * estiverem ordenados, retorna o iterador para o final da sequência.
  */
 
 /**

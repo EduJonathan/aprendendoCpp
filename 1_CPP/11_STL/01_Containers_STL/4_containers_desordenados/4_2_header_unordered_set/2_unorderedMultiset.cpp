@@ -3,16 +3,9 @@
 #include <unordered_set>
 
 /**
- * std::unordered_multiset<T> É um contêiner que armazena elementos com possíveis duplicatas,
- * de forma não ordenada.
- *
- * O std::unordered_multiset é semelhante ao std::unordered_set, mas permite que elementos
- * duplicados sejam armazenados. Ele usa uma tabela hash para armazenar os elementos,
- * permitindo uma busca e inserção rápidas, com complexidade média constante O(1).
- *
- * Características:
- * - Permite múltiplas ocorrências do mesmo valor, ou seja, aceita duplicatas.
- * - Os elementos são armazenados em uma tabela hash, sem garantias de ordem.
+ * std::unordered_multiset<T> armazena elementos duplicados de forma não ordenada,
+ * usando tabela hash para buscas e inserções rápidas (O(1) média).
+ * Permite múltiplas ocorrências do mesmo valor.
  */
 
 /**

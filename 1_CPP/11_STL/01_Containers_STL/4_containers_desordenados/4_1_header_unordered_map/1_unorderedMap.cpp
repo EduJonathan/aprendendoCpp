@@ -1,21 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdint> // Para uint32_t
+#include <cstdint>
 #include <unordered_map>
 
 /**
- * std::unordered_map<T> É um contêiner que associa uma chave única a um valor,
- * mas de forma não ordenada. Ele utiliza uma tabela hash para armazenar os pares
- * chave-valor, o que possibilita buscas, inserções e remoções rápidas, com complexidade
- * média de O(1).
+ * std::unordered_map<K, V> é um container que associa chaves únicas a valores
+ * sem manter ordem, usando tabela hash para operações médias em O(1).
  *
- * A principal vantagem desse contêiner é o acesso rápido aos valores associados
- * a uma chave específica.
- *
- * - A chave deve ser única; não é permitido duplicação de chaves.
- * - Não há garantia de ordem dos elementos.
- * - O tempo de acesso, inserção e remoção é O(1), em média.
+ * Ideal para acesso rápido quando a ordem dos elementos não importa.
  */
 
 /**

@@ -3,8 +3,8 @@
 #include <algorithm>
 
 /**
- * std::none_of(): Verifica se nenhum dos elementos de um intervalo
- * satisfaz um determinado predicado.
+ * - std::none_of(begin, end, pred)
+ *   → Retorna true se nenhum elemento satisfaz a condição `pred`.
  */
 
 /**

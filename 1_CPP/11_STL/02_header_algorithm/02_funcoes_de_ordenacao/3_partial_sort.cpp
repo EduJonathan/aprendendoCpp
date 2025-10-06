@@ -2,12 +2,15 @@
 #include <algorithm>
 
 /**
- * std::partial_sort(): Reorganiza os elementos de tal forma que uma faixa específica
- * (os primeiros k elementos) contém os menores (ou maiores) valores em ordem ordenada.
- * Os elementos fora dessa faixa permanecem não ordenados.
+ * std::partial_sort(): Reorganiza os elementos de um intervalo de forma que os primeiros k
+ * elementos sejam os menores (ou maiores, dependendo do critério de comparação) e estejam
+ * em ordem ordenada. Os demais elementos não são necessariamente ordenados.
  *
- * Complexidade: O(n log k), onde n é o número total de elementos no intervalo,
- * e k é o número de elementos a serem ordenados.
+ * É útil quando apenas os primeiros k elementos ordenados são necessários, sem a sobrecarga
+ * de ordenar toda a sequência.
+ *
+ * Complexidade: O(n log k), onde n é o número total de elementos no intervalo e
+ * k é o número de elementos a serem ordenados.
  */
 
 /**

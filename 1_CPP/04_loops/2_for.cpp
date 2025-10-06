@@ -30,6 +30,7 @@ int main(int argc, char **argv)
 
     std::cout << "Digite o primeiro numero para LCM e HCF: ";
     std::cin >> numero1;
+
     std::cout << "Digite o segundo numero para LCM e HCF: ";
     std::cin >> numero2;
 
@@ -51,6 +52,7 @@ int main(int argc, char **argv)
     // Calculando o HCF com algoritmo de Euclides
     int a = numero1;
     int b = numero2;
+
     while (b != 0)
     {
         int temp = b;
@@ -62,6 +64,5 @@ int main(int argc, char **argv)
     std::cout << "O HCF de " << numero1 << " e " << numero2 << " é: " << HCF << '\n';
 
     std::cout << "-----------------------------------------------\n";
-
     return 0;
 }

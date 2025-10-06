@@ -3,8 +3,11 @@
 #include <algorithm>
 
 /**
- * std::max(): Retorna o maior valor entre dois ou mais valores.
- * std::min(): Retorna o menor valor entre dois ou mais valores.
+ * - std::max(a, b, ...)
+ *   → Retorna o maior valor entre dois ou mais valores.
+ *
+ * - std::min(a, b, ...)
+ *   → Retorna o menor valor entre dois ou mais valores.
  */
 
 /**

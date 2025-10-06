@@ -2,10 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-// std::sort(): Função que deixa em ordem os elementos de um container.
+/**
+ * std::sort(): Ordena os elementos de um intervalo [first, last) em ordem crescente,
+ * ou de acordo com um comparador personalizado, utilizando um algoritmo de ordenação
+ * não estável. Requer que os elementos sejam acessíveis via iteradores aleatórios.
+ */
 
 /**
- * @brief Ordena o vetor de inteiros de forma decrescente utilizando a função std::sort com 
+ * @brief Ordena o vetor de inteiros de forma decrescente utilizando a função std::sort com
  * uma função lambda.
  *
  * A função utiliza a função lambda para definir a ordem decrescente dos elementos do vetor.

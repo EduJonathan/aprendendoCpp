@@ -5,7 +5,7 @@
 
 /**
  * std::queue<T> Utiliza a estrutura FIFO (First In, First Out). Ideal para gerenciar
- * recursos que precisam ser utilizados em ordem, como vagas de estacionamento disponíveis.
+ * recursos que precisam ser utilizados em ordem.
  */
 
 // Mapeia o código do dono para o nome do dono

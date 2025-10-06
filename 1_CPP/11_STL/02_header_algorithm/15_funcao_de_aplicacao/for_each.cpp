@@ -3,8 +3,11 @@
 #include <algorithm>
 
 /**
- * - std::for_each(): é uma função que permite aplicar uma função a cada elemento de um intervalo.
- * - std::for_each_n(): é uma função similar, mas aplica a função a um número específico de elementos.
+* - std::for_each(begin, end, func)
+ *   → Aplica `func` a cada elemento no intervalo (begin, end).
+ *
+ * - std::for_each_n(begin, n, func)
+ *   → Aplica `func` aos primeiros `n` elementos a partir de `begin`.
  */
 
 /**

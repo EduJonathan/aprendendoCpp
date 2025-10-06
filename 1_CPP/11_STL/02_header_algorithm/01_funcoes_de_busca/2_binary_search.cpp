@@ -2,11 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-/*
- * A função `std::binary_search()` busca se um valor existe em um intervalo, mas
- * somente se o intervalo estiver ordenado. Caso contrário, o comportamento será indefinido.
- * A função retorna um valor booleano (0 ou 1), indicando se o valor foi encontrado ou não.
- * A função não retorna o índice do valor encontrado e não altera o vetor original
+/**
+ * std::binary_search(): Verifica se um determinado valor está presente em um
+ * intervalo ordenado. O intervalo deve estar previamente ordenado de acordo como
+ * mesmo critério de comparação utilizado na busca; caso contrário, o comportamento
+ * é indefinido.
+ *
+ * Retorna um valor booleano (`true` ou `false`), indicando se o valor foi encontrado.
+ * Não retorna a posição do elemento nem modifica o conteúdo do intervalo.
  */
 
 /**

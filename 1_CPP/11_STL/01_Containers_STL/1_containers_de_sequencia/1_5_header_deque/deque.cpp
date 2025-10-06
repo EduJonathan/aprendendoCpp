@@ -4,8 +4,8 @@
 #include <deque>
 
 /**
- * std::deque<T> É um container de sequência que permite inserção e remoção eficiente
- * tanto no início quanto no fim. Ideal para filas com prioridades diferentes.
+ * std::deque<T> é um container de sequência que permite inserções e remoções rápidas
+ * tanto no início quanto no fim, ideal para filas com prioridades variadas.
  */
 
 /**

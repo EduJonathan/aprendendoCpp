@@ -4,10 +4,9 @@
 #include <set>
 
 /**
- * std::multiset<T> Estrutura semelhante ao `std::set`, mas permite valores duplicados.
- * Mantém os elementos ordenados e oferece operações de inserção, busca e remoção com
- * complexidade O(log n), utilizando uma árvore binária balanceada.
- * Ideal para armazenar múltiplas ocorrências de valores mantendo a ordem.
+ * std::multiset<T> é similar ao std::set, mas permite valores duplicados.
+ * Mantém os elementos ordenados e oferece operações eficientes (O(log n)).
+ * Ideal para armazenar múltiplas ocorrências mantendo a ordem.
  */
 
 /**

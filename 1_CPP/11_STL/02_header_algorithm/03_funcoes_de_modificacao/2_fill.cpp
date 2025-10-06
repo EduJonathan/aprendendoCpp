@@ -3,15 +3,18 @@
 #include <algorithm>
 
 /**
- * - std::fill(): Preenche um intervalo completo com um valor específico.
- * - std::fill_n(): Preenche um número definido de elementos com um valor específico..
+ * - std::fill(begin, end, value)
+ *   → Preenche todo o intervalo (begin, end) com `value`.
+ *
+ * - std::fill_n(begin, count, value)
+ *   → Preenche os `count` primeiros elementos a partir de `begin` com `value`.
  */
 
 /**
  * @brief Substitui os valores menores que 10 por 7 no vetor.
  *
- * Utiliza `std::for_each` com uma função lambda e `std::fill` para preencher apenas posições que
- * atendem à condição `valor < 10`.
+ * Utiliza `std::for_each` com uma função lambda e `std::fill` para preencher apenas
+ * posições que atendem à condição `valor < 10`.
  *
  * @param vec Vetor de inteiros a ser processado.
  */

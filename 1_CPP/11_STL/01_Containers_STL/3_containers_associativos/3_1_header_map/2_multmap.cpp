@@ -1,25 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <utility> // Para std::pair
+#include <utility>
 #include <map>
 
 /**
- * std::multimap<T> Estrutura de dados semelhante ao `std::map`, porém com a diferença
- * de que permite múltiplos valores associados a uma mesma chave, Ou seja, chaves
- * duplicadas são permitidas.
- * O `multimap` mantém a ordem das chaves automaticamente e oferece um acesso rápido
- * aos elementos.
+ * std::multimap<K, V> é semelhante ao std::map, mas permite múltiplos valores
+ * para a mesma chave, aceitando chaves duplicadas.
+ * 
+ * Mantém as chaves ordenadas e oferece operações de inserção, busca e remoção
+ * com complexidade O(log n), graças à implementação como árvore balanceada.
  *
- * Características principais:
- * - Chaves duplicadas são permitidas, o que torna o `std::multimap`ideal
- * para armazenar listas de ocorrências ou múltiplos itens associados à mesma chave.
- *
- * - Mantém a ordem das chaves, facilitando buscas, inserções e remoções eficientes.
- *
- * - A implementação interna, geralmente uma árvore binária balanceada
- * (como a árvore vermelho-preto), garante que as operações de inserção, busca
- * e remoção tenham tempo de execução logarítmico (O(log n)).
+ * Ideal para armazenar várias ocorrências associadas a uma mesma chave.
  */
 
 /**

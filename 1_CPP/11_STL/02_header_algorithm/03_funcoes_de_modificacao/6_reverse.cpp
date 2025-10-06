@@ -3,6 +3,11 @@
 #include <algorithm>
 
 /**
+ * - std::reverse(begin, end)
+ *   → Inverte a ordem dos elementos no intervalo (begin, end).
+ */
+
+/**
  * @brief Inverte os elementos de um array estático de inteiros.
  *
  * Esta função demonstra o uso de std::reverse com arrays estilo C,

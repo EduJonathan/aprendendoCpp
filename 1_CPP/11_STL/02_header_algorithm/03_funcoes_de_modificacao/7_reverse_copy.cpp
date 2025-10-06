@@ -3,6 +3,11 @@
 #include <algorithm>
 
 /**
+ * - std::reverse_copy(begin, end, dest)
+ *   → Copia os elementos invertidos do intervalo (begin, end) para `dest`.
+ */
+
+/**
  * @brief Cria uma cópia invertida de um array estático de inteiros.
  *
  * Esta função demonstra o uso de std::reverse_copy com arrays estilo C.

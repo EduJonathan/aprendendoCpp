@@ -3,7 +3,11 @@
 #include <string>
 #include <algorithm>
 
-// std::merge(): Combina dois intervalos ordenados em um terceiro intervalo também ordenado.
+/**
+ * std::merge(begin1, end1, begin2, end2, dest)
+ * Combina dois intervalos ordenados (begin1, end1) e (begin2, end2)
+ * em um terceiro intervalo iniciado em `dest`, mantendo a ordenação.
+ */
 
 /**
  * @brief Ordena um vetor de strings usando o algoritmo Merge Sort com std::merge.

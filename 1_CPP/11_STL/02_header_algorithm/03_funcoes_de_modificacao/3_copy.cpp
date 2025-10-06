@@ -4,9 +4,14 @@
 #include <algorithm>
 
 /**
- * - std::copy(): Copia elementos de determinados elementos.
- * - std::copy_if(): Copia elementos de determinados elementos que atendem a uma condição.
- * - std::copy_n(): Copia um número específico de elementos de um intervalo.
+ * - std::copy(begin, end, dest)
+ *   → Copia todos os elementos do intervalo (begin, end) para `dest`.
+ *
+ * - std::copy_if(begin, end, dest, pred)
+ *   → Copia apenas os elementos que satisfazem a condição `pred`.
+ *
+ * - std::copy_n(begin, count, dest)
+ *   → Copia `count` elementos a partir de `begin` para `dest`.
  */
 
 /**

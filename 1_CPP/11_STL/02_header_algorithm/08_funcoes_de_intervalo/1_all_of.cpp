@@ -4,8 +4,8 @@
 #include <algorithm>
 
 /**
- * std::all_of(), que verifica se todos os elementos de um intervalo
- * satisfazem um predicado (condição específica).
+ * - std::all_of(begin, end, pred)
+ *   → Retorna true se todos os elementos no intervalo satisfazem a condição `pred`.
  */
 
 /**

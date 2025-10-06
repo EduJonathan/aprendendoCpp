@@ -3,11 +3,20 @@
 #include <algorithm>
 
 /**
- * - std::find(): Encontra a primeira ocorrência de um valor em um intervalo.
- * - std::find_if(): Encontra a primeira ocorrência de um valor em um intervalo que satisfaça uma condição. 
- * - std::find_if_not(): Encontra a primeira ocorrência de um valor em um intervalo que não satisfaça uma condição. 
- * - std::find_end(): Encontra a última ocorrência de um valor em um intervalo. 
- * - std::find_first_of(): Encontra o primeiro valor que corresponde a um dos valores em um intervalo.
+ * - std::find(begin, end, value):
+ *   → Retorna o primeiro elemento igual a `value`.
+ *
+ * - std::find_if(begin, end, pred)
+ *   → Retorna o primeiro elemento que satisfaz a condição `pred`.
+ *
+ * - std::find_if_not(begin, end, pred)
+ *   → Retorna o primeiro elemento que **não** satisfaz a condição `pred`.
+ *
+ * - std::find_end(begin1, end1, begin2, end2)
+ *   → Retorna a **última ocorrência** de (begin2, end2) dentro de (begin1, end1).
+ *
+ * - std::find_first_of(begin1, end1, begin2, end2)
+ *   → Retorna o primeiro elemento de (begin1, end1) que aparece em (begin2, end2).
  */
 
 /**

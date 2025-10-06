@@ -4,11 +4,10 @@
 #include <string>
 
 /**
- * std::string é uma classe especializada em manipulação de texto, oferecendo
- * funcionalidades específicas como concatenação, busca e substituição.
- * E std::string compartilha muita semelhança com containers sequenciais.
+ * std::string é uma classe para manipulação de texto, com métodos para concatenação,
+ * busca e substituição, funcionando como um container sequencial de caracteres.
  *
- * std::list<std::string> permite representar sequências de palavras com inserções eficientes.
+ * std::list<std::string> permite armazenar sequências de strings com inserções eficientes.
  */
 
 /**

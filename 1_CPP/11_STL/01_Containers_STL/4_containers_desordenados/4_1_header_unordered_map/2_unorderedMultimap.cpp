@@ -5,17 +5,10 @@
 #include <unordered_map>
 
 /**
- * std::unordered_multimap<T> É um contêiner que armazena múltiplos pares chave-valor,
- * permitindo chaves duplicadas, de forma não ordenada.
- *
- * O std::unordered_multimap é semelhante ao std::unordered_map, mas permite
- * que a mesma chave seja associada a vários valores. Assim como o std::unordered_map,
- * ele usa uma tabela hash para armazenar os pares chave-valor, permitindo inserções e
- * buscas rápidas.
- *
- * Características:
- * - Permite múltiplos valores para uma mesma chave, ou seja, chaves duplicadas são permitidas.
- * - Os pares chave-valor são armazenados em uma tabela hash, sem garantias de ordem.
+ * std::unordered_multimap<K, V> é um container que permite múltiplos valores para
+ * a mesma chave, armazenando pares chave-valor em tabela hash sem ordem garantida.
+ * 
+ * Permite buscas e inserções rápidas, mesmo com chaves duplicadas.
  */
 
 /**

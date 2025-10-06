@@ -4,25 +4,12 @@
 #include <map>
 
 /**
- * std::map<T> Estrutura de dados que permite associar pares de "chave-valor".
- * Cada chave no mapa é única, o que significa que não pode haver duas entradas
- * com a mesma chave. O mapa mantém a ordem das chaves automaticamente e oferece
- * uma maneira eficiente de acessar, inserir e remover elementos.
- *
- * Características principais:
- * - As chaves no mapa são armazenadas de forma ordenada
- * (em ordem crescente ou decrescente, dependendo do critério de comparação).
- *
- * - A busca, inserção e remoção de elementos possuem complexidade logarítmica O(log n),
- * o que torna o mapa muito eficiente, mesmo com grandes quantidades de dados.
- *
- * - Internamente, o std::map é implementado como uma árvore binária balanceada,
- * geralmente uma árvore vermelho-preto (Red-Black Tree), o que garante a eficiência
- * das operações.
- *
- * @note O acesso direto aos elementos no mapa é feito por meio da chave. Por exemplo,
- * para acessar o valor associado a uma chave `k`, usa-se `map[k]`. Caso a chave não
- * exista, ela é automaticamente inserida com um valor padrão.
+ * std::map<K, V> é um container associativo que armazena pares chave-valor com chaves únicas.
+ * As chaves são mantidas em ordem e o acesso, inserção e remoção têm complexidade O(log n).
+ * 
+ * Internamente, é implementado como uma árvore vermelho-preto, garantindo eficiência.
+ * 
+ * O acesso ao valor é feito via chave, por exemplo, map[k], que insere um valor padrão se a chave não existir.
  */
 
 /**

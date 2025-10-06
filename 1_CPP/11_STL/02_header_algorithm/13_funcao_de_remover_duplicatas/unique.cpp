@@ -5,8 +5,12 @@
 #include <algorithm>
 
 /**
- * - std::unique(): Remove elementos consecutivos duplicados de um intervalo.
- * - std::unique_copy(): Copia elementos únicos consecutivos para outro intervalo.
+ * - std::unique(begin, end)
+ *   → Remove elementos consecutivos duplicados no intervalo (begin, end), 
+ *   retornando um iterador para o novo fim.
+ *
+ * - std::unique_copy(begin, end, dest)
+ *   → Copia elementos únicos consecutivos do intervalo para `dest`.
  */
 
 /**

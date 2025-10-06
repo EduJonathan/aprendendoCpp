@@ -3,17 +3,17 @@
 #include <algorithm>
 
 /**
- * - std::remove(): Remove elementos de um intervalo movendo-os para o final, sem alterar 
- * o tamanho do contêiner. Para excluir fisicamente os elementos, é necessário usar `.erase()`.
- * 
- * - std::remove_if(): Semelhante ao `std::remove()`, mas permite especificar uma condiçã
- * (usando um predicado) para determinar quais elementos devem ser removidos.
- * 
- * - std::remove_copy(): Cria uma cópia de elementos que não correspondem a um valor
- * específico, deixando os indesejados para trás, sem alterar o contêiner original.
- * 
- * - std::remove_copy_if(): Semelhante ao `std::remove_copy()`, mas permite usar 
- * uma condição personalizada para selecionar quais elementos copiar.
+ * - std::remove(begin, end, value)
+ *   → Move os elementos ≠ `value` para frente; não altera o tamanho. Use `.erase()` para remover de fato.
+ *
+ * - std::remove_if(begin, end, pred)
+ *   → Igual ao `remove`, mas remove com base em uma condição (`pred`).
+ *
+ * - std::remove_copy(begin, end, dest, value)
+ *   → Copia para `dest` os elementos ≠ `value`. Não altera o original.
+ *
+ * - std::remove_copy_if(begin, end, dest, pred)
+ *   → Copia para `dest` os elementos que **não** satisfazem a condição `pred`.
  */
 
 /**

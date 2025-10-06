@@ -21,6 +21,8 @@ seja responsável pela liberação do recurso.
 3. **Ideal para objetos com um único dono**: Perfeito para garantir que um recurso tenha um único proprietário.
 4. **Movimentação (move semantics)**: Usa movimentação em vez de cópia, transferindo a posse do recurso.
 
+---
+
 ### Quando Utilizar
 
 1. **Propriedade única**: Use quando o recurso deve ter **um único** proprietário, evitando
@@ -29,6 +31,8 @@ seja responsável pela liberação do recurso.
    destruído automaticamente quando não houver mais referências a ele.
 3. **Transferência de posse**: Quando você precisa transferir a posse de um objeto sem
    copiá-lo, utilizando as "move semantics" de C++.
+
+---
 
 ### ANALOGIA
 
@@ -86,6 +90,8 @@ O recurso é destruído automaticamente quando a última referência é destruí
    contagem de referência.
 3. **Destruição automática**: O recurso é liberado quando o último `shared_ptr` é destruído ou redefinido.
 
+---
+
 ### USO
 
 1. **Propriedade compartilhada**: Use quando múltiplos objetos precisarem compartilhar
@@ -94,6 +100,8 @@ O recurso é destruído automaticamente quando a última referência é destruí
    ou conexões de rede, onde o ciclo de vida precisa ser automaticamente controlado.
 3. **Garantir a liberação da memória**: Útil quando se quer garantir que a memória será
    liberada assim que não houver mais referências ativas ao recurso.
+
+---
 
 ### ANALOGIA COM MUNDO REAL
 
@@ -132,6 +140,8 @@ que **não participa da contagem de referências**. Ele é ideal para evitar
 3. **Prevenção de ciclos de referência**: Ideal para situações em que ciclos de referência
    podem surgir, como em grafos, árvores ou callbacks.
 
+---
+
 ### QUANDO USAR
 
 1. **Evitar ciclos de referência**: Para quebrar ciclos entre objetos com `shared_ptr`,
@@ -142,6 +152,8 @@ que **não participa da contagem de referências**. Ele é ideal para evitar
    liberação de memória.
 4. **Callbacks e observadores**: Permite acessar objetos sem impedir sua destruição,
    evitando erros se o objeto for desalocado.
+
+---
 
 ### SITUAÇÃO ANALÓGICA
 
@@ -175,8 +187,7 @@ Imagine 2 classes `Pai` e `Filho`
 **Resultado**: Ambos têm um contador de referências preso em 1, e a memória vaza!
 **Solução**: Mude uma das referências para weak_ptr.
 
-> `Pai` tem um `shared_ptr<Filho>`.  
-> `Filho` tem um `weak_ptr<Pai>`.  
+> `Pai` tem um `shared_ptr<Filho>`. `Filho` tem um `weak_ptr<Pai>`.  
 > Agora, o `Filho` pode `olhar` para o `Pai` sem impedir que ele seja destruído.  
 > Se o `Filho` precisar acessar o `Pai`, ele usa `pai_ptr.lock()` para verificar  
 > se o `Pai` ainda está vivo e obter um acesso seguro (temporário `shared_ptr`).

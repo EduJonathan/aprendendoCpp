@@ -4,9 +4,9 @@
 #include <queue>
 
 /**
- * std::priority_queue<T> Fila de prioridade, estrutura de dados que organiza seus
- * elementos em ordem de acordo com uma função de comparação. Essa estrutura segue o
- * princípio de que o **elemento de maior prioridade é sempre acessado primeiro**.
+ * std::priority_queue<T> é uma fila de prioridade que organiza os elementos
+ * segundo uma função de comparação, garantindo que o elemento de maior prioridade
+ * seja acessado primeiro.
  */
 
 /**

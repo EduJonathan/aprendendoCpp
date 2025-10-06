@@ -3,8 +3,11 @@
 #include <algorithm>
 
 /**
- * Como de se imaginar std::max_element e std::min_element tem como objetivo retornar
- * o maior valor dentre os dados
+ * - std::max_element(begin, end)
+ *   → Retorna um iterador para o maior elemento no intervalo (begin, end).
+ *
+ * - std::min_element(begin, end)
+ *   → Retorna um iterador para o menor elemento no intervalo (begin, end).
  */
 
 /**

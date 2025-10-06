@@ -3,13 +3,20 @@
 #include <algorithm>
 
 /**
- * - std::partition(): Rearranja os elementos de forma que os que satisfazem o predicado 
- * fiquem à frente.
- * 
- * - std::is_partitioned(): Verifica se a partição já está realizada. 
- * - std::partition_point(): Retorna o primeiro elemento que não satisfaz o predicado. 
- * - std::partition_copy(): Copia os elementos com base em um predicado (não usado aqui). 
- * - std::stable_partition(): Realiza particionamento mantendo a ordem relativa dos elementos.
+ * - std::partition(begin, end, pred)
+ *   → Rearranja os elementos para que os que satisfazem a condição `pred` fiquem à frente.
+ *
+ * - std::is_partitioned(begin, end, pred)
+ *   → Verifica se o intervalo já está particionado segundo a condição `pred`.
+ *
+ * - std::partition_point(begin, end, pred)
+ *   → Retorna o primeiro elemento que **não** satisfaz a condição `pred` (ponto de divisão).
+ *
+ * - std::partition_copy(begin, end, dest_true, dest_false, pred)
+ *   → Copia elementos para dois destinos com base na condição `pred`.
+ *
+ * - std::stable_partition(begin, end, pred)
+ *   → Particiona mantendo a ordem relativa dos elementos.
  */
 
 /**

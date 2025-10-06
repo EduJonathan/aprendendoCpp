@@ -4,9 +4,8 @@
 #include <vector>
 
 /**
- * std::vector<T> é um container de sequência dinâmico que permite o redimensionamento
- * automático da sua capacidade conforme necessário. Ele pode armazenar qualquer
- * tipo de dado, incluindo outros containers como vetores, listas, strings, etc.
+ * std::vector<T> é um container de sequência dinâmico que armazena elementos
+ * do tipo T e redimensiona automaticamente sua capacidade conforme necessário.
  */
 
 /**

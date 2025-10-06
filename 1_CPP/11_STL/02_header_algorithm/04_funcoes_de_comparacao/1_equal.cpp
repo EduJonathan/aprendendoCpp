@@ -4,13 +4,14 @@
 #include <algorithm>
 
 /**
- * @brief Demonstra o uso de funções de comparação da STL.
+ * - std::equal(begin1, end1, begin2)
+ *   → Verifica se dois intervalos são iguais elemento a elemento.
  *
- * - std::equal(): Compara dois intervalos para verificar se são iguais elemento a elemento.
- * - std::equal_to: Usado como predicado binário para verificar igualdade.
+ * - std::equal_to<T>
+ *   → Predicado binário para testar igualdade entre dois valores do tipo T.
  *
- * @note `std::equal_range()` não é para comparação de ranges! Ela retorna o intervalo onde
- * um valor pode ser inserido em um range ordenado. Foi confundida na explicação anterior.
+ * @note std::equal_range() não compara intervalos; retorna o intervalo onde um valor
+ * pode ser inserido em um range ordenado.
  */
 
 /**

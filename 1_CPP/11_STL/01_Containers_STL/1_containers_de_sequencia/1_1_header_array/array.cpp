@@ -2,9 +2,9 @@
 #include <array>
 
 /**
- * std::array<T> É um container de sequência(um vetor estático), ou seja, ele
- * armazena um conjunto de tamanho fixo para armazenar cada elemento.
- * É uma alternativa para que possamos trabalhar com arrays na linguagem C++.
+ * std::array<T, N> é um container que representa um vetor estático de tamanho fixo.
+ * Ele armazena N elementos do tipo T, oferecendo métodos úteis e segurança
+ * em comparação aos arrays C tradicionais.
  */
 
 /**

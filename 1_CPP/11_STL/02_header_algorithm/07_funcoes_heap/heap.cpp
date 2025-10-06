@@ -6,10 +6,17 @@
  * As funções std::push_heap, std::pop_heap e std::make_heap permitem a manipulação de heaps,
  * que são estruturas de dados úteis para implementar filas de prioridade.
  *
- * - std::make_heap() => Converte vetor em um max-heap.
- * - std::push_heap() => Insere um novo elemento mantendo a estrutura de heap.
- * - std::pop_heap() => Move o maior elemento para o fim (não o remove).
- * - std::sort_heap() => Ordena os elementos e desfaz a propriedade de heap.
+ * - std::make_heap(begin, end)
+ *   → Transforma o intervalo em um max-heap.
+ *
+ * - std::push_heap(begin, end)
+ *   → Insere o último elemento no heap, mantendo a propriedade.
+ *
+ * - std::pop_heap(begin, end)
+ *   → Move o maior elemento para o fim do intervalo (não remove).
+ *
+ * - std::sort_heap(begin, end)
+ *   → Ordena os elementos e desfaz a estrutura de heap.
  */
 
 /**

@@ -2,9 +2,8 @@
 #include <list>
 
 /**
- * std::list<T> é um container que implementa uma lista duplamente encadeada.
- * Cada elemento armazena ponteiros para o anterior e o próximo, permitindo
- * inserções e remoções eficientes em qualquer posição (O(1)).
+ * std::list<T> é um container que implementa uma lista duplamente encadeada,
+ * permitindo inserções e remoções rápidas em qualquer posição.
  */
 
 /**

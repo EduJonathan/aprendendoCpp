@@ -4,8 +4,8 @@
 #include <algorithm>
 
 /**
- * std::any_of(): Verifica se pelo menos um elemento em um intervalo satisfaz um 
- * determinado predicado.
+ * - std::any_of(begin, end, pred)
+ *   → Retorna true se pelo menos um elemento satisfaz a condição `pred`.
  */
 
 /**

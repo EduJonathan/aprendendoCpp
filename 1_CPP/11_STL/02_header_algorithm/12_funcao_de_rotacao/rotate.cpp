@@ -3,8 +3,11 @@
 #include <algorithm>
 
 /**
- * - std::rotate(): Rotaciona os elementos "in-place".
- * - std::rotate_copy(): Faz uma cópia rotacionada
+ * - std::rotate(begin, middle, end)
+ *   → Rotaciona os elementos no intervalo (begin, end) colocando `middle` no início.
+ *
+ * - std::rotate_copy(begin, middle, end, dest)
+ *   → Copia os elementos rotacionados para `dest` sem alterar o original.
  */
 
 /**

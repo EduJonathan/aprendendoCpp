@@ -3,16 +3,9 @@
 #include <unordered_set>
 
 /**
- * std::unordered_set<T> Estrutura de dados que armazena elementos únicos de maneira
- * não ordenada. Ele usa uma tabela hash para armazenar os elementos, o que permite
- * inserções, buscas e remoções rápidas com complexidade média constante O(1).
- * Não há garantia de ordem na disposição dos elementos.
- *
- * Características:
- * - Armazena apenas elementos únicos, ou seja, não permite duplicatas.
- * - Os elementos são armazenados em uma tabela hash, o que resulta em acesso
- * mais rápido em comparação com outros contêineres como std::set.
- * - Não há um critério de ordenação explícito para os elementos.
+ * std::unordered_set<T> armazena elementos únicos de forma não ordenada,
+ * usando tabela hash para operações médias em O(1).
+ * Ideal para buscas, inserções e remoções rápidas sem garantir ordem.
  */
 
 /**

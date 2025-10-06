@@ -3,12 +3,14 @@
 #include <algorithm>
 
 /**
- * std::stable_sort(): Ordena todos os elementos em uma faixa especificada enquanto
- * mantém a estabilidade — ou seja, preserva a ordem relativa dos elementos equivalentes.
- * Isso é particularmente útil quando você tem um conjunto de dados com elementos iguais
- * e deseja manter a ordem original entre eles.
+ * std::stable_sort(): Ordena os elementos de um intervalo mantendo a estabilidade,
+ * ou seja, preservando a ordem relativa dos elementos que são considerados equivalentes
+ * segundo o critério de comparação fornecido.
  *
- * O tempo de execução do std::stable_sort é O(n log n), onde n é o número de elementos
+ * Essa característica é útil quando há elementos com valores iguais (ou equivalentes)
+ * e é importante manter sua ordem original no conjunto de dados.
+ *
+ * A complexidade de tempo de std::stable_sort é O(n log n), onde n é o número de elementos
  * no intervalo.
  */
 

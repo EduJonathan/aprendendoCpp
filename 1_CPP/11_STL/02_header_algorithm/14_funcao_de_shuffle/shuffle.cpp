@@ -5,9 +5,14 @@
 #include <algorithm>
 
 /**
- * - `std::shuffle()`: Embaralha elementos em um intervalo aleatoriamente.
- * - `std::random_device`: Gera sementes aleatórias reais.
- * - `std::mt19937`: Gerador de números pseudoaleatórios de alta qualidade (Mersenne Twister).
+ * - std::shuffle(begin, end, engine)
+ *   → Embaralha aleatoriamente os elementos do intervalo (begin, end).
+ *
+ * - std::random_device
+ *   → Fonte de sementes aleatórias reais para inicializar geradores.
+ *
+ * - std::mt19937
+ *   → Gerador de números pseudoaleatórios de alta qualidade (Mersenne Twister).
  */
 
 /**
