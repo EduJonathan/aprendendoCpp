@@ -53,7 +53,6 @@ int main(int argc, char **argv)
     return 0;
 }
 
-// Implementações essas que pode está implementando antes ou depois da função `main`
 int Casa::getQntdQuartos() const
 {
     return qntdQuartos;
@@ -76,7 +75,6 @@ bool Casa::setQntdQuartos(int quartos)
         std::cout << "Erro: Não há quartos suficientes! A casa tem no máximo " << limiteQuartos << " quartos.\n";
         return false;
     }
-
     qntdQuartos = quartos;
     return true;
 }

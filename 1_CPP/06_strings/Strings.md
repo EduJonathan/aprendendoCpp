@@ -27,7 +27,7 @@ O porém de apesar dessa modernidade, é o seu modo de operação que ainda se r
 
 Contém a classe `std::string`, que oferece uma manipulação moderna de strings em C++.  
 Permitindo operações como concatenação, busca, substituição e análise de texto
-(como o tamanho da string(.lenght() ou .size()), por exemplo).
+(como o tamanho da string(`.lenght()` ou `.size()`), por exemplo).
 
 ---
 
@@ -39,7 +39,7 @@ Permitindo operações como concatenação, busca, substituição e análise de 
 
 - `<cwchar>`: Similar ao `<cstring>` e herdada do C `#include <wchar.h>`, porém para
   manipulação de strings wide (`wchar_t`), que suportam caracteres mais amplos, útil
-  para Unicode em algumas plataformas (como emojis).
+  para Unicode em algumas plataformas (como emojis, caracteres mais amplos como Kanjis Japoneses, acentuação).
 
 ---
 
@@ -105,7 +105,7 @@ Quando utilizar:
 
 - Para funções que recebem apenas leitura de string, evitando cópia de dados.
 - Em parsing e manipulação leve de substrings.
-- Quando desejar interoperabilidade entre std::string, `char*`, `char[]` sem criar cópias temporárias.
+- Quando desejar interoperabilidade entre `std::string`, `char*`, `char[]` sem criar cópias temporárias.
 
 ---
 
@@ -115,8 +115,8 @@ Quando utilizar:
 
 Quando utilizar:
 
-- Para escrever código mais limpo e direto ao criar std::string_view a partir de literais.
-- Útil em testes, comparações, buscas rápidas com std::string_view.
+- Para escrever código mais limpo e direto ao criar `std::string_view` a partir de literais.
+- Útil em testes, comparações, buscas rápidas com `std::string_view`.
 
 ---
 
@@ -126,8 +126,8 @@ Quando utilizar:
 
 Quando utilizar:
 
-- Quando quiser usar "texto"sv sem qualificar explicitamente o namespace.
-- Geralmente combinado com using namespace std::literals; ou std::literals::string_view_literals.
+- Quando quiser usar `"texto"sv` sem qualificar explicitamente o namespace.
+- Geralmente combinado com `using namespace std::literals`; ou `std::literals::string_view_literals`.
 
 ---
 

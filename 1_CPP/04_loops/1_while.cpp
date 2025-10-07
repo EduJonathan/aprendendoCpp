@@ -51,7 +51,8 @@ int main(int argc, char **argv)
             digitos++;
 
             // digitos < 10, pois o do-while sempre tem incremento adicional de +1
-            // e ao entra no while-true, a contagem começaria a partir do 11
+            // e se caso fosse digitos <= 10, ao entrar no while-true, a contagem
+            // começaria a partir do 11
         } while (digitos < 10);
     }
 
@@ -71,6 +72,5 @@ int main(int argc, char **argv)
             break;
         }
     }
-
     return 0;
 }

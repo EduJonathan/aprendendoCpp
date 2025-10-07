@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
-#include <vector>
 #include <string>
+#include <algorithm>
 #include <cmath>
 
 // Classe base abstrata para contas de energia

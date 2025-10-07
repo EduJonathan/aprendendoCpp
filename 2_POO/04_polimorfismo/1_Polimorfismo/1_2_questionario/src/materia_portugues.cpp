@@ -1,6 +1,6 @@
 #include "../include/class_portugues.hpp"
 #include <iostream>
-#include <locale>
+#include <clocale>
 #include <cwctype>
 
 Portugues::Portugues() : acertos(0), totalQuestoes(3) {}

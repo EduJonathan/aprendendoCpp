@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "class_prototipo.hpp"
 // #include "implementacao.cpp"
 

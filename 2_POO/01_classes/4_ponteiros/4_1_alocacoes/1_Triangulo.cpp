@@ -77,6 +77,6 @@ int main(int argc, char **argv)
     triangulo->getClassificacao();         // Esperado: Equilátero
 
     // Liberando a memória alocada dinamicamente
-    delete triangulo; // Necessário para evitar vazamento de memória
+    delete triangulo;
     return 0;
 }

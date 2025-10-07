@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <new>
 #include <stdexcept>
 
 namespace diff

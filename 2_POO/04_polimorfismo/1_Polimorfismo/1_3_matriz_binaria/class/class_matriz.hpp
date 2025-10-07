@@ -1,7 +1,6 @@
 #ifndef CLASS_MATRIZ_HPP
 #define CLASS_MATRIZ_HPP
 
-#include <string>
 #include "class_value.hpp" // Incluir o cabeçalho da classe base
 
 class Matriz

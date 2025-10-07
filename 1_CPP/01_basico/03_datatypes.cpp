@@ -5,9 +5,11 @@
 #include <cfloat>  // Para constantes relacionadas a valores flutuantes (Relacionado ao float.h de C)
 
 /**
- * DATATYPES: São declarações que definem os tipos de dados, como inteiros, reais, caracteres,
- * strings, etc. Todos com seus respectivos tamanhos em bytes de memória e limites de
- * precisão. Praticamente sendo os mesmo da linguagem C.
+ * DATATYPES: Este código demonstra os tamanhos em bytes e os limites de valores
+ * dos tipos de dados fundamentais em C++.
+ *
+ * @note Os tamanhos dos tipos (como int, long) podem variar dependendo da arquitetura
+ * e do compilador, mas os limites são sempre consistentes para um dado tamanho (ex: int de 4 bytes).
  */
 
 int main(int argc, char **argv)
@@ -41,8 +43,8 @@ int main(int argc, char **argv)
     std::cout << "signed char: " << sizeof(signed char) << " byte\n";
     std::cout << "unsigned char: " << sizeof(unsigned char) << " byte\n";
     std::cout << "bool: " << sizeof(bool) << " byte\n";
-    std::cout << "std::string: " << sizeof(std::string) << " bytes\n";
-    std::cout << "std::size_t: " << sizeof(std::size_t) << " bytes\n";
+    std::cout << "std::string: " << sizeof(std::string) << " bytes (Tamanho da CLASSE/Estrutura, não do texto)\n";
+    std::cout << "std::size_t: " << sizeof(std::size_t) << " bytes (Geralmente unsigned long ou unsigned long long)\n";
 
     std::cout << "\n----------------------------------------------";
     std::cout << "\n========= LIMITES INTEIROS =========\n";
@@ -67,14 +69,11 @@ int main(int argc, char **argv)
     std::cout << "----------------------------------------------\n";
 
     std::cout << "float: " << std::numeric_limits<float>::lowest() << " a " << std::numeric_limits<float>::max() << '\n';
-
     std::cout << "double: " << std::numeric_limits<double>::lowest() << " a " << std::numeric_limits<double>::max() << '\n';
-
     std::cout << "long double: " << std::numeric_limits<long double>::lowest() << " a " << std::numeric_limits<long double>::max() << '\n';
 
     std::cout << "float (precisão decimal): " << std::numeric_limits<float>::digits10 << " dígitos\n";
     std::cout << "float_max_digits (precisão decimal): " << std::numeric_limits<float>::max_digits10 << " dígitos\n";
-
     std::cout << "double (precisão decimal): " << std::numeric_limits<double>::digits10 << " dígitos\n";
     std::cout << "double_max_digits (precisão decimal): " << std::numeric_limits<double>::max_digits10 << " dígitos\n";
 
@@ -98,7 +97,14 @@ int main(int argc, char **argv)
     std::cout << "\n========= LIMITES DE BOOL =========\n";
     std::cout << "----------------------------------------------\n";
 
-    std::cout << "bool: " << std::numeric_limits<bool>::min() << " a " << std::numeric_limits<bool>::max() << '\n';
+    // Casting para (int) é necessário para imprimir o valor numérico em vez do caractere ASCII
+    std::cout << "char (valor numérico): " << (int)std::numeric_limits<char>::min() << " a " << (int)std::numeric_limits<char>::max() << '\n';
+    std::cout << "signed char: " << (int)std::numeric_limits<signed char>::min() << " a " << (int)std::numeric_limits<signed char>::max() << '\n';
+    std::cout << "unsigned char: 0 a " << (int)std::numeric_limits<unsigned char>::max() << '\n';
+
+    // std::boolalpha para exibir como true/false
+    std::cout << "bool: " << std::boolalpha << std::numeric_limits<bool>::min() << " a " << std::numeric_limits<bool>::max() << std::noboolalpha << '\n';
     std::cout << "std::size_t: 0 a " << std::numeric_limits<std::size_t>::max() << '\n';
+
     return 0;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <new>
 
 /**
  * @brief Função que retorna o número com maior frequência

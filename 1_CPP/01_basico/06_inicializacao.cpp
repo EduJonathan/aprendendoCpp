@@ -2,98 +2,98 @@
 #include <iomanip>
 
 /**
- * Diferenças entre a inicialização de uma variável e a atribuição de um valor para ela.
+ * Diferenças entre as formas de inicialização de variáveis em C++.
  *
- * int var = 4; // Inicialização por cópia
- * int var{4}; // Inicialização Uniforme ou chaves (Uniform Initialization or Brace Initialization)
+ * 1. Inicialização por Cópia: int var = 4; (C++98)
+ * 2. Inicialização Direta: int var(4); (C++98)
+ * 3. Inicialização Uniforme (Brace/Chaves): int var{4}; (C++11)
  */
 
 int main(int argc, char **argv)
 {
-    std::cout << "----------------------------------";
-    std::cout << "\n\t>>INICIALIZAÇÃO TRADICIONAL<<\n";
-    std::cout << "----------------------------------\n";
+    // Usando setw para um alinhamento mais limpo
+    std::cout << "==================================\n";
+    std::cout << ">> INICIALIZAÇÃO TRADICIONAL (C++98) <<\n";
+    std::cout << "==================================\n";
 
-    int variavel = 4;
     /**
-     * Inicialização por cópia (C++98).
-     * Usa o operador '=' para copiar o valor para a variável.
-     * Pode levar a conversões implícitas inesperadas.
+     * Inicialização por cópia (C++98). Usa o operador '='.
+     * Permite conversões implícitas, inclusive narrowing conversions.
      */
+    int variavel_copia = 4;
 
-    float real = 3.14f; // Inicializa 'real' com o valor 3.14
+    /**
+     * Inicialização direta (C++98). Usa parênteses '()'.
+     * Também permite conversões implícitas, inclusive narrowing conversions.
+     */
+    int variavel_direta(5);
+    float real = 3.14f;
 
     // Exemplo de narrowing conversion com inicialização tradicional
-    int converter = real; // 'real' (float) será convertido para 'converter' (int), valor se torna 3
+    // O valor 'real' (3.14) é convertido para 'converter_copia' (int), valor se torna 3.
+    int converter_copia = real;
 
-    std::cout << "variavel: " << variavel << '\n';                               // Exibe 4
-    std::cout << "real: " << std::fixed << std::setprecision(2) << real << '\n'; // Exibe 3.14
-    std::cout << "converter: " << converter << '\n';                             // Exibe 3 (valor convertido de b)
+    std::cout << std::left << std::setw(20) << "variavel_copia (=): " << variavel_copia << '\n';
+    std::cout << std::left << std::setw(20) << "variavel_direta (()): " << variavel_direta << '\n';
+    std::cout << std::left << std::setw(20) << "real (float): " << std::fixed << std::setprecision(2) << real << '\n';
 
-    std::cout << "\n----------------------------------";
-    std::cout << "\n\t>>INICIALIZAÇÃO UNIFORME<<\n";
-    std::cout << "----------------------------------\n";
+    // Exibe 3 (narrowing permitido)
+    std::cout << std::left << std::setw(20) << "converter_copia: " << converter_copia << '\n';
 
-    int a{4}; // Inicializa 'a' com o valor 4
-    /**
-     * Inicialização uniforme (C++11).
-     * Impede conversões implícitas que possam causar perda de dados (narrowing conversions).
-     * Exemplo: int x{5.7}; // Erro: conversão de 'double' para 'int' com perda de dados.
-     */
-
-    float b{5.7}; // Inicializa 'b' com o valor 5.7
-
-    // A tentativa de conversão implícita gerará erro:
-    // int c{b}; // Erro: conversão implícita de 'float' para 'int' não permitida com chaves
-
-    // Tentar fazer uma conversão com perda de dados também gera erro:
-    // int d{5.7}; // Erro: conversão de tipo com perda de dados (narrowing conversion)
-
-    std::cout << "a : " << a << '\n';                                       // Exibe 4
-    std::cout << "b : " << std::fixed << std::setprecision(2) << b << '\n'; // Exibe 5.7
+    std::cout << "\n==================================\n";
+    std::cout << ">> INICIALIZAÇÃO UNIFORME (C++11) <<\n";
+    std::cout << "==================================\n";
 
     /**
-     * BOAS PRÁTICAS:
-     * - Prefira a inicialização uniforme ({}) para evitar conversões implícitas e
-     * narrowing conversions(narrowing conversions ou perda de dados).
-     *
-     * - Use a inicialização por cópia (=) apenas quando necessário para compatibilidade ou legibilidade.
-     *
-     * +--------------------------------------------------------------------------------+
-     * | Forma                         | Aceita Narrowing | Segurança  | Introduzida em |
-     * +--------------------------------------------------------------------------------+
-     * | int x = 1.0;                  | Sim              | Baixa      | C++98          |
-     * +--------------------------------------------------------------------------------+
-     * | int x{1.0};                   | Não              | Alta       | C++11          |
-     * +--------------------------------------------------------------------------------+
-     * | int x(static_cast<int>(1.0)); | Sim (explícita)  | Média-Alta | C++98          |
-     * +--------------------------------------------------------------------------------+
+     * Inicialização uniforme (C++11). Usa chaves '{}'.
+     * IMPEDE conversões implícitas que possam causar perda de dados (narrowing conversions).
      */
+    int a{4};
+    float b{5.7f}; // Inicializa 'b' com o valor 5.7 (melhor usar f para float)
 
-    std::cout << "\n----------------------------------------";
-    std::cout << "\n>> EXEMPLO DE NARROWING CONVERSION <<\n";
-    std::cout << "----------------------------------------\n";
+    std::cout << std::left << std::setw(20) << "a (int):" << a << '\n';
+    std::cout << std::left << std::setw(20) << "b (float):" << std::fixed << std::setprecision(2) << b << '\n';
 
-    float pi = 3.14f;
+    // A tentativa de narrowing conversion com chaves resultaria em ERRO DE COMPILAÇÃO:
+    /* int c{b}; */        // ERRO: Conversão implícita de 'float' para 'int' não permitida
+    /* int d{5.7}; */      // ERRO: Narrowing conversion de 'double' para 'int'
+    /* char letra{300}; */ // ERRO: 300 excede o limite de um 'char'
+
+    std::cout << "\n========================================\n";
+    std::cout << ">> SOLUÇÃO PARA NARROWING CONVERSION <<\n";
+    std::cout << "========================================\n";
+
     double e = 2.71828;
 
-    int copia_pi = pi; // OK: inicialização por cópia (conversão implícita permitida)
-    int direta_pi(pi); // OK: inicialização direta
+    // Para usar a Inicialização Uniforme com um tipo que requer narrowing,
+    // é necessário realizar a conversão explicitamente (ex: static_cast).
+    int cast_b{static_cast<int>(b)}; // Conversão explícita de float para int
+    int cast_e{static_cast<int>(e)}; // Conversão explícita de double para int
 
-    // Inicialização uniforme — TENTATIVAS INVÁLIDAS
-    // int c{pi};       // Erro: narrowing conversion
-    // int d{e};        // Erro: narrowing conversion
-    // char letra{300}; // Erro: narrowing
+    std::cout << std::left << std::setw(20) << "cast_b (de float):" << cast_b << '\n';  // Exibe 5
+    std::cout << std::left << std::setw(20) << "cast_e (de double):" << cast_e << '\n'; // Exibe 2
 
-    std::cout << "copia_pi (de float pi) : " << copia_pi << '\n';
-    std::cout << "direta_pi (de float pi) : " << direta_pi << '\n';
-
-    // Correto: conversão explícita com static_cast
-    int cast_pi{static_cast<int>(pi)};
-    int cast_e{static_cast<int>(e)};
-
-    std::cout << "cast_pi (cast de pi) : " << cast_pi << '\n';
-    std::cout << "cast_e (cast de e) : " << cast_e << '\n';
+    /*
+     * BOAS PRÁTICAS:
+     * - Prefira a Inicialização Uniforme ({}) para maior segurança, pois ela previne
+     * narrowing conversions (perda de dados) em tempo de compilação.
+     *
+     * - Use 'static_cast' para conversões que podem gerar narrowing, tornando
+     * a intenção de perda de dados explícita.
+     *
+     * Tabela Resumo das Formas de Inicialização
+     * +---------------------------------------------------------------------------------------+
+     * | Forma                  | Exemplo           | Aceita Narrowing | Segurança  | Versão   |
+     * +---------------------------------------------------------------------------------------+
+     * | Cópia (=)              | int x = 1.0;      | Sim              | Baixa      | C++98    |
+     * +---------------------------------------------------------------------------------------+
+     * | Direta (())            | int x(1.0);       | Sim              | Baixa      | C++98    |
+     * +---------------------------------------------------------------------------------------+
+     * | Uniforme ({})          | int x{1.0};       | NÃO (Erro)       | Alta       | C++11    |
+     * +---------------------------------------------------------------------------------------+
+     * | Explícita (Cast)       | int x{static_...  | Sim (Explícita)  | Média-Alta | C++98/11 |
+     * +---------------------------------------------------------------------------------------+
+     */
 
     /**
      * Compile e execute com

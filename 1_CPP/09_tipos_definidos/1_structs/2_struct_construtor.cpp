@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 /**
  * Construtores em Structs na linguagem C++ são funções especiais que são
@@ -75,8 +76,8 @@ int main(int argc, char **argv)
     std::cout << "-------------------\n";
 
     // Criação do objeto 'animal' do tipo Animal e inicialização com os valores passados
-    Animal animal("Totó", "Poodle");
-    animal.exibirAnimal(); // Chama a função para exibir os dados do animal
+    Animal *animal = new Animal("Totó", "Poodle");
+    animal->exibirAnimal(); // Chama a função para exibir os dados do animal
 
     /**
      * @note Utilizar construtores em structs no C++ pode ser muito útil quando você

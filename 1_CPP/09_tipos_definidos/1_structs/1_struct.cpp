@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 /**
  * STRUCTS: Agrupa variáveis de diferentes tipos sob um único nome. São úteis para modelar

@@ -84,7 +84,7 @@ struct Wrapper
     void print()
     {
         for (const auto &x : dados)
-            std::cout << x << " ";
+            std::cout << x << ' ';
         std::cout << '\n';
     }
 };

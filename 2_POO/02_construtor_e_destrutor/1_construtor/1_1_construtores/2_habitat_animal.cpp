@@ -86,5 +86,6 @@ int main(int argc, char **argv)
         std::cout << "-------------------\n";
     }
 
+    delete animais;
     return 0;
 }

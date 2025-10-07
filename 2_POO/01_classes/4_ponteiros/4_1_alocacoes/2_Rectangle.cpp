@@ -44,8 +44,8 @@ int main(int argc, char **argv)
     // Declara um objeto 'rectangle1' e um ponteiro para 'Retangulo'
     Retangulo *rectangle3 = nullptr;
 
-    // Aloca dinamicamente um array de 2 objetos do tipo 'Retangulo' e o 
-    // armazena em 'rectangle4' A alocação é feita usando 'new[]' para criar 
+    // Aloca dinamicamente um array de 2 objetos do tipo 'Retangulo' e o
+    // armazena em 'rectangle4' A alocação é feita usando 'new[]' para criar
     // um array de 2 retângulos
     Retangulo *rectangle4 = new Retangulo[2];
 
@@ -83,8 +83,9 @@ int main(int argc, char **argv)
     std::cout << "Área do *Retangulo[1] 4: " << rectangle4[1].getArea() << '\n';
 
     // Libera a memória alocada dinamicamente por new
-    delete[] rectangle4; // Libera o array de objetos 'rectangle4' que foi alocado com 'new[]'
-    delete rectangle2;   // Libera o único objeto 'rectangle2' alocado com 'new'
-    
+    delete[] rectangle4;
+
+    // Libera o único objeto 'rectangle2' alocado com 'new'
+    delete rectangle2;
     return 0;
 }

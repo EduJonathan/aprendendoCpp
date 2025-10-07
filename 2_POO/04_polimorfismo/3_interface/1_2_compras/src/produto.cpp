@@ -1,5 +1,4 @@
 #include "../classes/classProduto.hpp"
-
 #include <iostream>
 
 GPU::GPU(std::string modelo, double preco) : modelo(modelo), preco(preco) {}

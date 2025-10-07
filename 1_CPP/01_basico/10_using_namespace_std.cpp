@@ -57,39 +57,49 @@ void minhaFuncao(void)
     // Porém, tenha preferência pela importação seletiva para evitar poluição do namespace
     using std::cout;
     using std::endl;
-    cout << "Olá" << endl;
+    cout << "Função executada: Olá" << endl;
 }
 
-int count = 10; // Haverá conflito com std::count (função da STL da header <algorithm>)
+// Haverá conflito com std::count (função da STL da header <algorithm>)
+int count = 10;
 
 int main(int argc, char **argv)
 {
-    // `string string` Aqui não haverá ambiguidade, pois a ambiguidade só aparece se você
-    // trouxer todo o namespace std para o escopo onde a variável global count também é visível.
-    // Por isso string não está visível e não será ambíguo
+    // `string string` Aqui não haverá ambiguidade, pois maioria do problema da ambiguidade
+    // ocorre quando usamos `using namespace std;` no escopo global, assim como está acontecendo.
+    // Com a variável global `int count` pois quando você a chama `count`, o compilador não sabe
+    // se você está se referindo à variável global ou à função `std::count` da header <algorithm>.
     string string;
     string = "String";
     cout << string << endl;
 
-    std::cout << "-----------------------------------" << '\n';
+    cout << "-----------------------------------" << '\n';
 
     // Qual `count` será usado a variável ou da header <algorithm>? Terá Ambiguidade!
     // cout << count << endl;
 
-    std::cout << "-----------------------------------" << '\n';
-    std::cout << "ESCOPO `::`" << '\n';
+    cout << "-----------------------------------" << '\n';
+    cout << "ESCOPO `::` (Resolução de Ambiguidades)" << '\n';
+    cout << "-----------------------------------" << '\n';
 
-    // O operador de resolução de escopo é para acessar membros dentro de um
-    // namespace, classe, funções podendo até mesmo variáveis e funções de outros headers.
-
+    // 1. Variável local
     int count = 20;
-    std::cout << count << '\n';   // Imprime 20 (local)
-    std::cout << ::count << '\n'; // Imprime 10 (global)
+
+    // Imprime 20 (local)
+    cout << "count (local): " << count << '\n';
+
+    // 2. Variável global
+    cout << "::count (global): " << ::count << '\n'; // Imprime 10 (acessa o global explícito)
+
+    // 3. Função global (std) - Note que 'std' é um namespace
+    cout << "Resultado (std::count): " << std::count(string.begin(), string.end(), 'a') << '\n';
+
+    minhaFuncao();
 
     /**
-     * Este código é para vermos o quão poluido pode ficar a leitura e escrita do código ao utilizar
-     * `using namespace std` ou qualquer outro derivado não é errado, mas boas práticas devemos evitar
-     * com namespaces:
+     * Este código é para vermos o quão poluido pode ficar a leitura e escrita do código
+     * ao utilizar `using namespace std` ou qualquer outro derivado que em si não é errado,
+     * mas devemos ter boas práticas para evitar problemas com namespaces:
      *
      * 1. Evite `using namespace std;` no escopo global para prevenir:
      *    - Poluição do namespace.

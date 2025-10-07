@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <new>
+#include <cstdlib>
 #include <cmath>
 
 // Constante de PI

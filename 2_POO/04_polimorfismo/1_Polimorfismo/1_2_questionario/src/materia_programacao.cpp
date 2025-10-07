@@ -1,6 +1,6 @@
 #include "../include/class_programacao.hpp"
 #include <iostream>
-#include <locale>
+#include <clocale>
 #include <cwctype>
 
 Programacao::Programacao() : acertos(0), totalQuestoes(3) {}

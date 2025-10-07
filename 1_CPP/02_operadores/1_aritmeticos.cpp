@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     std::cout << "numero1 / numero2: " << (numero1 / numero2) << '\n';
     std::cout << "numero1 % numero2: " << (static_cast<int>(numero1) % static_cast<int>(numero2)) << '\n';
 
-    // Usando fmod() para calcular o módulo com números de ponto flutuante
+    // Usando fmod() para calcular o módulo com números de ponto flutuante(std::fmod) de <cmath>
     double resultado_modulo = std::fmod(numero1, numero2);
 
     // Exibindo o resultado com 2 casas decimais

@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
     /**
      * Compile e execute o programa com:
-     * > g++ -std=c++17 main_livro.cpp classLivro.cpp -o nome_do_executavel
+     * > g++ -std=c++17 main_livro.cpp implementar_livro.cpp -o nome_do_executavel
      * > ./nome_do_executavel
      */
     return 0;

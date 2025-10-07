@@ -28,9 +28,8 @@ int main(int argc, char **argv)
 {
     Circulo circulo; // Cria um objeto da classe Circulo
 
-    circulo.setCirculo(5.0);   // Define o raio
-    circulo.imprimirCirculo(); // Imprime a área
-
+    circulo.setCirculo(5.0);              // Define o raio
+    circulo.imprimirCirculo();            // Imprime a área
     double area = circulo.calcularArea(); // Calcula a área
 
     std::cout << "Área calculada manualmente: " << std::fixed << std::setprecision(2) << area << '\n';

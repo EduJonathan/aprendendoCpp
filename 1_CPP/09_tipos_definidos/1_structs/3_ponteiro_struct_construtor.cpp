@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 #ifndef NODE
 #define NODE

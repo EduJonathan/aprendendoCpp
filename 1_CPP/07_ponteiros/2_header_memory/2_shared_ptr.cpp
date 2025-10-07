@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdint>
 #include <memory>
+#include <new>
 
 /**
  * std::shared_ptr<T>: É um ponteiro inteligente que permite que vários ponteiros

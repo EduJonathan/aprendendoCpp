@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <cassert>
 
 /**
  * Se `constexpr` trata-se de uma constante que só é avaliada em tempo de compilação,
@@ -24,7 +26,7 @@
  * | Segurança de tipo     | Não                   | Sim                              |
  * | Consciência de escopo | Não                   | Sim                              |
  * | Depuração             | Difícil               | Fácil                            |
- * | interpretação         | Substituição de texto | Avaliação em tempo de compilação |
+ * | Interpretação         | Substituição de texto | Avaliação em tempo de compilação |
  * | Uso                   | Apenas constantes     | Constantes e funções             |
  * +-----------------------+-----------------------+----------------------------------+
  */
@@ -35,38 +37,67 @@
 
 // Exemplo com constexpr (C++ moderno)
 constexpr double pi = 3.1415926535;
+
+// Função constexpr (C++11 em diante) para encontrar o máximo entre dois valores
 constexpr int max(int a, int b) { return a > b ? a : b; }
 
 int main(int argc, char **argv)
 {
+    std::cout << "--- Comparando #define e constexpr ---\n\n";
+
     // 1. Verificação de tipo
-    double circle1 = PI * 2.0 * 2.0; // OK, mas sem verificação de tipo
-    // int bad = PI * "2";           // Erro só aparece após substituição
+    double circle1 = PI * 2.0 * 2.0; // OK, sem verificação de tipo no pré-processamento
+    // double bad = PI * "2";       // O erro só aparece na compilação, após substituição
 
     double circle2 = pi * 2.0 * 2.0; // Verificação de tipo em tempo de compilação
-    // int bad2 = pi * "2";         // Erro imediato: não pode multiplicar double por string
+    // double bad2 = pi * "2";      // Erro imediato do compilador: não pode multiplicar double por string
+
+    std::cout << std::left << std::setw(25) << "circle1 (macro PI):" << circle1 << '\n';
+    std::cout << std::left << std::setw(25) << "circle2 (constexpr pi):" << circle2 << "\n\n";
 
 #undef PI
 
     // 2. Comportamento de escopo
+    std::cout << "--- Teste de Escopo ---\n";
     {
-#define PI 3.14                     // Redefine PI em qualquer escopo
-        constexpr double pi = 3.14; // Variável local, não afeta a global
+#define PI 3.14                           // Redefine PI GLOBALMENTE, apesar do escopo
+        constexpr double pi_local = 3.14; // Variável LOCAL, não afeta a global
+
+        std::cout << std::left << std::setw(25) << "PI (Macro dentro do escopo): " << PI << '\n';
+        std::cout << std::left << std::setw(25) << "pi (Constexpr local):" << pi_local << '\n';
     }
 
-    // 3. Uso em templates e metaprogramação
-    static_assert(max(1, 2) == 2, "Teste constexpr"); // Funciona
-    // static_assert(MAX(1, 2) == 2, "");  // Não funciona com #define
+    // O novo valor (3.14) persiste!
+    std::cout << std::left << std::setw(25) << "PI (Macro fora do escopo):" << PI << "\n\n";
 
-    // 4. Problemas com macros
+    // 3. Uso em templates e metaprogramação
+    static_assert(max(1, 2) == 2, "Teste constexpr function OK"); // Funciona em tempo de compilação
+
+    // Macro não pode ser usado em static_assert (requer expressão constante)
+    /* static_assert(MAX(1, 2) == 2, ""); */
+
+    // 4. Problemas com macros (Efeitos colaterais)
+    std::cout << "--- Problema Clássico de Macro ---\n";
+
     int x = 5, y = 10;
-    std::cout << "MAX macro: " << MAX(++x, y) << '\n'; // Problema: incremento duplo!
+    std::cout << std::left << std::setw(25) << "Antes (x, y): " << x << ", " << y << '\n';
+    std::cout << std::left << std::setw(25) << "MAX macro (MAX(++x, y)): " << MAX(++x, y) << '\n';
+    std::cout << std::left << std::setw(25) << "Depois (x): " << x << '\n'; // x é incrementado duas vezes (valor 7)!
+
     x = 5;
-    std::cout << "max constexpr: " << max(++x, y) << '\n'; // Comportamento correto
+    std::cout << '\n';
+    std::cout << std::left << std::setw(25) << "Antes (x, y): " << x << ", " << y << '\n';
+    std::cout << std::left << std::setw(25) << "max constexpr (max(++x, y)): " << max(++x, y) << '\n';
+
+    // x é incrementado apenas uma vez (valor 6), comportamento correto
+    std::cout << std::left << std::setw(25) << "Depois (x): " << x << "\n\n";
 
     // 5. Depuração
-    std::cout << "PI (macro): " << PI << '\n';     // No debugger, vemos o valor substituído
-    std::cout << "pi (constexpr): " << pi << '\n'; // No debugger, vemos a variável pi
+    std::cout << "--- Depuração ---\n";
+    std::cout << std::left << std::setw(25) << "PI (macro): " << PI << '\n';
+    std::cout << std::left << std::setw(25) << "pi (constexpr): " << pi << '\n';
+    // Observação: pi (constexpr) é uma variável real e pode ser inspecionada no depurador.
+    // PI (macro) é apenas um token e pode ser invisível ou difícil de rastrear.
 
     return 0;
 }

@@ -36,9 +36,10 @@ int main(int argc, char **argv)
     const double area = calculateCircleArea(dynamicValue);
 
     std::cout << "Raio aleatorio: " << dynamicValue << '\n';
-
     std::cout << "Area calculada: " << area << '\n';
     std::cout << "Area do circulo unitario: " << unitCircleArea << "\n\n";
+
+    std::cout << "-----------------------------------------------------\n";
 
     // Demonstração de constexpr (tempo de compilação)
     std::cout << "=== USO DE CONSTEXPR (TEMPO DE COMPILACAO) ===\n";
@@ -58,15 +59,15 @@ int main(int argc, char **argv)
     // std::cout << "Valor aleatório constexpr: " << valorAleatorio << '\n';
 
     /**
-     * +--------------------------------+---------------------------+-----------------------------+
-     * | Característica                 | const                     | constexpr                   |
-     * +--------------------------------+---------------------------+-----------------------------+
-     * | Avaliação                      | Tempo de execução         | Tempo de compilação         |
-     * | Pode chamar qualquer função    | Sim                       | Não (só constexpr)          |
-     * | Pode depender de entrada extra | Sim                       | Não                         |
-     * | Exemplo válido                 | const int x = rand();     | constexpr int y = 2 + 3;    |
-     * | Usado para std::array          | Não (exceto global const) | Sim (exigido por std::array)|
-     * +--------------------------------+---------------------------+-----------------------------+
+     * +--------------------------------+---------------------------+------------------------------+
+     * | Característica                 | const                     | constexpr                    |
+     * +--------------------------------+---------------------------+------------------------------+
+     * | Avaliação                      | Tempo de execução         | Tempo de compilação          |
+     * | Pode chamar qualquer função    | Sim                       | Não (só constexpr)           |
+     * | Pode depender de entrada extra | Sim                       | Não                          |
+     * | Exemplo válido                 | const int x = rand();     | constexpr int y = 2 + 3;     |
+     * | Usado para std::array          | Não (exceto global const) | Sim (exigido por std::array) |
+     * +--------------------------------+---------------------------+------------------------------+
      */
 
     /**
@@ -79,6 +80,9 @@ int main(int argc, char **argv)
      *
      * DICA: Quando estiver pensando em usar o constexpr, pense assim:
      * "Isso poderia ser resolvido completamente antes do programa começar a rodar?"
+     *
+     * @note Veremos depois que este é um dos conceitos mais importantes e praticamente
+     * um dos maiores trunfos em C++ moderno, especialmente em templates e metaprogramação.
      */
     return 0;
 }

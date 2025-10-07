@@ -4,7 +4,7 @@
 #include "../include/class_programacao.hpp"
 #include <iostream>
 #include <vector>
-#include <locale>
+#include <clocale>
 #include <stdexcept>
 #include <new>
 

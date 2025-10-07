@@ -1,7 +1,7 @@
 #include "../include/class_matematica.hpp"
 #include <iostream>
 #include <cctype>
-#include <locale>
+#include <clocale>
 #include <cwctype>
 
 Matematica::Matematica() : acertos(0), totalQuestoes(3) {}
