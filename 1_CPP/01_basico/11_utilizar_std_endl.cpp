@@ -152,8 +152,8 @@ int main(int argc, char **argv)
      *
      * 4. Boas práticas:
      * - Use '\n' por padrão para eficiência.
-     * - Use std::endl ou std::flush apenas em prompts interativos ou debugging..
-     * - Use aspas simples ('\n') para caractere simples ou aspas duplas ("\n") para uma string literal.
+     * - Use std::endl ou std::flush apenas em prompts interativos ou debugging.
+     * - Use aspas simples ('\n') para caractere simples e aspas duplas ("\n\n") para uma string literal.
      */
     return 0;
 }

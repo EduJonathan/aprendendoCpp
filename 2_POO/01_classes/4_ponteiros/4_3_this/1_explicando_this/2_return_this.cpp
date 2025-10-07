@@ -4,6 +4,12 @@
 #include <memory>
 
 /**
+ * **return *this;** é uma prática comum em C++ para retornar uma referência ao próprio objeto
+ * dentro de um método de uma classe. Isso é especialmente útil para permitir o encadeamento
+ * de chamadas de métodos.
+ */
+
+/**
  * @brief Classe que representa uma pessoa com nome e idade.
  */
 class Pessoa

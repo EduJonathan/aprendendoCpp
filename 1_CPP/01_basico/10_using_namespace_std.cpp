@@ -66,8 +66,8 @@ int count = 10;
 int main(int argc, char **argv)
 {
     // `string string` Aqui não haverá ambiguidade, pois maioria do problema da ambiguidade
-    // ocorre quando usamos `using namespace std;` no escopo global, assim como está acontecendo.
-    // Com a variável global `int count` pois quando você a chama `count`, o compilador não sabe
+    // ocorre quando usamos `using namespace std;` no escopo global, assim como está acontecendo
+    // com a variável global `int count` pois quando você a chama `count`, o compilador não sabe
     // se você está se referindo à variável global ou à função `std::count` da header <algorithm>.
     string string;
     string = "String";

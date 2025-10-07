@@ -78,6 +78,7 @@ int main(int argc, char **argv)
     // Criação do objeto 'animal' do tipo Animal e inicialização com os valores passados
     Animal *animal = new Animal("Totó", "Poodle");
     animal->exibirAnimal(); // Chama a função para exibir os dados do animal
+    delete animal;          // Libera a memória alocada para o objeto 'animal'
 
     /**
      * @note Utilizar construtores em structs no C++ pode ser muito útil quando você

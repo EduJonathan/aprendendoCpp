@@ -1,4 +1,5 @@
 #include "class_cipher.hpp"
+#include <memory>
 
 /**
  * @brief Função principal que executa a criptografia usando a cifra de César.
@@ -13,6 +14,9 @@
 int main(int argc, char **argv)
 {
     CaesarCipher().requestPassword(argc, argv).randomizeShift().encrypt().prompt();
+
+    std::unique_ptr<CaesarCipher> cipher = std::make_unique<CaesarCipher>();
+    cipher->requestPassword(argc, argv).randomizeShift().encrypt().prompt();
 
     /**
      * Compile e execute o programa com:
