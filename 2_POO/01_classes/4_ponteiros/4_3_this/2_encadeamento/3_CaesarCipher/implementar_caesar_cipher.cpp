@@ -36,10 +36,10 @@ CaesarCipher &CaesarCipher::requestPassword(int argc, char **argv)
 
 CaesarCipher &CaesarCipher::randomizeShift()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 25);
-    shift = dis(gen);
+    std::random_device rd;                      // Dispositivo de geração de números aleatórios
+    std::mt19937 gen(rd());                     // Motor de geração de números aleatórios (Mersenne Twister)
+    std::uniform_int_distribution<> dis(0, 25); // Distribuição uniforme entre 0 e 25
+    shift = dis(gen);                           // Gera o valor de deslocamento
     return *this;
 }
 
@@ -59,7 +59,7 @@ CaesarCipher &CaesarCipher::encrypt()
     {
         if (!std::isalpha(c))
         {
-            return c; // Return non-alphabetic characters unchanged
+            return c; // Retorna o caractere inalterado se não for alfabético
         }
         char base = std::isupper(c) ? 'A' : 'a';
         return static_cast<char>((c - base + shift) % 26 + base);

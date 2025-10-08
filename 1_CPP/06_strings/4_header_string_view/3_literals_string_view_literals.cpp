@@ -2,8 +2,9 @@
 #include <string_view>
 
 /**
- * std::literals::string_view_literals é o namespace onde o operador de sufixo `sv` está definido.
- * Para usar o sufixo `sv`, você precisa importar esse namespace explicitamente com using namespace
+ * std::literals::string_view_literals é o namespace onde o operador de sufixo `sv`
+ * está definido. Para usar o sufixo `sv`, você precisa importar esse namespace
+ * explicitamente com using namespace
  *
  * std::literals::string_view_literals; ou using namespace std::literals;. Ele faz parte da
  * biblioteca padrão do C++17 e é usado exclusivamente para criar std::string_view a partir

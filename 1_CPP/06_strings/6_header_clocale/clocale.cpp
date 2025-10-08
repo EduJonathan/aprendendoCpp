@@ -63,7 +63,7 @@ bool configurarLocale(const std::string &localeName, double number, const std::w
     return true;
 }
 
-int main()
+int main(int argc, char **argv)
 {
     // chamada que desativa a sincronização entre as streams de C++ (std::cin, std::cout, std::wcout, etc.) e as streams da biblioteca C (stdin, stdout).
     std::ios_base::sync_with_stdio(false);

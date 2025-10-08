@@ -99,10 +99,8 @@ int main(int argc, char **argv)
      * - Melhora a legibilidade e manutenção do código.
      *
      * RESUMO:
-     * - Use o **for tradicional** quando precisar de controle preciso sobre a iteração,
-     * sendo mais flexível.
+     * - Use o **for tradicional** quando precisar de controle preciso sobre a iteração, sendo mais flexível.
      * - Prefira o **range-based for** para iterações diretas e seguras sobre coleções.
      */
-
     return 0;
 }

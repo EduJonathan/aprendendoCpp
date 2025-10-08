@@ -1,5 +1,4 @@
 #include <iostream>
-#include <array>
 #include <iomanip>
 
 /**
@@ -77,36 +76,6 @@ int main(int argc, char **argv)
 
     // Exibe a soma total dos valores da matriz
     std::cout << " | " << valoresSomados << '\n';
-
-    std::cout << "\n------------------------------" << '\n';
-
-    // Matriz com representação mais moderna utilizando com std::array (C++11)
-    std::cout << "\tMatriz com std::array" << '\n';
-
-    // Definindo uma matriz 3x3 usando std::array e valores já definidos
-    std::array<std::array<double, 3>, 3> matriz2 = {
-        {{1.1, 1.2, 1.3},
-         {2.1, 2.2, 2.3},
-         {3.1, 3.2, 3.3}}};
-
-    // Modificando elementos da matriz2
-    for (std::size_t i = 0ull; i < matriz2.size(); ++i)
-    {
-        for (std::size_t j = 0ull; j < matriz2[i].size(); ++j)
-        {
-            matriz2[i][j] += 1.0; // Incrementa cada elemento em 1.0
-        }
-    }
-
-    // Exibindo a matriz usando std::array
-    for (const auto &linha : matriz2)
-    {
-        for (const auto &elemento : linha)
-        {
-            std::cout << '\t' << std::setw(4) << elemento;
-        }
-        std::cout << '\n';
-    }
 
     return 0;
 }
