@@ -119,7 +119,7 @@ int main(int argc, char **argv)
     
     // 5. FORMATAÇÃO DE ALINHAMENTO E PREENCHIMENTO
     std::cout << "\n================================================\n";
-    std::cout << "\t5. Alinhamento e Preenchimento\n";
+    std::cout << "\tAlinhamento e Preenchimento\n";
     std::cout << "================================================\n";
 
     int valor_align = 123;

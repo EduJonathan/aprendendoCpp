@@ -11,7 +11,6 @@
  * são acessados e manipulados, enquanto o `struct` é mais simples e direto, com
  * seus membros públicos por padrão.
  *
- *
  * Organização da memória entre `struct` e `class`:
  * - Ambos `struct` e `class` armazenam seus membros de forma contígua na memória,
  * na ordem em que são declarados, respeitando as regras de alinhamento da arquitetura.

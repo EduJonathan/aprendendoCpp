@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 /**
  * std::cin — Objeto da classe std::istream usado para entrada de dados pelo console (entrada padrão).
@@ -46,8 +47,10 @@ int main(int argc, char **argv)
     int num = 0;
 
     // Utilizando o std::cin para receber diretamente uma letra e um número do usuário.
-    std::cout << "Digite uma letra e numero: ";
+    std::cout << "Digite uma letra e número(Exe.: A 25): ";
     std::cin >> letra >> num;
     std::cout << "Você digitou a letra: " << letra << " e número: " << num << '\n';
+
+    std::cout << "---------------------------------" << '\n';
     return 0;
 }

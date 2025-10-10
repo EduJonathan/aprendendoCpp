@@ -71,11 +71,6 @@ int main(int argc, char **argv)
 
     std::cout << "\tTIPOS CARACTERES" << "\n\n";
 
-    // Como sabemos tipos de caracteres podem ser representados por números
-    // (decimais ou hexadecimais) vindo da tabela ASCII. Como dito C++ não
-    // se diferencia de C. Onde ele utiliza a tabela ASCII para representar
-    // caracteres também, seja `char` ou `std::string`.
-
     // Declarando variáveis do tipo caractere
     char letra = 'a';
     char caracterEspecial = 0x0A; // Representa em binário o caractere nova linha (newline) '\n'
