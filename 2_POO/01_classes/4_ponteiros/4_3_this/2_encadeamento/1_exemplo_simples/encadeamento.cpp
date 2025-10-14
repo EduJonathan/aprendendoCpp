@@ -8,8 +8,7 @@
  * o método está sendo executado. O operador '*' é usado para desreferenciar esse
  * ponteiro, acessando o objeto para o qual ele aponta.
  *
- * Assim, "return *this;" retorna o próprio objeto, permitindo o encadeamento
- * de chamadas de métodos.
+ * Assim, "return *this;" retorna o próprio objeto, permitindo o encadeamento de chamadas de métodos.
  *
  * Esse encadeamento permite executar várias operações em sequência sobre
  * o mesmo objeto, tornando o código mais fluido, limpo e flexível.

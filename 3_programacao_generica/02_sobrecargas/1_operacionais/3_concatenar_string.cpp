@@ -89,5 +89,8 @@ int main(int argc, char **argv)
 
     string *newStr = new string(*str1 + *str2); // Concatena s1 e s2 usando o operador `+` e armazena em s3.
     newStr->display();                          // Exibe a string resultante: "Hello C++".
+
+    delete str1;
+    delete str2;
     return 0;
 }

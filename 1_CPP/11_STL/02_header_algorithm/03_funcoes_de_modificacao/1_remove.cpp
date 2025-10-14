@@ -31,8 +31,9 @@ void removerCaractere(std::vector<char> &vetorCaractere)
     vetorCaractere.erase(std::remove_if(vetorCaractere.begin(), vetorCaractere.end(), [](char c)
     {
         return c >= 'A' && c <= 'Z'; // Condição para remover caracteres maiúsculos
-    }), vetorCaractere.end() // Final do vetor para apagar a parte removida
-    );
+
+        // Final do vetor para apagar a parte removida
+    }), vetorCaractere.end());
 }
 
 int main(int argc, char **argv)

@@ -12,19 +12,16 @@
  * ---------------------
  *
  * 1. **Manutenção difícil**: O código se torna grande e desorganizado, dificultando mudanças e depuração.
- *
- * 2. **Reutilização limitada**: Ao incluir o `arquivo.cpp`, a classe não pode ser facilmente
- * reutilizada em outros arquivos.
- *
+ * 2. **Reutilização limitada**: Ao incluir o `arquivo.cpp`, a classe não pode ser facilmente reutilizada em outros arquivos.
  * 3. **Perda de desempenho**: Compilação separada permite otimizações de tempo, o que é perdido ao incluir `.cpp`.
+ * 4. **Dificuldade de testes**: Testar a classe se torna mais complicado, pois não é possível compilar apenas o arquivo de teste.
+ * 5. **Trabalho em equipe**: A abordagem dificulta a colaboração entre diferentes desenvolvedores.
  *
- * 4. **Trabalho em equipe**: A abordagem dificulta a colaboração entre diferentes desenvolvedores.
- *
- * 5. **Problemas de compilação**: Incluir `arquivo.cpp` pode levar a múltiplas definições
+ * 6. **Problemas de compilação**: Incluir `arquivo.cpp` pode levar a múltiplas definições
  * das mesmas funções, gerando erros de linking e aumentando o tempo de compilação.
  *
- * 6. **Dificuldade de testes**: Testar a classe se torna mais complicado, pois não é possível
- * compilar apenas o arquivo de teste.
+ * 7. **Problemas de compilação**: Incluir `arquivo.cpp` pode levar a múltiplas definições
+ * das mesmas funções, gerando erros de linking e aumentando o tempo de compilação.
  *
  * ---------------------
  *

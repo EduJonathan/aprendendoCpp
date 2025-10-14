@@ -117,5 +117,7 @@ int main(int argc, char **argv)
     meuPC->ligar();
     meuPC->enviarEmail("rh@empresa.com");
 
+    delete meuCelular;
+    delete meuPC;
     return 0;
 }

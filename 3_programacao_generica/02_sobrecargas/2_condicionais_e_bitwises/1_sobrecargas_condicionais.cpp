@@ -1,5 +1,4 @@
 #include <iostream>
-#include <new>
 
 /**
  * A sobrecarga dos operadores (==, !=, <, >, <=, >=, &&, ||, !) permite realizar
@@ -91,17 +90,20 @@ public:
     {
         std::cout << "Valor: " << valor << '\n';
     }
+
+    // Método para retornar o valor
+    int getValor() const { return valor; }
 };
 
 int main(int argc, char **argv)
 {
-    Inteiro
-        *a = new Inteiro(10),
-        *b = new Inteiro(20),
-        *c = new Inteiro(0);
+    // Criando objetos diretamente na stack
+    Inteiro a(10);
+    Inteiro b(20);
+    Inteiro c(0);
 
     // Comparações com == e !=
-    if (*a == *b)
+    if (a == b)
     {
         std::cout << "a é igual a b\n";
     }
@@ -110,51 +112,63 @@ int main(int argc, char **argv)
         std::cout << "a não é igual a b\n";
     }
 
-    if (*a != *c)
+    if (a != c)
     {
         std::cout << "a não é igual a c\n";
     }
 
     // Comparações com <, >, <=, >=
-    if (*a < *b)
+    if (a < b)
     {
         std::cout << "a é menor que b\n";
     }
 
-    if (*b > *a)
+    if (b > a)
     {
         std::cout << "b é maior que a\n";
     }
 
-    if (*a <= *b)
+    if (a <= b)
     {
         std::cout << "a é menor ou igual a b\n";
     }
 
-    if (*b >= *a)
+    if (b >= a)
     {
         std::cout << "b é maior ou igual a a\n";
     }
 
     // Operadores lógicos: &&, ||, !
-    if (*a && *b)
+    if (a && b)
     {
         std::cout << "a e b são diferentes de zero\n";
     }
 
-    if (*a || *c)
+    if (a || c)
     {
         std::cout << "pelo menos um de a ou c é diferente de zero\n";
     }
 
-    if (!*c)
+    if (!c)
     {
         std::cout << "c é zero\n";
     }
 
-    delete a;
-    delete b;
-    delete c;
+    std::cout << "---------------------------" << '\n';
 
+    // Comparando os três valores para encontrar o maior
+    Inteiro maior = a;
+
+    if (b > maior)
+    {
+        maior = b;
+    }
+
+    if (c > maior)
+    {
+        maior = c;
+    }
+
+    std::cout << "O maior valor é: " << maior.getValor() << '\n';
     return 0;
 }

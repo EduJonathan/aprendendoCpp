@@ -15,8 +15,7 @@
  * Durações (std::chrono::duration) – Representam períodos de tempo em diferentes unidades
  * como segundos, milissegundos ou nanosegundos.
  *
- * Pontos no tempo (std::chrono::time_point) – Marcam instantes específicos em relação
- * a um relógio.
+ * Pontos no tempo (std::chrono::time_point) – Marcam instantes específicos em relação a um relógio.
  */
 
 int main(int argc, char **argv)
@@ -51,10 +50,9 @@ int main(int argc, char **argv)
     /**
      * para ativar e compilar com o std::put_time
      * g++ -std=c++11 1_chrono.cpp -o nome_executavel
-     * caso não tenha o compilador mais atual do c++
      */
 
-    // ALTERNATIVA: Buffer para armazenar a data e hora formatada
+    // ALTERNATIVA: Buffer para armazenar a data e hora formatada, caso não possua opção do std::put_time()
     char buffer[100] = "";
 
     // Formatar a data e hora

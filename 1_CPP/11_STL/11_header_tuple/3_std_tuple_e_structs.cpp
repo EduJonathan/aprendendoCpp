@@ -19,8 +19,7 @@
  *
  * STRUCT:
  * - É uma construção da linguagem para definir um tipo de dados composto personalizado.
- * - Permite agrupar dados (geralmente relacionados) com nomes de membros significativos, facilitando a legibilidade
- * e manutenção.
+ * - Permite agrupar dados (geralmente relacionados) com nomes de membros significativos, facilitando a legibilidade e manutenção.
  * - Usada quando você quer criar um tipo com semântica clara e reutilizável.
  * - Exemplo: struct Pessoa { int idade; std::string nome; double altura; };.
  *

@@ -10,33 +10,19 @@
  *
  * VANTAGENS:
  * 1. Garantem a inicialização adequada e válida dos objetos, evitando estados inválidos.
- *
- * 2. Reduzem a repetição de código, centralizando a inicialização dos atributos no
- * momento da criação.
- *
+ * 2. Reduzem a repetição de código, centralizando a inicialização dos atributos no momento da criação.
  * 3. Facilitam a criação de objetos, tornando o código mais simples e legível.
- *
- * 4. Melhoram a organização do código, evitando a necessidade de chamadas manuais
- * de métodos para inicialização como métodos `setters`.
- *
- * 5. Permitem o uso de construtores parametrizados, adaptando a inicialização conforme
- * os parâmetros fornecidos.
+ * 4. Melhoram a organização do código, evitando a necessidade de chamadas manuais de métodos para inicialização como métodos `setters`.
+ * 5. Permitem o uso de construtores parametrizados, adaptando a inicialização conforme os parâmetros fornecidos.
  *
  * --------------------
  *
  * DESVANTAGENS:
  * 1. Limitação para inicializações complexas, que exigem lógica condicional ou múltiplos passos.
- *
- * 2. Sobrecarga de construtores pode gerar complexidade, especialmente se houver muitas combinações
- * de parâmetros.
- *
+ * 2. Sobrecarga de construtores pode gerar complexidade, especialmente se houver muitas combinações de parâmetros.
  * 3. Uma vez chamado, o construtor "congela" a inicialização, dificultando a modificação posterior.
- *
- * 4. Não são adequados para tipos compostos complexos, como objetos com ponteiros para grandes
- * estruturas de dados.
- *
- * 5. Dificultam testes em casos onde a lógica de inicialização não pode ser facilmente modificada
- * sem alterar o código do construtor.
+ * 4. Não são adequados para tipos compostos complexos, como objetos com ponteiros para grandes estruturas de dados.
+ * 5. Dificultam testes em casos onde a lógica de inicialização não pode ser facilmente modificada sem alterar o código do construtor.
  */
 
 class Terreno

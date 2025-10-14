@@ -126,7 +126,7 @@ int main(int argc, char **argv)
 
     while (acertos < TOTAL_ALVOS)
     {
-        int chuteLinha, chuteColuna;
+        int chuteLinha = 0, chuteColuna = 0;
 
         std::cout << "Digite a linha (0-" << SIZE - 1 << "): ";
         std::cin >> chuteLinha;

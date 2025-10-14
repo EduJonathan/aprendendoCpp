@@ -2,7 +2,7 @@
 #include <functional>
 
 /**
- * Como funções anônimas (lambdas) são funções que são especialmente úteis para criar
+ * Como  vimos funções anônimas (lambdas) são funções que são especialmente úteis para criar
  * funções simples e temporárias sem a necessidade de declarar uma função tradicional,
  * em POO, elas podem capturar o ponteiro `this` de uma classe.
  *

@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include <regex>
 
 /**
  * @brief Converte uma data do formato YYYY-MM-DD para DD/MM/YYYY.
  *
+ * Usa expressão regular para capturar ano, mês e dia e reorganizar os grupos.
+ *
  * @param date String contendo a data no formato YYYY-MM-DD.
- * @return std::string Retorna a data convertida no formato DD/MM/YYYY.
+ * @return std::string Data convertida no formato DD/MM/YYYY.
  */
 std::string alterarFormatoData(const std::string &date)
 {
@@ -15,11 +18,13 @@ std::string alterarFormatoData(const std::string &date)
 }
 
 /**
- * @brief Valida se a string está no formato YYYY-MM-DD.
+ * @brief Valida se a string está no formato de data ISO (YYYY-MM-DD).
+ *
+ * Também realiza validações básicas de valores válidos para mês e dia.
  *
  * @param date String contendo a data a ser validada.
- * @return true Se a data está no formato correto.
- * @return false Se a data não está no formato correto.
+ * @return true Se a data está no formato e valores corretos.
+ * @return false Caso contrário.
  */
 bool dataValida(const std::string &date)
 {
@@ -50,9 +55,7 @@ int main(int argc, char **argv)
     std::string email = "exemplo@email.com";
     std::regex pattern(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
 
-    /**
-     * @brief Validação de e-mail usando std::regex_match.
-     */
+    // Validação de e-mail usando std::regex_match.
     if (std::regex_match(email, pattern))
     {
         std::cout << "E-mail válido!\n";
@@ -64,16 +67,13 @@ int main(int argc, char **argv)
 
     std::cout << "================================" << '\n';
 
-    std::string data1 = "2026-01-02";
+    std::string data = "2026-01-02";
+    std::cout << "Data original no formato YYYY-MM-DD: " << data << '\n';
 
-    std::cout << "Data original no formato YYYY-MM-DD: " << data1 << '\n';
-
-    /**
-     * @brief Verificação e conversão do formato da data.
-     */
-    if (dataValida(data1))
+    // Verificação e conversão do formato da data.
+    if (dataValida(data))
     {
-        std::cout << "Nova data no formato DD/MM/YYYY: " << alterarFormatoData(data1) << '\n';
+        std::cout << "Nova data no formato DD/MM/YYYY: " << alterarFormatoData(data) << '\n';
     }
     else
     {

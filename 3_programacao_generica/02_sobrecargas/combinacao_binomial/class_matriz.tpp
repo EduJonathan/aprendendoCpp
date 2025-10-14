@@ -68,4 +68,6 @@ public:
     ~Matriz();
 };
 
+#include "class_matriz.tpp"
+
 #endif // CLASS_MATRIZ_HPP

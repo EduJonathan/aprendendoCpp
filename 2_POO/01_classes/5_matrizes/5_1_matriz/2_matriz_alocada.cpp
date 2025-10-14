@@ -24,6 +24,7 @@ public:
         {
             throw std::invalid_argument("Dimensões da matriz devem ser positivas.");
         }
+
         // Liberar a matriz existente, se houver
         for (std::size_t i = 0; i < linhas; ++i)
         {
@@ -33,6 +34,7 @@ public:
 
         linhas = l;
         colunas = c;
+        
         try
         {
             matriz = new int *[linhas];

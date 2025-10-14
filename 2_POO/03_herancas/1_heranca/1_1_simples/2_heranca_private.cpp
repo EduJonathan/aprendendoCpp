@@ -41,50 +41,22 @@ public:
     }
 };
 
-class Ponto_x
+class Base
 {
-private:
-    int value_x;
-
 public:
-    void setX(void)
+    void mostrarMensagem()
     {
-        std::cout << "Digite o valor de x: ";
-        std::cin >> value_x;
-    }
-
-    void getX(void)
-    {
-        std::cout << "O valor de x é: " << value_x << '\n';
+        std::cout << "Mensagem da classe Base\n";
     }
 };
 
-class Ponto_y : private Ponto_x
+class Derivada : private Base
 {
-private:
-    int value_y;
-
 public:
-    void setY(void)
+    // Método público da classe derivada que acessa o método da base
+    void chamarBase()
     {
-        std::cout << "Digite o valor de y: ";
-        std::cin >> value_y;
-    }
-
-    void getY(void)
-    {
-        std::cout << "O valor de y é: " << value_y << '\n';
-    }
-
-    // Como herdou de forma privada, precisa de métodos intermediários para acessar setX/getX
-    void definirX(void)
-    {
-        setX(); // ok: acesso permitido dentro da classe derivada
-    }
-
-    void mostrarX(void)
-    {
-        getX(); // ok: acesso permitido dentro da classe derivada
+        mostrarMensagem(); // permitido: acesso dentro da classe derivada
     }
 };
 
@@ -95,14 +67,10 @@ int main(int argc, char **argv)
 
     std::cout << "-------------------\n";
 
-    Ponto_y pontoY;
+    Derivada obj;
 
-    // pontoY.setX();  // ERRO: setX() agora é privado em Ponto_y
-    pontoY.definirX(); // Correto: usa método público da própria classe
-    pontoY.setY();
+    /* obj.mostrarMensagem(); */ // Erro: método agora é privado em Derivada
+    obj.chamarBase();            // Correto: chama o método da base indiretamente
 
-    // pontoY.getX();  // ERRO: getX() também é privado em Ponto_y
-    pontoY.mostrarX(); // Correto
-    pontoY.getY();
     return 0;
 }

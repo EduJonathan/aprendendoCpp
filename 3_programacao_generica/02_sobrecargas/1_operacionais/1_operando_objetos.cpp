@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cmath>
-#include <new>
+#include <stdexcept>
 
 /**
  * Sobrecarga de operadores é o processo de redefinir o comportamento de operadores
@@ -41,44 +40,88 @@
  * coleções ou estruturas complexas.
  */
 
-class Vetor
+template <typename T>
+class Numero
 {
+private:
+    T valor;
+
 public:
-    double x, y;
-    Vetor(double x = 0.0, double y = 0.0) : x(x), y(y) {}
+    // Construtor
+    Numero(T v) : valor(v) {}
 
-    // Sobrecarga do operador + (membro da classe)
-    Vetor operator+(const Vetor &outro) const
+    // Sobrecarga do operador de soma
+    Numero operator+(const Numero &other)
     {
-        return Vetor(x + outro.x, y + outro.y);
+        return Numero(this->valor + other.valor);
     }
 
-    // Sobrecarga do operador -
-    Vetor operator-(const Vetor &outro) const
+    // Sobrecarga do operador de subtração
+    Numero operator-(const Numero &other)
     {
-        return Vetor(x - outro.x, y - outro.y);
+        return Numero(this->valor - other.valor);
     }
 
-    // Norma (magnitude do vetor)
-    double norma(void) const
+    // Sobrecarga do operador de multiplicação
+    Numero operator*(const Numero &other)
     {
-        return std::sqrt(x * x + y * y);
+        return Numero(this->valor * other.valor);
+    }
+
+    // Sobrecarga do operador de divisão
+    Numero operator/(const Numero &other)
+    {
+        if (other.valor == 0)
+        {
+            throw std::invalid_argument("Divisão por zero não permitida!");
+        }
+        return Numero(this->valor / other.valor);
+    }
+
+    // Sobrecarga do operador de módulo
+    Numero operator%(const Numero &other)
+    {
+        if (other.valor == 0)
+        {
+            throw std::invalid_argument("Módulo por zero não permitido!");
+        }
+        return Numero(this->valor % other.valor);
+    }
+
+    // Método para exibir o valor
+    void exibir() const
+    {
+        std::cout << valor << '\n';
     }
 };
 
 int main(int argc, char **argv)
 {
-    Vetor *posicaoAtual = new Vetor(1.0, 2.0);
-    Vetor *posicaoDestino = new Vetor(3.0, 4.0);
-    Vetor resultado = *posicaoAtual + *posicaoDestino; // Usa operator+
-    std::cout << "Resultado: (" << resultado.x << ", " << resultado.y << ")\n";
+    Numero<int> num1(10);
+    Numero<int> num2(5);
 
-    // Calcula o vetor diferença (destino - atual)
-    Vetor diferenca = *posicaoDestino - *posicaoAtual;
+    // Usando os operadores sobrecarregados
+    Numero<int> soma = num1 + num2;
+    Numero<int> subtracao = num1 - num2;
+    Numero<int> multiplicacao = num1 * num2;
+    Numero<int> divisao = num1 / num2;
+    Numero<int> modulo = num1 % num2;
 
-    // A distância é o comprimento desse vetor
-    double distancia = diferenca.norma();
+    // Exibindo os resultados
+    std::cout << "Soma: ";
+    soma.exibir();
 
-    std::cout << "Distância faltando: " << distancia << " unidades\n";
+    std::cout << "Subtração: ";
+    subtracao.exibir();
+
+    std::cout << "Multiplicação: ";
+    multiplicacao.exibir();
+
+    std::cout << "Divisão: ";
+    divisao.exibir();
+    
+    std::cout << "Módulo: ";
+    modulo.exibir();
+
     return 0;
 }

@@ -95,7 +95,7 @@ public:
         std::cout << "\n=== CREDIÁRIO ===" << '\n';
         std::cout << "Produto: " << nomeProduto << '\n';
         std::cout << "Valor total: R$ " << std::fixed << std::setprecision(2) << valorTotal << '\n';
-        std::cout << "Taxa de juros: " << taxaJuros * 100 << "%" << '\n';
+        std::cout << "Taxa de juros: " << taxaJuros * 100 << '%' << '\n';
         std::cout << "Valor com juros: R$ " << getValorTotalComJuros() << '\n';
         std::cout << "Parcelas: " << parcelasPagas << "/" << parcelasTotal << '\n';
         std::cout << "Valor da parcela: R$ " << getValorParcela() << '\n';

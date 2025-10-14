@@ -136,7 +136,7 @@ int main(int argc, char **argv)
     std::cout << std::noshowpos;    // Reset
     std::cout << std::setfill(' '); // Reset fill
 
-    // 5. FORMATAÇÃO COM FLAGS
+    // 6. FORMATAÇÃO COM FLAGS
     std::cout << "\n------------------------------------------------\n";
     std::cout << "\tFormatação com Flags\n";
     std::cout << "--------------------------------------------------\n";
@@ -151,7 +151,7 @@ int main(int argc, char **argv)
 
     std::cout << std::noboolalpha; // Reset
 
-    // 6. FORMATAÇÃO DE DECIMAIS
+    // 7. FORMATAÇÃO DE DECIMAIS
     std::cout << "\n------------------------------------------------\n";
     std::cout << "\tFormatação de Casas Decimais\n";
     std::cout << "--------------------------------------------------\n";
