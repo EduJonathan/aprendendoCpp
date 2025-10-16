@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <new>
-#include "class_matriz.tpp"
+#include "class_matriz.hpp"
 
 /**
  * Este código implementa uma classe de matriz genérica em C++ que suporta operações como

@@ -52,8 +52,7 @@ Além disso, Podemos Contar Com Bibliotecas Externas
 
 - **`Boost.Hana`**: Uma biblioteca moderna para metaprogramação, otimizada para C++14/17,
   que simplifica o trabalho com tuplas e tipos em tempo de compilação.
-- **`Boost.MPL`**: Biblioteca mais antiga, voltada para metaprogramação em C++03/11, ainda
-  usada em projetos legados.
+- **`Boost.MPL`**: Biblioteca mais antiga, voltada para metaprogramação em C++03/11, ainda usada em projetos legados.
 
 ---
 
@@ -115,8 +114,8 @@ em parâmetros de template.
 **std::is_same e std::is_base_of**: Ferramentas de metaprogramação que permitem verificar
 as relações entre tipos em tempo de compilação.
 
-- std::is_same<T, U>::value: Verifica se T e U são o mesmo tipo.
-- std::is_base_of<Base, Derived>::value: Verifica se Base é uma classe base de Derived.
+- **std::is_same<T, U>::value**: Verifica se T e U são o mesmo tipo.
+- **std::is_base_of<Base, Derived>::value**: Verifica se Base é uma classe base de Derived.
 
 ---
 
@@ -124,9 +123,8 @@ as relações entre tipos em tempo de compilação.
 condicionalmente habilitar ou desabilitar funções, classes ou especializações de templates
 com base em propriedades de tipos.
 
-- std::enable_if: Permite a habilitação de uma função, classe ou template dependendo de um
-  tipo ser válido ou não.
-- std::disable_if: O oposto, desabilita funções ou templates dependendo de condições.
+- **std::enable_if**: Permite a habilitação de uma função, classe ou template dependendo de um tipo ser válido ou não.
+- **std::disable_if**: O oposto, desabilita funções ou templates dependendo de condições.
 
 ---
 
@@ -166,7 +164,5 @@ A metaprogramação em C++ é usada para:
 
 - Otimizar desempenho: Avaliar cálculos complexos em tempo de compilação, como no exemplo do fatorial.
 - Aumentar reutilização: Criar funções e classes genéricas que funcionam com múltiplos tipos.
-- Garantir segurança de tipos: Usar `<type_traits>` e `<concepts>` para restringir templates
-  e evitar erros.
-- Reduzir código repetitivo: Técnicas como if constexpr e SFINAE eliminam a necessidade de múltiplas
-  implementações.
+- Garantir segurança de tipos: Usar `<type_traits>` e `<concepts>` para restringir templates e evitar erros.
+- Reduzir código repetitivo: Técnicas como if constexpr e SFINAE eliminam a necessidade de múltiplas implementações.

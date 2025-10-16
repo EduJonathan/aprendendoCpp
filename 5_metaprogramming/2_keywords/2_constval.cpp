@@ -15,7 +15,9 @@ int main(int argc, char **argv)
     // square(x); // Erro: consteval só pode ser usado em contexto de compilação
 
     /**
-     * Compile e execute o programa com: g++ -std=c++20 -o consteval consteval.cpp
+     * Compile e execute o programa com:
+     * g++ -std=c++20 -o consteval 2_consteval.cpp
+     * ./consteval
      */
     return 0;
 }

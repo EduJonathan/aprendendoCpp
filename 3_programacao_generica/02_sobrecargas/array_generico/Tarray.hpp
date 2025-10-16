@@ -13,6 +13,4 @@ public:
     T &operator[](int i);
 };
 
-#include "Tarray.tpp"
-
 #endif

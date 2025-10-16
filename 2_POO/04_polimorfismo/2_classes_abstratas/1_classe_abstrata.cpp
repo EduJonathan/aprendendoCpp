@@ -105,22 +105,32 @@ int main(int argc, char **argv)
     imprimirArea(circ); // Área: 19.6349
 
     // Usando ponteiros para a classe base
-
     FormaGeometrica *forms[2];
     forms[0] = new Retangulo(4.0, 6.0);
     forms[1] = new Circulo(3.0);
 
+    std::cout << "\n--- Usando ponteiros brutos ---\n";
+    for (int i = 0; i < 2; ++i)
+    {
+        forms[i]->descrever();
+        std::cout << "Área: " << forms[i]->calcularArea() << "\n";
+    }
+
+    // Libera a memória alocada com new
+    delete forms[0];
+    delete forms[1];
+
     // Usando smart pointers para evitar vazamentos de memória
     std::unique_ptr<FormaGeometrica> formas[2];
-
     formas[0] = std::make_unique<Retangulo>(4.0, 6.0);
     formas[1] = std::make_unique<Circulo>(3.0);
 
+    std::cout << "\n--- Usando smart pointers ---\n";
     for (int i = 0; i < 2; ++i)
     {
         formas[i]->descrever();
         formas[i]->imprimirTipo(); // Chama o método não-virtual da classe base
-        std::cout << "\nÁrea: " << formas[i]->calcularArea() << '\n';
+        std::cout << "Área: " << formas[i]->calcularArea() << "\n\n";
     }
     return 0;
 }

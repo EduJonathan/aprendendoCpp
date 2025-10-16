@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <chrono>
-#include <thread>
 #include <numeric>
 #include "Cpu_Scheduler.hpp"
 
@@ -28,8 +27,10 @@ void CPUScheduler::getData()
     {
         std::cout << "Tempo de burst para P" << i + 1 << ": ";
         std::cin >> burstTimes[i];
+
         std::cout << "Tempo de chegada para P" << i + 1 << ": ";
         std::cin >> arrivalTimes[i];
+        
         std::cout << "Prioridade para P" << i + 1 << ": ";
         std::cin >> priorities[i];
     }

@@ -1,4 +1,4 @@
-#include "Tarray.tpp"
+#include "Tarray.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <iomanip>

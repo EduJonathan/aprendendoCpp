@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 
     /**
      * Compile e execute o programa com
-     * g++ -std=c++20 -o concept concept.cpp
+     * g++ -std=c++20 -o concept 4_concept.cpp
      */
 
     return 0;

@@ -2,8 +2,8 @@
 #include <chrono>
 #include <thread>
 #include <vector>
-#include <cstdlib> // rand(), srand()
-#include <ctime>   // time()
+#include <cstdlib>
+#include <ctime>
 
 // Gera número aleatório entre min e max
 int tempoAleatorio(int minSeg, int maxSeg)
@@ -25,7 +25,7 @@ std::string mensagemAleatoria()
         "Pensando profundamente...",
         "Fingindo estar calmo..."};
 
-    return mensagens[rand() % mensagens.size()];
+    return mensagens[std::rand() % mensagens.size()];
 }
 
 int main(int argc, char **argv)
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
             std::cout << "." << std::flush;
             std::this_thread::sleep_for(std::chrono::milliseconds(500)); // 0.5s entre pontos
             if (i % 6 == 5)
-                std::cout << "\n"; // Quebra linha a cada 6 segundos
+                std::cout << '\n'; // Quebra linha a cada 6 segundos
         }
 
         std::cout << "\nTurno " << numeroDoTurno << " finalizado. Tempo restante: "
