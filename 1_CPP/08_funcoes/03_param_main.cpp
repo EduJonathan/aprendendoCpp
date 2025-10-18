@@ -107,7 +107,7 @@ int main(int argc, char **argv)
     }
 
     // Exibe o resultado
-    std::cout << argv[1] << " " << argv[2] << " " << argv[3] << ": " << resultado << '\n';
+    std::cout << argv[1] << ' ' << argv[2] << ' ' << argv[3] << ": " << resultado << '\n';
 
     /**
      * Compile e execute com:

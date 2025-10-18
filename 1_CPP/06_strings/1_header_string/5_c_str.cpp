@@ -8,6 +8,10 @@
  * é usado para obter um ponteiro para uma string C-style (const char*) a partir de um
  * objeto std::string.
  *
+ * Tecnicamente o método .c_str() converte cada std::string em um const char* terminado por \0, compatível
+ * com std::strcmp. Isso é seguro, pois .c_str() garante que o ponteiro retornado aponte para uma representação
+ * válida da string, com término nulo.
+ *
  * CSTYLE: Refere-se ao estilo de programação e aos elementos da linguagem C, que incluem
  * o uso de arrays de caracteres para representar strings e a abordagem procedural para
  * escrever código.

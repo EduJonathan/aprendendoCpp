@@ -3,10 +3,17 @@
 #include <fstream>
 #include <sstream>
 
+// Este código irá ler a base de dados do arquivo lista_alunos.txt, irá organizar os dados com base no algoritmo Selection Sort
+
 const int MAX_LINHAS = 50;  // Defina o número máximo de linhas da matriz
 const int MAX_COLUNAS = 50; // Defina o número máximo de colunas da matriz
 
-// Função para trocar duas strings
+/**
+ * @brief Troca o conteúdo de duas strings.
+ *
+ * @param a Referência para a primeira string.
+ * @param b Referência para a segunda string.
+ */
 void swap(std::string &a, std::string &b)
 {
     std::string temp = a;
@@ -14,7 +21,12 @@ void swap(std::string &a, std::string &b)
     b = temp;
 }
 
-// Função para ordenar um vetor de strings usando o algoritmo Selection Sort
+/**
+ * @brief Ordena um vetor de strings em ordem crescente utilizando o algoritmo Selection Sort.
+ *
+ * @param vetor Vetor de strings a ser ordenado.
+ * @param tamanho Tamanho do vetor.
+ */
 void selection_sort(std::string vetor[], int tamanho)
 {
     int posicaoDoMenorValor = 0;
@@ -39,8 +51,11 @@ void selection_sort(std::string vetor[], int tamanho)
 
 int main(int argc, char **argv)
 {
-    // Abrindo o arquivo para leitura
-    std::ifstream file("C:\\Users\\EDUARDO_OLIVEIRA\\Documents\\aprendendoCpp\\CPP\\10_arquivos\\2_header_sstream\\lista_alunos.txt");
+    // Caminho absoluto no Windows
+    // std::ifstream file("C:\\Users\\EDUARDO_OLIVEIRA\\Documents\\aprendendoCpp\\CPP\\10_arquivos\\2_header_sstream\\lista_alunos.txt");
+
+    // Abrindo o arquivo para leitura no linux
+    std::ifstream file("/home/eduardo/Documentos/aprendendoCpp/1_CPP/10_arquivos/2_header_sstream/lista_alunos.txt");
 
     // Verificando se houve erro ao abrir o arquivo
     if (!file.is_open())

@@ -1,32 +1,49 @@
 #include <iostream>
+#include <limits>
 #include <string>
 
 /**
- * std::getline(): Extrai os caracteres de uma stream(is) de entrada e os armazena
- * em uma string(str), até que o caractere de delimitação delim seja encontrado
- * (ou o caractere de nova linha, '\n').
+ * @brief Lê uma linha completa de texto de uma stream de entrada.
  *
- * PARAMETROS:
- * is - stream de entrada
- * str - string de saida
- * delim - caractere de delimitação
+ * A função `std::getline()` extrai caracteres de uma stream de entrada (`is`)
+ * e os armazena em uma string (`str`) até encontrar o caractere delimitador (`delim`),
+ * ou até o fim da linha (`'\n'`, por padrão).
+ *
+ * @param is    Stream de entrada de onde os caracteres serão lidos (ex: `std::cin` ou `std::ifstream`).
+ * @param str   String onde o texto lido será armazenado.
+ * @param delim (opcional) Caractere de delimitação. O padrão é `'\n'`.
+ *
+ * @return A função retorna uma referência para o objeto `is` (a própria stream de entrada),
+ *         permitindo o encadeamento de operações.
+ *
+ * @note O caractere delimitador (`delim`) é **consumido**, mas **não é armazenado** em `str`.
+ *       Como `std::getline()` consome o caractere de nova linha (`'\n'`), normalmente não
+ *       deixa resíduos no buffer de entrada. No entanto, ao misturar `std::getline()` com
+ *       `operator>>`, pode ser necessário limpar o buffer usando `std::cin.ignore()`.
+ *
+ * @example
+ * std::string nome;
+ * std::cout << "Digite seu nome: ";
+ * std::getline(std::cin, nome);
+ * std::cout << "Olá, " << nome << "!\n";
  */
 
 int main(int argc, char **argv)
 {
     std::string String;
 
-    // Se o tamanho da String estiver vazia, solicita ao usuario que digite uma String.
-    // metodo length() retorna o tamanho da String
+    // Limpa o buffer antes da leitura (preventivo)
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     if (String.length() == 0)
     {
         std::cout << "Digite uma String: ";
-
-        // Leitura da String
-        // std::cin >> String;
-        std::getline(std::cin, String);
-
-        // Imprimindo a string
+        if (!std::getline(std::cin, String))
+        {
+            std::cerr << "Erro ao ler a string.\n";
+            return 1;
+        }
         std::cout << String << '\n';
     }
     else
@@ -46,40 +63,55 @@ int main(int argc, char **argv)
     // Variável para verificar se a palavra é um palíndromo
     bool isPalindromo = true;
 
-    // Solicitando ao usuário para digitar uma frase
-    std::cout << "Digite uma frase (Máx. de 100 caracteres): ";
-    std::getline(std::cin, frase);
+    // Limpa o buffer antes de ler a frase (preventivo)
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    // Limitando a entrada para até 100 caracteres usando std::cin.get() ou std::istream::read()
+    std::cout << "Digite uma frase (Máx. de 100 caracteres): ";
+    if (!std::getline(std::cin, frase))
+    {
+        std::cerr << "Erro ao ler a frase.\n";
+        return 1;
+    }
+
     if (frase.length() > TAMANHO_FRASE)
     {
-        // Cortando para 100 caracteres, se necessário, Isso é feito com substr(),
-        // que corta a string para o limite que você configurou.
         frase = frase.substr(0, TAMANHO_FRASE);
     }
 
-    // Solicitando ao usuário para digitar uma palavra
-    std::cout << "Digite uma palavra (máximo de 100 caracteres): ";
-    std::getline(std::cin, palavra);
+    // Limpa o buffer antes de ler a palavra (preventivo)
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    // Limitando a entrada da palavra para até 100 caracteres
+    std::cout << "Digite uma palavra (Máx. de 100 caracteres): ";
+    if (!std::getline(std::cin, palavra))
+    {
+        std::cerr << "Erro ao ler a palavra.\n";
+        return 1;
+    }
+
+    if (palavra.empty())
+    {
+        std::cout << "Erro: Nenhuma palavra foi inserida.\n";
+        return 1;
+    }
+
     if (palavra.length() > TAMANHO_PALAVRA)
     {
-        // Cortando para 100 caracteres, se necessário
         palavra = palavra.substr(0, TAMANHO_PALAVRA);
     }
 
-    // Comparando os caracteres de forma simétrica para verificar se é um palíndromo
-    for (int i = 0; i < palavra.length() / 2; ++i)
+    // Verifica se a palavra é um palíndromo
+    for (size_t i = 0; i < palavra.length() / 2; ++i)
     {
         if (palavra[i] != palavra[palavra.length() - 1 - i])
         {
             isPalindromo = false;
-            break; // Se o par for diferente, não é palíndromo
+            break;
         }
     }
 
-    // Verificando o resultado
+    // Exibe o resultado
     if (isPalindromo)
     {
         std::cout << "A palavra '" << palavra << "' é um palíndromo!" << '\n';

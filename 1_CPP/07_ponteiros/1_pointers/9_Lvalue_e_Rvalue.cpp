@@ -54,26 +54,26 @@ int main(int argc, char **argv)
     for (std::string nome : nomes)
     {
         nome += " (Modificado)";
-        std::cout << nome << " ";
+        std::cout << nome << ' ';
     }
 
     std::cout << "\n\nVetor original:\n";
     for (const std::string &nome : nomes)
     {
-        std::cout << nome << " ";
+        std::cout << nome << ' ';
     }
 
     std::cout << "\n\n2. Loop por referência (modifica o vetor original):\n";
     for (std::string &nome : nomes)
     {
         nome += " [Editado]";
-        std::cout << nome << " ";
+        std::cout << nome << ' ';
     }
 
     std::cout << "\n\n3. Loop por referência constante (somente leitura):\n";
     for (const std::string &nome : nomes)
     {
-        std::cout << nome << " ";
+        std::cout << nome << ' ';
         // nome += "erro"; // ERRO: não pode modificar const reference
     }
 
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
     for (std::string &nome : nomes)
     {
         std::string novo_nome = std::move(nome); // Transfere o conteúdo
-        std::cout << "Movido: " << novo_nome << " | Original: " << nome << "\n";
+        std::cout << "Movido: " << novo_nome << " | Original: " << nome << '\n';
     }
 
     // std::cout << "\n5. Loop com rvalue reference (raro de se ver no range-based for):\n";
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
     // for (std::string &&nome : std::move(outros))
     // {
     // A "outros" agora é um vetor vazio ou inválido após std::move
-    // std::cout << "Nome movido: " << nome << "\n";
+    // std::cout << "Nome movido: " << nome << '\n';
     // }
 
     return 0;

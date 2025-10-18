@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cstring>
+#include <string>
 
 int main(int argc, char **argv)
 {
@@ -13,12 +13,13 @@ int main(int argc, char **argv)
     // Para Comparar lexicograficamente
     bool iguais = true;
 
+    // Tamanho do array
+    const size_t TAMANHO = sizeof(Nomes) / sizeof(Nomes[0]);
+
     // Verificando se as strings nos arrays são lexicograficamente iguais
-    // c_str: Retorna um ponteiro para um array de caracteres terminada em nulo com dados
-    // equivalentes aos armazenados na cadeia de caracteres.
-    for (int i = 0; i < 4; ++i)
+    for (size_t i = 0; i < TAMANHO; ++i)
     {
-        if (std::strcmp(conjuntoDeNome[i].c_str(), Nomes[i]) != 0)
+        if (conjuntoDeNome[i] != Nomes[i])
         {
             iguais = false;
             std::cout << "Os nomes são diferentes em índice "

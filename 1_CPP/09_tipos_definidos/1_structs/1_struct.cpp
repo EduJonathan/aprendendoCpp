@@ -86,6 +86,25 @@ void inOrder(node *root)
     inOrder(root->right); // Imprime os valores da subárvore direita
 }
 
+/**
+ * @brief Libera toda a memória alocada para a árvore binária.
+ *
+ * @param root Ponteiro para a raiz da árvore.
+ */
+void liberarArvore(node *root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    // Libera os filhos primeiro (pós-ordem)
+    liberarArvore(root->left);
+    liberarArvore(root->right);
+
+    delete root; // Libera o nó atual
+}
+
 int main(int argc, char **argv)
 {
     /**
@@ -108,5 +127,9 @@ int main(int argc, char **argv)
 
     // Imprimindo os valores da árvore
     inOrder(root);
+
+    // Libera a memória da árvore
+    liberarArvore(root);
+    root = nullptr;
     return 0;
 }

@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 
     std::cout << "\tTIPOS BOOLEANOS" << "\n\n";
 
-    // Declarando variáveis e valores do tipo booleano, não necessita mais de <stdbool.h>
+    // Declarando variáveis e valores do tipo booleano, não necessita mais de <stdbool.h>, C++ tem sua declaração própria.
     bool verdadeiro = false;
     bool falso = true;
 
