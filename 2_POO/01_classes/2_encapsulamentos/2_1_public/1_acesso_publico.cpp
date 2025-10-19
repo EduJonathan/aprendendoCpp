@@ -1,9 +1,5 @@
 #include <iostream>
-#include <cmath>
-#include <float.h>
 #include <string>
-#include <utility>
-#include <vector>
 
 /**
  * ENCAPSULAMENTO: O encapsulamento é um conceito que envolve agrupar os dados e os métodos
@@ -16,79 +12,52 @@
  * 3. Protected: Os dados e métodos podem ser acessados dentro da classe e subclasses.
  */
 
-class Public
+class CaracteristicasPessoais
 {
 public:
-    unsigned age;
-    float peso;
-    float altura;
-    std::string nome;
+    std::string corDoCabelo;
+    std::string corDePele;
+    std::string estatura;
+    bool temBarba;
 
-    // private:
-    // void IMC() {}
-
-public:
-    /**
-     * @brief Calcula o IMC (Índice de Massa Corporal) da pessoa.
-     *
-     * @return O valor do IMC.
-     */
-    float imc(void)
+    void set_caracteristicas(std::string cabelo, std::string pele, std::string aparencia, bool barba)
     {
-        if (altura > 0.0f)
-        {
-            return peso / powf(altura, 2); // IMC = peso / altura^2
-        }
-        return 0.0f; // Return 0 se a altura for inválida
+        corDoCabelo = cabelo;
+        corDePele = pele;
+        estatura = aparencia;
+        temBarba = barba;
     }
 
-    /**
-     * @brief Retorna a classificação do IMC.
-     *
-     * @return Uma string com o status do IMC.
-     */
-    const std::string statusIMC(void)
+    // Getter geral: retorna a aparência completa em formato de texto
+    std::string get_aparencia()
     {
-        static const std::vector<std::pair<float, std::string>> classificacoes = {
-            {18.5f, "Abaixo do peso"},
-            {24.9f, "Peso normal"},
-            {29.9f, "Sobrepeso"},
-            {34.9f, "Obesidade grau 1"},
-            {39.9f, "Obesidade grau 2 (severa)"},
-            {FLT_MAX, "Obesidade grau 3 (mórbida)"}};
-
-        float valor_imc = imc();
-
-        for (const auto &classificacao : classificacoes)
-        {
-            if (valor_imc <= classificacao.first)
-            {
-                return classificacao.second;
-            }
-        }
-
-        return "IMC inválido"; // Caso não corresponda a nenhum intervalo (imc < 0 ou sem altura)
+        std::string descricao = "Cabelo: " + corDoCabelo +
+                                "\nPele: " + corDePele +
+                                "\nEstatura: " + estatura +
+                                "\nTem barba: " + (temBarba ? "Sim" : "Não");
+        return descricao;
     }
 };
 
 int main(int argc, char **argv)
 {
-    Public pessoa;
+    CaracteristicasPessoais Aparencia;
 
-    pessoa.nome = "Eduardo";
-    pessoa.age = 25;
-    pessoa.altura = 1.73f;
-    pessoa.peso = 73.40f;
+    // Acesso direto aos atributos (porque são public), tanto na main quanto na própria classe
+    Aparencia.corDoCabelo = "Loiro";
+    Aparencia.corDePele = "Branco";
+    Aparencia.estatura = "Porte físico médio";
+    Aparencia.temBarba = false;
 
-    /* function "Public::IMC" (declared at line 12) is inaccessibleC/C++(265) */
-    // pessoa.IMC();
-    /**
-     * Não é possível acessar com o objeto da classe, metódos e variáveis(atribudos)
-     * `privados` na main somente dentro da classe.
-     */
+    // Exibir aparência geral via getter
+    std::cout << Aparencia.get_aparencia() << '\n';
 
-    std::cout << "Nome: " << pessoa.nome << '\n';
-    std::cout << "IMC: " << pessoa.imc() << '\n';
-    std::cout << "Status IMC: " << pessoa.statusIMC() << '\n';
+    // Alteração novamente dos atributos
+    Aparencia.set_caracteristicas("Preto", "Moreno", "Forte", true);
+
+    // Exibir aparência atualizada
+    std::cout << '\n'
+              << Aparencia.get_aparencia() << '\n';
+
     return 0;
 }

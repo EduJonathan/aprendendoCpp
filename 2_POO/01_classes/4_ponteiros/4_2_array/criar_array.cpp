@@ -1,4 +1,5 @@
 #include "class_array.hpp"
+#include <iostream>
 
 bool Array::isValid(const std::unique_ptr<int[]> &arr, std::size_t size)
 {

@@ -2,6 +2,11 @@
 #include <string>
 
 /**
+ * ENCAPSULAMENTO (private):
+ * Aqui os dados estão protegidos dentro da classe.
+ * Eles só podem ser alterados e acessados por meio dos métodos públicos.
+ *
+ *
  * PRIVATE: Membros de classe marcados com private só podem ser acessados ou modificados
  * dentro da própria classe. Ou seja, você não pode acessar ou modificar diretamente esses
  * membros fora da classe. O private ajuda a proteger as variáveis internas da classe,
@@ -9,148 +14,58 @@
  *
  * Isso melhora a segurança e a manutenção do código, pois você pode garantir que os dados
  * de um objeto só sejam alterados através de métodos definidos, como getters e setters.
+ * Garantindo maior controle e segurança sobre o estado do objeto.
  */
 
-class LojaDeEletronicos
+class Veiculo
 {
-private:
-    // Variáveis privadas: só podem ser acessadas ou modificadas dentro da classe.
-    std::string produto;
-    int estoqueDeEletronicos;
-    bool temNoEstoque;
-    bool temNaLoja;
+private: // ← Agora os atributos são privados, uma pequena ressalva, caso private não esteja declarado antes dos atributos,
+         // por padrão eles já seriam privates
+    std::string marca;
+    std::string modelo;
+    std::string cor;
+    int ano;
 
 public:
-    float preco;
-
-    void setProduto(const std::string &produto)
+    // Método para definir os detalhes do veículo
+    void set_detalhes(std::string marcaVeiculo, std::string modeloVeiculo, std::string corVeiculo, int anoFabricacao)
     {
-        this->produto = produto;
+        marca = marcaVeiculo;
+        modelo = modeloVeiculo;
+        cor = corVeiculo;
+        ano = anoFabricacao;
     }
 
-    void setEstoqueDeEletronicos(int estoqueDeEletronicos)
+    // Método para obter todas as informações do veículo
+    std::string get_informacoes()
     {
-        this->estoqueDeEletronicos = estoqueDeEletronicos;
-    }
-
-    void setTemNoEstoque(bool temNoEstoque)
-    {
-        this->temNoEstoque = temNoEstoque;
-    }
-
-    void setTemNaLoja(bool temNaLoja)
-    {
-        this->temNaLoja = temNaLoja;
-    }
-
-    void setPreco(float preco)
-    {
-        this->preco = preco;
-    }
-
-    /* Getters */
-    std::string getProduto()
-    {
-        return produto;
-    }
-
-    int getEstoqueDeEletronicos()
-    {
-        return estoqueDeEletronicos;
-    }
-
-    float getPreco()
-    {
-        return preco;
-    }
-
-    // Método para verificar a disponibilidade do produto
-    bool verificarDisponibilidade()
-    {
-        if (temNoEstoque && temNaLoja)
-        {
-            return true;
-        }
-        return false;
-    }
-};
-
-class Cliente
-{
-    // private: Caso você não declarar o encapsulamento como privado, por padrão ele será privado.
-    // Variáveis privadas: são acessíveis apenas dentro da classe 'Cliente'
-    std::string nome;
-    float saldo;
-    LojaDeEletronicos *produtoComprado;
-
-public:
-    // Setter para 'nome' e 'saldo'
-    void setNome(const std::string &nome)
-    {
-        this->nome = nome;
-    }
-
-    void setSaldo(float saldo)
-    {
-        this->saldo = saldo;
-    }
-
-    // Método para tentar comprar o produto
-    void comprarProduto(LojaDeEletronicos &loja)
-    {
-        if (!loja.verificarDisponibilidade())
-        {
-            std::cout << loja.getProduto() << " não está disponível na loja." << '\n';
-            return;
-        }
-
-        if (saldo < loja.getPreco())
-        {
-            std::cout << nome << " não tem saldo suficiente para comprar " << loja.getProduto() << '.' << '\n';
-            return;
-        }
-
-        saldo -= loja.getPreco();
-        produtoComprado = &loja;
-        std::cout << nome << " comprou o produto " << loja.getProduto() << " com sucesso!" << '\n';
-        std::cout << "Saldo restante: R$ " << saldo << '\n';
-    }
-
-    // Método para mostrar se o cliente tem ou não o produto
-    void mostrarCompra()
-    {
-        if (produtoComprado)
-        {
-            std::cout << nome << " levou o produto " << produtoComprado->getProduto() << " para casa!" << '\n';
-        }
-        else
-        {
-            std::cout << nome << " não levou nenhum produto." << '\n';
-        }
+        std::string info = "Marca: " + marca +
+                           "\nModelo: " + modelo +
+                           "\nCor: " + cor +
+                           "\nAno: " + std::to_string(ano);
+        return info;
     }
 };
 
 int main(int argc, char **argv)
 {
-    // Criando a loja e o produto
-    LojaDeEletronicos loja;
+    Veiculo carro;
 
-    loja.setProduto("Televisão");
-    loja.setEstoqueDeEletronicos(50);
-    loja.setTemNoEstoque(true);
-    loja.setTemNaLoja(true);
-    loja.setPreco(1500.50);
+    // Agora NÃO é possível acessar diretamente:
+    // carro.marca = "Toyota";   // Erro de compilação
+    // carro.cor = "Prata";      // Erro de compilação
 
-    // Criando o cliente
-    Cliente cliente;
-    cliente.setNome("João");
-    cliente.setSaldo(2000.00); // Cliente com R$ 2000
+    // Só é possível alterar através do método público set_detalhes()
+    carro.set_detalhes("Toyota", "Corolla", "Prata", 2022);
 
-    // Cliente tenta comprar o produto
-    cliente.comprarProduto(loja);
+    // E só é possível exibir através do método público get_informacoes()
+    std::cout << carro.get_informacoes() << '\n';
 
-    // Mostra se o cliente levou ou não o produto
-    cliente.mostrarCompra();
+    // Atualização dos valores, lembrando que só é possível acessar set_detalhes e get_informacoes por conta que eles são publicos.
+    carro.set_detalhes("Honda", "Civic", "Preto", 2024);
+
+    std::cout << "\nApós atualização:\n"
+              << carro.get_informacoes() << '\n';
 
     return 0;
 }

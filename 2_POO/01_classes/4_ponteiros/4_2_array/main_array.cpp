@@ -1,4 +1,5 @@
 #include "class_array.hpp"
+#include <iostream>
 
 int main(int argc, char **argv)
 {
