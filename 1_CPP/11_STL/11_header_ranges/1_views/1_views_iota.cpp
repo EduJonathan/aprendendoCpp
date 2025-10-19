@@ -37,11 +37,6 @@ int main(int argc, char **argv)
      * > g++ -std=c++20 main.cpp -o main
      * > .\main.exe
      *
-     * Ou, se você estiver usando o Visual Studio, adicione a seguinte linha de código de compilação:
-     *
-     * > cl /std:c++20 main.cpp
-     * > .\main.exe
-     *
      * O -std=c++20/std:c++20 => Flags de compilação do g++ que ativa o suporte e recursos,
      * dizendo ao compilador qual versão do C++ usar, neste caso, C++20 ou superior
      * versão que se encontra os recursos de (ranges, views, concepts).

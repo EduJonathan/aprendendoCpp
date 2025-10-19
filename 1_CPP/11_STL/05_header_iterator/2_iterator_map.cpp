@@ -56,5 +56,29 @@ int main(int argc, char **argv)
         // Se a chave não foi encontrada, mensagem de erro
         std::cout << "Palavra não encontrada no mapa!" << '\n';
     }
+
+    std::cout << "=================================" << '\n';
+
+    std::map<char, int> mapASCII;
+
+    // Preenchendo o mapa com letras maiúsculas A-Z e seus valores ASCII
+    for (int i = 0; i < 26; ++i)
+    {
+        mapASCII.emplace('A' + i, 65 + i);
+    }
+
+    char caractere = 'B';
+
+    std::map<char, int>::iterator iterator;
+    iterator = mapASCII.find(caractere);
+
+    if (iterator != mapASCII.end())
+    {
+        std::cout << "O valor ASCII é: " << iterator->second << '\n';
+    }
+    else
+    {
+        std::cout << "Não é um valor ASCII" << '\n';
+    }
     return 0;
 }

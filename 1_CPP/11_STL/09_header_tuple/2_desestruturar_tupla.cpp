@@ -26,11 +26,45 @@ std::tuple<std::string, std::string, std::string> horaDoBanho()
 int main(int argc, char **argv)
 {
     std::tuple<int, double, std::string> minhaTupla(42, 3.14, "Olá");
+
+    std::cout << "===========================================================" << '\n';
+
+    std::cout << "Sem Desestrutura com auto[]: " << '\n';
+
+    // Acessando elementos diretamente com std::get<indice>()
+    std::cout << "Inteiro: " << std::get<0>(minhaTupla) << '\n';
+    std::cout << "Double: " << std::get<1>(minhaTupla) << '\n';
+    std::cout << "String: " << std::get<2>(minhaTupla) << '\n';
+
+    std::cout << "===========================================================" << '\n';
+
+    std::cout << "Desestruturado com auto[]: " << '\n';
+
     auto [a, b, c] = minhaTupla;
 
     std::cout << "Inteiro: " << a << '\n';
     std::cout << "Double: " << b << '\n';
     std::cout << "String: " << c << '\n';
+
+    std::cout << "===========================================================" << '\n';
+
+    std::cout << "Sem Desestrutura com auto[]: " << '\n';
+
+    std::tuple<std::string, std::string, std::string> banho = horaDoBanho();
+
+    if (std::get<0>(banho) == "shampoo" &&
+        std::get<1>(banho) == "sabonete" &&
+        std::get<2>(banho) == "toalha")
+    {
+        std::cout << "Hora do banho:\n";
+        std::cout << " - " << std::get<0>(banho) << '\n';
+        std::cout << " - " << std::get<1>(banho) << '\n';
+        std::cout << " - " << std::get<2>(banho) << '\n';
+    }
+
+    std::cout << "===========================================================" << '\n';
+
+    std::cout << "Desestruturado com auto[]: " << '\n';
 
     auto [x, y, z] = horaDoBanho();
     if (x == "shampoo" && y == "sabonete" && z == "toalha")

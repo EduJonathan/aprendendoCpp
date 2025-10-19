@@ -11,7 +11,7 @@
 /**
  * @brief Teste 1: Acesso a um elemento fora do intervalo de um array C-style.
  *
- * @details O acesso a um elemento fora do intervalo de um array C-style não lança uma exceção,
+ * @note O acesso a um elemento fora do intervalo de um array C-style não lança uma exceção,
  * mas pode causar comportamento indefinido. O programa pode acessar um valor aleatório ou
  * pode falhar. Isso é diferente do que acontece com std::vector, onde o acesso a um
  * elemento fora do intervalo lança uma exceção std::out_of_range.
@@ -34,7 +34,7 @@ void testeArrayCStyle(void)
 /**
  * @brief Teste 2: Acesso a um elemento fora do intervalo de um std::vector usando o operador [].
  *
- * @details O operador [] não lança uma exceção, mas pode causar comportamento indefinido.
+ * @note O operador [] não lança uma exceção, mas pode causar comportamento indefinido.
  * O programa pode acessar um valor aleatório ou pode falhar. Isso é diferente do que acontece
  * com std::vector::at(), onde o acesso a um elemento fora do intervalo lança uma exceção
  * std::out_of_range.
@@ -57,7 +57,7 @@ void testeVectorComColchetes(void)
 /**
  * @brief Teste 3: Acesso a um elemento fora do intervalo de um std::vector usando at().
  *
- * @details O método at() lança uma exceção std::out_of_range se o índice estiver
+ * @note O método at() lança uma exceção std::out_of_range se o índice estiver
  * fora do intervalo. Isso é útil para evitar acessos inválidos e comportamentos indefinidos.
  * O uso de at() é recomendado quando se deseja garantir a segurança do acesso aos elementos
  * de um vetor.

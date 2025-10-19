@@ -48,7 +48,7 @@ Exemplo: ^abc casa com strings que começam com "abc".
 
 Definem a quantidade de vezes que um caractere ou grupo deve aparecer.
 
-Asterisco (_): Zero ou mais ocorrências.  
+Asterisco (\_): Zero ou mais ocorrências.  
 Exemplo: a_ casa com "", "a", "aa", "aaa", etc.
 
 Mais (+): Uma ou mais ocorrências.  

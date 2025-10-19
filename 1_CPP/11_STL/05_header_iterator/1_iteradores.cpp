@@ -5,10 +5,21 @@
 #include <iterator>
 
 /**
- * iterators(ou iteradores): São objetos que permitem percorrer os elementos de
- * uma coleção (como std::array, std::vector, etc.) de forma sequencial, e são uma
- * abstrações poderosa que permite percorrer elementos sem depender de índices numéricos,
- * o que torna o código mais genérico e reutilizável em diferentes tipos de contêineres.
+ * Iterators (ou iteradores) são objetos que permitem percorrer os elementos de uma coleção
+ * (como std::array, std::vector, std::list, std::set, std::multiset, etc.) de forma sequencial e independente da
+ * implementação interna do contêiner.
+ *
+ * Eles funcionam como uma interface genérica para acessar os elementos, sem a necessidade
+ * de usar índices numéricos. Isso torna o código mais flexível, reutilizável e compatível
+ * com diferentes tipos de estruturas de dados.
+ *
+ * Em outras palavras, iteradores atuam como “ponteiros abstratos” que podem:
+ *   - Avançar ou retroceder pelo contêiner;
+ *   - Ler (ou modificar) o valor apontado;
+ *   - Ser usados por algoritmos genéricos da biblioteca padrão (como std::sort, std::find, etc.).
+ *
+ * Assim como ponteiros, eles usam o operador '*' para acessar o valor e '++' para avançar,
+ * mas são objetos definidos e controlados pelos contêineres da STL.
  */
 
 int main(int argc, char **argv)
@@ -25,11 +36,9 @@ int main(int argc, char **argv)
          * end() => Retorna um iterador que aponta para a posição após o último elemento.
          *
          * @note Eles não são ponteiros! Por mais que se comportem de maneiras semelhantes
-         * como o fato de serem acessados com ('*'), eles são objetos que retornam
-         * a um certo intervalo no container.
+         * como o fato de serem acessados com ('*'), eles são objetos que retornam a um certo intervalo no container.
          *
-         * std::distance é útil para calcular a distância/posição relativa de um iterador
-         * em relação a outro.
+         * std::distance é útil para calcular a distância/posição relativa de um iterador em relação a outro.
          */
 
         std::cout << "\nIndex do início: " << indexBegin << " Valor: " << *it
@@ -41,9 +50,10 @@ int main(int argc, char **argv)
 
     std::cout << "============================================" << '\n';
 
+    std::cout << "\nIterando do final para o começo do vetor: ";
+
     // Criando um vetor de strings
     std::vector<std::string> palavras{"maçã", "banana", "laranja", "abacaxi", "manga"};
-    std::cout << "\nIterando do final para o começo do vetor: ";
 
     // Iterando de trás para frente com rbegin() e rend()
     std::cout << '[';
