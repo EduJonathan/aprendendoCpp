@@ -3,10 +3,20 @@
 #include <cmath>
 
 /**
- * std::domain_error(): Exceção lançada quando um argumento passado a uma função está
- * fora do domínio definido para essa função. Essa exceção é perfeita para erros que
- * envolvem cálculos em um domínio válido de operações matemáticas, como valores negativos
- * para raízes quadradas, logaritmos ou, como no nosso caso, raios de círculos.
+ * std::domain_error:
+ * ------------------
+ * Exceção lançada quando um argumento fornecido a uma função está
+ * **fora do domínio válido** definido para essa operação.
+ *
+ * É usada principalmente em contextos matemáticos, quando uma função
+ * recebe valores que não fazem sentido dentro de seu domínio — por exemplo:
+ *  - Calcular a raiz quadrada de um número negativo.
+ *  - Calcular o logaritmo de um número não positivo.
+ *  - Definir um raio negativo para um círculo (caso prático deste projeto).
+ *
+ * Em resumo: `std::domain_error` sinaliza que o **valor de entrada é inválido**
+ * para a **lógica matemática ou conceitual** da função, e não apenas um erro de tipo
+ * ou sintaxe.
  */
 
 /**
@@ -38,6 +48,6 @@ int main(int argc, char **argv)
     {
         std::cerr << "Erro de domínio: " << e.what() << '\n';
     }
-    
+
     return 0;
 }

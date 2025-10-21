@@ -5,8 +5,8 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << std::sqrt(40.0) << '\n';   /* std::sqrt => Para tipos double */
-    std::cout << std::sqrtf(40.0f) << '\n'; /* std::sqrtf => Para tipos float */
-    std::cout << std::sqrtl(40.0l) << '\n'; /* std::sqrtl => Para tipos lond double */
+    std::cout << std::sqrt(40.0) << '\n'; /* std::sqrt => Para tipos double */
+    std::cout << sqrtf(40.0f) << '\n';    /* sqrtf => Para tipos float */
+    std::cout << sqrtl(40.0l) << '\n';    /* sqrtl => Para tipos lond double */
     return 0;
 }

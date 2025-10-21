@@ -4,13 +4,23 @@
 #include <stdexcept>
 
 /**
- * std::length_error(): O length_error é uma exceção que indica que uma operação
- * tentou criar um objeto com um tamanho inválido.
- * 
- * Isso pode ocorrer, por exemplo, quando se tenta criar um vetor com um tamanho
- * negativo ou muito grande. Quando um objeto (ex: vetor, string) excede o tamanho
- * permitido por sua definição. Usado quando se tenta construir um objeto com tamanho
- * absurdo ou que logicamente não pode existir.
+ * std::length_error:
+ * ------------------
+ * Exceção lançada quando uma operação tenta **criar ou redimensionar** um objeto
+ * (como um `std::vector`, `std::string` ou outro contêiner) com um **tamanho inválido**
+ * — seja ele negativo, excessivamente grande ou fora dos limites permitidos pela
+ * implementação.
+ *
+ * É usada para indicar que o **tamanho solicitado é logicamente impossível** ou
+ * **ultrapassa a capacidade suportada** pelo tipo de dado.
+ *
+ * Exemplos de ocorrência:
+ *  - Criar um vetor com tamanho negativo.
+ *  - Tentar construir uma string cujo comprimento excede o máximo permitido.
+ *  - Operações que geram tamanhos de objeto incoerentes ou absurdos.
+ *
+ * Em resumo: `std::length_error` sinaliza que a **dimensão ou tamanho de um objeto**
+ * é inválida para a operação pretendida.
  */
 
 constexpr int MIN_SIZE = 3;

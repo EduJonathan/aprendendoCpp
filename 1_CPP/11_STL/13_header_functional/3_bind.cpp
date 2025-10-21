@@ -1,7 +1,34 @@
 #include <iostream>
 #include <functional>
 
-// std::bind(): Cria uma função personalizada ao fixar alguns argumentos de uma função existente.
+/**
+ * std::bind:
+ * ----------
+ * Função utilitária que cria **uma nova função** ao "fixar" (ou pré-definir)
+ * alguns argumentos de uma função existente, permitindo criar **funções parciais**
+ * ou adaptadores para algoritmos.
+ *
+ * Principais características:
+ *  - Pode ser usado com funções normais, ponteiros para funções, lambdas ou functors.
+ *  - Permite reordenar argumentos ou deixar alguns em aberto para preenchimento posterior.
+ *  - Útil em programação funcional e para integração com algoritmos STL.
+ *
+ * Exemplo:
+ *   #include <functional>
+ *   #include <iostream>
+ *
+ *   int soma(int a, int b) { return a + b; }
+ *
+ *   auto soma5 = std::bind(soma, 5, std::placeholders::_1);
+ *   std::cout << soma5(10);  // saída: 15
+ *
+ * Explicação do exemplo:
+ *  - O primeiro argumento da função `soma` foi fixado como 5.
+ *  - O segundo argumento fica em aberto usando `_1`, que será fornecido quando chamarmos `soma5`.
+ *
+ * Em resumo: `std::bind` cria **funções customizadas ou parciais** a partir de funções existentes,
+ * aumentando a flexibilidade de passagem de funções e integração com algoritmos STL.
+ */
 
 inline int multiply(int a, int b) { return a * b; }
 

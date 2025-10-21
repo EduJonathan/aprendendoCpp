@@ -3,11 +3,22 @@
 #include <stdexcept>
 
 /**
- * std::invalid_argument(): Essa é uma exceção que indica que um argumento inválido
- * foi passado para uma função ou método. Essa exceção é frequentemente usada para
- * validar argumentos de entrada em funções e métodos, garantindo que os valores
- * fornecidos estejam dentro de um intervalo aceitável ou atendam a certos critérios.
- * Quando um argumento passado para uma função é inválido ou mal formatado.
+ * std::invalid_argument:
+ * ----------------------
+ * Exceção lançada quando uma função ou método recebe um **argumento inválido**
+ * — ou seja, um valor que não atende aos critérios esperados pela função.
+ *
+ * É comumente utilizada para **validação de parâmetros de entrada**, garantindo
+ * que os valores fornecidos estejam dentro de um intervalo válido ou tenham
+ * o formato correto antes de prosseguir com a execução.
+ *
+ * Exemplos de uso:
+ *  - Passar um número negativo onde apenas valores positivos são aceitos.
+ *  - Fornecer uma string vazia quando um valor não vazio é obrigatório.
+ *  - Inserir um parâmetro em formato incorreto (ex: “abc” onde se esperava um número).
+ *
+ * Em resumo: `std::invalid_argument` é usada para sinalizar **erros de uso da função**,
+ * quando o problema está **nos valores passados como argumentos**.
  */
 
 /**

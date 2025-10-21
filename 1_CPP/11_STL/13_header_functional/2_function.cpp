@@ -3,10 +3,26 @@
 #include <vector>
 #include <numeric>
 
-/*
- * std::function<class _Fp>: Classe que armazena funções, lambdas ou objetos funcionais.
- * É útil para passar funções como argumentos e para permitir maior flexibilidade na
- * programação funcional e otimizações.
+/**
+ * std::function<_Signature>:
+ * --------------------------
+ * Classe template que pode **armazenar, copiar e invocar** qualquer entidade
+ * chamável compatível com uma determinada assinatura:
+ * funções normais, lambdas, ponteiros para funções ou objetos funcionais
+ * (functors).
+ *
+ * É especialmente útil para:
+ *  - Passar funções como argumentos para outras funções ou algoritmos.
+ *  - Guardar callbacks ou manipuladores de eventos.
+ *  - Criar interfaces genéricas que aceitam diferentes tipos de funções.
+ *
+ * Exemplo:
+ *   std::function<int(int, int)> soma = [](int a, int b){ return a + b; };
+ *   std::cout << soma(2, 3); // saída: 5
+ *
+ * Em resumo: `std::function` fornece **flexibilidade e generalidade** no uso
+ * de funções, lambdas e objetos funcionais, permitindo programação funcional
+ * em C++ moderno.
  */
 
 void sayHello()

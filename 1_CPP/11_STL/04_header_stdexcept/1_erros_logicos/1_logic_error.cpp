@@ -2,12 +2,22 @@
 #include <stdexcept>
 
 /**
- * std::logic_error(): É uma classe base para exceções que indicam erros
- * lógicos no programa. Isso significa que o programa não está funcionando
- * como deveria devido a um erro lógico, como uma captura ou uma operação inválida.
+ * std::logic_error:
+ * -----------------
+ * É uma classe base para exceções que indicam **erros lógicos** no programa,
+ * ou seja, situações em que o código está incorreto em termos de **lógica ou estrutura**,
+ * e não devido a condições externas (como falhas de entrada/saída ou falta de memória).
  *
- * Representa um erro lógico no código, ou seja, erros de programação que poderiam
- * ter sido evitados com lógica correta.
+ * Esses erros normalmente **poderiam ter sido evitados** com uma verificação ou
+ * uma implementação correta da lógica do programa.
+ *
+ * Exemplos comuns incluem:
+ *  - Acesso a um índice inválido em um contêiner.
+ *  - Uso incorreto de uma função ou argumento.
+ *  - Violações de pré-condições (ex: chamar `pop()` em um contêiner vazio).
+ *
+ * Em resumo: `std::logic_error` representa falhas na **lógica interna do código**,
+ * que indicam **erros de programação**, não falhas de execução.
  */
 
 /**

@@ -131,6 +131,24 @@ int main(int argc, char **argv)
 {
     Stack s = createStack(3);
 
+    /**
+     * std::overflow_error:
+     * --------------------
+     * Exceção lançada quando uma **operação aritmética** resulta em um valor que
+     * **excede o limite máximo** representável pelo tipo de dado.
+     *
+     * É uma subclasse de `std::runtime_error`, o que significa que o erro só pode
+     * ser detectado **em tempo de execução**.
+     *
+     * Exemplos de ocorrência:
+     *  - Multiplicar dois números inteiros grandes que excedem o limite de `int` ou `long`.
+     *  - Operações de exponenciação que produzem valores fora da faixa representável.
+     *  - Conversões que causam estouro de valor (overflow) ao tentar armazenar um número grande em um tipo menor.
+     *
+     * Em resumo: `std::overflow_error` sinaliza que um **resultado numérico ultrapassou
+     * o valor máximo permitido** pelo tipo ou contexto da operação.
+     */
+
     try
     {
         push(s, 10);
@@ -142,6 +160,25 @@ int main(int argc, char **argv)
     {
         std::cerr << e.what() << '\n';
     }
+
+    /**
+     * std::underflow_error:
+     * ---------------------
+     * Exceção lançada quando uma **operação aritmética** resulta em um valor
+     * **menor que o limite mínimo representável** — geralmente próximo de zero —
+     * causando **perda de precisão** ou arredondamento inesperado.
+     *
+     * Também é uma subclasse de `std::runtime_error`, representando erros que
+     * só podem ser identificados **durante a execução**.
+     *
+     * Exemplos de ocorrência:
+     *  - Operações com números de ponto flutuante que produzem resultados muito pequenos.
+     *  - Divisões que aproximam o resultado de zero, perdendo precisão significativa.
+     *
+     * Em resumo: `std::underflow_error` sinaliza que um **resultado numérico ficou
+     * abaixo do limite mínimo representável**, levando a **subfluxo (underflow)**
+     * e possíveis imprecisões nos cálculos.
+     */
 
     try
     {

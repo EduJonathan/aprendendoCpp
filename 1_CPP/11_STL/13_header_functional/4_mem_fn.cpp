@@ -5,11 +5,40 @@
 #include <functional>
 
 /**
- * std::mem_fn(): Função de utilidade em C++ que cria um objeto funcional
- * (função de chamada) a partir de um ponteiro para um método de classe.
+ * std::mem_fn:
+ * ------------
+ * Função utilitária que cria um **functor** (objeto funcional) a partir de um
+ * ponteiro para um método de classe, permitindo invocá-lo de forma genérica.
  *
- * Isso é útil quando você deseja criar uma função que chama um método
- * de uma classe, sem precisar saber de antemão qual objeto será usado.
+ * Principais características:
+ *  - Pode ser usado com métodos de instância ou métodos constantes.
+ *  - Permite chamar o método em diferentes objetos sem precisar saber qual será
+ *    usado no momento da criação do functor.
+ *  - Facilita a integração com algoritmos STL e com `std::function`.
+ *
+ * Exemplo:
+ *   #include <functional>
+ *   #include <iostream>
+ *
+ *   struct Pessoa {
+ *       void falar(const std::string& msg) const {
+ *           std::cout << "Dizendo: " << msg << "\n";
+ *       }
+ *   };
+ *
+ *   int main() {
+ *       auto func = std::mem_fn(&Pessoa::falar);
+ *       Pessoa p;
+ *       func(p, "Olá!");  // saída: Dizendo: Olá!
+ *   }
+ *
+ * Explicação do exemplo:
+ *  - `std::mem_fn` cria um functor que encapsula o método `falar`.
+ *  - O functor pode ser chamado passando o objeto como primeiro argumento,
+ *    seguido dos argumentos do método.
+ *
+ * Em resumo: `std::mem_fn` permite transformar **métodos de classe em funções
+ * genéricas**, úteis para programação funcional e integração com algoritmos STL.
  */
 
 // Definição de uma estrutura que contém um número e um método

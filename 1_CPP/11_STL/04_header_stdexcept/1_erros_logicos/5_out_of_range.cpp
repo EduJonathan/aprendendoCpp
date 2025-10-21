@@ -3,9 +3,21 @@
 #include <stdexcept>
 
 /**
- * std::out_of_range(): Essa exceção é lançada quando um valor está fora do intervalo esperado.
- * Exemplo: Acessar um elemento fora dos limites de um vetor.
- * Acesso a índice inválido em array/vector/etc.
+ * std::out_of_range:
+ * ------------------
+ * Exceção lançada quando uma operação tenta **acessar um elemento fora dos limites válidos**
+ * de um contêiner, como `std::vector`, `std::array` ou `std::string`.
+ *
+ * Diferente de `std::length_error`, que ocorre na **criação ou redimensionamento** de objetos,
+ * `std::out_of_range` está relacionada a **acessos inválidos** em tempo de execução.
+ *
+ * Exemplos de ocorrência:
+ *  - Acessar um índice inexistente em um vetor (`vector.at(10)` quando o vetor tem 5 elementos).
+ *  - Obter um caractere além do final de uma string.
+ *  - Qualquer tentativa de acessar dados **fora do intervalo permitido** de um contêiner.
+ *
+ * Em resumo: `std::out_of_range` sinaliza **erros de acesso**, quando um índice ou posição
+ * ultrapassa os **limites válidos** definidos pela estrutura de dados.
  */
 
 /**
