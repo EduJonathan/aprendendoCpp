@@ -161,7 +161,8 @@ int main(int argc, char **argv)
                  {
                     str = texto;
                  }
-             } catch (const std::exception& e)
+             }
+             catch (const std::exception& e)
              {
                  throw std::runtime_error("Erro na lambda: " + std::string(e.what()));
              } 
@@ -174,5 +175,6 @@ int main(int argc, char **argv)
         std::cerr << "Erro: " << e.what() << '\n';
         return 1;
     }
+    
     return 0;
 }

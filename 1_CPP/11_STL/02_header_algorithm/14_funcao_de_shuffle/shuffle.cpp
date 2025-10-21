@@ -34,35 +34,50 @@ void jogoCartas(void)
 {
     std::vector<std::string> cartas = {"AS", "JACK", "DIAMOND", "JOKER"};
 
-    // Gerador aleatório estático para manter estado
+    // Gerador aleatório estático
     static std::random_device rd;
     static std::mt19937 gen(rd());
+
+    // Escolhe aleatoriamente a carta a ser "encontrada"
+    std::uniform_int_distribution<> dis(0, cartas.size() - 1);
+    int indiceCartaSecreta = dis(gen);
+    std::string cartaSecreta = cartas[indiceCartaSecreta];
 
     // Embaralha as cartas
     std::shuffle(cartas.begin(), cartas.end(), gen);
 
-    // Solicita escolha do usuário
-    int escolha = 0;
-    std::cout << "\nEscolha um número de 1 a 4 para pegar a carta: ";
-    std::cin >> escolha;
+    // Mostra apenas posições (sem revelar cartas)
+    std::cout << "As cartas foram embaralhadas!\n";
+    std::cout << "Tente adivinhar em qual posição está a carta \"" << cartaSecreta << "\".\n";
+    std::cout << "Escolha um número de 1 a 4: ";
 
-    if (escolha < 1 || escolha > 4)
+    int escolha = 0;
+    while (true)
     {
-        std::cerr << "Escolha inválida! O número deve ser entre 1 e 4.\n";
-        return;
+        if (std::cin >> escolha && escolha >= 1 && escolha <= 4)
+            break;
+        std::cerr << "Escolha inválida! Digite um número de 1 a 4: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::string cartaEscolhida = cartas[escolha - 1];
-
-    // Verifica resultado
-    if (cartaEscolhida == "JOKER")
+    // Verifica se acertou
+    if (cartas[escolha - 1] == cartaSecreta)
     {
-        std::cout << "Você pegou o JOKER! Perdeu o jogo!\n";
+        std::cout << "Parabéns! Você encontrou a carta \"" << cartaSecreta << "\"!\n";
     }
     else
     {
-        std::cout << "Você pegou a carta \"" << cartaEscolhida << "\". Você venceu!\n";
+        std::cout << "Errado! A carta \"" << cartaSecreta << "\" estava na posição "
+                  << (std::find(cartas.begin(), cartas.end(), cartaSecreta) - cartas.begin() + 1)
+                  << ".\n";
     }
+
+    // Mostra a ordem final das cartas
+    std::cout << "Cartas embaralhadas: ";
+    for (auto &c : cartas)
+        std::cout << c << ' ';
+    std::cout << '\n';
 }
 
 int main(int argc, char **argv)

@@ -14,10 +14,10 @@ int main(int argc, char **argv)
     bool iguais = true;
 
     // Tamanho do array
-    const size_t TAMANHO = sizeof(Nomes) / sizeof(Nomes[0]);
+    const std::size_t TAMANHO = sizeof(Nomes) / sizeof(Nomes[0]);
 
     // Verificando se as strings nos arrays são lexicograficamente iguais
-    for (size_t i = 0; i < TAMANHO; ++i)
+    for (std::size_t i = 0; i < TAMANHO; ++i)
     {
         if (conjuntoDeNome[i] != Nomes[i])
         {

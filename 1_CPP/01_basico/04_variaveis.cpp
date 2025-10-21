@@ -86,7 +86,7 @@ int main(int argc, char **argv)
     // Declarando variáveis do tipo string
     unsigned char stringChar[] = "Programar em C++ é muito bom!";
     const char *string = "Programando em C++";
-    std::string palavra = "Hello World";
+    std::string palavra = "Hello World"; // Declarar string de maneira moderna no C++
 
     // Imprimindo os valores das variáveis strings
     std::cout << "stringChar : " << stringChar << '\n';

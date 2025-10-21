@@ -93,14 +93,14 @@ int main(int argc, char **argv)
     // std::cout << "Limite máximo de UNSIGNED CHAR: " << std::numeric_limits<unsigned char>::max() << '\n';
     std::cout << "UNSIGNED CHAR_MAX : " << UCHAR_MAX << '\n';
 
-    std::cout << "\n----------------------------------------------";
-    std::cout << "\n========= LIMITES DE BOOL =========\n";
-    std::cout << "----------------------------------------------\n";
-
     // Casting para (int) é necessário para imprimir o valor numérico em vez do caractere ASCII
     std::cout << "char (valor numérico): " << (int)std::numeric_limits<char>::min() << " a " << (int)std::numeric_limits<char>::max() << '\n';
     std::cout << "signed char: " << (int)std::numeric_limits<signed char>::min() << " a " << (int)std::numeric_limits<signed char>::max() << '\n';
     std::cout << "unsigned char: 0 a " << (int)std::numeric_limits<unsigned char>::max() << '\n';
+
+    std::cout << "\n----------------------------------------------";
+    std::cout << "\n========= LIMITES DE BOOL =========\n";
+    std::cout << "----------------------------------------------\n";
 
     // std::boolalpha para exibir como true/false
     std::cout << "bool: " << std::boolalpha << std::numeric_limits<bool>::min() << " a " << std::numeric_limits<bool>::max() << std::noboolalpha << '\n';
