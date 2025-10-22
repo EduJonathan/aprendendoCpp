@@ -6,7 +6,7 @@ std::atomic<int> contador{0};
 
 void incrementar()
 {
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 1000; ++i)
         contador++;
 }
 

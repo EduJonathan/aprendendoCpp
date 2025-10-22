@@ -42,7 +42,7 @@ std::vector<point> convex_hull(std::vector<point> points)
     }
 
     // Parte superior
-    size_t t = hull.size() + 1;
+    std::size_t t = hull.size() + 1;
     for (int i = n - 2; i >= 0; --i)
     {
         while (hull.size() >= t && !cw(hull[hull.size() - 2], hull[hull.size() - 1], points[i]))
@@ -79,7 +79,7 @@ double diametro(const std::vector<point> &points)
 
     if (n == 1)
         return 0.0;
-        
+
     if (n == 2)
         return distance(hull[0], hull[1]);
 

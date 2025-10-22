@@ -58,7 +58,7 @@ public:
     void mostrarBitfield() const
     {
         std::cout << "Estado das parcelas (1=paga, 0=pendente): ";
-        for (int i = parcelasTotal - 1; i >= 0; i--)
+        for (int i = parcelasTotal - 1; i >= 0; --i)
         {
             std::cout << ((parcelasPagas >> i) & 1);
         }

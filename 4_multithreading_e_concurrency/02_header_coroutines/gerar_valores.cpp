@@ -25,7 +25,7 @@ struct Generator
 
 Generator contador(int n)
 {
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; ++i)
         co_yield i; // "pausa" e retorna valor
 }
 

@@ -25,7 +25,7 @@ public:
 };
 
 // Classe derivada Lápis
-class Lápis : public Escrever
+class Lapis : public Escrever
 {
 public:
     void escrever(const std::string &superficie) override
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
     // Usando ponteiros brutos
     Escrever *ferramenta1 = new Caneta();
-    Escrever *ferramenta2 = new Lápis();
+    Escrever *ferramenta2 = new Lapis();
     Escrever *ferramenta3 = new Grafite();
 
     // Chama a função escrever para cada ferramenta e superfície
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 
     // Usando smart pointers
     std::unique_ptr<Escrever> ferramenta4 = std::make_unique<Caneta>();
-    std::unique_ptr<Escrever> ferramenta5 = std::make_unique<Lápis>();
+    std::unique_ptr<Escrever> ferramenta5 = std::make_unique<Lapis>();
     std::unique_ptr<Escrever> ferramenta6 = std::make_unique<Grafite>();
 
     // Chama a função escrever para cada ferramenta e superfície

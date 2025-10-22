@@ -28,7 +28,7 @@ constexpr int limiar = 50; // Limiar para comparação
 
 int gerarNumeroAleatorio()
 {
-    return rand() % 100; // Gera um número entre 0 e 99
+    return std::rand() % 100; // Gera um número entre 0 e 99
 }
 
 void verificaNumero(int numero)

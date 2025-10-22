@@ -27,8 +27,8 @@ public:
  * - Como podemos nos locomover? temos várias formas, como (`carro`, `moto`, `bicicleta`, `a pé`, etc.).
  * - Como podemos nos comunicar? temos várias formas, como (`falar`, ligação`, `email`, `mensagem de texto`, etc.).
  *
- * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando
- * tratar objetos de diferentes classes de forma uniforme.
+ * Todas estas possibilidade de ações são abstratos ou seja suas formas de agir envolve diversas ações.
+ * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando tratar objetos de diferentes classes de forma uniforme.
  *
  * ----------------------------------
  *

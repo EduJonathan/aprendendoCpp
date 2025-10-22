@@ -1,9 +1,6 @@
 #include <iostream>
 #include <stdexcept>
 
-const int MAX_RECURSION_DEPTH = 5; // Limite para simular overflow de pilha
-int current_depth = 0;             // Profundidade atual da "pilha de chamadas"
-
 // Estrutura da pilha como struct simples
 struct Stack
 {
@@ -91,6 +88,9 @@ bool isEmpty(const Stack &s) { return s.top == -1; }
  * @return true se a pilha estiver cheia, false caso contrário.
  */
 bool isFull(const Stack &s) { return s.top == s.capacity - 1; }
+
+const int MAX_RECURSION_DEPTH = 5; // Limite para simular overflow de pilha
+int current_depth = 0;             // Profundidade atual da "pilha de chamadas"
 
 /**
  * @brief Soma recursivamente os números de 1 a n.
@@ -204,6 +204,5 @@ int main(int argc, char **argv)
     {
         std::cerr << e.what() << '\n';
     }
-
     return 0;
 }

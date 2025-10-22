@@ -53,7 +53,7 @@ int main(int argc, char **argv)
         // Simula progresso em tempo real com pontos
         for (int i = 0; i < duracaoTurno; ++i)
         {
-            std::cout << "." << std::flush;
+            std::cout << "." << '\n';
             std::this_thread::sleep_for(std::chrono::milliseconds(500)); // 0.5s entre pontos
             if (i % 6 == 5)
                 std::cout << '\n'; // Quebra linha a cada 6 segundos
