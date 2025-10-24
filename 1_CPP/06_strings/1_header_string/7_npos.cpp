@@ -35,11 +35,6 @@ int main(int argc, char **argv)
     std::string text = "Hello, world!";
     std::string search = "world"; // Substring a ser procurada
 
-    /**
-     * @brief Procura a substring na string original (case-sensitive).
-     *
-     * Aqui procuramos a substring 'world' na string 'Hello, world!'.
-     */
     std::size_t pos = text.find(search); // Procura pela substring 'search' na string 'text'
 
     // Verifica se a substring foi encontrada
@@ -63,21 +58,17 @@ int main(int argc, char **argv)
     // Verifica se a substring foi encontrada
     if (pos != std::string::npos)
     {
-        std::cout << "Found '" << search << "' at position " << pos << '\n'; // Exibe a posição se encontrada
+        std::cout << "Substring '" << search << "' encontrada na posição " << pos << '\n'; // Exibe a posição se encontrada
     }
     else
     {
-        std::cout << "Substring not found" << '\n'; // Caso não encontre a substring
+        std::cout << "Substring não encontrada" << '\n'; // Caso não encontre a substring
     }
 
     std::cout << "------------------------------------" << '\n';
 
-    /**
-     * @brief Demonstra a busca de uma substring que não existe no texto.
-     *
-     * Aqui, tentamos encontrar a substring "planet" na string "Hello, world!".
-     */
-    std::string texto = "Hello, world!";
+    
+    std::string texto = "Hello, world!";         // Aqui, tentamos encontrar a substring "planet" na string "Hello, world!".
     std::string subtring = "planet";             // Substring inexistente no texto
     std::size_t position = texto.find(subtring); // Procura pela substring 'subtring' na string 'texto'
 

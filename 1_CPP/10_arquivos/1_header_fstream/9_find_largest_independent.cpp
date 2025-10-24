@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include <algorithm>
+#include <fstream>
 
 /**
  * @brief Verifica se um vértice é removível (não tem vizinhos no conjunto independente).

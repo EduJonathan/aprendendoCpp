@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 /**
  * std::cin — Objeto da classe std::istream usado para entrada de dados pelo console (entrada padrão).

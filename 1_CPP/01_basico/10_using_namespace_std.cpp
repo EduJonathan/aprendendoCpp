@@ -53,8 +53,8 @@ using namespace std;
 
 void minhaFuncao(void)
 {
-    /* using namespace std; */ // Só afeta o escopo da função
-    // Porém, tenha preferência pela importação seletiva para evitar poluição do namespace
+    /* using namespace std; */
+    // Só afeta o escopo dentro da função, porém, tenha preferência pela importação seletiva para evitar poluição do namespace
     using std::cout;
     using std::endl;
     cout << "Função executada: Olá" << endl;

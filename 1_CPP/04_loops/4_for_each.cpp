@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <iterator> // Necessário para usar std::begin e std::end
 
 int main(int argc, char **argv)
@@ -45,10 +46,19 @@ int main(int argc, char **argv)
     }
 
     std::cout << "\n-----------------------------------------------\n";
-    std::cout << "5. FOR TRADICIONAL COM ITERADORES:\n";
+    std::cout << "5. FOR EACH:\n";
 
     std::string nomes[]{"João", "Maria", "Pedro", "Ana", "Carlos"};
     std::size_t i = 0; // Variável para armazenar o índice
+
+    // Usando for-each para percorrer o array de strings
+    for (const std::string &nome : nomes)
+    {
+        std::cout << nome << '\n';
+    }
+
+    std::cout << "\n-----------------------------------------------\n";
+    std::cout << "6. FOR TRADICIONAL COM ITERADORES:\n";
 
     // Usando iteradores para percorrer o array de strings e imprimir índice
     for (auto it = std::begin(nomes); it != std::end(nomes); ++it, ++i)
@@ -57,15 +67,6 @@ int main(int argc, char **argv)
         // iterators: São utilizados para percorrer os elementos de um container.
         // std::begin: Retorna um iterador para o primeiro elemento do array de strings.
         // std::end: Retorna um iterador para o fim do array de strings.
-    }
-
-    std::cout << "\n-----------------------------------------------\n";
-    std::cout << "6. FOR EACH:\n";
-
-    // Usando for-each para percorrer o array de strings
-    for (const std::string &nome : nomes)
-    {
-        std::cout << nome << '\n';
     }
 
     /**

@@ -13,7 +13,7 @@ class Bicicleta
 {
     // Acesso público, ou seja, pode ser acessado de qualquer lugar do código
 public:
-    // Atributos (variáveis/dados), qquando declarados dentro de uma classe, e quando
+    // Atributos (variáveis/dados), quando declarados dentro de uma classe, e quando
     // instanciamos Estes valores serão os padrões iniciais dos objetos criados a partir
     // desta classe, a não ser que sejam modificados posteriormente.
     std::string cor = "vermelha";

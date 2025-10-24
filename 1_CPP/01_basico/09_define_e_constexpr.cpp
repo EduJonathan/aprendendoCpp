@@ -77,7 +77,7 @@ int main(int argc, char **argv)
     /* static_assert(MAX(1, 2) == 2, ""); */
 
     // 4. Problemas com macros (Efeitos colaterais)
-    std::cout << "--- Problema Clássico de Macro ---\n";
+    std::cout << "--- Problema Com a Macro ---\n";
 
     int x = 5, y = 10;
     std::cout << std::left << std::setw(25) << "Antes (x, y): " << x << ", " << y << '\n';

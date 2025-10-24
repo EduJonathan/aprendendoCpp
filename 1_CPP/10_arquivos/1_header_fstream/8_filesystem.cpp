@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <filesystem>
 
 /**
@@ -8,7 +9,7 @@
  *
  * @return true se o arquivo existe, false caso contrário.
  *
- * @note o <filesystem>: Biblioteca moderna e poderosa que facilita bastante o trabalho
+ * @note o <filesystem> Biblioteca moderna e poderosa que facilita bastante o trabalho
  * com arquivos e diretórios em C++, oferecendo uma interface de alto nível para manipulação
  * de arquivos de maneira segura e eficiente.
  */
