@@ -16,6 +16,21 @@
  * - `SEEK_SET`, `SEEK_CUR`, `SEEK_END` — constantes usadas com `fseek()` para indicar origem do deslocamento.
  */
 
+/**
+ * @brief Converte todas as letras minúsculas de um arquivo em maiúsculas.
+ *
+ * Esta função percorre o conteúdo de um arquivo (já aberto com `std::fstream`)
+ * e, sempre que encontra um caractere minúsculo (`islower`), o converte para
+ * maiúsculo (`toupper`). A conversão é feita diretamente no arquivo,
+ * reposicionando o ponteiro de escrita para sobrescrever o caractere.
+ *
+ * @param file Referência para o objeto `std::fstream` aberto no modo leitura e escrita.
+ * @return int Retorna `0` se o processo ocorreu corretamente,
+ * ou `1` caso o arquivo não esteja aberto.
+ *
+ * @note O arquivo deve ser aberto em modo binário e leitura/escrita,
+ *       por exemplo: `std::fstream file("arquivo.txt", std::ios::in | std::ios::out);`
+ */
 int upper_file(std::fstream &file)
 {
     if (!file.is_open())
@@ -33,7 +48,7 @@ int upper_file(std::fstream &file)
             caractere = std::toupper(caractere);
 
             file.seekp(-1, std::ios::cur); // Move o ponteiro de escrita para uma posição para trás.
-            file.put(caractere);           // Escreve o contéudo(caractere) convertido
+            file.put(caractere);           // Sobrescreve o caractere convertido.
         }
     }
 

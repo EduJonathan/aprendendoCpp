@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cstring>
 #include <cctype>
 #include <sstream>
 
@@ -24,7 +23,7 @@ bool isInt(const std::string &string)
 {
     for (const char &caracteres : string)
     {
-        if (!isdigit(caracteres))
+        if (!std::isdigit(caracteres))
         {
             return false;
         }

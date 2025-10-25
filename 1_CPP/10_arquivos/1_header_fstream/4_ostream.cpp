@@ -1,11 +1,12 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+/** */
 
 /**
  * std::ostream: Base para operações de saída, geralmente usada com ofstream para arquivos ou std::cout para a tela.
- * Serve como a base para várias classes como ofstream, ostringstream, etc., Usada para escrever dados no fluxo de saída.
- * Não é usada diretamente para arquivos, mas sim para fluxo de saída geral.
+ * Serve como a base para várias classes como ofstream, ostringstream, etc.
+ * Usada para escrever dados no fluxo de saída. Não é usada diretamente para arquivos, mas sim para fluxo de saída geral.
  */
 
 struct Ponto
@@ -14,14 +15,35 @@ struct Ponto
     int y;
 };
 
+/**
+ * @brief Imprime uma data formatada no fluxo de saída.
+ *
+ * @param os Stream de saída (ex: std::cout ou arquivo).
+ * @param dia Dia do mês.
+ * @param mes Mês.
+ * @param ano Ano.
+ *
+ * @example
+ * imprimeData(std::cout, 5, 9, 2025); // Saída: 05/09/2025
+ */
 void imprimeData(std::ostream &os, int dia, int mes, int ano)
 {
-    // Configurando para garantir dois dígitos para dia e mês e quatro dígitos para o ano
     os << std::setw(2) << std::setfill('0') << dia << '/'
        << std::setw(2) << std::setfill('0') << mes << '/'
        << std::setw(4) << std::setfill('0') << ano;
 }
 
+/**
+ * @brief Sobrecarga do operador << para imprimir um ponto.
+ *
+ * @param os Stream de saída.
+ * @param p struct da classe Ponto.
+ * @return Referência para o stream de saída.
+ *
+ * @example
+ * Ponto p{3, 7};
+ * std::cout << p; // Saída: (3, 7)
+ */
 std::ostream &operator<<(std::ostream &os, const Ponto &p)
 {
     return os << '(' << p.x << ", " << p.y << ')';

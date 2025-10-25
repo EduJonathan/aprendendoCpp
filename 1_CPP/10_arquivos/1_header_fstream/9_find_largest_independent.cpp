@@ -317,7 +317,8 @@ int main(int argc, char **argv)
     else
     {
         std::cout << "Não foi possível encontrar Conjunto Independente de tamanho pelo menos "
-                  << alvoConjuntoIndependente << '.' << "\nMaior Conjunto Independente encontrado tem tamanho " << n - minCobertura << '.' << '\n';
+                  << alvoConjuntoIndependente << '.' << "\nMaior Conjunto Independente encontrado tem tamanho "
+                  << n - minCobertura << '.' << '\n';
     }
 
     entrada.close();

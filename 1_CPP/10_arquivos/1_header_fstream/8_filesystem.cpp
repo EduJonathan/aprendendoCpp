@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib> // Para std::getenv()
 #include <filesystem>
 
 /**
@@ -20,7 +21,7 @@ bool existeArquivo(const std::string &caminho)
 
 int main(int argc, char **argv)
 {
-    std::string caminhoHome = getenv("HOME");
+    std::string caminhoHome = std::getenv("HOME");
     caminhoHome = caminhoHome + '/';
 
     std::cout << (existeArquivo(caminhoHome + "Documents") ? "Existe" : "Nao Existe") << '\n';

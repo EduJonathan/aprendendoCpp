@@ -55,23 +55,17 @@ int main(int argc, char **argv)
                     << " | " << std::setw(10) << "HEXADECIMAL"
                     << " | " << std::setw(8) << "DECIMAL"
                     << " | " << "CARACTERE\n";
-    out_table_ascii << std::string(60, '=') << "\n";
+
+    out_table_ascii << std::string(60, '=') << '\n'; // Irá imprimir o caractere '=' 60 vezes
 
     for (int i = 0; i < 127; ++i)
     {
         char caracter = static_cast<char>(i);
 
-        // Valor binário
-        out_table_ascii << std::left << std::setw(16) << std::bitset<7>(i) << " | ";
-
-        // Valor octal
-        out_table_ascii << std::setw(8) << std::oct << std::uppercase << i << " | ";
-
-        // Valor hexadecimal
-        out_table_ascii << std::setw(10) << std::hex << std::uppercase << i << " | ";
-
-        // Valor decimal
-        out_table_ascii << std::setw(8) << std::dec << i << " | ";
+        out_table_ascii << std::left << std::setw(16) << std::bitset<7>(i) << " | ";  // Valor binário
+        out_table_ascii << std::setw(8) << std::oct << std::uppercase << i << " | ";  // Valor octal
+        out_table_ascii << std::setw(10) << std::hex << std::uppercase << i << " | "; // Valor hexadecimal
+        out_table_ascii << std::setw(8) << std::dec << i << " | ";                    // Valor decimal
 
         // Caractere
         if (caractere_printavel(caracter))

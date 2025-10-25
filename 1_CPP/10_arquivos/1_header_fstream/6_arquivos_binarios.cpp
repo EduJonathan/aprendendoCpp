@@ -52,7 +52,7 @@ bool comparar_dois_arquivos_binarios(std::ifstream &arquivo1, std::ifstream &arq
                       << ": arquivo1 = 0x" << std::hex << std::setw(2) << std::setfill('0')
                       << (unsigned int)(unsigned char)caractere1
                       << ", arquivo2 = 0x" << std::hex << std::setw(2) << std::setfill('0')
-                      << (unsigned int)(unsigned char)caractere2 << "\n";
+                      << (unsigned int)(unsigned char)caractere2 << '\n';
             break;
         }
     }
@@ -62,7 +62,7 @@ bool comparar_dois_arquivos_binarios(std::ifstream &arquivo1, std::ifstream &arq
         sao_iguais = false;
         std::cout << "Os arquivos têm tamanhos diferentes: "
                   << (arquivo1.eof() ? "arquivo1 terminou primeiro" : "arquivo2 terminou primeiro")
-                  << " na posição " << position << "\n";
+                  << " na posição " << position << '\n';
     }
 
     if (sao_iguais)
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    std::cout << "O número lido foi: " << number << "\n";
+    std::cout << "O número lido foi: " << number << '\n';
     input_file.close();
     std::cout << "--------------------------------------\n";
 
@@ -141,7 +141,7 @@ int main(int argc, char **argv)
     }
     inFile.close();
 
-    std::cout << "Nome: " << p2.nome << ", Idade: " << p2.idade << "\n";
+    std::cout << "Nome: " << p2.nome << ", Idade: " << p2.idade << '\n';
     std::cout << "--------------------------------------\n";
 
     // Exemplo 5: Comparando 2 arquivos binários
