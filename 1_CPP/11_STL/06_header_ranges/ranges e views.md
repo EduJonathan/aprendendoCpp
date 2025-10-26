@@ -43,3 +43,5 @@ mudando além de facilitar o uso, possuindo alguns tipos de intervalos
 Já uma **view** é um intervalo leve. As operações de visualização, como construção padrão, movimentação/atribuição, cópia,
 construção/atribuição (se presente), destruição, início e fim, ocorrem em tempo constante, independentemente do número
 de elementos na vista. As views são criadas por adaptadores de intervalo, que transformam ranges sem alterar os dados originais.
+
+## Adaptador views
