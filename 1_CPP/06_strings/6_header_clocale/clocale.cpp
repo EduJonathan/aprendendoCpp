@@ -44,7 +44,7 @@ void exibirInformacoesLocale()
 // Função para configurar o locale e exibir informações
 bool configurarLocale(const std::string &localeName, double number, const std::wstring &mensagem)
 {
-    if (setlocale(LC_ALL, localeName.c_str()) == nullptr)
+    if (std::setlocale(LC_ALL, localeName.c_str()) == nullptr)
     {
         std::wcerr << L"Erro: Locale '" << localeName.c_str() << L"' não suportado.\n";
         return false;
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
     std::wcout.imbue(std::locale("")); // Locale padrão do sistema
 
     // Tentar configurar para o locale padrão do sistema
-    if (setlocale(LC_ALL, "") == nullptr)
+    if (std::setlocale(LC_ALL, "") == nullptr)
     {
         std::wcerr << L"Erro: Não foi possível configurar o locale padrão do sistema.\n";
         return 1;

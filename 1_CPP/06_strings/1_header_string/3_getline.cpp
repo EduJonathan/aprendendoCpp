@@ -102,7 +102,7 @@ int main(int argc, char **argv)
     }
 
     // Verifica se a palavra é um palíndromo
-    for (size_t i = 0; i < palavra.length() / 2; ++i)
+    for (std::size_t i = 0; i < palavra.length() / 2; ++i)
     {
         if (palavra[i] != palavra[palavra.length() - 1 - i])
         {

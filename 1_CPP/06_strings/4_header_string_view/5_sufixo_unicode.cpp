@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 /**
  * Além do sufixo s para std::string com caracteres char, o namespace std::literals::string_literals

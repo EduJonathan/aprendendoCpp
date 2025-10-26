@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <clocale>
+#include <cstdlib>
 #include <string_view>
 #include <uchar.h>
 
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
         }
 
         std::cout << "Caractere UTF-32: U+"
-                  << std::hex << std::uppercase << static_cast<uint32_t>(c32)
+                  << std::hex << std::uppercase << static_cast<u_int32_t>(c32)
                   << '\n';
 
         i += converted;
