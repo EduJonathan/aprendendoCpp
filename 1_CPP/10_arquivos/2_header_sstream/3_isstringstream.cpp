@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
+#include <cctype>
 #include <string>
 #include <sstream>
 
@@ -8,7 +9,7 @@
 
 /**
  * @brief Converte uma string numérica (bin, oct, dec, hex) para decimal.
- * 
+ *
  * @param input Valor de entrada em formato de string.
  * @param value Referência para armazenar o valor convertido.
  * @return true se a conversão for bem-sucedida, false caso contrário.
@@ -40,7 +41,7 @@ bool parseInput(const std::string &input, long &value)
 
 /**
  * @brief Converte para hexadecimal (0xXXXXXXXX).
- * 
+ *
  * @param value Valor decimal.
  * @return String em formato hexadecimal.
  */
@@ -54,7 +55,7 @@ std::string toHex(long value)
 
 /**
  * @brief Converte para octal (00000000000).
- * 
+ *
  * @param value Valor decimal.
  * @return String em formato octal.
  */
@@ -68,7 +69,7 @@ std::string toOct(long value)
 
 /**
  * @brief Converte para binário (0b...).
- * 
+ *
  * @param value Valor decimal.
  * @return String em formato binário.
  */
@@ -81,7 +82,7 @@ std::string toBin(long value)
 
 /**
  * @brief Exibe uma tabela com representações em várias bases.
- * 
+ *
  * @param value Valor decimal.
  */
 void printTable(long value)
