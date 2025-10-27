@@ -62,7 +62,7 @@ std::string toHex(long value)
 std::string toOct(long value)
 {
     std::ostringstream oss;
-    oss << "0" << std::oct
+    oss << '0' << std::oct
         << std::setw(11) << std::setfill('0') << value;
     return oss.str();
 }
