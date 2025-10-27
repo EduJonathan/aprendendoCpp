@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 /**
  * Classe (class): Em C++, é um tipo definido pelo o usuário (o programador). As classes
