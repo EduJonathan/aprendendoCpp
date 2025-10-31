@@ -1,8 +1,6 @@
 #ifndef CLASS_STACK_HPP
 #define CLASS_STACK_HPP
 
-#include <iostream>
-
 /**
  * @brief Classe que representa uma pilha (Stack) com capacidade fixa.
  */

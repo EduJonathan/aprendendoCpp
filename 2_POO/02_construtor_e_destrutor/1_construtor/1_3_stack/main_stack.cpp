@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdexcept>
 #include <new>
 #include "class_stack.hpp"

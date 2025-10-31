@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cctype>
 #include <string>
 
 class Pessoa

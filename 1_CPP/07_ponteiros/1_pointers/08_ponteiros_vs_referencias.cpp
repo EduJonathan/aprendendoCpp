@@ -25,8 +25,8 @@
  * - Se referências não podem ser nulas, então não as use se a variável pode não existir ou ser opcional.
  * - Referências não podem ser reatribuídas para referenciar outra variável após a inicialização.
  *
- * - Referências não são adequadas para estruturas como listas encadeadas ou árvores, onde você precisa
- * manipular endereços de memória dinamicamente.
+ * - Referências não são adequadas para estruturas como listas encadeadas ou árvores,
+ * onde você precisa manipular endereços de memória dinamicamente.
  *
  * -------------------
  *

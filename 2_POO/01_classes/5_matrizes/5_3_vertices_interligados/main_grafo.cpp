@@ -1,4 +1,6 @@
 #include "class_grafo.hpp"
+#include <iostream>
+#include <new>
 
 Grafo::Grafo(int n) : numVertices(n)
 {

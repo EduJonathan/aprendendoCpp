@@ -30,10 +30,6 @@ int main(int argc, char **argv)
     x = 20;        // 'x' é um lvalue
     int y = 5 + 3; // '5 + 3' é um rvalue
 
-    std::cout << "\n=================================================" << '\n';
-
-    std::cout << "Erros que podem ser cometidos" << '\n';
-
     /* 5 = x; */       // expression must be a modifiable lvalueC/C++(137)
     /* int &&r = x; */ // ERRO: 'x' é lvalue, não pode inicializar rvalue reference
 

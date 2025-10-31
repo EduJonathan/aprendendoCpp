@@ -180,7 +180,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const BitInt &bi)
     {
-        os << bi.value << " (binary: " << std::bitset<32>(bi.value) << ")";
+        os << bi.value << " (binary: " << std::bitset<32>(bi.value) << ')';
         return os;
     }
 };

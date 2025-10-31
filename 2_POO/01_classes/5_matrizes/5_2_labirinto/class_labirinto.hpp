@@ -16,8 +16,7 @@ private:
 
     int jogador1X, jogador1Y; // Posição do jogador 1 (X).
     int jogador2X, jogador2Y; // Posição do jogador 2 (Y).
-
-    int saidaX, saidaY; // Coordenadas da saída (~) do labirinto.
+    int saidaX, saidaY;       // Coordenadas da saída (~) do labirinto.
 
     bool jogoFinalizado; // Indica se o jogo foi finalizado.
     bool jogador1Ativo;  // Indica se o jogador 1 ainda está ativo.

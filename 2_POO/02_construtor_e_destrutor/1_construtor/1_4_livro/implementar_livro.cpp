@@ -15,18 +15,15 @@
  */
 Livro::Livro(const char *titulo, const char *autor, const char *editora, const char *anoPublicacao)
 {
-    this->titulo = new char[strlen(titulo) + 1];               // +1 para o caractere nulo '\0'
-    this->autor = new char[strlen(autor) + 1];                 // +1 para o caractere nulo '\0'
-    this->editora = new char[strlen(editora) + 1];             // +1 para o caractere nulo '\0'
-    this->anoPublicacao = new char[strlen(anoPublicacao) + 1]; // +1 para o caractere nulo '\0'
+    this->titulo = new char[std::strlen(titulo) + 1];               // +1 para o caractere nulo '\0'
+    this->autor = new char[std::strlen(autor) + 1];                 // +1 para o caractere nulo '\0'
+    this->editora = new char[std::strlen(editora) + 1];             // +1 para o caractere nulo '\0'
+    this->anoPublicacao = new char[std::strlen(anoPublicacao) + 1]; // +1 para o caractere nulo '\0'
 
-    strcpy(this->titulo, titulo); // Copia o conteúdo para a variável alocada dinamicamente
-
-    strcpy(this->autor, autor); // Copia o conteúdo para a variável alocada dinamicamente
-
-    strcpy(this->editora, editora); // Copia o conteúdo para a variável alocada dinamicamente
-
-    strcpy(this->anoPublicacao, anoPublicacao); // Copia o conteúdo para a variável alocada dinamicamente
+    std::strcpy(this->titulo, titulo);               // Copia o conteúdo para a variável alocada dinamicamente
+    std::strcpy(this->autor, autor);                 // Copia o conteúdo para a variável alocada dinamicamente
+    std::strcpy(this->editora, editora);             // Copia o conteúdo para a variável alocada dinamicamente
+    std::strcpy(this->anoPublicacao, anoPublicacao); // Copia o conteúdo para a variável alocada dinamicamente
 }
 
 /**
@@ -61,8 +58,8 @@ const char *Livro::getTitulo(void) const
 void Livro::setTitulo(const char *titulo)
 {
     delete[] this->titulo; // Libera a memória antes de alocar nova
-    this->titulo = new char[strlen(titulo) + 1];
-    strcpy(this->titulo, titulo);
+    this->titulo = new char[std::strlen(titulo) + 1];
+    std::strcpy(this->titulo, titulo);
 }
 
 /**
@@ -83,8 +80,8 @@ const char *Livro::getAutor(void) const
 void Livro::setAutor(const char *autor)
 {
     delete[] this->autor;
-    this->autor = new char[strlen(autor) + 1];
-    strcpy(this->autor, autor);
+    this->autor = new char[std::strlen(autor) + 1];
+    std::strcpy(this->autor, autor);
 }
 
 /**
@@ -105,8 +102,8 @@ const char *Livro::getEditora(void) const
 void Livro::setEditora(const char *editora)
 {
     delete[] this->editora;
-    this->editora = new char[strlen(editora) + 1];
-    strcpy(this->editora, editora);
+    this->editora = new char[std::strlen(editora) + 1];
+    std::strcpy(this->editora, editora);
 }
 
 /**
@@ -127,6 +124,6 @@ const char *Livro::getAnoPublicacao(void) const
 void Livro::setAnoPublicacao(const char *anoPublicacao)
 {
     delete[] this->anoPublicacao;
-    this->anoPublicacao = new char[strlen(anoPublicacao) + 1];
-    strcpy(this->anoPublicacao, anoPublicacao);
+    this->anoPublicacao = new char[std::strlen(anoPublicacao) + 1];
+    std::strcpy(this->anoPublicacao, anoPublicacao);
 }

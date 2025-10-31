@@ -1,8 +1,6 @@
 #ifndef GRAFO_HPP
 #define GRAFO_HPP
 
-#include <iostream>
-
 /**
  * @class Grafo
  * @brief Representa um grafo simples, não direcionado, usando matriz de adjacência.

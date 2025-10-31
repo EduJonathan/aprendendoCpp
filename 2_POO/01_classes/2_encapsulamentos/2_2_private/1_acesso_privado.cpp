@@ -6,7 +6,6 @@
  * Aqui os dados estão protegidos dentro da classe.
  * Eles só podem ser alterados e acessados por meio dos métodos públicos.
  *
- *
  * PRIVATE: Membros de classe marcados com private só podem ser acessados ou modificados
  * dentro da própria classe. Ou seja, você não pode acessar ou modificar diretamente esses
  * membros fora da classe. O private ajuda a proteger as variáveis internas da classe,

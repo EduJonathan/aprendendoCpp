@@ -28,7 +28,8 @@ public:
  * - Como podemos nos comunicar? temos várias formas, como (`falar`, ligação`, `email`, `mensagem de texto`, etc.).
  *
  * Todas estas possibilidade de ações são abstratos ou seja suas formas de agir envolve diversas ações.
- * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando tratar objetos de diferentes classes de forma uniforme.
+ * Então, polimorfismo permite que um objeto assuma várias formas, possibilitando tratar objetos
+ * de diferentes classes de forma uniforme.
  *
  * ----------------------------------
  *
@@ -40,9 +41,7 @@ public:
  *
  * POLIMORFISMO: Garante comportamento adequado conforme a classe real.
  * SOBRESCRITA: Permite redefinir métodos da classe base, fornecendo implementações específicas.
- *
- * DESTRUTORES VIRTUAIS: Garante que o destrutor correto seja chamado ao deletar
- * objetos via ponteiros da base.
+ * DESTRUTORES VIRTUAIS: Garante que o destrutor correto seja chamado ao deletar objetos via ponteiros da base.
  *
  * Prefira `virtual ~Classe() = default;` Se: está usando C++11 ou superior, Não precisa
  * de lógica no destrutor e deseja beneficiar-se de possíveis otimizações.
