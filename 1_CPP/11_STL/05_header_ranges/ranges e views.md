@@ -46,4 +46,4 @@ de elementos na vista. As views são criadas por adaptadores de intervalo, que t
 
 ## Composables Views
 
-![Diagrama de composição de Range Views](composable-range-views.jpg)
+![Diagrama de composição de Range Views](Composable_Range_Views.jpg)
