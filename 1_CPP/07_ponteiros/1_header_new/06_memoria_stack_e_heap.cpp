@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono> // Header que servirá para medir milisegundos
+#include <new>
 
 const int SIZE = 1000; // Número de iterações
 

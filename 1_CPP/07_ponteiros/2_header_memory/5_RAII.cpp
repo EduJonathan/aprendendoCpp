@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <memory>
 
 /**
@@ -26,8 +27,7 @@ struct Arquivo
 {
     std::string nome;
 
-    Arquivo(const std::string &n)
-        : nome(n)
+    Arquivo(const std::string &n) : nome(n)
     {
         std::cout << "Abrindo arquivo: " << nome << '\n';
     }
