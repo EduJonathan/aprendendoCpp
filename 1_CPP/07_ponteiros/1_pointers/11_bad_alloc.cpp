@@ -1,27 +1,18 @@
 #include <iostream>
 #include <cstdlib>
-#include <new> // Para std::bad_alloc
 #include <limits>
+#include <new> // Para std::bad_alloc
 
 /**
- * new vs malloc:
+ * std::bad_alloc
+ * É uma exceção lançada quando uma tentativa de alocação de memória falha.
  *
- * new =>
- * - Operador do C++
- * - Chama o construtor do objeto
- * - Retorna o tipo correto (não precisa de cast)
- * - Pode ser sobrescrito (operator new)
- * - Lança std::bad_alloc em caso de falha
- * - Sempre alinha memória para qualquer tipo
- * - Trabalha com tratamento de exceções
+ * Herança:
+ *  std::bad_alloc → std::exception
  *
- * std::malloc =>
- * - Função da biblioteca C
- * - Não chama construtor, apenas aloca memória bruta
- * - Retorna void* (precisa de cast)
- * - Retorna nullptr em caso de falha
- * - Não garante alinhamento para tipos específicos
- * - Não integra com sistema de exceções do C++
+ * Origem:
+ *  - Ocorre geralmente ao usar `new`, `std::make_shared`, `std::vector::resize`,
+ *    ou qualquer outro recurso que tenta reservar memória no heap.
  */
 
 class MinhaClasse

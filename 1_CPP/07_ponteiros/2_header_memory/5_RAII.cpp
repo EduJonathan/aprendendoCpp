@@ -2,26 +2,61 @@
 #include <memory>
 
 /**
- * RAII (Resource Acquisition Is Initialization) é um paradigma fundamental em C++
- * que significa: "Aquisição de Recurso é Inicialização".
- * RAII É a ideia de que a aquisição de um recurso deve acontecer durante a construção
- * de um objeto e a liberação deve acontecer durante a destruição.
+ * RAII (Resource Acquisition Is Initialization)
  *
+ * RAII significa literalmente “Aquisição de Recurso é Inicialização”.
+ * É um paradigma fundamental do C++, no qual um recurso (memória, arquivo, conexão, etc.)
+ * é adquirido no construtor de um objeto e automaticamente liberado no destrutor.
+ *
+ * ------------------------------
  * Como funciona:
- * 1. Recurso é adquirido no construtor
- * 2. Recurso é liberado no destrutor
- * 3. Garantia de liberação quando o objeto sai de escopo
+ * 1. O recurso é adquirido no construtor.
+ * 2. O recurso é liberado automaticamente no destrutor.
+ * 3. Quando o objeto sai de escopo, o destrutor é chamado automaticamente.
  *
- * -----------------------------------
- *
- * Vantagens do RAII:
- *
- * Prevenção de vazamentos de recursos
- * Segurança contra exceções
- * Código mais limpo e maintainable
- * Determinismo (sabe exatamente quando recursos são liberados)
- *
- * TESE: RAII é a base filosófica por trás dos smart pointers e de todo gerenciamento moderno de recursos em C++.
- * É o que permite escrever código exception-safe e livre de vazamentos de forma elegante.
- * É por causa do RAII que podemos dizer: "em C++, não usamos delete manualmente" na maioria dos casos!
+ * ------------------------------
+ * Vantagens:
+ * - Evita vazamentos de memória (memory leaks)
+ * - Garante liberação de recursos mesmo em caso de exceção
+ * - Código mais limpo e seguro
+ * - Liberação determinística: você sabe *quando* o recurso é liberado
  */
+
+struct Arquivo
+{
+    std::string nome;
+
+    Arquivo(const std::string &n)
+        : nome(n)
+    {
+        std::cout << "Abrindo arquivo: " << nome << '\n';
+    }
+
+    ~Arquivo()
+    {
+        std::cout << "Fechando arquivo: " << nome << '\n';
+    }
+
+    void escrever(const std::string &texto)
+    {
+        std::cout << "Escrevendo no arquivo '" << nome << "': " << texto << '\n';
+    }
+};
+
+int main(int argc, char **argv)
+{
+    std::cout << "Início do programa\n";
+
+    {
+        // Smart pointer gerenciando o recurso RAII
+        std::unique_ptr<Arquivo> log = std::make_unique<Arquivo>("registro.txt");
+
+        log->escrever("Iniciando sessão de jogo...");
+        log->escrever("Jogador entrou na masmorra.");
+        std::cout << "💡 Dentro do escopo de 'log'\n";
+
+        // Não precisamos chamar delete — RAII + smart pointer cuidam de tudo!
+    } // <- std::unique_ptr libera o objeto automaticamente aqui
+
+    std::cout << "Fim do programa\n";
+}

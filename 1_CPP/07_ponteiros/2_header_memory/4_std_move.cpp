@@ -2,8 +2,8 @@
 #include <memory>
 
 /**
- * `std::move` em smart pointers é usado para transferir a propriedade de um recurso de um smart pointer para outro.
- * Ele não move os dados em si, mas sim a posse do recurso.
+ * `std::move` em smart pointers é usado para transferir a propriedade de
+ * um recurso de um smart pointer para outro. Ele não move os dados em si, mas sim a posse do recurso.
  *
  * Resumo:
  *
