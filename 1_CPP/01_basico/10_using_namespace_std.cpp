@@ -38,7 +38,7 @@
  * para melhorar a segurança, clareza e manutenção do seu código.
  *
  * Curiosidade:
- * Há outros `using namespace` padrões de outras bibliotecas, como por exemplo
+ * Há outros `using namespace` padrões de outras bibliotecas(de terceiros sendo mais explicíto), como por exemplo
  * `using namespace cv` - Biblioteca de manipulação de imagens
  * `using namespace Qt` - Biblioteca para implementação de interface gráfica (GUI)
  * `using namespace Eigen` - Usada para álgebra linear, manipulação eficiente de matrizes e vetores.
