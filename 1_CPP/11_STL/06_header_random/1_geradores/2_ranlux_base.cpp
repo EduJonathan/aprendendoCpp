@@ -53,7 +53,6 @@ struct Particula
  * @param raio_min Distância mínima para aplicar a força de repulsão.
  * @param intensindade Intensidade da força de repulsão.
  */
-
 void forca_repulsao(std::vector<Particula> &particula, double raio_min, double intensidade, double delta_t)
 {
     int n = particula.size();
