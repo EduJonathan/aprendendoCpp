@@ -1,6 +1,6 @@
 #include <iostream>
-#include <uchar.h>
 #include <string_view>
+#include <uchar.h>
 
 /**
  * A header <uchar> (abreviação de "Unicode character") define tipos de dados e funções

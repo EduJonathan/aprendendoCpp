@@ -1,7 +1,7 @@
 #include <iostream>
-#include <clocale>
 #include <string>
 #include <cwchar>
+#include <clocale>
 
 /**
  * Como era de se imaginar, <clocale> é o cabeçalho C++ que traz,
