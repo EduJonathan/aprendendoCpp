@@ -22,12 +22,14 @@
 ## TIPOS DE HERANÇA EM C++
 
 - **Herança Simples:**  
-  Herança simples é quando só uma classe(derivada) herda uma classe (base).  
+  Herança simples é quando só uma classe(derivada) herda uma classe (base).
+
   ![Diagrama de herança simples](img/heranca.png)
 
 - **Herança Múltipla:**
   Herança Múltipla é quando uma classe pode herdar de mais de uma classe, ou seja,
   uma subclasse é herdada de mais de uma classe base.
+
   ![Diagrama de herança múltipla](img/heranca_multipla.png)
 
 - **Herança Multinível:**  
@@ -35,12 +37,14 @@
   essa classe derivada pode ser derivada de uma classe base ou de qualquer outra classe
   derivada. Pode haver qualquer número de níveis. Exemplo, um veículo pode ser um
   veículo de quatro rodas e um veículo de quatro rodas pode ser um carro.
+
   ![Diagrama de herança multinível](img/heranca_multinivel.png)
 
 - **Herança Hierárquica:**
   Herança hierárquica, é quando mais de uma subclasse é herdada de uma única classe base,
   ou seja, mais de uma classe derivada é criada a partir de uma única classe base.
   Por exemplo, carros e ônibus são veículos.
+
   ![Diagrama de herança hierárquica](img/heranca_hierarquica.png)
 
 - **Herança Híbrida:**
@@ -48,6 +52,7 @@
   Por exemplo: A combinação de herança hierárquica e herança múltipla criará
   herança híbrida em C++. Não há sintaxe específica de herança híbrida.
   Podemos apenas combinar dois dos tipos de herança acima.
+
   ![Diagrama de herança híbrida](img/heranca_hibrida.png)
 
 - **Herança Virtual:**  
@@ -56,6 +61,7 @@
   várias instâncias da classe base. E Para resolver esse problema, no C++ usa
   uma técnica que garante que apenas uma instância de uma classe base esteja presente.
   Técnica essa chamada de herança virtual.
+
   ![Diagrama de herança virtual](img/heranca_virtual.jpg)
 
 ---
@@ -81,6 +87,7 @@
 - E com a herança virtual isso garante que exista apenas uma única instância da classe
   base `A` na hierarquia de herança, mesmo que ela seja herdada múltiplas vezes. Isso
   evita duplicação e ambiguidade.
+
   ![Diagrama do problema diamante](img/Diamond_problem.png)
 
 ---
