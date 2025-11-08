@@ -1,21 +1,5 @@
 #include <iostream>
 
-/**
- * Método estático são declarados com a palavra-chave "static" e pertencem à classe,
- * não a instâncias específicas. Eles não têm acesso direto a membros não estáticos.
- *
- * Atributos estáticos são compartilhados entre todas as instâncias da classe.
- *
- * Uso: Para funções utilitárias que não dependem do estado da instância. (ex: Matematica::somar)
- * Atributos estáticos são úteis para contadores ou caches compartilhados e gerenciar
- * dados compartilhados(contadores globais e caches(caches são estruturas de dados que
- * armazenam resultados de operações caras para reutilização posterior)).
- *
- * PROBLEMAS: Metódos estáticos não têm acesso ao ponteiros "this", por não está
- * vinculado a uma instância específica. E não podem chamar métodos não estáticos
- * diretamente ou acessar atributos não estáticos.
- */
-
 class Matematica
 {
 public:

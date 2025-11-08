@@ -40,20 +40,29 @@ Este paradigma promove:
 ## Pilares da POO
 
 1. **Abstração:**  
-   Processo de simplificação onde modelos são criados para representar entidades
-   do mundo real, destacando apenas os aspectos relevantes para o sistema.
+   Processo de simplificação no qual modelos são criados para representar entidades do mundo real.
+   Em POO, isso é feito por **classes**, que funcionam como moldes para **objetos**, destacando apenas
+   os **atributos e comportamentos relevantes** para o sistema, ignorando detalhes desnecessários.
+
+   ![Exemplo encapsulamento](img/objeto.jpg)
 
 2. **Encapsulamento:**  
-   Mecanismo que protege os dados internos de um objeto, controlando o acesso por meio
-   de métodos públicos.
+   Mecanismo que **protege os dados internos** de um objeto, controlando o acesso
+   por meio de métodos **públicos** `(getters e setters)`, garantindo integridade e segurança das informações.
+
+   ![Exemplo encapsulamento](img/Encapsulamento.png)
 
 3. **Herança:**  
-   Permite que classes compartilhem atributos e métodos comuns, criando uma hierarquia
-   e promovendo o reuso de código.
+   Permite que **classes compartilhem atributos e métodos comuns**, criando uma hierarquia
+   e promovendo o **reuso de código**.
+
+   ![Exemplo herança](img/heranca.png)
 
 4. **Polimorfismo:**  
-   Capacidade de objetos diferentes responderem de forma distinta à mesma mensagem (método),
-   com base em seus respectivos contextos.
+   Capacidade de **objetos diferentes responderem de forma distinta** à mesma mensagem (método),
+   dependendo do **contexto** ou do tipo específico do objeto.
+
+  ![Exemplo de polimorfismo](img/polimorfismo.png)
 
 ---
 
@@ -103,6 +112,8 @@ No estilo UML (Unified Modeling Language):
 - O nome da classe aparece no topo da caixa.
 - Atributos no meio.
 - Métodos na parte inferior.
+
+![Exemplo de um diagrama](img/Class_Diagram_example.png)
 
 ### Ferramentas para criar diagramas UML online
 
