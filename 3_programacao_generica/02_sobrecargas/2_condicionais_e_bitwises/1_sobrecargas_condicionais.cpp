@@ -1,27 +1,5 @@
 #include <iostream>
 
-/**
- * A sobrecarga dos operadores (==, !=, <, >, <=, >=, &&, ||, !) permite realizar
- * comparações e operações lógicas de forma personalizada em objetos de classes.
- * Esses operadores são frequentemente usados para facilitar a manipulação e comparação
- * de valores encapsulados em objetos, tornando o código mais legível e intuitivo.
- *
- * Quando sobrecarregados, esses operadores permitem:
- *
- * - Comparar objetos utilizando os operadores tradicionais de comparação (==, !=, <, >, <=, >=).
- * - Realizar operações lógicas booleanas (&&, ||, !) entre objetos, tratando-os como valores lógicos.
- *
- * Exemplo de uso:
- *
- * Inteiro a(10), b(20), c(0);
- * if (a == b) { ... }  // Comparação de igualdade
- * if (a < b) { ... }   // Comparação de menor que
- * if (a && b) { ... }  // Operação lógica E
- *
- * Isso facilita a manipulação de números inteiros ou qualquer outro
- * tipo de dado encapsulado em objetos, tornando a sintaxe mais natural.
- */
-
 class Inteiro
 {
 private:

@@ -2,26 +2,6 @@
 #include <cstdlib>
 #include <new>
 
-/**
- * A sobrecarga dos operadores de alocação `new`, `new[]`, `delete` e `delete[]` permite
- * personalizar o comportamento de alocação e desalocação de memória em C++. Esses operadores
- * são chamados automaticamente quando você usa `new` ou `delete` para alocar ou desalocar
- * objetos ou arrays.
- *
- * Sobrecargar esses operadores é uma técnica avançada e útil para controle detalhado de memória,
- * como para rastreamento de memória, alocadores customizados ou para garantir um gerenciamento
- * de recursos eficiente. Isso deve ser feito com muito cuidado para evitar vazamentos de memória
- * ou outros erros de gerenciamento de memória.
- *
- * O `new` e `delete` são usados para alocar/desalocar um único objeto, enquanto o `new[]` e
- * `delete[]` são usados para alocar/desalocar arrays de objetos.
- *
- * Quando usar:
- * - Quando você precisa de controle personalizado sobre a alocação de memória.
- * - Quando deseja monitorar ou rastrear alocações e desalocações de memória.
- * - Quando você está implementando um alocador customizado.
- */
-
 class MinhaClasse
 {
 public:

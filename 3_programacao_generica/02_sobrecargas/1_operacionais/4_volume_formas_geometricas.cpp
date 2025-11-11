@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <memory> // Para os Smart Pointers
+#include <memory>
 
 constexpr double PI = 3.14159265358979323846; // Definindo o valor de PI
 

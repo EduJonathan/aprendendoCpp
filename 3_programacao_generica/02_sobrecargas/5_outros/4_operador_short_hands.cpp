@@ -2,49 +2,6 @@
 #include <stdexcept>
 #include <memory>
 
-/**
- * A sobrecarga dos operadores abreviados (`operator*=`, `operator+=`, `operator-=`, `operator/=`, ...)
- * permite que você defina a lógica personalizada para realizar operações de atribuição modificada
- * em objetos. Esses operadores são úteis para realizar operações como multiplicação, soma, subtração
- * e divisão em um objeto e atualizar seu estado diretamente, ao mesmo tempo que retornam o
- * próprio objeto para permitir encadeamento de operações.
- *
- * Exemplo:
- *
- * // Definindo um objeto
- * Distancia d1(100); // Distância inicial de 100 metros
- * d1 *= 2;  // Multiplica a distância por 2 (agora 200 metros)
- * d1 += 50; // Adiciona 50 metros (agora 250 metros)
- *
- * Isso é equivalente a:
- * d1 = d1 * 2;  // Multiplica e atribui o resultado
- * d1 = d1 + 50; // Adiciona 50 e atribui o resultado
- *
- * A vantagem do operador abreviado é que ele facilita a leitura e torna o código mais conciso.
- *
- * Os operadores abreviados podem ser sobrecarregados para modificar diretamente
- * o estado do objeto e realizar a operação desejada. Além disso, eles retornam o
- * próprio objeto, o que possibilita encadear várias operações em uma única linha.
- *
- * Exemplo de sobrecarga de `operator*=` e `operator/=`:
- *
- * - `operator*=`: Multiplica o valor atual do objeto por um fator e retorna o objeto atualizado.
- * - `operator/=`: Divide o valor atual do objeto por um fator e retorna o objeto atualizado.
- *
- * Caso você sobrecarregue um operador abreviado, você pode controlar a lógica da operação
- * e tornar o comportamento do objeto mais intuitivo em contextos específicos.
- *
- * Quando usar:
- * - Quando você deseja modificar diretamente o estado de um objeto usando operações como
- *   soma, subtração, multiplicação ou divisão.
- * - Quando você deseja simplificar o código e permitir a operação encadeada de forma concisa.
- * - Quando a lógica de alteração do estado do objeto pode ser expressa de maneira mais
- *   natural com um operador abreviado.
- *
- * Ao sobrecarregar operadores abreviados, lembre-se de garantir que o comportamento
- * da operação seja claro e fácil de entender para quem lê o código.
- */
-
 class Distancia
 {
 private:

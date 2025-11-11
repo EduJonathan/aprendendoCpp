@@ -33,10 +33,5 @@ int main(int argc, char **argv)
     MinhaClasse<int> Classe;
     Classe.adicionar(42);
     std::cout << "Valor: " << Classe.obterValor() << '\n';
-
-    /**
-     * g++ -std=c++11 main.cpp -o programa
-     * ./programa
-     */
     return 0;
 }

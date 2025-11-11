@@ -92,5 +92,6 @@ int main(int argc, char **argv)
 
     delete str1;
     delete str2;
+    delete newStr;
     return 0;
 }

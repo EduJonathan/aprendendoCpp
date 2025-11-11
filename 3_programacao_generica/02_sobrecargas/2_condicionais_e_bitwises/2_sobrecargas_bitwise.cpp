@@ -5,24 +5,6 @@
 #include <memory>
 
 /**
- * A sobrecarga dos operadores bitwise (|, &, ^, ~, <<, >>) é usada para manipulação
- * de bits e operações de fluxo de dados. Esses operadores são úteis principalmente para
- * classes que representam dados binários, flags ou qualquer tipo de manipulação em nível
- * de bit, como máscaras e operações lógicas bit a bit.
- *
- * - `|` (OR bit a bit): Realiza uma operação "OU" bit a bit.
- * - `&` (AND bit a bit): Realiza uma operação "E" bit a bit.
- * - `^` (XOR bit a bit): Realiza uma operação "OU exclusivo" bit a bit.
- * - `~` (NOT bit a bit): Realiza uma operação "não" bit a bit, invertendo todos os bits.
- * - `<<` (deslocamento à esquerda): Desloca os bits para a esquerda.
- * - `>>` (deslocamento à direita): Desloca os bits para a direita.
- *
- * Essas sobrecargas permitem criar comportamentos personalizados para objetos que envolvem
- * manipulação de dados binários, como a construção de operações para a manipulação de flags,
- * criptografia, e outras operações que necessitam do controle direto de bits.
- */
-
-/**
  * Implementar uma classe BitInt que realiza operações aritméticas básicas
  * (adição, subtração, multiplicação e divisão) exclusivamente por meio de
  * manipulação binária, sem utilizar operadores aritméticos diretos do C++

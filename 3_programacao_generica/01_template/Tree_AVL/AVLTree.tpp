@@ -525,7 +525,7 @@ std::string AVLTree<T>::AVLTreePrinter::getString(AVLNode *node, const std::stri
     if (node->greater)
         children.push_back(node->greater);
 
-    for (size_t i = 0; i < children.size(); ++i)
+    for (std::size_t i = 0; i < children.size(); ++i)
     {
         AVLNode *avlNode = dynamic_cast<AVLNode *>(children[i]);
         if (!avlNode)
