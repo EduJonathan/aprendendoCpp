@@ -20,6 +20,8 @@
  * std::mem_fun / std::mem_fun_ref -> Adaptadores para funções-membro (depreciados em favor de std::mem_fn ou expressões lambda)
  * std::random_shuffle -> Utilizava rand() internamente
  * std::auto_ptr -> Semântica problemática de cópia implicita
+ *
+ * @note Existe várias outras funcionalidades obsoletas na STL.
  */
 
 std::function<int(int)> exemploUnaryFunction; // Exemplo de uso moderno com std::functional
