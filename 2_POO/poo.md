@@ -62,7 +62,7 @@ Este paradigma promove:
    Capacidade de **objetos diferentes responderem de forma distinta** à mesma mensagem (método),
    dependendo do **contexto** ou do tipo específico do objeto.
 
-  ![Exemplo de polimorfismo](img/polimorfismo.png)
+   ![Exemplo de polimorfismo](img/polimorfismo.png)
 
 ---
 
