@@ -41,7 +41,7 @@ const Matriz<T> &Matriz<T>::operator=(const Matriz<T> &matriz)
         this->colunas = matriz.colunas;
         dados = new T[linhas * colunas];
 
-        for (int i = 0; i < linhas * colunas; i++)
+        for (int i = 0; i < linhas * colunas; ++i)
         {
             dados[i] = matriz.dados[i];
         }
