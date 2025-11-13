@@ -25,7 +25,7 @@
  *
  * --------------------
  *
- * ⚠️ Atenção:
+ * Atenção:
  * - Como o motor real usado não é padronizado, **nunca use** std::default_random_engine
  *   quando for necessário reproduzir a mesma sequência aleatória em diferentes sistemas
  *   (por exemplo, jogos, simulações determinísticas ou testes automatizados).

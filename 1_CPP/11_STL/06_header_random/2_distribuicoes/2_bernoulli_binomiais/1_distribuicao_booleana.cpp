@@ -6,6 +6,18 @@
 #include <sstream>
 #include <random>
 
+/**
+ * std::bernoulli_distribution
+ * ----------------------------
+ * Gera valores booleanos (true ou false) baseados em uma probabilidade.
+ *
+ * Exemplo: se a probabilidade for 0.3, há 30% de chance de sair "true".
+ *
+ * Ideal para:
+ * - Simular eventos de sucesso/fracasso
+ * - Decisões aleatórias com base em chance
+ */
+
 enum class Feriado
 {
     HALLOWEEN,
@@ -24,6 +36,12 @@ struct Holiday
     int day;   // dia aproximado (ou médio)
     std::string name;
     double prob_acontecer; // 0.0 a 1.0
+};
+
+struct ProximoFeriado
+{
+    int dias_restantes;
+    std::tm data;
 };
 
 // Lista de feriados (com datas aproximadas)
@@ -73,30 +91,30 @@ std::tm criarDataFeriado(const Holiday &h, int ano)
 }
 
 // 4. Calcular dias até o feriado
-int diasAteFeriado(const Holiday &h)
+ProximoFeriado diasAteFeriado(const Holiday &h)
 {
-    auto agora = std::chrono::system_clock::now();
-    auto tp_agora = std::chrono::time_point_cast<std::chrono::hours>(agora);
-    auto tt_agora = std::chrono::system_clock::to_time_t(tp_agora);
-    std::tm local_agora = *std::localtime(&tt_agora);
+    using namespace std::chrono;
 
+    auto agora = system_clock::now();
+    auto tt_agora = system_clock::to_time_t(agora);
+    std::tm local_agora = *std::localtime(&tt_agora);
     int ano_atual = local_agora.tm_year + 1900;
 
-    // Tenta este ano
     std::tm data_este_ano = criarDataFeriado(h, ano_atual);
-    auto tp_este_ano = std::chrono::system_clock::from_time_t(std::mktime(&data_este_ano));
+    auto tp_este_ano = system_clock::from_time_t(std::mktime(&data_este_ano));
 
+    // Se ainda vai acontecer este ano
     if (tp_este_ano > agora)
     {
-        auto diff = tp_este_ano - agora;
-        return std::chrono::duration_cast<std::chrono::hours>(diff).count() / 24;
+        auto diff = duration_cast<hours>(tp_este_ano - agora).count() / 24;
+        return {static_cast<int>(diff), data_este_ano};
     }
 
-    // Senão, próximo ano
+    // Caso contrário, próximo ano
     std::tm data_prox_ano = criarDataFeriado(h, ano_atual + 1);
-    auto tp_prox_ano = std::chrono::system_clock::from_time_t(std::mktime(&data_prox_ano));
-    auto diff = tp_prox_ano - agora;
-    return std::chrono::duration_cast<std::chrono::hours>(diff).count() / 24;
+    auto tp_prox_ano = system_clock::from_time_t(std::mktime(&data_prox_ano));
+    auto diff = duration_cast<hours>(tp_prox_ano - agora).count() / 24;
+    return {static_cast<int>(diff), data_prox_ano};
 }
 
 // 5. Exibir data no formato dd/mm/aaaa
@@ -111,56 +129,28 @@ int main(int argc, char **argv)
 {
     std::cout << "=== SORTEIO DE FERIADO ===\n\n";
 
-    // 1. Escolher feriado
     Holiday selected = escolherFeriado();
     std::cout << "Feriado sorteado: " << selected.name << '\n';
 
-    // 2. Probabilidade de acontecer
-    bool acontece = vaiAcontecer(selected);
-    if (!acontece)
+    if (!vaiAcontecer(selected))
     {
-        std::cout << "Este ano não vai rolar! (azar...)\n\n";
+        std::cout << "Este ano não vai rolar! (azar...)\n";
         return 0;
     }
-    std::cout << "Vai acontecer este ano!\n";
 
-    // 3. Calcular dias restantes
-    int dias_restantes = diasAteFeriado(selected);
-    std::cout << "Faltam " << dias_restantes << " dias!\n";
+    ProximoFeriado info = diasAteFeriado(selected);
 
-    // 4. Mostrar data estimada
-    auto agora = std::chrono::system_clock::now();
-    auto tt = std::chrono::system_clock::to_time_t(agora);
-    std::tm local = *std::localtime(&tt);
-    int ano = local.tm_year + 1900;
+    std::cout << "Vai acontecer em " << (info.data.tm_year + 1900) << "!\n";
+    std::cout << "Faltam " << info.dias_restantes << " dias!\n";
+    std::cout << "Data estimada: " << formatarData(info.data) << '\n';
+    std::cout << "É em dezembro? " << (selected.month == 12 ? "Sim" : "Não") << "\n\n";
 
-    std::tm data_feriado = criarDataFeriado(selected, ano);
-    auto tp_feriado = std::chrono::system_clock::from_time_t(std::mktime(&data_feriado));
-
-    if (tp_feriado < agora)
-    {
-        data_feriado = criarDataFeriado(selected, ano + 1);
-    }
-
-    std::cout << "Data estimada: " << formatarData(data_feriado) << '\n';
-
-    // 5. É em dezembro?
-    bool em_dezembro = (selected.month == 12);
-    std::cout << "É em dezembro? " << (em_dezembro ? "Sim" : "Não") << "\n\n";
-
-    // Mensagem final divertida
-    if (dias_restantes <= 7)
-    {
+    if (info.dias_restantes <= 7)
         std::cout << "CORRA! Tá chegando!\n";
-    }
-    else if (dias_restantes <= 30)
-    {
+    else if (info.dias_restantes <= 30)
         std::cout << "Já pode ir planejando!\n";
-    }
     else
-    {
         std::cout << "Calma, tem tempo...\n";
-    }
 
     return 0;
 }

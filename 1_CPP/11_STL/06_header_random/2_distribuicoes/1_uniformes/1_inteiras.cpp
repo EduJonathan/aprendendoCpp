@@ -4,6 +4,19 @@
 #include <vector>
 #include <random>
 
+/**
+ * std::uniform_int_distribution
+ * ------------------------------
+ * Gera números inteiros com a mesma probabilidade dentro de um intervalo.
+ *
+ * Exemplo: se o intervalo é [1, 6], todos os valores 1, 2, 3, 4, 5 e 6
+ * têm a mesma chance de aparecer — como o lançamento de um dado.
+ *
+ * Ideal para:
+ * - Simulações simples (dados, sorteios, índices aleatórios)
+ * - Escolher elementos de um vetor de forma aleatória
+ */
+
 // Par de inteiros
 using Point = std::pair<int, int>;
 
@@ -23,7 +36,6 @@ using Point = std::pair<int, int>;
  * - Duplicatas são removidas automaticamente.
  * - Se houver apenas um ponto, ele é retornado diretamente.
  * - O tipo de coordenada usado no cálculo do produto vetorial é `long long` para evitar overflow.
- *
  */
 std::vector<Point> convex_hull(std::vector<Point> points)
 {
@@ -93,7 +105,7 @@ int main(int argc, char **argv)
 
     // Teste 2 Grade 10x10
     std::vector<Point> teste2;
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 100; ++i)
     {
         teste2.emplace_back(i / 10, i % 10);
     }
