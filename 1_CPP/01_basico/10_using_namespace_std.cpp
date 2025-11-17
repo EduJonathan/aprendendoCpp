@@ -3,50 +3,38 @@
 #include <string>
 
 /**
- * Afinal, utilizar `using namespace std;` é uma má prática?
+ * É realmente uma má prática usar `using namespace std;`?
  *
- * Tecnicamente, não é *intrinsecamente* errado, mas é considerado uma **má prática**
- * em muitos contextos, especialmente em projetos maiores ou bibliotecas, devido aos
- * riscos e problemas que pode causar.
+ * Não é *tecnicamente* errado, mas costuma ser considerado uma **má prática** —
+ * sobretudo em projetos grandes ou bibliotecas — devido aos riscos que traz.
  *
- * Por que evitar `using namespace std;`:
+ * Por que evitar:
+ * 1. Conflitos de nomes:
+ *    A libc++ define identificadores comuns como `vector`, `list`, `count`, etc.
+ *    Importar todo o namespace `std` pode causar colisões com outras bibliotecas
+ *    ou com o próprio código.
  *
- * 1. Conflito de nomes:
- * - A biblioteca padrão define nomes genéricos e comuns como `vector`, `list`, `count`, etc.
- * - Ao importar todo o namespace `std`, esses nomes ficam disponíveis no escopo global,
- * o que pode causar colisões com nomes de outras bibliotecas ou do próprio código.
+ * 2. Menos clareza:
+ *    `std::cout`, `std::string`, etc., deixam explícito que o identificador
+ *    pertence à biblioteca padrão.
  *
- * 2. Redução da legibilidade:
- * - Escrever `std::cout`, `std::string`, etc., torna o código mais claro ao
- * indicar que esses identificadores pertencem à biblioteca padrão.
+ * 3. Manutenção difícil:
+ *    Em projetos grandes, `using namespace std;` aumenta a chance de ambiguidade
+ *    e torna o código menos previsível. O prefixo `std::` evita esses problemas.
  *
- * 3. Manutenção e escalabilidade:
- * - Em projetos maiores, com muitas bibliotecas e arquivos, o uso de `using namespace std;`
- * aumenta o risco de ambiguidades e conflitos entre nomes.
- * - Manter o uso explícito de `std::` melhora a clareza e evita problemas futuros.
- *
- * Boas práticas recomendadas:
- *
- * - Em arquivos .cpp pequenos, como programas de teste ou scripts simples:
- * Pode-se usar `using namespace std;` com cautela.
- *
- * - Em arquivos de cabeçalho (.h/.hpp):
- * **Evite sempre** — poluir o namespace de quem incluir o cabeçalho pode gerar sérios problemas.
+ * Boas práticas:
+ * - Em arquivos .cpp pequenos ou exemplos simples: pode ser usado com cautela.
+ * - Em arquivos de cabeçalho (.h/.hpp): **evite sempre** para não poluir o
+ *   namespace de quem incluir o arquivo.
  *
  * Conclusão:
- * Use `using namespace std;` com consciência. Em geral, prefira o uso explícito de `std::`
- * para melhorar a segurança, clareza e manutenção do seu código.
+ * Use `using namespace std;` de forma consciente. Em geral, prefira `std::`
+ * para manter clareza, segurança e melhor manutenção.
  *
- * Curiosidade:
- * Há outros `using namespace` padrões de outras bibliotecas(de terceiros sendo mais explicíto), como por exemplo
- * `using namespace cv` - Biblioteca de manipulação de imagens
- * `using namespace Qt` - Biblioteca para implementação de interface gráfica (GUI)
- * `using namespace Eigen` - Usada para álgebra linear, manipulação eficiente de matrizes e vetores.
- *
- * Dentre várias outras
- *
- * Assim como em `std`, usar `using namespace` dessas bibliotecas pode facilitar o código,
- * mas deve ser feito com cuidado para evitar conflitos e manter a clareza.
+ * Observação:
+ * Outras bibliotecas também oferecem namespaces amplos, como `cv`, `Qt` e `Eigen`.
+ * Assim como com `std`, importá-las com `using namespace` pode simplificar o código,
+ * mas deve ser feito com cuidado para evitar conflitos e preservar a legibilidade.
  */
 
 using namespace std;
@@ -54,7 +42,9 @@ using namespace std;
 void minhaFuncao(void)
 {
     /* using namespace std; */
-    // Só afeta o escopo dentro da função, porém, tenha preferência pela importação seletiva para evitar poluição do namespace
+    // Só afeta o escopo dentro da função, porém, tenha preferência pela importação seletiva,
+    // como mostrado abaixo para evitar poluição do namespace.
+
     using std::cout;
     using std::endl;
     cout << "Função executada: Olá" << endl;

@@ -13,7 +13,8 @@
  * É sobrecarregado para aceitar diferentes tipos de dados (int, float, string, etc.).
  * Exemplo: std::cin >> idade;
  *
- * - std (namespace): Assim como outros componentes da biblioteca padrão (como cout, cerr, endl), o cin também está dentro do namespace std.
+ * - std (namespace): Assim como outros componentes da biblioteca padrão (como cout, cerr, endl),
+ * o cin também está dentro do namespace std.
  *
  * - using namespace std;: Permite usar apenas `cin` em vez de `std::cin`.
  * Exemplo: cin >> nome;

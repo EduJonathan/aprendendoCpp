@@ -34,26 +34,26 @@ int main(int argc, char **argv)
     short int numeroCurto = 12;
 
     // Imprimindo os valores das variáveis do tipo inteiro
-    std::cout << "numeroInteiroPositivo : " << numeroInteiroPositivo << '\n';
-    std::cout << "numero : " << numero << '\n';
-    std::cout << "numeroInteiroNegativo : " << numeroInteiroNegativo << '\n';
-    std::cout << "numeroLongo : " << numeroLongo << '\n';
-    std::cout << "numeroLongLong : " << numeroLongLong << '\n';
-    std::cout << "numeroCurto : " << numeroCurto << '\n';
+    std::cout << "Valor da váriavel `numeroInteiroPositivo` : " << numeroInteiroPositivo << '\n';
+    std::cout << "Valor da váriavel `numero` : " << numero << '\n';
+    std::cout << "Valor da váriavel `numeroInteiroNegativo` : " << numeroInteiroNegativo << '\n';
+    std::cout << "Valor da váriavel `numeroLongo` : " << numeroLongo << '\n';
+    std::cout << "Valor da váriavel `numeroLongLong` : " << numeroLongLong << '\n';
+    std::cout << "Valor da váriavel `numeroCurto` : " << numeroCurto << '\n';
 
     std::cout << "\n==========================================\n";
 
     std::cout << "\tTIPOS REAIS" << "\n\n";
 
     // Declarando variáveis do tipo ponto flutuante
-    float numeroReal = 3.1415f;           // prefixo 'F' ou 'f' para float
+    float numeroReal = 3.1415f;           // prefixo `F` ou `f` para float
     double numeroRealLongo = 3.1415e5;    // 3.1415 * 10^5 = 314150
-    long double numeroRealLong = 3.1415l; // prefixo 'L' ou 'l' para long double
+    long double numeroRealLong = 3.1415l; // prefixo `L` ou `l` para long double
 
     // Imprimindo os valores das variáveis de pontos flutuantes
-    std::cout << "numeroReal : " << numeroReal << '\n';
-    std::cout << "numeroRealLongo : " << numeroRealLongo << '\n';
-    std::cout << "numeroRealLong : " << numeroRealLong << '\n';
+    std::cout << "Valor da váriavel `numeroReal` : " << numeroReal << '\n';
+    std::cout << "Valor da váriavel `numeroRealLongo` : " << numeroRealLongo << '\n';
+    std::cout << "Valor da váriavel `numeroRealLong` : " << numeroRealLong << '\n';
 
     std::cout << "\n==========================================\n";
 
@@ -64,8 +64,8 @@ int main(int argc, char **argv)
     bool falso = true;
 
     // Imprimindo os valores das variáveis booleanos
-    std::cout << "verdadeiro : " << verdadeiro << '\n';
-    std::cout << "falso : " << falso << '\n';
+    std::cout << "Valor da váriavel `verdadeiro` : " << verdadeiro << '\n';
+    std::cout << "Valor da váriavel `falso` : " << falso << '\n';
 
     std::cout << "\n==========================================\n";
 
@@ -76,8 +76,8 @@ int main(int argc, char **argv)
     char caracterEspecial = 0x0A; // Representa em binário o caractere nova linha (newline) '\n'
 
     // Imprimindo os valores das variáveis do tipo caractere
-    std::cout << "letra : " << letra << '\n';
-    std::cout << "caracterEspecial :" << caracterEspecial << '\n';
+    std::cout << "Valor da váriavel `letra` : " << letra << '\n';
+    std::cout << "Valor da váriavel `caracterEspecial` :" << caracterEspecial << '\n';
 
     std::cout << "==========================================\n";
 
@@ -89,8 +89,8 @@ int main(int argc, char **argv)
     std::string palavra = "Hello World"; // Declarar string de maneira moderna no C++
 
     // Imprimindo os valores das variáveis strings
-    std::cout << "stringChar : " << stringChar << '\n';
-    std::cout << "string : " << string << '\n';
-    std::cout << "palavra : " << palavra << '\n';
+    std::cout << "Valor da váriavel `stringChar` : " << stringChar << '\n';
+    std::cout << "Valor da váriavel `string` : " << string << '\n';
+    std::cout << "Valor da váriavel `palavra` : " << palavra << '\n';
     return 0;
 }

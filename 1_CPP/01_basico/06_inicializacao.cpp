@@ -94,11 +94,5 @@ int main(int argc, char **argv)
      * | Explícita (Cast)       | int x{static_...  | Sim (Explícita)  | Média-Alta | C++98/11 |
      * +---------------------------------------------------------------------------------------+
      */
-
-    /**
-     * Compile e execute com
-     * > g++ -std=c++11 -Wall -Wextra -pedantic nome_arquivo.cpp -o programa
-     * .\programa.exe
-     */
     return 0;
 }

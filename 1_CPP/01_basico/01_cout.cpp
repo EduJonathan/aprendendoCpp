@@ -11,8 +11,7 @@
  * - :: (operador de resolução de escopo): Usado para acessar membros dentro de um
  * namespace ou classe. Exemplo: std::cout acessa o objeto cout dentro do namespace std.
  *
- * - cout (console output): Objeto responsável por exibir saídas no terminal.
- * Outros objetos semelhantes incluem:
+ * - cout (console output): Objeto responsável por exibir saídas no terminal. Outros objetos semelhantes incluem:
  * - std::cin: Entrada padrão (teclado)
  * - std::cerr: Saída de erro
  * - std::clog: Saída de log

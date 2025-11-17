@@ -18,33 +18,33 @@ int main(int argc, char **argv)
 
     std::cout << "\n========= TIPOS INTEIROS =========\n";
 
-    std::cout << "int: " << sizeof(int) << " bytes\n";
-    std::cout << "signed: " << sizeof(signed) << " bytes\n";
-    std::cout << "short: " << sizeof(short) << " bytes\n";
-    std::cout << "signed short: " << sizeof(signed short) << " bytes\n";
-    std::cout << "long: " << sizeof(long) << " bytes\n";
-    std::cout << "signed long: " << sizeof(signed long) << " bytes\n";
-    std::cout << "long long: " << sizeof(long long) << " bytes\n";
-    std::cout << "signed long long: " << sizeof(signed long long) << " bytes\n";
-    std::cout << "unsigned: " << sizeof(unsigned) << " bytes\n";
-    std::cout << "unsigned short: " << sizeof(unsigned short) << " bytes\n";
-    std::cout << "unsigned long: " << sizeof(unsigned long) << " bytes\n";
-    std::cout << "unsigned long long: " << sizeof(unsigned long long) << " bytes\n";
+    std::cout << "Tamanho de int: " << sizeof(int) << " em bytes\n";
+    std::cout << "Tamanho de signed: " << sizeof(signed) << " em bytes\n";
+    std::cout << "Tamanho de short: " << sizeof(short) << " em bytes\n";
+    std::cout << "Tamanho de signed short: " << sizeof(signed short) << " em bytes\n";
+    std::cout << "Tamanho de long: " << sizeof(long) << " em bytes\n";
+    std::cout << "Tamanho de signed long: " << sizeof(signed long) << " em bytes\n";
+    std::cout << "Tamanho de long long: " << sizeof(long long) << " em bytes\n";
+    std::cout << "Tamanho de signed long long: " << sizeof(signed long long) << " em bytes\n";
+    std::cout << "Tamanho de unsigned: " << sizeof(unsigned) << " em bytes\n";
+    std::cout << "Tamanho de unsigned short: " << sizeof(unsigned short) << " em bytes\n";
+    std::cout << "Tamanho de unsigned long: " << sizeof(unsigned long) << " em bytes\n";
+    std::cout << "Tamanho de unsigned long long: " << sizeof(unsigned long long) << " em bytes\n";
 
     std::cout << "\n========= PONTO FLUTUANTE =========\n";
 
-    std::cout << "float: " << sizeof(float) << " bytes\n";
-    std::cout << "double: " << sizeof(double) << " bytes\n";
-    std::cout << "long double: " << sizeof(long double) << " bytes\n";
+    std::cout << "Tamanho de float: " << sizeof(float) << " em bytes\n";
+    std::cout << "Tamanho de double: " << sizeof(double) << " em bytes\n";
+    std::cout << "Tamanho de long double: " << sizeof(long double) << " em bytes\n";
 
     std::cout << "\n========= CARACTERES E OUTROS =========\n";
 
-    std::cout << "char: " << sizeof(char) << " byte\n";
-    std::cout << "signed char: " << sizeof(signed char) << " byte\n";
-    std::cout << "unsigned char: " << sizeof(unsigned char) << " byte\n";
-    std::cout << "bool: " << sizeof(bool) << " byte\n";
-    std::cout << "std::string: " << sizeof(std::string) << " bytes (Tamanho da CLASSE/Estrutura, não do texto)\n";
-    std::cout << "std::size_t: " << sizeof(std::size_t) << " bytes (Geralmente unsigned long ou unsigned long long)\n";
+    std::cout << "Tamanho de char: " << sizeof(char) << " em byte\n";
+    std::cout << "Tamanho de signed char: " << sizeof(signed char) << " em byte\n";
+    std::cout << "Tamanho de unsigned char: " << sizeof(unsigned char) << " em byte\n";
+    std::cout << "Tamanho de bool: " << sizeof(bool) << " em byte\n";
+    std::cout << "Tamanho de std::string: " << sizeof(std::string) << " em bytes (Tamanho da CLASSE/Estrutura, não do texto)\n";
+    std::cout << "Tamanho de std::size_t: " << sizeof(std::size_t) << " em bytes (Geralmente unsigned long ou unsigned long long)\n";
 
     std::cout << "\n----------------------------------------------";
     std::cout << "\n========= LIMITES INTEIROS =========\n";
