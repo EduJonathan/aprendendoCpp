@@ -32,7 +32,7 @@ std::string toLower(const std::string &str)
 int main(int argc, char **argv)
 {
     // Texto a ser pesquisado
-    std::string text = "Hello, world!";
+    std::string text{"Hello, world!"};
     std::string search = "world"; // Substring a ser procurada
 
     std::size_t pos = text.find(search); // Procura pela substring 'search' na string 'text'
@@ -67,9 +67,8 @@ int main(int argc, char **argv)
 
     std::cout << "------------------------------------" << '\n';
 
-    
-    std::string texto = "Hello, world!";         // Aqui, tentamos encontrar a substring "planet" na string "Hello, world!".
-    std::string subtring = "planet";             // Substring inexistente no texto
+    std::string texto{"Hello, world!"};          // Aqui, tentamos encontrar a substring "planet" na string "Hello, world!".
+    std::string subtring{"planet"};              // Substring inexistente no texto
     std::size_t position = texto.find(subtring); // Procura pela substring 'subtring' na string 'texto'
 
     // Verifica se a substring foi encontrada

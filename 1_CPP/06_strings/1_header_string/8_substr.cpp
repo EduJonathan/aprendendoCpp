@@ -17,7 +17,7 @@
 
 int main(int argc, char **argv)
 {
-    std::string texto = "Aprendendo C++ é divertido!";
+    std::string texto{"Aprendendo C++ é divertido!"};
 
     // Extraindo a palavra "C++"
     std::string sub = texto.substr(11, 3); // Começa na posição 11 e pega 3 caracteres
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
     std::cout << "------------------------------------" << '\n';
 
-    std::string email = "usuario@example.com";
+    std::string email{"usuario@example.com"};
 
     // Encontrar a posição do '@'
     std::size_t pos = email.find("@");
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 
     std::cout << "------------------------------------" << '\n';
 
-    std::string numero = "1234567890";
+    std::string numero{"1234567890"};
 
     // Extraindo os últimos 4 dígitos
     std::string ultimos_digitos = numero.substr(numero.size() - 4);
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 
     std::cout << "------------------------------------" << '\n';
 
-    std::string numeroTelefonico = "+55 (86) 99876-5432";
+    std::string numeroTelefonico{"+55 (86) 99876-5432"};
 
     // Extraindo o código do país, Pega os 3 primeiros caracteres
     std::string codigo_pais = numeroTelefonico.substr(0, 3);
