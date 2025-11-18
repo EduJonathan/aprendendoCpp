@@ -42,7 +42,7 @@ void LargestIndependentSet::construirExemplo(void)
  *
  * @note Se você estiver estranhando o retorno de uma função que não foi
  * declarado antes e sim logo após, tenha calma, na linguagem C++ é normal
- * este tipo de caso.
+ * este tipo de caso em POO, não em programação estruturada funcional.
  */
 int LargestIndependentSet::calcularLIS(void)
 {
