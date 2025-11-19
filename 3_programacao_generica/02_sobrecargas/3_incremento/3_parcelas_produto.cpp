@@ -175,7 +175,7 @@ void demonstrarCompra(MetodoPagamento *compra)
 
     // Pagando algumas parcelas
     std::cout << "\n--- Pagando 3 parcelas ---" << '\n';
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; ++i)
     {
         ++(*compra);
     }
@@ -188,7 +188,7 @@ void demonstrarCompra(MetodoPagamento *compra)
 
     // Pagando mais parcelas
     std::cout << "\n--- Pagando 2 parcelas ---" << '\n';
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 2; ++i)
     {
         ++(*compra);
     }
