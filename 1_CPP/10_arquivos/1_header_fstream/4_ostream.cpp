@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-/** */
 
 /**
  * std::ostream: Base para operações de saída, geralmente usada com ofstream para arquivos ou std::cout para a tela.

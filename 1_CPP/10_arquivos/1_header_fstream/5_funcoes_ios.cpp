@@ -134,5 +134,11 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    /**
+     * Comando para compilar:
+     * g++ -std=c++17 -o ios_modes 5_funcoes_ios.cpp
+     * ./ios_modes entrada1.txt entrada2.txt saida.txt
+     */
+
     return 0;
 }

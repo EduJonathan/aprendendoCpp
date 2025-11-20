@@ -156,6 +156,7 @@ int main(int argc, char **argv)
         std::istringstream iss(linha);
         std::string palavra;
         colunas = 0;
+        
         while (std::getline(iss, palavra, ',') && colunas < MAX_COLUNAS)
         {
             remover_aspas(palavra);

@@ -1,12 +1,22 @@
 #include <iostream>
 
 /**
- * WHILE: Estrutura de repetição que permite executar uma instrução enquanto
- * uma condição for verdadeira. tendo seus derivados como o DO-WHILE e WHILE-TRUE.
+ * WHILE: Estrutura de repetição que executa um bloco de código enquanto
+ * uma condição for verdadeira. Possui variações como DO-WHILE e laços WHILE-TRUE.
  *
- * WHILE: Executa o bloco de código enquanto a condição for verdadeira.
- * DO-WHILE: Executa o bloco de código pelo menos uma vez e depois verifica a condição.
- * WHILE-TRUE: Um laço infinito que só é interrompido com uma instrução de controle como `break`.
+ * WHILE:
+ *   Executa o bloco de código apenas enquanto a condição for verdadeira.
+ *   A condição é verificada **antes** da primeira execução.
+ *
+ * DO-WHILE:
+ *   Executa o bloco de código **pelo menos uma vez**, pois a condição é verificada
+ *   somente **após** a execução. Diferencia-se do WHILE tradicional porque
+ *   garante uma execução inicial do bloco.
+ *
+ * WHILE-TRUE:
+ *   Um laço intencionalmente infinito, no qual a condição é sempre verdadeira.
+ *   A repetição só é interrompida por instruções de controle, como `break`
+ *   ou `return`.
  */
 
 int main(int argc, char **argv)

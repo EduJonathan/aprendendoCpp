@@ -95,5 +95,11 @@ int main(int argc, char **argv)
 
     file.close();
 
+    /**
+     * Comando para compilar:
+     * g++ -std=c++17 -o apontadores 7_apontadores.cpp
+     * ./apontadores nomes.txt
+     */
+
     return 0;
 }

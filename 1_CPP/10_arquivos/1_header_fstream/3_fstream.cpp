@@ -106,5 +106,16 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    /**
+     *
+     * INSTRUÇÕES:
+     * 1. Substitua "INSIRA_SUA_API_KEY_AQUI" pela sua chave de API do Google Maps.
+     * 2. Compile e execute o programa.
+     * 3. Abra o arquivo HTML gerado em um navegador para visualizar o mapa.
+     *
+     * Para compilar:
+     * g++ -o fstream 3_fstream.cpp
+     * ./fstream mapa.html 12
+     */
     return 0;
 }

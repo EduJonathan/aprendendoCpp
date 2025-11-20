@@ -162,5 +162,11 @@ int main(int argc, char **argv)
     }
 
     file.close();
+
+    /**
+     * Comando para compilar:
+     * g++ -std=c++17 -o ifstream 1_ifstream.cpp
+     * ./ifstream nomes.txt
+     */
     return 0;
 }

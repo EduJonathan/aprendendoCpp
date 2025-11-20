@@ -79,7 +79,6 @@ int main(int argc, char **argv)
     while (std::getline(file, linha) && linhas < MAX_LINHAS)
     {
         std::istringstream iss(linha);
-
         std::string palavra;
         colunas = 0;
 
