@@ -46,7 +46,7 @@ Node<T> *BinarySearchTree<T>::addValue(const T &id)
         }
         else
         {
-            return current; // Node already exists
+            return current;
         }
     }
 }
