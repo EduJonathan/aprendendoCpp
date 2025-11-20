@@ -1,44 +1,44 @@
-#include "StandardRomanConverter.hpp"
-#include "AdditiveRomanConverter.hpp"
+#include "RomanConverter.hpp"
+#include "policies.hpp"
+#include "RomanAnyConverter.hpp"
 #include <iostream>
-#include <new>
+#include <array>
 
 int main(int argc, char **argv)
 {
-    const RomanConverter *converters[] = {
-        new StandardRomanConverter(),
-        new AdditiveRomanConverter()};
+    using Standard = RomanConverter<StandardRomanPolicy>;
+    using Additive = RomanConverter<AdditiveRomanPolicy>;
 
-    const char *names[] = {"Padrão (IV, IX...)", "Aditivo (IIII, XXXX)"};
+    Standard std;
+    Additive add;
 
-    int numbers[] = {4, 9, 1990, 3999, 2025};
+    // Array heterogêneo! Agora permitido graças ao type-erasure
+    std::array<RomanAnyConverter, 2> converters = {
+        RomanAnyConverter(std),
+        RomanAnyConverter(add)};
 
-    for (std::size_t c = 0; c < 2; ++c)
+    std::array<const char *, 2> names = {
+        "Padrão (IV, IX, CM…)",
+        "Aditivo (IIII, XXXX…)"};
+
+    std::array<int, 7> values = {4, 9, 40, 90, 1990, 3999, 2025};
+
+    for (std::size_t i = 0; i < converters.size(); ++i)
     {
-        std::cout << "\n=== " << names[c] << " ===\n";
-        for (int n : numbers)
+        std::cout << "=== " << names[i] << " ===\n";
+
+        for (int n : values)
         {
-            std::string roman = converters[c]->toRoman(n);
-            int back = converters[c]->fromRoman(roman);
+            std::string roman = converters[i].toRoman(n);
+            int back = converters[i].fromRoman(roman);
+
             std::cout << n << " → " << roman
-                      << " → " << back << " (volta correta: "
-                      << (back == n ? "sim" : "não") << ")\n";
+                      << " → " << back
+                      << " (ok: " << (n == back ? "sim" : "não") << ")\n";
         }
+
+        std::cout << '\n';
     }
 
-    // Teste com string literals
-    const StandardRomanConverter standard;
-    std::cout << "\n\"MMXXV\" = " << standard("MMXXV") << '\n';
-    std::cout << "2025 em romano = " << standard(2025) << '\n';
-
-    // Limpeza
-    delete converters[0];
-    delete converters[1];
-
-    /**
-     * Para Compilar com C++17:
-     * g++ -std=c++17 StandardRomanConverter.cpp AdditiveRomanConverter.cpp main.cpp -o converter_numeros_romanos
-     * ./converter_numeros_romanos
-     */
     return 0;
 }

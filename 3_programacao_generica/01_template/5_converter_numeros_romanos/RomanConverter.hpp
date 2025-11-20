@@ -4,16 +4,25 @@
 #include <string>
 #include <string_view>
 
-class RomanConverter
+// Herda Policy, Policy é um "mixin", ou seja, uma classe que fornece funcionalidades para serem usadas por outra classe
+template <typename Policy>
+class RomanConverter : private Policy
 {
 public:
-    virtual ~RomanConverter() = default;
+    using Policy::from_roman_impl;
+    using Policy::to_roman_impl;
 
     // Converte inteiro → romano
-    virtual std::string toRoman(int value) const = 0;
+    std::string toRoman(int value) const
+    {
+        return this->to_roman_impl(value);
+    }
 
     // Converte romano → inteiro
-    virtual int fromRoman(std::string_view roman) const = 0;
+    int fromRoman(std::string_view roman) const
+    {
+        return this->from_roman_impl(roman);
+    }
 
     // operator() para uso como função, ele funciona como um "atalho" para os métodos de conversão
     // será melhor explicado posteriormente com sobrecarga de operadores
