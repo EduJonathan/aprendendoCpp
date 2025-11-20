@@ -33,6 +33,6 @@ int main(int argc, char *argv)
     util::despedida(); // Também com o alias
 
     fs::path p = "."; // caminho atual
-    std::cout << "Caminho absoluto atual: " << fs::absolute(p) << "\n";
+    std::cout << "Caminho absoluto atual: " << fs::absolute(p) << '\n';
     return 0;
 }
