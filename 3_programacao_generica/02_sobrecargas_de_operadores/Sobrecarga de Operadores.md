@@ -2,18 +2,39 @@
 
 ## O que é?
 
-Antes de mergulharmos na **sobrecarga de operadores**, vale a pena relembrar um conceito fundamental sobre **funções**:
+Antes de falar sobre **sobrecarga de operadores**, vale relembrar um ponto fundamental sobre funções:
 
-> **Toda função processa entrada(s) e/ou retorna um resultado.**
+> **Toda função processa entradas e retorna um resultado ou modifica algum estado.**
 
-Seja em `struct`, `class (POO)` ou `template + class`, esse princípio é universal em C++ ou em quaisquer linguaguem:
+Isso vale para `struct`, `class`, `POO`, `templates`… Em qualquer linguagem e em qualquer contexto:
 
-> **toda operação envolve processamento e/ou retorno de valores**.
+> **Toda operação envolve processamento e/ou retorno de valores**.
 
-E onde isso se conecta com a **sobrecarga de operadores**?
-A **Sobrecarga de operadores permite redefinir o comportamento de operadores (utilizando a keyword `operator` em seguida o operador) para objetos de classes definidas pelo usuário.**
-Ou seja, você pode fazer com que operadores como `+`, `-`, `==`, `[]`, `()`, `<<`, entre outros, funcionem de forma
-personalizada com seus próprios tipos.
+---
+
+## Onde isso se conecta com a sobrecarga de operadores?
+
+Em C++, **operadores também são funções**, apenas com uma sintaxe especial.  
+A **sobrecarga de operadores** permite redefinir esses operadores usando a palavra-chave `operator` seguida do operador desejado.
+
+Com isso, você pode fazer com que operadores como `+`, `-`, `==`, `[]`, `()`, `<<` e muitos outros funcionem de forma personalizada para seus tipos.
+
+---
+
+## Por que isso é útil?
+
+Porque você pode escrever código mais claro e natural.  
+Compare:
+
+```cpp
+// Mais verboso
+ObjetoA.soma(ObjetoB);
+objetoA.adicionar(objetoB).multiplicar(objetoC)
+
+// Mais natural e menos verboso
+ObjetoA + ObjetoB;
+(objetoA + objetoB) * objetoC;
+```
 
 ---
 
