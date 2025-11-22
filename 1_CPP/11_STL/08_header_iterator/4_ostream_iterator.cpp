@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iterator>
 #include <stdexcept>
+#include <iterator>
 
 int main(int argc, char **argv)
 {

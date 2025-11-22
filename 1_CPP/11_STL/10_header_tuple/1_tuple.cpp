@@ -1,6 +1,6 @@
 #include <iostream>
-#include <tuple>
 #include <typeinfo> // Para usar typeid() e name()
+#include <tuple>
 
 /**
  * std::tuple<>: Tuplas são estruturas de dados que permitem armazenar múltiplos valores

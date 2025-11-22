@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 /**
  * std::inclusive_scan(param x, param y, param z): Similar ao std::exclusive_scan,

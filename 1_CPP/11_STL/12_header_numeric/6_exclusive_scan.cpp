@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 /**
  * std::exclusive_scan(param x, param y, param z): Realiza um prefixo exclusivo,

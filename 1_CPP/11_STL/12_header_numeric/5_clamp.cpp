@@ -1,7 +1,7 @@
 #include <iostream>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 // std::clamp(param x, param y, param z): Limita um valor dentro de um intervalo especificado.
 

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 /**
  * std::accumulate(param x, param y, param z): Permite acumular valores, como somar

@@ -1,6 +1,6 @@
 #include <iostream>
-#include <span>
 #include <vector>
+#include <span>
 
 /**
  * std::span é uma visão (view) sobre uma sequência contínua de elementos.

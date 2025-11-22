@@ -1,8 +1,8 @@
 #include <iostream>
-#include <utility>
 #include <cmath>
 #include <algorithm>
 #include <vector>
+#include <utility>
 
 typedef std::pair<double, double> point;
 

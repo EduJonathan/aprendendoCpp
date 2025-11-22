@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 #include <functional>
+#include <numeric>
 
 // std::swap_ranges(param x, param y, param z): Troca os elementos de dois intervalos de containers.
 

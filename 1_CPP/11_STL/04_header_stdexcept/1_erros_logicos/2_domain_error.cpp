@@ -1,6 +1,6 @@
 #include <iostream>
-#include <stdexcept>
 #include <cmath>
+#include <stdexcept>
 
 /**
  * std::domain_error:

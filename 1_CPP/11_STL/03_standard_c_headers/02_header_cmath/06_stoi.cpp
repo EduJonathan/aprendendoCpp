@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cmath>
 #include <cstdlib>
 #include <string>
 #include <stdexcept>
+#include <cmath>
 
 /**
  * std::stoi(param x, param y, param z): Converte uma string para um inteiro.

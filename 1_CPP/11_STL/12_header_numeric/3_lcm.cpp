@@ -1,7 +1,7 @@
 #include <iostream>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 // std::lcm(param x, param y): Calcula o Mínimo Múltiplo Comum entre dois números.
 

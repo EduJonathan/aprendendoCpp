@@ -1,7 +1,7 @@
 #include <iostream>
-#include <numeric>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 
 // std::gcd(param x, param y): Calcula o Maior Divisor Comum (MDC) entre dois números.
 

@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     // Exemplo válido
     std::string numeroValido = "+55 86 9999-9999";
 
-    // Exemplo inválido (faltando o '+', e com um espaço extra)
+    // Exemplo inválido (faltando o '+', e cImplementada no C++20 om um espaço extra)
     std::string numeroInvalido = "55 86 99999-9999";
 
     std::cout << "Testando número válido:   " << numeroValido << '\n';

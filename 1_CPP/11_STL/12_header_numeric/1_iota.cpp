@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <algorithm>
+#include <numeric>
 
 /*
  * std::iota(param x, param y, param z): Preenchimento de Intervalo, preenche

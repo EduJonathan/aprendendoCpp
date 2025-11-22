@@ -2,8 +2,8 @@
 #include <array>
 #include <cstdlib>
 #include <utility>
-#include <ctime>
 #include <vector>
+#include <ctime>
 
 const int SIZE = 5;        /// Tamanho da matriz do jogo
 const int TOTAL_ALVOS = 6; /// Total de alvos a serem encontrados

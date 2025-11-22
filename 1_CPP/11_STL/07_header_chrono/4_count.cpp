@@ -1,7 +1,7 @@
 #include <iostream>
-#include <chrono>
+#include <iomanip>
 #include <cstdlib> // para qsort e bsearch
-#include <iomanip> // para std::setw
+#include <chrono>
 
 /**
  * count(): A biblioteca <chrono> é usado para obter o valor numérico de uma duração de tempo.
