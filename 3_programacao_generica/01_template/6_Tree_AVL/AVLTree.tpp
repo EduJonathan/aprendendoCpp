@@ -2,542 +2,374 @@
 #define AVLTREE_TPP
 
 #include "AVLTree.hpp"
+#include <new>
+#include <functional>
+#include <algorithm>
+#include <stdexcept>
 
-// Implementações da BinarySearchTree
-template <typename T>
-BinarySearchTree<T>::BinarySearchTree() : root(nullptr) {}
+template <class Comparable>
+AVLTree<Comparable>::AVLTree(const Comparable &notFound) : root{nullptr}, ITEM_NOT_FOUND{notFound} {}
 
-template <typename T>
-BinarySearchTree<T>::~BinarySearchTree()
+template <class Comparable>
+AVLTree<Comparable>::AVLTree(const AVLTree &rhs) : ITEM_NOT_FOUND{rhs.ITEM_NOT_FOUND}, root{nullptr}
 {
-    deleteSubtree(root);
+    *this = rhs;
 }
 
-template <typename T>
-Node<T> *BinarySearchTree<T>::addValue(const T &id)
+template <class Comparable>
+AVLTree<Comparable>::~AVLTree()
 {
-    if (!root)
-    {
-        root = createNewNode(nullptr, id);
-        return root;
-    }
+    makeEmpty();
+}
 
-    Node<T> *current = root;
+template <class Comparable>
+const Comparable &AVLTree<Comparable>::elementAt(AVLNode<Comparable> *t) const
+{
+    return t == nullptr ? ITEM_NOT_FOUND : t->element;
+}
 
-    while (true)
+template <class Comparable>
+bool AVLTree<Comparable>::isEmpty() const
+{
+    return root == nullptr;
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::makeEmpty()
+{
+    makeEmpty(root);
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::makeEmpty(AVLNode<Comparable> *&t)
+{
+    if (t != nullptr)
     {
-        if (id < current->id)
-        {
-            if (!current->lesser)
-            {
-                current->lesser = createNewNode(current, id);
-                return current->lesser;
-            }
-            current = current->lesser;
-        }
-        else if (id > current->id)
-        {
-            if (!current->greater)
-            {
-                current->greater = createNewNode(current, id);
-                return current->greater;
-            }
-            current = current->greater;
-        }
-        else
-        {
-            return current;
-        }
+        makeEmpty(t->left);
+        makeEmpty(t->right);
+        delete t;
+        t = nullptr;
     }
 }
 
-template <typename T>
-Node<T> *BinarySearchTree<T>::getNode(const T &value)
+template <class Comparable>
+const Comparable &AVLTree<Comparable>::findMin() const
 {
-    Node<T> *current = root;
-
-    while (current)
-    {
-        if (value < current->id)
-        {
-            current = current->lesser;
-        }
-        else if (value > current->id)
-        {
-            current = current->greater;
-        }
-        else
-        {
-            return current;
-        }
-    }
-    return nullptr;
+    return elementAt(findMin(root));
 }
 
-template <typename T>
-Node<T> *BinarySearchTree<T>::getReplacementNode(Node<T> *node)
+template <class Comparable>
+const Comparable &AVLTree<Comparable>::findMax() const
 {
-    if (!node || (!node->lesser && !node->greater))
+    return elementAt(findMax(root));
+}
+
+template <class Comparable>
+AVLNode<Comparable> *AVLTree<Comparable>::findMin(AVLNode<Comparable> *t) const
+{
+    if (t == nullptr)
     {
         return nullptr;
     }
-    if (!node->lesser)
+    while (t->left != nullptr)
     {
-        return node->greater;
+        t = t->left;
     }
-    if (!node->greater)
-    {
-        return node->lesser;
-    }
-
-    Node<T> *current = node->greater;
-    while (current->lesser)
-    {
-        current = current->lesser;
-    }
-    return current;
+    return t;
 }
 
-template <typename T>
-void BinarySearchTree<T>::replaceNodeWithNode(Node<T> *oldNode, Node<T> *newNode)
+template <class Comparable>
+AVLNode<Comparable> *AVLTree<Comparable>::findMax(AVLNode<Comparable> *t) const
 {
-    if (!oldNode)
-        return;
-
-    if (oldNode == root)
+    if (t == nullptr)
     {
-        root = newNode;
+        return nullptr;
     }
-    else if (oldNode->parent->lesser == oldNode)
+    while (t->right != nullptr)
     {
-        oldNode->parent->lesser = newNode;
+        t = t->right;
+    }
+    return t;
+}
+
+template <class Comparable>
+const Comparable &AVLTree<Comparable>::find(const Comparable &x) const
+{
+    return elementAt(find(x, root));
+}
+
+template <class Comparable>
+AVLNode<Comparable> *AVLTree<Comparable>::find(const Comparable &x, AVLNode<Comparable> *t) const
+{
+    if (t == nullptr)
+    {
+        return nullptr;
+    }
+    if (x < t->element)
+    {
+        return find(x, t->left);
+    }
+    else if (t->element < x)
+    {
+        return find(x, t->right);
     }
     else
     {
-        oldNode->parent->greater = newNode;
+        return t; // match
     }
-    if (newNode)
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::printTree() const
+{
+    if (isEmpty())
     {
-        newNode->parent = oldNode->parent;
+        std::cout << "Empty tree\n";
     }
-    delete oldNode;
+    else
+    {
+        printTree(root);
+    }
 }
 
-template <typename T>
-bool BinarySearchTree<T>::validateNode(Node<T> *node)
+template <class Comparable>
+void AVLTree<Comparable>::printTreePretty() const
 {
-    if (!node)
-        return true;
-    if (node->lesser && node->lesser->id >= node->id)
-        return false;
-    if (node->greater && node->greater->id <= node->id)
-        return false;
-    return validateNode(node->lesser) && validateNode(node->greater);
-}
-
-template <typename T>
-Node<T> *BinarySearchTree<T>::createNewNode(Node<T> *parent, const T &id)
-{
-    return creator ? creator(parent, id) : new Node<T>(parent, id);
-}
-
-template <typename T>
-void BinarySearchTree<T>::deleteSubtree(Node<T> *node)
-{
-    if (!node)
+    if (root == nullptr)
+    {
+        std::cout << "<empty tree>\n";
         return;
-    deleteSubtree(node->lesser);
-    deleteSubtree(node->greater);
-    delete node;
+    }
+
+    printTreePretty(root, "", false);
 }
 
-// Implementações do Node
-template <typename T>
-Node<T>::Node(Node<T> *parent, const T &id) : id(id), parent(parent), lesser(nullptr), greater(nullptr) {}
-
-template <typename T>
-Node<T>::~Node() = default;
-
-// Implementações da AVLTree
-template <typename T>
-AVLTree<T>::AVLTree()
+template <class Comparable>
+void AVLTree<Comparable>::printTreePretty(AVLNode<Comparable> *node, const std::string &prefix, bool isLeft) const
 {
-    this->creator = [](Node<T> *parent, const T &id) -> Node<T> *
+    if (node == nullptr)
+        return;
+
+    // prefixo e conector
+    std::cout << prefix;
+
+    if (prefix != "")
     {
-        return new AVLNode(parent, id);
+        std::cout << (isLeft ? "├── " : "└── ");
+    }
+
+    // imprime o nó atual
+    std::cout << "[" << node->element << "]\n";
+
+    // prepara prefixos para filhos
+    std::string nextPrefix = prefix + (isLeft ? "│   " : "    ");
+
+    // esquerda vem antes para ficar visualmente correto
+    if (node->left != nullptr || node->right != nullptr)
+    {
+        printTreePretty(node->left, nextPrefix, true);
+        printTreePretty(node->right, nextPrefix, false);
+    }
+}
+
+template <class Comparable>
+int AVLTree<Comparable>::height(AVLNode<Comparable> *t) const
+{
+    return t == nullptr ? -1 : t->height;
+}
+
+template <class Comparable>
+int AVLTree<Comparable>::max(int lhs, int rhs) const
+{
+    return lhs > rhs ? lhs : rhs;
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::rotateWithLeftChild(AVLNode<Comparable> *&k2)
+{
+    AVLNode<Comparable> *k1 = k2->left;
+    k2->left = k1->right;
+    k1->right = k2;
+
+    // atualiza alturas
+    k2->height = std::max(height(k2->left), height(k2->right)) + 1;
+    k1->height = std::max(height(k1->left), k2->height) + 1;
+    k2 = k1;
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::rotateWithRightChild(AVLNode<Comparable> *&k1)
+{
+    AVLNode<Comparable> *k2 = k1->right;
+    k1->right = k2->left;
+    k2->left = k1;
+
+    // atualiza alturas
+    k1->height = std::max(height(k1->left), height(k1->right)) + 1;
+    k2->height = std::max(height(k2->right), k1->height) + 1;
+    k1 = k2;
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::doubleWithLeftChild(AVLNode<Comparable> *&k3)
+{
+    // rotaciona k3->left para a esquerda, depois com k3 para a direita
+    rotateWithRightChild(k3->left);
+    rotateWithLeftChild(k3);
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::doubleWithRightChild(AVLNode<Comparable> *&k1)
+{
+    // rotaciona k1->right para a direita, depois com k1 para a esquerda
+    rotateWithLeftChild(k1->right);
+    rotateWithRightChild(k1);
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::insert(const Comparable &x)
+{
+    insert(x, root);
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::insert(const Comparable &x, AVLNode<Comparable> *&t)
+{
+    if (t == nullptr)
+    {
+        // cria novo nó corretamente
+        t = new AVLNode<Comparable>(x, nullptr, nullptr, 0);
+    }
+    else if (x < t->element)
+    {
+        insert(x, t->left);
+
+        if (height(t->left) - height(t->right) == 2)
+        {
+            if (x < t->left->element)
+            {
+                rotateWithLeftChild(t);
+            }
+            else
+            {
+                doubleWithLeftChild(t);
+            }
+        }
+    }
+    else if (t->element < x)
+    {
+        insert(x, t->right);
+
+        if (height(t->right) - height(t->left) == 2)
+        {
+            if (t->right->element < x)
+            {
+                rotateWithRightChild(t);
+            }
+            else
+            {
+                doubleWithRightChild(t);
+            }
+        }
+    }
+    else
+    {
+        // elemento já existe — aqui não fazemos nada (ou poderia atualizar)
+    }
+
+    t->height = std::max(height(t->left), height(t->right)) + 1;
+}
+
+template <class Comparable>
+void AVLTree<Comparable>::remove(const Comparable &x)
+{
+    // wrapper
+    AVLNode<Comparable> *&t = root;
+
+    // chamada recursiva inline:
+    std::function<void(AVLNode<Comparable> *&, const Comparable &)> removeRec;
+    removeRec = [&](AVLNode<Comparable> *&tnode, const Comparable &value)
+    {
+        if (tnode == nullptr)
+            return; // não está presente
+        if (value < tnode->element)
+        {
+            removeRec(tnode->left, value);
+            
+            // re-balance
+            if (height(tnode->right) - height(tnode->left) == 2)
+            {
+                AVLNode<Comparable> *r = tnode->right;
+                if (height(r->right) >= height(r->left))
+                {
+                    rotateWithRightChild(tnode);
+                }
+                else
+                {
+                    doubleWithRightChild(tnode);
+                }
+            }
+        }
+        else if (tnode->element < value)
+        {
+            removeRec(tnode->right, value);
+
+            // re-balance
+            if (height(tnode->left) - height(tnode->right) == 2)
+            {
+                AVLNode<Comparable> *l = tnode->left;
+                if (height(l->left) >= height(l->right))
+                {
+                    rotateWithLeftChild(tnode);
+                }
+                else
+                {
+                    doubleWithLeftChild(tnode);
+                }
+            }
+        }
+        else // found
+        {
+            if (tnode->left != nullptr && tnode->right != nullptr) // two children
+            {
+                AVLNode<Comparable> *minRight = findMin(tnode->right);
+                tnode->element = minRight->element;
+                removeRec(tnode->right, tnode->element);
+            }
+            else
+            {
+                AVLNode<Comparable> *oldNode = tnode;
+                tnode = (tnode->left != nullptr) ? tnode->left : tnode->right;
+                delete oldNode;
+            }
+        }
+        if (tnode != nullptr)
+            tnode->height = std::max(height(tnode->left), height(tnode->right)) + 1;
     };
+
+    removeRec(root, x);
 }
 
-template <typename T>
-AVLTree<T>::AVLTree(typename BinarySearchTree<T>::NodeCreator creator) : BinarySearchTree<T>(creator) {}
-
-template <typename T>
-AVLTree<T>::~AVLTree() = default;
-
-template <typename T>
-Node<T> *AVLTree<T>::addValue(const T &id)
+template <class Comparable>
+AVLNode<Comparable> *AVLTree<Comparable>::clone(AVLNode<Comparable> *t) const
 {
-    Node<T> *nodeToReturn = BinarySearchTree<T>::addValue(id);
-    AVLNode *nodeAdded = static_cast<AVLNode *>(nodeToReturn);
-    nodeAdded->updateHeight();
-    balanceAfterInsert(nodeAdded);
-
-    nodeAdded = static_cast<AVLNode *>(nodeAdded->parent);
-    while (nodeAdded)
-    {
-        int h1 = nodeAdded->height;
-
-        nodeAdded->updateHeight();
-        balanceAfterInsert(nodeAdded);
-
-        int h2 = nodeAdded->height;
-
-        if (h1 == h2)
-            break;
-        nodeAdded = static_cast<AVLNode *>(nodeAdded->parent);
-    }
-    return nodeToReturn;
-}
-
-template <typename T>
-Node<T> *AVLTree<T>::removeValue(const T &value)
-{
-    Node<T> *nodeToRemove = this->getNode(value);
-    if (!nodeToRemove)
+    if (t == nullptr)
         return nullptr;
-
-    Node<T> *replacementNode = this->getReplacementNode(nodeToRemove);
-    AVLNode *nodeToRefactor = nullptr;
-
-    if (replacementNode)
-    {
-        nodeToRefactor = static_cast<AVLNode *>(replacementNode->parent);
-    }
-    if (!nodeToRefactor)
-    {
-        nodeToRefactor = static_cast<AVLNode *>(nodeToRemove->parent);
-    }
-    if (nodeToRefactor && nodeToRefactor == nodeToRemove)
-    {
-        nodeToRefactor = static_cast<AVLNode *>(replacementNode);
-    }
-
-    this->replaceNodeWithNode(nodeToRemove, replacementNode);
-
-    while (nodeToRefactor)
-    {
-        nodeToRefactor->updateHeight();
-        balanceAfterDelete(nodeToRefactor);
-        nodeToRefactor = static_cast<AVLNode *>(nodeToRefactor->parent);
-    }
-
-    return nodeToRemove;
+    AVLNode<Comparable> *newNode = new AVLNode<Comparable>(t->element, nullptr, nullptr, t->height);
+    newNode->left = clone(t->left);
+    newNode->right = clone(t->right);
+    return newNode;
 }
 
-template <typename T>
-std::string AVLTree<T>::toString() const
+template <class Comparable>
+const AVLTree<Comparable> &AVLTree<Comparable>::operator=(const AVLTree &rhs)
 {
-    return AVLTreePrinter::getString(this);
-}
-
-template <typename T>
-Node<T> *AVLTree<T>::createNewNode(Node<T> *parent, const T &id)
-{
-    return new AVLNode(parent, id);
-}
-
-template <typename T>
-bool AVLTree<T>::validateNode(Node<T> *node)
-{
-    if (!BinarySearchTree<T>::validateNode(node))
-        return false;
-
-    AVLNode *avlNode = static_cast<AVLNode *>(node);
-    int balanceFactor = avlNode->getBalanceFactor();
-
-    if (balanceFactor > 1 || balanceFactor < -1)
+    if (this != &rhs)
     {
-        return false;
+        makeEmpty();
+        root = clone(rhs.root);
     }
-    if (avlNode->isLeaf())
-    {
-        return avlNode->height == 1;
-    }
-    else
-    {
-        int lesserHeight = avlNode->lesser ? static_cast<AVLNode *>(avlNode->lesser)->height : 1;
-        int greaterHeight = avlNode->greater ? static_cast<AVLNode *>(avlNode->greater)->height : 1;
-        return avlNode->height == (lesserHeight + 1) || avlNode->height == (greaterHeight + 1);
-    }
-}
-
-template <typename T>
-void AVLTree<T>::rotateLeft(AVLNode *node)
-{
-    AVLNode *newRoot = static_cast<AVLNode *>(node->greater);
-    node->greater = newRoot->lesser;
-
-    if (node->greater)
-    {
-        node->greater->parent = node;
-    }
-
-    newRoot->lesser = node;
-    newRoot->parent = node->parent;
-
-    if (!node->parent)
-    {
-        this->root = newRoot;
-    }
-    else if (node == node->parent->lesser)
-    {
-        node->parent->lesser = newRoot;
-    }
-    else
-    {
-        node->parent->greater = newRoot;
-    }
-    node->parent = newRoot;
-    node->updateHeight();
-    newRoot->updateHeight();
-}
-
-template <typename T>
-void AVLTree<T>::rotateRight(AVLNode *node)
-{
-    AVLNode *newRoot = static_cast<AVLNode *>(node->lesser);
-    node->lesser = newRoot->greater;
-
-    if (node->lesser)
-    {
-        node->lesser->parent = node;
-    }
-
-    newRoot->greater = node;
-    newRoot->parent = node->parent;
-
-    if (!node->parent)
-    {
-        this->root = newRoot;
-    }
-    else if (node == node->parent->lesser)
-    {
-        node->parent->lesser = newRoot;
-    }
-    else
-    {
-        node->parent->greater = newRoot;
-    }
-    node->parent = newRoot;
-    node->updateHeight();
-    newRoot->updateHeight();
-}
-
-template <typename T>
-void AVLTree<T>::balanceAfterInsert(AVLNode *node)
-{
-    int balanceFactor = node->getBalanceFactor();
-
-    if (balanceFactor > 1 || balanceFactor < -1)
-    {
-        AVLNode *child = nullptr;
-        Balance balance;
-
-        if (balanceFactor < 0)
-        {
-            child = static_cast<AVLNode *>(node->lesser);
-            balanceFactor = child->getBalanceFactor();
-            balance = balanceFactor < 0 ? Balance::LEFT_LEFT : Balance::LEFT_RIGHT;
-        }
-        else
-        {
-            child = static_cast<AVLNode *>(node->greater);
-            balanceFactor = child->getBalanceFactor();
-            balance = balanceFactor < 0 ? Balance::RIGHT_LEFT : Balance::RIGHT_RIGHT;
-        }
-
-        if (balance == Balance::LEFT_RIGHT)
-        {
-            rotateLeft(child);
-            rotateRight(node);
-        }
-        else if (balance == Balance::RIGHT_LEFT)
-        {
-            rotateRight(child);
-            rotateLeft(node);
-        }
-        else if (balance == Balance::LEFT_LEFT)
-        {
-            rotateRight(node);
-        }
-        else
-        {
-            rotateLeft(node);
-        }
-
-        child->updateHeight();
-        node->updateHeight();
-    }
-}
-
-template <typename T>
-void AVLTree<T>::balanceAfterDelete(AVLNode *node)
-{
-    int balanceFactor = node->getBalanceFactor();
-
-    if (balanceFactor == -2 || balanceFactor == 2)
-    {
-        if (balanceFactor == -2)
-        {
-            AVLNode *ll = node->lesser ? static_cast<AVLNode *>(node->lesser->lesser) : nullptr;
-            int lesser = ll ? ll->height : 0;
-
-            AVLNode *lr = node->lesser ? static_cast<AVLNode *>(node->lesser->greater) : nullptr;
-            int greater = lr ? lr->height : 0;
-
-            if (lesser >= greater)
-            {
-                rotateRight(node);
-                node->updateHeight();
-
-                if (node->parent)
-                {
-                    static_cast<AVLNode *>(node->parent)->updateHeight();
-                }
-            }
-            else
-            {
-                rotateLeft(static_cast<AVLNode *>(node->lesser));
-                rotateRight(node);
-                AVLNode *p = static_cast<AVLNode *>(node->parent);
-
-                if (p->lesser)
-                    static_cast<AVLNode *>(p->lesser)->updateHeight();
-                if (p->greater)
-                    static_cast<AVLNode *>(p->greater)->updateHeight();
-                p->updateHeight();
-            }
-        }
-        else if (balanceFactor == 2)
-        {
-            AVLNode *rr = node->greater ? static_cast<AVLNode *>(node->greater->greater) : nullptr;
-            int greater = rr ? rr->height : 0;
-
-            AVLNode *rl = node->greater ? static_cast<AVLNode *>(node->greater->lesser) : nullptr;
-            int lesser = rl ? rl->height : 0;
-
-            if (greater >= lesser)
-            {
-                rotateLeft(node);
-                node->updateHeight();
-
-                if (node->parent)
-                {
-                    static_cast<AVLNode *>(node->parent)->updateHeight();
-                }
-            }
-            else
-            {
-                rotateRight(static_cast<AVLNode *>(node->greater));
-                rotateLeft(node);
-                AVLNode *p = static_cast<AVLNode *>(node->parent);
-
-                if (p->lesser)
-                    static_cast<AVLNode *>(p->lesser)->updateHeight();
-                if (p->greater)
-                    static_cast<AVLNode *>(p->greater)->updateHeight();
-                p->updateHeight();
-            }
-        }
-    }
-}
-
-// Implementações da AVLNode
-template <typename T>
-AVLTree<T>::AVLNode::AVLNode(Node<T> *parent, const T &value) : Node<T>(parent, value), height(1) {}
-
-template <typename T>
-bool AVLTree<T>::AVLNode::isLeaf() const
-{
-    return !this->lesser && !this->greater;
-}
-
-template <typename T>
-int AVLTree<T>::AVLNode::updateHeight()
-{
-    int lesserHeight = this->lesser ? static_cast<AVLNode *>(this->lesser)->height : 0;
-    int greaterHeight = this->greater ? static_cast<AVLNode *>(this->greater)->height : 0;
-    height = std::max(lesserHeight, greaterHeight) + 1;
-    return height;
-}
-
-template <typename T>
-int AVLTree<T>::AVLNode::getBalanceFactor() const
-{
-    int lesserHeight = this->lesser ? static_cast<AVLNode *>(this->lesser)->height : 0;
-    int greaterHeight = this->greater ? static_cast<AVLNode *>(this->greater)->height : 0;
-    return greaterHeight - lesserHeight;
-}
-
-template <typename T>
-std::string AVLTree<T>::AVLNode::toString() const
-{
-    std::stringstream ss;
-    ss << "value=" << this->id << " height=" << height
-       << " parent=" << (this->parent ? std::to_string(this->parent->id) : "NULL")
-       << " lesser=" << (this->lesser ? std::to_string(this->lesser->id) : "NULL")
-       << " greater=" << (this->greater ? std::to_string(this->greater->id) : "NULL");
-    return ss.str();
-}
-
-// Implementações da AVLTreePrinter
-template <typename T>
-std::string AVLTree<T>::AVLTreePrinter::getString(const AVLTree<T> *tree)
-{
-    if (!tree->root)
-        return "Árvore não possue nós.";
-    return getString(static_cast<AVLNode *>(tree->root), "", true);
-}
-
-template <typename T>
-std::string AVLTree<T>::AVLTreePrinter::getString(AVLNode *node)
-{
-    if (!node)
-        return "Sub-Árvore não possue nós.";
-    return getString(node, "", true);
-}
-
-template <typename T>
-std::string AVLTree<T>::AVLTreePrinter::getString(AVLNode *node, const std::string &prefix, bool isTail)
-{
-    if (!node)
-    {
-        return "Nó nulo\n";
-    }
-
-    std::stringstream builder;
-    builder << prefix << (isTail ? "└── " : "├── ") << "(" << node->height << ") " << node->id << '\n';
-
-    std::vector<Node<T> *> children;
-
-    if (node->lesser)
-        children.push_back(node->lesser);
-    if (node->greater)
-        children.push_back(node->greater);
-
-    for (std::size_t i = 0; i < children.size(); ++i)
-    {
-        AVLNode *avlNode = dynamic_cast<AVLNode *>(children[i]);
-        if (!avlNode)
-        {
-            builder << prefix << (i == children.size() - 1 ? "└── " : "├── ") << "Erro: Nó inválido\n";
-            continue;
-        }
-
-        bool isLast = (i == children.size() - 1);
-        builder << getString(avlNode, prefix + (isTail ? "    " : "│   "), isLast);
-    }
-    return builder.str();
+    return *this;
 }
 
 #endif // AVLTREE_TPP

@@ -3,26 +3,24 @@
 
 int main(int argc, char **argv)
 {
-    AVLTree<int> tree;
-    std::cout << "Árvore vazia:\n"
-              << tree.toString() << '\n';
+    AVLTree<int> t(-1); // -1 será ITEM_NOT_FOUND
+    t.insert(20);
+    t.insert(10);
+    t.insert(30);
+    t.insert(5);
+    t.insert(15);
+    t.insert(25);
+    t.insert(35);
 
-    tree.addValue(10);
-    tree.addValue(5);
-    tree.addValue(15);
-    tree.addValue(3);
-    tree.addValue(7);
+    std::cout << "Árvore (ordem):\n";
+    t.printTreePretty();
 
-    std::cout << "Após inserções:\n"
-              << tree.toString() << '\n';
+    std::cout << "\nMin: " << t.findMin() << '\n';
+    std::cout << "Max: " << t.findMax() << '\n';
 
-    tree.removeValue(5);
-    std::cout << "Após remover 5:\n"
-              << tree.toString() << '\n';
-
-    tree.removeValue(10);
-    std::cout << "Após remover 10:\n"
-              << tree.toString() << '\n';
+    t.remove(10);
+    std::cout << "\nApós remover 10:\n";
+    t.printTreePretty();
 
     return 0;
 }
