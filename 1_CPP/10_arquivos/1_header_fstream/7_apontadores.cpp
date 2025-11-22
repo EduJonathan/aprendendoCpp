@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 {
     std::ofstream arq1;
 
-    // ios::app - abre o arquivo no final (depois do último caractere)
+    // std::ios::app - abre o arquivo no final (depois do último caractere)
     arq1.open("nomes.txt", std::ios::app);
 
     if (arq1.is_open())

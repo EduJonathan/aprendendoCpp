@@ -99,11 +99,11 @@ int main(int argc, char **argv)
 {
     std::string linha;
 
-    // ifstream – abre o arquivo apenas para leitura
+    // std::ifstream – abre o arquivo apenas para leitura
     std::ifstream arq_in("nomes.txt");
     if (arq_in.is_open())
     {
-        // eof() - retorna true ao atingir o fim do arquivo
+        // .eof() - retorna true ao atingir o fim do arquivo
         while (!arq_in.eof())
         {
             std::getline(arq_in, linha);
