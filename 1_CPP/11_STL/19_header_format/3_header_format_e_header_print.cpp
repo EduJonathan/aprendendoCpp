@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     int x = 42;
     double y = 3.14159;
 
-    // Com <format> - duas etapas
+    // Com <format> - duas etapas, :.2f para formatar float com 2 casas decimais
     std::string formatted = std::format("x = {}, y = {:.2f}", x, y);
     std::cout << formatted << '\n';
 
