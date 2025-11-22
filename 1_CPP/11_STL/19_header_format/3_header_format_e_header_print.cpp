@@ -13,7 +13,8 @@
  *
  * - <format>:
  * Implementada no C++20 ele requer duas etapas - primeiro, você cria uma string formatada usando std::format, e depois imprime essa string.
- * - <print>: Implementada no C++23 Permite imprimir diretamente com formatação em uma única etapa usando std::print.
+ * - <print>:
+ * Implementada no C++23 Permite imprimir diretamente com formatação em uma única etapa usando std::print.
  *
  */
 

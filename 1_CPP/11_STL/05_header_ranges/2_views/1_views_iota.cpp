@@ -29,17 +29,5 @@ int main(int argc, char **argv)
     }
     std::cout << '\n';
 
-    /**
-     * Se caso seu editor de código ou terminal estiver apresentando a seguinte mensagem:
-     * "error: name followed by '::' must be a class or namespace name"
-     * Isso pode ser resolvido adicionando a flag de compilação:
-     *
-     * > g++ -std=c++20 main.cpp -o main
-     * > .\main.exe
-     *
-     * O -std=c++20/std:c++20 => Flags de compilação do g++ que ativa o suporte e recursos,
-     * dizendo ao compilador qual versão do C++ usar, neste caso, C++20 ou superior
-     * versão que se encontra os recursos de (ranges, views, concepts).
-     */
     return 0;
 }
