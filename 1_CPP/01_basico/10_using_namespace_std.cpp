@@ -100,7 +100,6 @@ int main(int argc, char **argv)
      * 3. Use importações seletivas (`using std::cout;`) em escopos locais, se necessário.
      * 4. Escolha nomes descritivos para variáveis (ex.: `texto` em vez de `string`).
      * 5. Use o operador `::` para resolver conflitos de escopo, como em `::global_counter`.
-     * 6. Prefira `\n` a `std::endl` para evitar flushes desnecessários.
      */
     return 0;
 }

@@ -2,6 +2,18 @@
 #include <array>
 #include <cstdlib>
 
+/**
+ * +--------------------------------+---------------------------+------------------------------+
+ * | Característica                 | const                     | constexpr                    |
+ * +--------------------------------+---------------------------+------------------------------+
+ * | Avaliação                      | Tempo de execução         | Tempo de compilação          |
+ * | Pode chamar qualquer função    | Sim                       | Não (só constexpr)           |
+ * | Pode depender de entrada extra | Sim                       | Não                          |
+ * | Exemplo válido                 | const int x = rand();     | constexpr int y = 2 + 3;     |
+ * | Usado para std::array          | Não (exceto global const) | Sim (exigido por std::array) |
+ * +--------------------------------+---------------------------+------------------------------+
+ */
+
 // Constantes definidas com diferentes abordagens
 const int STANDARD_SIZE = 20;         // Constante tradicional
 constexpr int MAX_BUFFER_SIZE = 1024; // Constante em tempo de compilação
@@ -57,18 +69,6 @@ int main(int argc, char **argv)
     /// ERRO: std::rand() só pode ser avaliado em **TEMPO DE EXECUÇÃO**.
     // constexpr int valorAleatorio = std::rand(); // ERRO de compilação
     // std::cout << "Valor aleatório constexpr: " << valorAleatorio << '\n';
-
-    /**
-     * +--------------------------------+---------------------------+------------------------------+
-     * | Característica                 | const                     | constexpr                    |
-     * +--------------------------------+---------------------------+------------------------------+
-     * | Avaliação                      | Tempo de execução         | Tempo de compilação          |
-     * | Pode chamar qualquer função    | Sim                       | Não (só constexpr)           |
-     * | Pode depender de entrada extra | Sim                       | Não                          |
-     * | Exemplo válido                 | const int x = rand();     | constexpr int y = 2 + 3;     |
-     * | Usado para std::array          | Não (exceto global const) | Sim (exigido por std::array) |
-     * +--------------------------------+---------------------------+------------------------------+
-     */
 
     /**
      * RESSALTANDO:
