@@ -45,9 +45,6 @@ std::string classificacaoParaString(Classificacao c)
 
 class Triangulo
 {
-private:
-    std::string classificao[3]{"Isóceles", "Equilátero", "Escaleno"};
-
 public:
     double lado1, lado2, lado3;
 
