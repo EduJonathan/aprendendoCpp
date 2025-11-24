@@ -16,6 +16,33 @@
  * flexíveis e eficientes.
  */
 
+// Definimos um novo tipo que representa claramente os estados possíveis
+enum class Classificacao
+{
+    Equilatero,
+    Isosceles,
+    Escaleno
+};
+
+// Função auxiliar para converter o enum class em string
+std::string classificacaoParaString(Classificacao c)
+{
+    switch (c)
+    {
+    case Classificacao::Equilatero:
+        return "Equilátero";
+
+    case Classificacao::Isosceles:
+        return "Isósceles";
+
+    case Classificacao::Escaleno:
+        return "Escaleno";
+
+    default:
+        return "Desconhecida";
+    }
+}
+
 class Triangulo
 {
 private:
@@ -24,18 +51,21 @@ private:
 public:
     double lado1, lado2, lado3;
 
-    // Método para classificar o triângulo
-    const std::string classificaTriangulo(void)
+    // Método para classificar o triângulo agora retorna o tipo enum class
+    const Classificacao classificaTriangulo(void) const
     {
+        // 1. Equilátero: Todos os lados iguais
         if (lado1 == lado2 && lado2 == lado3)
         {
-            return classificao[0]; // Equilátero
+            return Classificacao::Equilatero;
         }
+        // 2. Isósceles: Pelo menos dois lados iguais
         else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3)
         {
-            return classificao[1]; // Isóceles
+            return Classificacao::Isosceles;
         }
-        return classificao[2]; // Escaleno
+        // 3. Escaleno: Nenhum lado igual
+        return Classificacao::Escaleno;
     }
 
     // Metódo para definir os lados dos triângulos
@@ -46,10 +76,13 @@ public:
         lado3 = l3;
     }
 
-    // Método para exibir a classificação
-    void getClassificacao(void)
+    // Método para exibir a classificação usa a função auxiliar para obter a string
+    void getClassificacao(void) const // Adicionada a qualificação 'const'
     {
-        std::cout << "A classificação do triângulo é: " << classificaTriangulo() << '\n';
+        // Usa a função auxiliar para converter o enum em string para exibição
+        std::cout << "A classificação do triângulo é: "
+                  << classificacaoParaString(classificaTriangulo())
+                  << '\n';
     }
 };
 

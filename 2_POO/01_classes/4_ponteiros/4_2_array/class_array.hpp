@@ -1,7 +1,7 @@
 #ifndef CLASS_ARRAY_HPP
 #define CLASS_ARRAY_HPP
 
-#include <cstddef> // Para apenas std::size_t, e também em vez da header iostream
+#include <cstddef> // Para apenas std::size_t
 #include <memory>
 
 class Array

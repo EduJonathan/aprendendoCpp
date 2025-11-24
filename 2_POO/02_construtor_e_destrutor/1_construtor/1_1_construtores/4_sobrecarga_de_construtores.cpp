@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 /**
  * Em um código podemos ter mais de um construtor dentro de uma única classe. Isso é conhecido
@@ -10,15 +11,15 @@
  * é em classes que possuem múltiplos atributos ou quando queremos oferecer flexibilidade na
  * inicialização dos objetos.
  *
- * Tenha quantas sobrecargas de construtores quiser em C++,não há limite fixo imposto
+ * Tenha quantas sobrecargas de construtores quiser em C++, não há limite fixo imposto
  * pela linguagem. O que importa é que cada construtor tenha uma assinatura única, ou seja,
- * um conjunto de parâmetros diferente.
+ * um conjunto de parâmetros diferente, mas também deve-se saber o que fazer, e o porquê de cada declaração.
  *
  * Apenas lembre-se:
  *
  * - A ordem e tipo dos parâmetros devem ser diferentes.
- * - Você não pode ter dois construtores com exatamente a mesma assinatura, mesmo que o
- * conteúdo seja diferente.
+ * - Você não pode ter dois construtores com exatamente a mesma assinatura,
+ * mesmo que o conteúdo seja diferente.
  */
 
 class Pessoa

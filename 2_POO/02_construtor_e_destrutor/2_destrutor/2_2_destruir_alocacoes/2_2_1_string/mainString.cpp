@@ -6,7 +6,7 @@ String::String(const char *str)
 {
     std::size_t length = strnlen(str, SIZE); // Determina o comprimento da string.
     string = new char[length + 1];           // Aloca memória para a string.
-    std::strncpy(string, str, length + 1);        // Copia a string para o buffer alocado.
+    std::strncpy(string, str, length + 1);   // Copia a string para o buffer alocado.
 }
 
 void String::getString(const std::string &str)

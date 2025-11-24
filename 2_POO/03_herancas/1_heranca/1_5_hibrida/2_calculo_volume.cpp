@@ -2,19 +2,6 @@
 #include <new>
 
 /**
- * A herança híbrida é a combinação de herança hierárquica e multinível.
- *
- * Neste exemplo, temos:
- *
- * - **Herança Hierárquica**: Uma classe base é herdada por várias classes derivadas,
- * como `Comprimento` sendo herdada por `Largura`.
- *
- * - **Herança Multinível**: Uma classe herda de outra que também é derivada de uma
- * classe anterior, como `Result` herdando de `Largura` (que herda de `Comprimento`)
- * e `Altura`.
- */
-
-/**
  * @class Altura
  * @brief Representa a altura de um objeto.
  *

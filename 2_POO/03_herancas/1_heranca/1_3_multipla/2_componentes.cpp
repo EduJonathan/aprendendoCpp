@@ -1,65 +1,50 @@
 #include <iostream>
 #include <string>
+#include <map>
 #include <new>
 
-class ComponentesComputador
+// Definição do enum class para os componentes do computador
+enum class Componente
 {
-public:
-    std::string componentes[5]{
-        "Placa-mãe",
-        "Processador (CPU)",
-        "SSD",
-        "Memória RAM",
-        "Fonte de alimentação"};
-
-    // Simula se o componente está presente ou com defeito
-    bool componentesPresentes[5]{true, true, true, true, true};
-
-    // Verifica a presença e se está funcionando corretamente
-    void verificarComponentes(void)
-    {
-        for (int i = 0; i < 5; ++i)
-        {
-            if (!componentesPresentes[i])
-            {
-                std::cout << componentes[i] << " está com defeito ou ausente!" << '\n';
-            }
-        }
-    }
-
-    // Lista os componentes presentes e funcionais
-    void listarComponentes(void)
-    {
-        std::cout << "Componentes do computador:" << '\n';
-        for (int i = 0; i < 5; ++i)
-        {
-            if (componentesPresentes[i])
-            {
-                std::cout << "- " << componentes[i] << ": Funcionando corretamente." << '\n';
-            }
-            else
-            {
-                std::cout << "- " << componentes[i] << ": Com defeito ou ausente." << '\n';
-            }
-        }
-    }
-
-    // Simula o defeito de um componente (aleatório ou específico)
-    void simularDefeitoComponente(int indice)
-    {
-        if (indice >= 0 && indice < 5)
-        {
-            componentesPresentes[indice] = false;
-        }
-    }
+    PlacaMae,
+    Processador,
+    SSD,
+    MemoriaRAM,
+    FonteAlimentacao,
+    NumeroDeComponentes
 };
 
+// Mapeia o enum class Componente para sua representação em string.
+const std::string &componenteToString(Componente &comp)
+{
+    // Mapa estático para armazenar as strings correspondentes aos enums
+    static const std::map<Componente, std::string> map = {
+        {Componente::PlacaMae, "Placa-mãe"},
+        {Componente::Processador, "Processador (CPU)"},
+        {Componente::SSD, "SSD"},
+        {Componente::MemoriaRAM, "Memória RAM"},
+        {Componente::FonteAlimentacao, "Fonte de alimentação"}};
+
+    // Retorna a string do mapa; se não encontrar, retorna uma string de erro.
+    auto it = map.find(comp);
+    if (it != map.end())
+    {
+        return it->second;
+    }
+
+    // Caso de uso improvável: Se o enum for inválido, retorna um valor padrão.
+    static const std::string erro = "Componente Desconhecido";
+    return erro;
+}
+
+// Classe Monitor (inalterada na funcionalidade)
 class Monitor
 {
-public:
+private:
     bool monitorFuncionando = true;
 
-    void verificarMonitor(void)
+public:
+    void verificarMonitor(void) const
     {
         if (monitorFuncionando)
         {
@@ -71,7 +56,7 @@ public:
         }
     }
 
-    void ligarMonitor(void)
+    void ligarMonitor(void) const
     {
         if (monitorFuncionando)
         {
@@ -90,55 +75,128 @@ public:
     }
 };
 
-class Notebook : public ComponentesComputador
+// Classe ComponentesComputador (usando enum class)
+class ComponentesComputador
 {
+private:
+    bool componentesPresentes[static_cast<int>(Componente::NumeroDeComponentes)];
+
 public:
-    void inicializar(void)
+    // Construtor: Inicializa todos os componentes como presentes e funcionais
+    ComponentesComputador()
     {
-        std::cout << "[Notebook] Iniciando o sistema..." << '\n';
-        listarComponentes(); // Verifica todos os componentes
-        std::cout << "Monitor embutido ligado." << '\n';
+        for (int i = 0; i < static_cast<int>(Componente::NumeroDeComponentes); ++i)
+        {
+            componentesPresentes[i] = true;
+        }
+    }
+
+    // Verifica a presença e se está funcionando corretamente
+    void verificarComponentes(void) const
+    {
+        for (int i = 0; i < static_cast<int>(Componente::NumeroDeComponentes); ++i)
+        {
+            Componente comp = static_cast<Componente>(i);
+            if (!componentesPresentes[i])
+            {
+                std::cout << componenteToString(comp) << " está com defeito ou ausente!" << '\n';
+            }
+        }
+    }
+
+    // Lista os componentes presentes e funcionais
+    void listarComponentes(void) const
+    {
+        std::cout << "Componentes do computador:" << '\n';
+        for (int i = 0; i < static_cast<int>(Componente::NumeroDeComponentes); ++i)
+        {
+            Componente comp = static_cast<Componente>(i);
+            if (componentesPresentes[i])
+            {
+                std::cout << "- " << componenteToString(comp) << ": Funcionando corretamente." << '\n';
+            }
+            else
+            {
+                std::cout << "- " << componenteToString(comp) << ": Com defeito ou ausente." << '\n';
+            }
+        }
+    }
+
+    // Simula o defeito de um componente
+    void simularDefeitoComponente(Componente comp)
+    {
+        int indice = static_cast<int>(comp);
+        if (indice >= 0 && indice < static_cast<int>(Componente::NumeroDeComponentes))
+        {
+            componentesPresentes[indice] = false;
+        }
     }
 };
 
-class Pc : public ComponentesComputador, public Monitor
+// Notebook herda apenas de ComponentesComputador (pois o monitor é embutido)
+class Notebook : public ComponentesComputador
 {
 public:
-    void inicializar(void)
+    void inicializar(void) const
+    {
+        std::cout << "[Notebook] Iniciando o sistema..." << '\n';
+        listarComponentes(); // Método herdado de ComponentesComputador
+        std::cout << "Monitor embutido ligado." << '\n';
+    }
+    // Não é necessário implementar simularDefeitoMonitor() aqui, pois não há Monitor na herança
+};
+
+// PC usa Composição (tem um Monitor) em vez de Herança Múltipla.
+class Pc
+{
+private:
+    ComponentesComputador componentes; // Composição: O PC tem ComponentesComputador
+    Monitor monitor;                   // Composição: O PC tem um Monitor
+
+public:
+    void inicializar(void) const
     {
         std::cout << "[PC] Iniciando o sistema..." << '\n';
-        listarComponentes(); // Verifica todos os componentes
-        verificarMonitor();  // Verifica o monitor
-        ligarMonitor();      // Tenta ligar o monitor
+        componentes.listarComponentes(); // Acessa o objeto componentes
+        monitor.verificarMonitor();      // Acessa o objeto monitor
+        monitor.ligarMonitor();
+    }
+
+    // Encapsula os métodos de simulação de defeito
+    void simularDefeitoComponente(Componente comp)
+    {
+        componentes.simularDefeitoComponente(comp);
+    }
+
+    void simularDefeitoMonitor(void)
+    {
+        monitor.simularDefeitoMonitor();
     }
 };
 
 int main(int argc, char **argv)
 {
-    // Alocação dinâmica
     Pc *meuPcComDefeito = new Pc();
     Pc *meuPcSemDefeito = new Pc();
     Notebook *meuNotebook = new Notebook();
 
     // Exemplo 1: Simulando defeitos no PC
     std::cout << "\n=== Exemplo com defeitos (PC) ===" << '\n';
-    meuPcComDefeito->simularDefeitoComponente(2); // Simula defeito no SSD
-    meuPcComDefeito->simularDefeitoComponente(4); // Simula defeito na fonte de alimentação
-    meuPcComDefeito->simularDefeitoMonitor();     // Simula defeito no monitor do PC
-    meuPcComDefeito->inicializar();               // Inicializa o PC com defeitos
 
-    // Exemplo 2: Sem defeitos (Notebook)
+    meuPcComDefeito->simularDefeitoComponente(Componente::SSD);
+    meuPcComDefeito->simularDefeitoComponente(Componente::FonteAlimentacao);
+    meuPcComDefeito->simularDefeitoMonitor();
+    meuPcComDefeito->inicializar();
+
     std::cout << "\n=== Exemplo sem defeitos (Notebook) ===" << '\n';
-    meuNotebook->inicializar(); // Inicializa o Notebook sem defeitos
+    meuNotebook->inicializar();
 
-    // Exemplo 3: Sem defeitos no PC
     std::cout << "\n=== Exemplo sem defeitos (PC) ===" << '\n';
-    meuPcSemDefeito->inicializar(); // Inicializa o PC sem defeitos
+    meuPcSemDefeito->inicializar();
 
     // Liberação de memória alocada dinamicamente
     delete meuPcComDefeito;
     delete meuPcSemDefeito;
     delete meuNotebook;
-
     return 0;
 }

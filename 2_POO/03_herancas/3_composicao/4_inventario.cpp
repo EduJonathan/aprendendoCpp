@@ -53,10 +53,10 @@ public:
     void removerItem(const std::string &nomeItem)
     {
         auto it = std::find_if(itens.begin(), itens.end(),
-        [&nomeItem](const std::shared_ptr<Item> &item)
-        {
-            return item->getNome() == nomeItem;
-        });
+                               [&nomeItem](const std::shared_ptr<Item> &item)
+                               {
+                                   return item->getNome() == nomeItem;
+                               });
 
         if (it != itens.end())
         {
@@ -126,34 +126,34 @@ public:
 
 int main(int argc, char **argv)
 {
-    Jogador *jogador1 = new Jogador("Eduardo", "Arqueiro");
+    Jogador *jogador = new Jogador("Eduardo", "Arqueiro");
 
     // Coletando itens
-    jogador1->coletarItem("Espada de Fogo");
-    jogador1->coletarItem("Poção de Cura");
-    jogador1->coletarItem("Arco Longo");
-    jogador1->coletarItem("Bumerangue");
-    jogador1->coletarItem("Escudo");
-    jogador1->coletarItem("Poção de Mana");
+    jogador->coletarItem("Espada de Fogo");
+    jogador->coletarItem("Poção de Cura");
+    jogador->coletarItem("Arco Longo");
+    jogador->coletarItem("Bumerangue");
+    jogador->coletarItem("Escudo");
+    jogador->coletarItem("Poção de Mana");
 
     // Exibindo o inventário
-    jogador1->exibirInventario();
+    jogador->exibirInventario();
 
     // Tentando coletar mais itens do que o limite do Arqueiro
-    jogador1->coletarItem("Elixir"); // Isso vai remover o "Espada de Fogo" (primeiro item)
+    jogador->coletarItem("Elixir"); // Isso vai remover o "Espada de Fogo" (primeiro item)
 
     // Exibindo o inventário após coleta do item extra
-    jogador1->exibirInventario();
+    jogador->exibirInventario();
 
     // Removendo um item específico ("Espada de Fogo")
-    jogador1->removerItem("Espada de Fogo");
+    jogador->removerItem("Espada de Fogo");
 
     // Tentando remover um item que não existe ("Poção de Vida")
-    jogador1->removerItem("Poção de Vida");
+    jogador->removerItem("Poção de Vida");
 
     // Exibindo o inventário após remoções
-    jogador1->exibirInventario();
+    jogador->exibirInventario();
 
-    delete jogador1; // Liberando a memória alocada para o jogador
+    delete jogador; // Liberando a memória alocada para o jogador
     return 0;
 }
