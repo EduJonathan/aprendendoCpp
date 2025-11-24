@@ -42,5 +42,31 @@ int main(int argc, char **argv)
 
     bool expressao = ((!(!condicao1) && !condicao2) || (!condicao1));
     std::cout << "((!(condicao1) && !condicao2) || (!condicao1)) : " << expressao << '\n';
+
+    std::cout << "\n-----------------------------------------------\n";
+
+    // 1. Declaração e Inicialização de Variáveis
+    bool condicao_a = true;
+    bool condicao_b = false;
+    int idade = 25;
+    int limite = 18;
+
+    // 2. Expressão Booleana
+    // A expressão verifica se (condicao_a é verdadeira E condicao_b é falsa) OU (idade é maior que o limite)
+    bool resultado_logico = (condicao_a && !condicao_b) || (idade > limite);
+
+    // 3. Imprimindo o Resultado com std::boolalpha
+    std::cout << "--- Análise Lógica ---\n\n";
+
+    // O manipulador std::boolalpha garante que a saída dos valores booleanos seja "true" ou "false" em vez de 1 ou 0.
+    std::cout << std::boolalpha;
+
+    std::cout << "Condição A: " << condicao_a << '\n';
+    std::cout << "Condição B: " << condicao_b << '\n';
+    std::cout << "Idade > Limite (25 > 18): " << (idade > limite) << '\n';
+
+    std::cout << "-----------------------\n";
+    std::cout << "Resultado Final da Expressão: " << resultado_logico << '\n';
+
     return 0;
 }

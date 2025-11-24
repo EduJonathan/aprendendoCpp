@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <new>
+#include <new> // Assim como malloc em C, new é para alocar espaço de memória em C++ (Necessariamente não precisa incluir para new)
 
 /**
  * Tipos de casting em C++: casting (ou cast) é o processo de conversão de tipos

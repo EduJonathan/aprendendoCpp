@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <bitset>
 
 /**
@@ -21,6 +20,19 @@
  * +---------------------+----------------------------+
  * | >> (shift right)    | >>= (shift right)          |
  * +---------------------+----------------------------+
+ *
+ * -----------------
+ *
+ * `&`(AND bitwise): Compara os bits correspondentes de dois números.
+ * O resultado será 1 apenas se ambos os bits forem 1.
+ *
+ * `|` (OR bitwise): Compara os bits correspondentes de dois números.
+ * O resultado será 1 se pelo menos um dos bits for 1.
+ *
+ * `^` (XOR bitwise): Compara os bits correspondentes de dois números.
+ * O resultado será 1 apenas se os bits forem diferentes(um é 1 e o outro é 0).
+ *
+ * `~` (NOT bitwise): Inverte todos os bits de um número (1 vira 0 e 0 vira 1)
  *
  * -----------------
  *
@@ -73,19 +85,9 @@ int main(int argc, char **argv)
     std::cout << "a = " << std::bitset<4>(a) << " (bin) = " << a << " (dec)\n";
     std::cout << "b = " << std::bitset<4>(b) << " (bin) = " << b << " (dec)\n\n";
 
-    // &(AND bitwise): Compara os bits correspondentes de dois números.
-    // O resultado será 1 apenas se ambos os bits forem 1.
     std::cout << "AND (a & b): " << std::bitset<4>(a & b) << " = " << (a & b) << '\n';
-
-    // | (OR bitwise): Compara os bits correspondentes de dois números.
-    // O resultado será 1 se pelo menos um dos bits for 1.
     std::cout << "OR  (a | b): " << std::bitset<4>(a | b) << " = " << (a | b) << '\n';
-
-    // (XOR bitwise): Compara os bits correspondentes de dois números.
-    // O resultado será 1 apenas se os bits forem diferentes(um é 1 e o outro é 0).
     std::cout << "XOR (a ^ b): " << std::bitset<4>(a ^ b) << " = " << (a ^ b) << '\n';
-
-    // ~ (NOT bitwise): Inverte todos os bits de um número (1 vira 0 e 0 vira 1)
     std::cout << "NOT (~a): " << std::bitset<32>(~a) << " = " << ~a << '\n';
 
     std::cout << "=========================================================" << '\n';

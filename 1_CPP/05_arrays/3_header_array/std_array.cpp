@@ -1,9 +1,5 @@
 #include <iostream>
 #include <array>
-#include <iostream>
-#include <array>
-#include <algorithm> // std::find
-#include <iterator>  // std::distance
 
 int main(int argc, char const **argv)
 {

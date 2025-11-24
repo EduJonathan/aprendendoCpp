@@ -1,12 +1,5 @@
 #include <iostream>
 
-/**
- * @brief Jogo simples de troca de cartas.
- *
- * O programa simula um jogo de cartas onde o jogador deve encontrar o Ás de Espadas
- * após uma série de trocas entre três cartas.
- */
-
 #define JACK 11  /**< Define o valor da carta Jack como 11 */
 #define QUEEN 12 /**< Define o valor da carta Queen como 12 */
 #define KING 13  /**< Define o valor da carta King como 13 */

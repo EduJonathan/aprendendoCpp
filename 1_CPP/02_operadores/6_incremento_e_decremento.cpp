@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 
     // Atenção! Comportamento indefinido — evita-se usar a mesma variável sendo modificada
     // múltiplas vezes sem ordem garantida entre as operações.
-    std::cout << "Saída de i, ++i, i++: (COMPORTAMENTO INDEFINIDO!)\n";
+    std::cout << "Saída de i, ++i, i++: (COMPORTAMENTO INDEFINIDO E CONFUSO!)\n";
     std::cout << "Exemplo (NÃO RECOMENDADO): i = 1 -> " << i << ++i << i++ << "?\n";
     return 0;
 }

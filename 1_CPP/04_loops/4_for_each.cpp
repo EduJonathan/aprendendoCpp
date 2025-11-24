@@ -2,6 +2,41 @@
 #include <string>
 #include <iterator> // Necessário para usar std::begin e std::end
 
+/**
+ * FOR vs RANGE-BASED FOR (FOR EACH)
+ *
+ * FOR:
+ *
+ * Laço de repetição tradicional que oferece controle total sobre o processo de
+ * iteração, através das condicionais. Permite o uso de índices ou iteradores,
+ * sendo ideal em situações que exigem:
+ *
+ * - Acesso a posições específicas;
+ * - Pular ou repetir elementos;
+ * - Modificar o índice de forma dinâmica;
+ * - Comparar elementos adjacentes.
+ *
+ * for tradicional oferece flexibilidade, no entanto, pode aumentar a complexidade
+ * do código e facilitar erros, como o famoso off-by-one (erro de contagem que resulta
+ * em pular ou repetir elementos).
+ *
+ * -------------------------------
+ *
+ * RANGE-BASED FOR (FOR EACH):
+ *
+ * Introduzido no C++11, é uma forma mais simples e segura de iterar sobre os
+ * elementos de arrays e containers da STL, O conceito central do for-each
+ * (range-based for) é: "Para cada elemento presente no conjunto, faça algo".
+ *
+ * - Elimina a necessidade de índices ou iteradores explícitos;
+ * - Reduz o risco de erros comuns de iteração;
+ * - Melhora a legibilidade e manutenção do código.
+ *
+ * RESUMO:
+ * - Use o **for tradicional** quando precisar de controle preciso sobre a iteração, sendo mais flexível.
+ * - Prefira o **range-based for** para iterações diretas e seguras sobre coleções.
+ */
+
 int main(int argc, char **argv)
 {
     std::cout << "1. FOR TRADICIONAL: ";
@@ -69,39 +104,5 @@ int main(int argc, char **argv)
         // std::end: Retorna um iterador para o fim do array de strings.
     }
 
-    /**
-     * FOR vs RANGE-BASED FOR (FOR EACH)
-     *
-     * FOR:
-     *
-     * Laço de repetição tradicional que oferece controle total sobre o processo de
-     * iteração, através das condicionais. Permite o uso de índices ou iteradores,
-     * sendo ideal em situações que exigem:
-     *
-     * - Acesso a posições específicas;
-     * - Pular ou repetir elementos;
-     * - Modificar o índice de forma dinâmica;
-     * - Comparar elementos adjacentes.
-     *
-     * for tradicional oferece flexibilidade, no entanto, pode aumentar a complexidade
-     * do código e facilitar erros, como o famoso off-by-one (erro de contagem que resulta
-     * em pular ou repetir elementos).
-     *
-     * -------------------------------
-     *
-     * RANGE-BASED FOR (FOR EACH):
-     *
-     * Introduzido no C++11, é uma forma mais simples e segura de iterar sobre os
-     * elementos de arrays e containers da STL, O conceito central do for-each
-     * (range-based for) é: "Para cada elemento presente no conjunto, faça algo".
-     *
-     * - Elimina a necessidade de índices ou iteradores explícitos;
-     * - Reduz o risco de erros comuns de iteração;
-     * - Melhora a legibilidade e manutenção do código.
-     *
-     * RESUMO:
-     * - Use o **for tradicional** quando precisar de controle preciso sobre a iteração, sendo mais flexível.
-     * - Prefira o **range-based for** para iterações diretas e seguras sobre coleções.
-     */
     return 0;
 }

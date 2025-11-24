@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <clocale>
-#include <cstdlib>
 #include <string_view>
 #include <uchar.h>
 

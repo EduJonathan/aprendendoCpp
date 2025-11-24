@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
         log->escrever("Iniciando sessão de jogo...");
         log->escrever("Jogador entrou na masmorra.");
-        std::cout << "💡 Dentro do escopo de 'log'\n";
+        std::cout << "Dentro do escopo de 'log'\n";
 
         // Não precisamos chamar delete — RAII + smart pointer cuidam de tudo!
     } // <- std::unique_ptr libera o objeto automaticamente aqui

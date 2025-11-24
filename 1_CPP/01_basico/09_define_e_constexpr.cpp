@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cassert>
+#include <cassert> // Para static_assert, verifica condições no tempo de compilação, gera erro se a condição específica for falsa.
 
 /**
  * Se `constexpr` trata-se de uma constante que só é avaliada em tempo de compilação,

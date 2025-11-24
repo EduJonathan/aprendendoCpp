@@ -1,6 +1,6 @@
 #include <iostream>
-#include <array>
-#include <cstdlib>
+#include <array>   // Para declarar uma classe chamada std::array, que declara um array
+#include <cstdlib> // Para std::rand
 
 /**
  * +--------------------------------+---------------------------+------------------------------+
