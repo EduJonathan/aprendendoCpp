@@ -46,3 +46,6 @@ std::string Programacao::getNome() const
 {
     return "Programação";
 }
+
+int Programacao::getAcertos() const { return acertos; }
+int Programacao::getTotalQuestoes() const { return totalQuestoes; }

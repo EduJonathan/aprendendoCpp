@@ -6,10 +6,10 @@ Decimal::Decimal(int v) : valor(v) {}
 
 std::string Decimal::paraBinario() const
 {
-    return std::bitset<8>(valor).to_string(); // Converte para binário com 8 bits
+    return std::bitset<8>(valor & 0xFF).to_string(); // Converte para binário com 8 bits
 }
 
 void Decimal::exibirValor() const
 {
-    std::cout << "Valor Decimal: " << valor << " => Binário: " << paraBinario() << '\n';
+    std::cout << "Decimal(" << valor << ") → " << paraBinario() << '\n';
 }

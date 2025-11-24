@@ -6,25 +6,22 @@
 #include <vector>
 #include <clocale>
 #include <stdexcept>
-#include <new>
+#include <string>
 
 int main(int argc, char **argv)
 {
+    // Configura locale para português com acentos
     try
     {
-        // Tenta usar pt_BR.UTF-8
         std::locale::global(std::locale("pt_BR.UTF-8"));
-        std::wcin.imbue(std::locale("pt_BR.UTF-8"));
-        std::wcout.imbue(std::locale("pt_BR.UTF-8"));
     }
-    catch (const std::runtime_error &e)
+    catch (...)
     {
-        // Caso a localidade não esteja disponível, usa o padrão "C"
-        std::cout << "Localidade pt_BR.UTF-8 não encontrada, usando localidade padrão 'C'.\n";
-        std::locale::global(std::locale("C"));
-        std::wcin.imbue(std::locale("C"));
-        std::wcout.imbue(std::locale("C"));
+        std::wcout << L"Aviso: locale pt_BR.UTF-8 não disponível, usando padrão.\n";
     }
+
+    std::wcin.imbue(std::locale());
+    std::wcout.imbue(std::locale());
 
     std::wcout << L"=== Bem-vindo ao Quiz de Conhecimentos Gerais ===\n";
     std::wcout << L"Responda as questões escolhendo a letra correspondente (A, B, C ou D).\n\n";
@@ -38,21 +35,37 @@ int main(int argc, char **argv)
 
     double soma = 0.0;
 
-    for (std::size_t i = 0ull; i < materias.size(); ++i)
+    for (const auto &m : materias)
     {
-        materias[i]->questionario();
-        double porcentagem = materias[i]->calcularPorcentagem();
-        std::cout << materias[i]->getNome() << " - Porcentagem de acertos: " << porcentagem << "%\n\n";
-        soma += porcentagem;
+        m->questionario();
+
+        double pct = m->calcularPorcentagem();
+        soma += pct;
+
+        // Conversão segura de std::string → std::wstring
+        std::wstring nome_wide(m->getNome().begin(), m->getNome().end());
+
+        std::wcout << nome_wide
+                   << L" - Acertos: " << m->calcularPorcentagem()
+                   << L"% (" << m->getAcertos() << L"/" << m->getTotalQuestoes() << L")\n\n";
     }
 
-    double mediaGeral = soma / materias.size();
-    std::cout << "Média geral de acertos: " << mediaGeral << "%\n";
+    double media = soma / materias.size();
 
-    // Liberar memória alocada
-    for (std::size_t i = 0ull; i < materias.size(); ++i)
+    std::wcout << L"══════════════════════════════════════════\n";
+    std::wcout << L"Média Geral de Acertos: " << media << L"%\n";
+
+    if (media >= 70.0)
     {
-        delete materias[i];
+        std::wcout << L"Parabéns! Você mandou bem!\n";
+    }
+    else if (media >= 50.0)
+    {
+        std::wcout << L"Não foi mal! Estude um pouco mais!\n";
+    }
+    else
+    {
+        std::wcout << L"Que tal revisar os conteúdos?\n";
     }
 
     /**

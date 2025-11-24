@@ -24,7 +24,7 @@ public:
     /**
      * @brief Destrutor virtual.
      */
-    virtual ~Cor() {}
+    virtual ~Cor() = default;
 };
 
 #endif

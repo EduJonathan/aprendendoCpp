@@ -1,41 +1,50 @@
 #include "../class/classRgb.hpp"
 #include "../class/classHexadecimal.hpp"
 #include <iostream>
-#include <new>
 #include <memory>
+#include <vector>
 
 /**
  * @brief Função polimórfica que exibe uma cor.
  *
  * @param cor Ponteiro para objeto do tipo Cor.
  */
-void mostrarCor(const Cor *cor)
+void mostrarCor(const Cor &cor)
 {
-    cor->exibir();
+    cor.exibir();
+    std::cout << "   → comoString(): " << cor.comoString() << "\n\n";
 }
 
 int main(int argc, char **argv)
 {
-    Cor *corVerdeFlorestaRGB = new RGB(34, 139, 34);      // verde floresta
-    Cor *corVerdeFlorestaHex = new Hexadecimal("228B22"); // verde floresta em hex
+    auto corVerdeFlorestaRGB = new RGB(34, 139, 34);      // verde floresta
+    auto corVerdeFlorestaHex = new Hexadecimal("228B22"); // verde floresta em hex
+    auto VerdeFlorestaHex = new Hexadecimal("#228B22");   // verde floresta em hex
+    auto cor = new Hexadecimal("ff0000");                 // Aceita minúsculas também!
 
-    mostrarCor(corVerdeFlorestaRGB);
-    mostrarCor(corVerdeFlorestaHex);
+    mostrarCor(*corVerdeFlorestaRGB);
+    mostrarCor(*corVerdeFlorestaHex);
+    mostrarCor(*VerdeFlorestaHex);
+    mostrarCor(*cor);
 
     delete corVerdeFlorestaRGB;
     delete corVerdeFlorestaHex;
+    delete VerdeFlorestaHex;
+    delete cor;
 
     std::cout << '\n';
 
-    // Usando smart pointers (unique_ptr) para criar objetos de cor
-    std::unique_ptr<Cor> corVermelhaRGB = std::make_unique<RGB>(255, 0, 0);
+    std::vector<std::unique_ptr<Cor>> paleta;
+    paleta.emplace_back(std::make_unique<RGB>(255, 215, 0));       // Ouro
+    paleta.emplace_back(std::make_unique<Hexadecimal>("#4B0082")); // Índigo
+    paleta.emplace_back(std::make_unique<RGB>(0, 255, 255));       // Ciano
+    paleta.emplace_back(std::make_unique<Hexadecimal>("magenta"));
 
-    // Cor vermelha em Hexadecimal (sem o '#')
-    std::unique_ptr<Cor> corVermelhaHEX = std::make_unique<Hexadecimal>("FF0000");
-
-    mostrarCor(corVermelhaRGB.get()); // Exibe a cor RGB
-    mostrarCor(corVermelhaHEX.get()); // Exibe a cor Hexadecimal
-
+    std::cout << "Paleta de cores variada (container polimórfico):\n";
+    for (const auto &cor : paleta)
+    {
+        mostrarCor(*cor);
+    }
     /**
      * Compilação recomendada (execute no terminal a partir da raiz do projeto)
      * esta compilação assume que você está na pasta src e que a pasta class está no mesmo nível:

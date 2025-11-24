@@ -9,7 +9,7 @@ private:
     int valor;
 
 public:
-    Decimal(int v);
+    explicit Decimal(int v);
 
     std::string paraBinario() const override;
     void exibirValor() const override;

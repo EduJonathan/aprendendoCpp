@@ -14,6 +14,8 @@ public:
     void questionario() override;
     double calcularPorcentagem() const override;
     std::string getNome() const override;
+    int getAcertos() const override;
+    int getTotalQuestoes() const override;
 };
 
 #endif

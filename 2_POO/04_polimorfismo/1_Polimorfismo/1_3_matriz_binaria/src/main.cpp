@@ -2,37 +2,37 @@
 #include "../class/class_hexadecimal.hpp"
 #include "../class/class_octal.hpp"
 #include "../class/class_matriz.hpp"
+#include <memory>
+#include <vector>
 #include <iostream>
-#include <ctime>
-#include <new>
 
 int main(int argc, char **argv)
 {
-    Matriz matriz;            // Criando a matriz 8x8
-    std::srand(std::time(0)); // Inicializa o gerador de números aleatórios
+    Matriz matriz;
 
-    // Criando objetos para os três tipos de valores
-    Valor *valorDecimal = new Decimal(10);           // Valor decimal 255
-    Valor *valorHexadecimal = new Hexadecimal(0xA5); // Valor hexadecimal 0xA5
-    Valor *valorOctal = new Octal(0233);             // Valor octal 0233
+    // Vetor de smart pointers → memória automática e segura!
+    std::vector<std::unique_ptr<Valor>> valores;
 
-    // Exibindo a matriz inicial (toda com zeros)
-    std::cout << "Matriz inicial (inicializadas com zeros):" << '\n';
+    // Usando make_unique
+    valores.push_back(std::make_unique<Decimal>(170));      // 10101010
+    valores.push_back(std::make_unique<Hexadecimal>(0xA5)); // 10100101
+    valores.push_back(std::make_unique<Octal>(0377));       // 11111111
+
+    std::cout << "=== DEMONSTRAÇÃO DE POLIMORFISMO COM SMART POINTERS ===\n\n";
+    std::cout << "Matriz inicial (zeros):\n";
     matriz.exibirMatriz();
 
-    // Atualizando a matriz com valores binários dos objetos polimórficos
-    matriz.atualizarLinhaComBinario(valorDecimal);     // Atualiza com o valor decimal
-    matriz.atualizarLinhaComBinario(valorHexadecimal); // Atualiza com o valor hexadecimal
-    matriz.atualizarLinhaComBinario(valorOctal);       // Atualiza com o valor octal
+    std::cout << "=== ATUALIZANDO LINHAS (sem repetição) ===\n";
+    for (const auto &valor : valores)
+    {
+        matriz.atualizarLinhaAleatoria(valor);
+    }
+    std::cout << '\n';
 
-    // Exibindo a matriz após as atualizações
-    std::cout << "\nMatriz atualizada:" << '\n';
+    std::cout << "=== MATRIZ FINAL ===\n";
     matriz.exibirMatriz();
 
-    // Limpeza da memória
-    delete valorDecimal;
-    delete valorHexadecimal;
-    delete valorOctal;
+    // NENHUM delete necessário → unique_ptr libera tudo automaticamente!
 
     /**
      * Compile e Execute com

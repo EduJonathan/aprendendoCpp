@@ -34,7 +34,7 @@ void Portugues::questionario()
     std::wcout << L"C) Tem dez anos que não o vejo.\n";
     std::wcout << L"D) Vai fazer dez anos que não o vejo.\n";
     std::wcin >> resposta;
-    
+
     if (std::towupper(resposta) == L'B')
         acertos++;
 }
@@ -48,3 +48,6 @@ std::string Portugues::getNome() const
 {
     return "Português";
 }
+
+int Portugues::getAcertos() const { return acertos; }
+int Portugues::getTotalQuestoes() const { return totalQuestoes; }

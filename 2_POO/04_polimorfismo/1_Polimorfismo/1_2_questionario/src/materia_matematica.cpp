@@ -16,7 +16,7 @@ void Matematica::questionario()
     std::wcout << L"A) 56\nB) 54\nC) 64\nD) 58\n";
     std::wcout << L"Sua resposta: ";
     std::wcin >> resposta;
-    
+
     if (std::towupper(resposta) == L'A')
         acertos++;
 
@@ -46,3 +46,6 @@ std::string Matematica::getNome() const
 {
     return "Matemática";
 }
+
+int Matematica::getAcertos() const { return acertos; }
+int Matematica::getTotalQuestoes() const { return totalQuestoes; }

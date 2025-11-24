@@ -6,9 +6,9 @@
 class Valor
 {
 public:
-    virtual ~Valor() {}
-    virtual std::string paraBinario() const = 0; // Função virtual pura
-    virtual void exibirValor() const = 0;        // Função virtual pura
+    virtual std::string paraBinario() const = 0;
+    virtual void exibirValor() const = 0;
+    virtual ~Valor() = default;
 };
 
 #endif // VALOR_HPP

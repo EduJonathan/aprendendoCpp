@@ -11,6 +11,7 @@ class Hexadecimal : public Cor
 {
 private:
     std::string hex;
+    static std::string normalizar(const std::string &codigo);
 
 public:
     /**
@@ -19,7 +20,7 @@ public:
      * @param hex String hexadecimal (ex: "FF0000").
      * @throws std::invalid_argument Se a string não tiver 6 caracteres.
      */
-    Hexadecimal(const std::string &hex);
+    explicit Hexadecimal(const std::string &hex);
 
     void exibir() const override;
     std::string comoString() const override;
@@ -30,6 +31,8 @@ public:
      * @return Tupla com os valores (r, g, b).
      */
     std::tuple<int, int, int> paraRGB() const;
+
+    const std::string &valor() const;
 };
 
 #endif

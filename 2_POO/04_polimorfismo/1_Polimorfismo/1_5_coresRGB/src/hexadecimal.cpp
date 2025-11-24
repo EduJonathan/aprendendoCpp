@@ -1,12 +1,36 @@
 #include "../class/classHexadecimal.hpp"
 #include <iostream>
-#include <cstdlib>
+#include <string>
+#include <sstream>
+#include <cctype>
+#include <algorithm>
 #include <stdexcept>
 
-Hexadecimal::Hexadecimal(const std::string &hex) : hex(hex)
+Hexadecimal::Hexadecimal(const std::string &codigo) : hex(normalizar(codigo)) {}
+
+std::string Hexadecimal::normalizar(const std::string &entrada)
 {
-    if (hex.length() != 6)
-        throw std::invalid_argument("Hex deve ter 6 caracteres (ex: FF0000).");
+    std::string s = entrada;
+    
+    // Remove espaços e #
+    s.erase(std::remove_if(s.begin(), s.end(), [](char c)
+    {
+        return std::isspace(c) || c == '#';
+    }), s.end());
+
+    if (s.length() != 6)
+        throw std::invalid_argument("Código hexadecimal deve ter 6 caracteres (ex: FF00A5 ou #FF00A5)");
+
+    // Valida se são dígitos hexadecimais
+    for (char c : s)
+    {
+        if (!std::isxdigit(static_cast<unsigned char>(c)))
+            throw std::invalid_argument(std::string("Caractere inválido em hexadecimal: '") + c + "'");
+    }
+
+    // Converte para maiúscula
+    std::transform(s.begin(), s.end(), s.begin(), ::toupper);
+    return s;
 }
 
 void Hexadecimal::exibir() const
@@ -33,3 +57,5 @@ std::tuple<int, int, int> Hexadecimal::paraRGB() const
     int b = std::stoi(hex.substr(4, 2), nullptr, 16);
     return {r, g, b};
 }
+
+const std::string & Hexadecimal::valor() const { return hex; }

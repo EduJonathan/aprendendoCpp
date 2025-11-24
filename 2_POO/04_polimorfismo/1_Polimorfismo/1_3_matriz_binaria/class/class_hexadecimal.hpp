@@ -9,7 +9,7 @@ private:
     int valor;
 
 public:
-    Hexadecimal(int v);
+    explicit Hexadecimal(int v);
 
     std::string paraBinario() const override;
     void exibirValor() const override;

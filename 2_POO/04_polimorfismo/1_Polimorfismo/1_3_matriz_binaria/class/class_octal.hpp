@@ -9,7 +9,7 @@ private:
     int valor;
 
 public:
-    Octal(int v);
+    explicit Octal(int v);
 
     std::string paraBinario() const override;
     void exibirValor() const override;
