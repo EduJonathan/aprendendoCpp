@@ -32,8 +32,8 @@ int main(int argc, char **argv)
         auto indexEnd = arr.size() - indexBegin - 1; // Representa a distância do final
 
         /**
-         * begin() => Retorna um iterador para o início do intervalo fornecido.
-         * end() => Retorna um iterador que aponta para a posição após o último elemento.
+         * .begin() => Retorna um iterador para o início do intervalo fornecido.
+         * .end() => Retorna um iterador que aponta para a posição após o último elemento.
          *
          * @note Eles não são ponteiros! Por mais que se comportem de maneiras semelhantes
          * como o fato de serem acessados com ('*'), eles são objetos que retornam a um certo intervalo no container.

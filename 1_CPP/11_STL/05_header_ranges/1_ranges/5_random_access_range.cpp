@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <type_traits>
+#include <cassert>
 #include <ranges>
 
 /**

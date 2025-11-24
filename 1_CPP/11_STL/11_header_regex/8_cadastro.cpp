@@ -110,7 +110,8 @@ std::unique_ptr<BD> cadastro()
         entrada_limpa.erase(
             std::remove_if(entrada_limpa.begin(),
                            entrada_limpa.end(),
-                           ::isspace), entrada_limpa.end());
+                           ::isspace),
+            entrada_limpa.end());
 
         std::regex padrao1(R"(^\d{3}\.\d{3}\.\d{3}-\d{2}$)"); // 000.000.000-00
         std::regex padrao2(R"(^\d{11}$)");                    // 00000000000
@@ -132,9 +133,9 @@ std::unique_ptr<BD> cadastro()
     } while (cpf_numeros.length() != 11 || !validarDigitosCPF(cpf_numeros));
 
     // === Armazena no formato padrão ===
-    pessoa->CPF = cpf_numeros.substr(0, 3) + "." +
-                  cpf_numeros.substr(3, 3) + "." +
-                  cpf_numeros.substr(6, 3) + "-" +
+    pessoa->CPF = cpf_numeros.substr(0, 3) + '.' +
+                  cpf_numeros.substr(3, 3) + '.' +
+                  cpf_numeros.substr(6, 3) + '-' +
                   cpf_numeros.substr(9, 2);
 
     std::cout << "Cadastro realizado com sucesso!\n\n";

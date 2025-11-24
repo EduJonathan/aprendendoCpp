@@ -16,6 +16,7 @@
  * Atenção:
  * - Se `any_cast<T>` for usado com o tipo errado, lança `std::bad_any_cast`.
  * - Pode ser usado com ponteiros (`any_cast<T*>`) para evitar exceções.
+ * - Pode-se pensar que std::any substitui o tanto o tipo `void` e `void *`.
  */
 
 int main(int argc, char **argv)

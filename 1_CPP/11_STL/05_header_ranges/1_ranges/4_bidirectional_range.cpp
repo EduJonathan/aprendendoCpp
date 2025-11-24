@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <type_traits>
+#include <cassert>
 #include <ranges>
 
 /**

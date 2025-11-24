@@ -105,7 +105,7 @@ double diametro(const std::vector<point> &points)
     return max_dist;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     std::vector<point> points = {{0, 0}, {1, 1}, {2, 2}, {3, 1}, {1, 3}, {4, 4}};
     std::cout << "Diâmetro: " << diametro(points) << '\n';
