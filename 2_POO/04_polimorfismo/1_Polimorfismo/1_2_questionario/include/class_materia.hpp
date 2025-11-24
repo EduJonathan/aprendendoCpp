@@ -11,7 +11,7 @@ public:
     virtual std::string getNome() const = 0;
     virtual int getAcertos() const = 0;
     virtual int getTotalQuestoes() const = 0;
-    virtual ~Materia() {}
+    virtual ~Materia() = default;
 };
 
 #endif

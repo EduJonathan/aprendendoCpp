@@ -7,6 +7,8 @@
 #include <clocale>
 #include <stdexcept>
 #include <string>
+#include <cwchar>
+#include <new>
 
 int main(int argc, char **argv)
 {
@@ -70,7 +72,7 @@ int main(int argc, char **argv)
 
     /**
      * Compilação e execute com:
-     * g++ -std=c++11 .\main_materia.cpp .\materia_matematica.cpp .\materia_portugues.cpp .\materia_programacao.cpp -o quiz
+     * g++ -std=c++20 .\main_materia.cpp .\materia_matematica.cpp .\materia_portugues.cpp .\materia_programacao.cpp -o quiz
      * ./quiz.exe
      */
     return 0;
