@@ -30,26 +30,22 @@
 
 int main(int argc, char **argv)
 {
-    std::string String;
+    std::string entrada;
 
-    // Limpa o buffer antes da leitura (preventivo)
-    std::cin.clear();
+    std::cout << "Digite apenas uma frase para entrada: "; // Exe.: Caderno, pois std::cin não captura espaços
+    std::cin >> entrada;
+    std::cout << "Contéudo de entrada é: " << entrada << '\n';
+
+    std::cout << "---------------------------------------\n";
+
+    // Limpa o resto da linha deixado pelo cin >>
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    if (String.length() == 0)
-    {
-        std::cout << "Digite uma String: ";
-        if (!std::getline(std::cin, String))
-        {
-            std::cerr << "Erro ao ler a string.\n";
-            return 1;
-        }
-        std::cout << String << '\n';
-    }
-    else
-    {
-        std::cout << String << '\n';
-    }
+    std::string String;
+
+    std::cout << "Digite uma String: ";
+    std::getline(std::cin, String);
+    std::cout << String << '\n';
 
     std::cout << "---------------------------------------\n";
 
@@ -63,32 +59,14 @@ int main(int argc, char **argv)
     // Variável para verificar se a palavra é um palíndromo
     bool isPalindromo = true;
 
-    // Limpa o buffer antes de ler a frase (preventivo)
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
     std::cout << "Digite uma frase (Máx. de 100 caracteres): ";
-    if (!std::getline(std::cin, frase))
-    {
-        std::cerr << "Erro ao ler a frase.\n";
-        return 1;
-    }
+    std::getline(std::cin, frase);
 
     if (frase.length() > TAMANHO_FRASE)
-    {
         frase = frase.substr(0, TAMANHO_FRASE);
-    }
-
-    // Limpa o buffer antes de ler a palavra (preventivo)
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Digite uma palavra (Máx. de 100 caracteres): ";
-    if (!std::getline(std::cin, palavra))
-    {
-        std::cerr << "Erro ao ler a palavra.\n";
-        return 1;
-    }
+    std::getline(std::cin, palavra);
 
     if (palavra.empty())
     {
@@ -97,9 +75,7 @@ int main(int argc, char **argv)
     }
 
     if (palavra.length() > TAMANHO_PALAVRA)
-    {
         palavra = palavra.substr(0, TAMANHO_PALAVRA);
-    }
 
     // Verifica se a palavra é um palíndromo
     for (std::size_t i = 0; i < palavra.length() / 2; ++i)
