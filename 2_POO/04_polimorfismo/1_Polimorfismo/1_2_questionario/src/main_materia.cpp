@@ -4,9 +4,8 @@
 #include "../include/class_programacao.hpp"
 #include <iostream>
 #include <vector>
-#include <clocale>
+#include <ctime>
 #include <stdexcept>
-#include <string>
 #include <cwchar>
 #include <new>
 
