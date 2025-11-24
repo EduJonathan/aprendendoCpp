@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <vector> // Para std::vector, semelhante ao std::array, porém mais flexível por ser um contêiner mais dinâmico
 #include <algorithm>
 
 /**

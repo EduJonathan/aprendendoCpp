@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <vector>    // Para std::vector, semelhante ao std::array, porém mais flexível por ser um contêiner mais dinâmico
+#include <vector>
 #include <stdexcept> // Biblioteca para exceções padrão
 
 /**

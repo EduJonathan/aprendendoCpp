@@ -21,7 +21,7 @@ std::size_t sizeString(std::size_t tamanho, const char *string);
 
 int main(int argc, char **argv)
 {
-    std::string string{};                  // Inicializa a string vazia
+    std::string string;                  // Inicializa a string vazia
     std::size_t tamanho = string.length(); // Obtém o tamanho da string
 
     // Passa o tamanho e a string para a função, c_str() Retorna um ponteiro para a string

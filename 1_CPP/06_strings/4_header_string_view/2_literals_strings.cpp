@@ -1,5 +1,5 @@
 #include <iostream>
-#include <typeinfo>
+#include <typeinfo> // biblioteca que fornece informações sobre os tipos dos objetos em tempo de execução, como typeid e name.
 #include <string>
 #include <string_view>
 
