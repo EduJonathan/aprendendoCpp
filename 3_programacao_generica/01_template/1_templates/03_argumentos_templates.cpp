@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 /**
  * Templates em C++ são uma ferramenta poderosa para criar código genérico que funciona

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 /**
  * Variadic templates, introduzidos no C++11, permitem que funções ou classes
