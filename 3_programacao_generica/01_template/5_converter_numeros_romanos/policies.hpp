@@ -13,7 +13,20 @@ struct StandardRomanPolicy
         if (value < 1 || value > 3999)
             return {};
 
-        constexpr std::array<std::pair<int, const char *>, 13> table{{{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}}};
+        constexpr std::array<std::pair<int, const char *>, 13> table{
+            {{1000, "M"},
+             {900, "CM"},
+             {500, "D"},
+             {400, "CD"},
+             {100, "C"},
+             {90, "XC"},
+             {50, "L"},
+             {40, "XL"},
+             {10, "X"},
+             {9, "IX"},
+             {5, "V"},
+             {4, "IV"},
+             {1, "I"}}};
 
         std::string result;
         for (auto [val, sym] : table)
@@ -84,7 +97,14 @@ struct AdditiveRomanPolicy
         if (value < 1 || value > 3999)
             return {};
 
-        constexpr std::array<std::pair<int, const char *>, 7> table{{{1000, "M"}, {500, "D"}, {100, "C"}, {50, "L"}, {10, "X"}, {5, "V"}, {1, "I"}}};
+        constexpr std::array<std::pair<int, const char *>, 7> table{
+            {{1000, "M"},
+             {500, "D"},
+             {100, "C"},
+             {50, "L"},
+             {10, "X"},
+             {5, "V"},
+             {1, "I"}}};
 
         std::string result;
 

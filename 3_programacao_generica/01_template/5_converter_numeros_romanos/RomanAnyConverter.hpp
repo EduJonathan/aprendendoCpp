@@ -10,8 +10,7 @@ class RomanAnyConverter
 public:
     // construtor genérico (aceita qualquer converter)
     template <typename Converter>
-    RomanAnyConverter(const Converter &conv)
-        : self(std::make_shared<Model<Converter>>(conv)) {}
+    RomanAnyConverter(const Converter &conv) : self(std::make_shared<Model<Converter>>(conv)) {}
 
     std::string toRoman(int v) const
     {
