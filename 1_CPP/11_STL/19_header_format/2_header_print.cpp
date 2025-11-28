@@ -1,4 +1,5 @@
 #include <print>
+#include <cmath>
 
 /**
  * header: <print>
@@ -6,6 +7,11 @@
  * A header print foi implementada no C++23 e fornece funcionalidades para
  * formatação e impressão de texto de maneira mais simples e eficiente.
  */
+
+void operacao(int valor)
+{
+    std::println("{}", valor / std::sqrt(valor));
+}
 
 int main(int argc, char **argv)
 {
@@ -17,6 +23,8 @@ int main(int argc, char **argv)
     {
         std::println("Valores: {}", target);
     }
+
+    operacao(66);
 
     /**
      * Para compilar este código, certifique-se de usar um compilador que suporte o C++23.
