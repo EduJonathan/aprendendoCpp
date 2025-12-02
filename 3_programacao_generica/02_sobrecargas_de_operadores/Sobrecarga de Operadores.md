@@ -45,7 +45,7 @@ ObjetoA + ObjetoB;
 | Aritméticos                                      | `+`, `-`, `*`, `/`, `%`                    | ✅                        |
 | Relacionais                                      | `==`, `!=`, `<`, `>`, `<=`, `>=`           | ✅                        |
 | Lógicos                                          | `&&`, `                                    |                           |
-| Bitwise                                          | `&`, `                                     | ```, `^`, `<<`, `>>`, `~` |
+| Bitwise                                          | `&`, `                                     | `<<` , `>>` , `^`, `~`    |
 | Incremento/Decremento                            | `++`, `--`                                 | ✅                        |
 | Atribuição                                       | `=`, `+=`, `-=`, `*=` etc.                 | ✅                        |
 | Indexação                                        | `[]`                                       | ✅                        |
