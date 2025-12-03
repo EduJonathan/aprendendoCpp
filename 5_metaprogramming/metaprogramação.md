@@ -285,7 +285,7 @@ função seja usada (Ex.: `std::enable_if<std::is_integral<T>::value, void>::typ
 | **std::integral_constant**             | Representa um valor constante em tempo de compilação.                                                           | `std::integral_constant<int, 42>::value`                           |
 | **std::experimental::metaprogramming** | Conjunto de utilitários experimentais pré-C++17, antes dos conceitos e melhorias modernas.                      | Usado para metaprogramação avançada em C++14 e anteriores.         |
 
-> E vários outros o SFINAE tem uma vasta gama de variadade
+> E vários outros o SFINAE tem uma vasta gama de variedade
 
 ---
 
