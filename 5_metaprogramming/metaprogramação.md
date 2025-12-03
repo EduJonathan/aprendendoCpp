@@ -23,10 +23,14 @@ A metaprogramação em C++ é um dos recursos mais poderosos e complexos da ling
 que o próprio código se altere durante a compilação. Com suas biblioteca e recurso se utilizar
 para buscar tais resultados, temos desde já:
 
+---
+
 ### Header `<functional>`
 
 Embora seja rica em templates, sua atuação é majoritariamente _runtime_.
 Pode ser usada dentro de templates, mas `NÃO` é uma biblioteca de metaprogramação.
+
+---
 
 ### Header `<tuple>`
 
@@ -40,6 +44,8 @@ Ele suporta:
 > Ele permite criar estruturas onde cada posição da tupla possui um tipo diferente,
 > algo essencial para metaprogramação avançada, introspecção e compilação incremental de estruturas de dados.
 
+---
+
 ### Header `<type_traits>`
 
 Uma das bibliotecas centrais da metaprogramação moderna em C++.
@@ -52,6 +58,8 @@ Ela fornece uma vasta coleção de templates que permitem:
 
 > É essencial para SFINAE, traits, verificação de requisitos de tipos e construção de type-level programming.
 
+---
+
 ### Header `<algorithm>`
 
 Embora não seja uma biblioteca pensada para metaprogramação, muitas de suas funções
@@ -63,6 +71,8 @@ Assim, ela se torna relevante para:
 - Cálculos estáticos que dependem de constexpr
 
 > Importante quando se trabalha com constexpr algorithms
+
+---
 
 ### Header `<chrono>`
 
@@ -78,6 +88,8 @@ O `<chrono>` combina conceitos como:
 - Concepts
 - Templates baseados em unidades
 
+---
+
 ### Header `<concepts>`
 
 A biblioteca `<concepts>`, introduzida no C++20, Introduz um sistema moderno para
@@ -87,6 +99,8 @@ Com ele, é possível definir requisitos como:
 - "O tipo deve ser integral"
 - "O tipo deve ser iterável"
 - "Deve suportar determinado operador"
+
+---
 
 ### Header `<ratio>`
 
