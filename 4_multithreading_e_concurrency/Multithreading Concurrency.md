@@ -1,6 +1,6 @@
 # Multithreading E Concurrency
 
-Multithreading e Concorrência (ou simultaneidade) são conceitos fundamentais na
+**Multithreading e Concorrência (ou simultaneidade)**: São conceitos fundamentais na
 programação moderna, utilizados para melhorar a eficiência e o desempenho dos softwares,
 pois, conforme à medida que a complexidade dos programas aumenta, cresce também a demanda
 por recursos de hardware como memória, armazenamento e poder de processamento.
@@ -10,13 +10,15 @@ Técnicas como essas são essenciais para construir sistemas escaláveis e respo
 
 ## O que é Multithreading?
 
-Multithreading é uma técnica onde um único processo pode executar várias threads (linhas de execução)
+**Multithreading**: É uma técnica onde um único processo pode executar várias threads (linhas de execução)
 de forma concorrente. Isso permite que diferentes partes de um programa rodem "ao mesmo tempo",
 compartilhando o mesmo espaço de memória. Embora uma CPU com apenas um núcleo não execute threads
 simultaneamente, ela pode alternar rapidamente entre elas (context switching), dando a impressão
 de simultaneidade.
 
 Em sistemas com múltiplos núcleos (multi-core), as threads podem de fato ser executadas em paralelo.
+
+![Diagrama de Multithreading](img/Multithreading.png)
 
 ---
 
@@ -31,6 +33,8 @@ gerenciadas de forma que compartilhem eficientemente os recursos da CPU.
 **Paralelismo**: Execução real de várias tarefas ao mesmo tempo, geralmente em processadores
 diferentes (núcleos distintos). É uma forma específica e mais restrita de simultaneidade.
 
+![Diagrama de Simultaneidade e Paralelismo](img/Paralelismo_e_Simultaneidade.png)
+
 ---
 
 ## Sincronização vs Assíncrono
@@ -44,6 +48,8 @@ continuar executando outras tarefas enquanto aguarda a conclusão da primeira. O
 as operações não bloqueiam a execução das demais. Isso é muito útil quando se está lidando
 com tarefas que podem demorar, como leitura de arquivos, requisições de rede ou chamadas a banco
 de dados.
+
+![Diagrama de Dicronização e Assíncrono](img/Sincrona_e_assincrona.png)
 
 ---
 
