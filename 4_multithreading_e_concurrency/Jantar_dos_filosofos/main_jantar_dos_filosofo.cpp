@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     /**
      * Compile e execute com:
      *
-     * g++ -O3 -std=c++20 mesa.cpp filosofo.cpp .\main_jantar_dos_filosofo.cpp -o filosofos.exe -pthread
+     * g++ -O3 -std=c++20 mesa.cpp filosofo.cpp main_jantar_dos_filosofo.cpp -o filosofos.exe -pthread
      * .\filosofos.exe
      */
     return 0;

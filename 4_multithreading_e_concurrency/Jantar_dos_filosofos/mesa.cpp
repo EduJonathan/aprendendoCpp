@@ -1,9 +1,6 @@
 #include "mesa.hpp"
 
-Mesa::Mesa()
-{
-    estados.fill(PENSANDO);
-}
+Mesa::Mesa() { estados.fill(PENSANDO); }
 
 void Mesa::testar(int id)
 {
@@ -17,6 +14,7 @@ void Mesa::testar(int id)
 void Mesa::pegar_garfos(int id)
 {
     std::unique_lock<std::mutex> lock(mtx);
+
     estados[id] = FAMINTO;
     SAFE_COUT("# Filósofo " << id << " está com fome");
 
@@ -24,7 +22,7 @@ void Mesa::pegar_garfos(int id)
 
     if (estados[id] != COMENDO)
     {
-        condicoes[id].wait(lock, [this, id]
+        condicoes[id].wait(lock, [&]
         {
             return estados[id] == COMENDO;
         });
@@ -34,6 +32,7 @@ void Mesa::pegar_garfos(int id)
 void Mesa::devolver_garfos(int id)
 {
     std::unique_lock<std::mutex> lock(mtx);
+
     estados[id] = PENSANDO;
     SAFE_COUT("\nFilósofo " << id << " voltou a pensar");
 

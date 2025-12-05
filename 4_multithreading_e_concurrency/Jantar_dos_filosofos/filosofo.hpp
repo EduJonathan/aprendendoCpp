@@ -2,6 +2,7 @@
 
 #include "mesa.hpp"
 #include <random>
+#include <thread>
 
 /**
  * @brief Função executada por cada filósofo.

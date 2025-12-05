@@ -1,13 +1,10 @@
 #ifndef CPU_SCHEDULER_HPP
 #define CPU_SCHEDULER_HPP
 
+#include <iostream>
 #include <vector>
-#include <thread>
-#include <mutex>
-#include <condition_variable>
-#include <queue>
-#include <atomic>
-#include <functional>
+#include <algorithm>
+#include <numeric>
 
 /**
  * @brief Classe que implementa algoritmos de escalonamento de CPU.
@@ -30,22 +27,6 @@ private:
     std::vector<int> turnaroundTimes; ///< Tempos de turnaround calculados
     float averageWaitingTime;         ///< Média dos tempos de espera
     float averageTurnaroundTime;      ///< Média dos tempos de turnaround
-
-    // Controle de simulação
-    std::mutex mtx;
-    std::condition_variable cv;
-    std::atomic<bool> schedulerRunning{true};
-    std::atomic<int> currentTime{0};
-
-    /**
-     * @brief Thread de simulação para um processo.
-     *
-     * @param id Identificador do processo
-     * @param burstTime Tempo de execução do processo
-     * @param arrivalTime Tempo de chegada do processo
-     * @param onComplete Função de callback quando o processo termina
-     */
-    void processThread(int id, int burstTime, int arrivalTime, std::function<void(int)> onComplete);
 
     /// Calcula as médias de tempo de espera e turnaround
     void calculateAverages();

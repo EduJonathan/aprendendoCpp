@@ -1,5 +1,6 @@
 #include "filosofo.hpp"
 #include <chrono>
+#include <random>
 
 void filosofo(Mesa &mesa, int id)
 {
@@ -10,14 +11,14 @@ void filosofo(Mesa &mesa, int id)
     {
         // Pensar
         SAFE_COUT("? Filósofo " << id << " está pensando");
-        std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dist(rng) * 1000)));
+        std::this_thread::sleep_for(std::chrono::milliseconds(int(dist(rng) * 1000)));
 
         // Ficar faminto e tentar comer
         mesa.pegar_garfos(id);
 
         // Comer
         SAFE_COUT("@ Filósofo " << id << " está comendo");
-        std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dist(rng) * 1000)));
+        std::this_thread::sleep_for(std::chrono::milliseconds(int(dist(rng) * 1000)));
 
         // Devolver garfos
         mesa.devolver_garfos(id);

@@ -1,7 +1,6 @@
 #include <iostream>
-#include <algorithm>
-#include <chrono>
-#include <numeric>
+#include <iomanip>
+#include <string>
 #include "Cpu_Scheduler.hpp"
 
 /**
@@ -19,7 +18,7 @@ void CPUScheduler::getData()
 
     burstTimes.resize(numProcesses);
     arrivalTimes.resize(numProcesses, 0);
-    priorities.resize(numProcesses, 0);
+    priorities.resize(numProcesses);
     waitingTimes.resize(numProcesses, 0);
     turnaroundTimes.resize(numProcesses, 0);
 
@@ -28,35 +27,12 @@ void CPUScheduler::getData()
         std::cout << "Tempo de burst para P" << i + 1 << ": ";
         std::cin >> burstTimes[i];
 
-        std::cout << "Tempo de chegada para P" << i + 1 << ": ";
+        std::cout << "\nTempo de chegada para P" << i + 1 << ": ";
         std::cin >> arrivalTimes[i];
-        
-        std::cout << "Prioridade para P" << i + 1 << ": ";
+
+        std::cout << "\nPrioridade para P" << i + 1 << ": ";
         std::cin >> priorities[i];
     }
-}
-
-/**
- * @brief Função executada por cada thread de processo.
- */
-void CPUScheduler::processThread(int id, int burstTime, int arrivalTime, std::function<void(int)> onComplete)
-{
-    std::unique_lock<std::mutex> lock(mtx);
-
-    while (currentTime < arrivalTime)
-    {
-        cv.wait(lock);
-    }
-
-    lock.unlock();
-    std::this_thread::sleep_for(std::chrono::milliseconds(burstTime * 100));
-    lock.lock();
-
-    waitingTimes[id] = currentTime - arrivalTime;
-    turnaroundTimes[id] = waitingTimes[id] + burstTime;
-
-    onComplete(id);
-    cv.notify_all();
 }
 
 /**
@@ -64,11 +40,10 @@ void CPUScheduler::processThread(int id, int burstTime, int arrivalTime, std::fu
  */
 void CPUScheduler::calculateAverages()
 {
-    float totalWaiting = std::accumulate(waitingTimes.begin(), waitingTimes.end(), 0.0f);
-    float totalTurnaround = std::accumulate(turnaroundTimes.begin(), turnaroundTimes.end(), 0.0f);
-
-    averageWaitingTime = totalWaiting / numProcesses;
-    averageTurnaroundTime = totalTurnaround / numProcesses;
+    float totalW = std::accumulate(waitingTimes.begin(), waitingTimes.end(), 0.0f);
+    float totalT = std::accumulate(turnaroundTimes.begin(), turnaroundTimes.end(), 0.0f);
+    averageWaitingTime = totalW / numProcesses;
+    averageTurnaroundTime = totalT / numProcesses;
 }
 
 /**
@@ -76,13 +51,29 @@ void CPUScheduler::calculateAverages()
  */
 void CPUScheduler::displayResults()
 {
-    std::cout << "\nProcesso\tBurst\tChegada\tEspera\tTurnaround\n";
+    // Largura fixa para cada coluna (ajuste se quiser)
+    const int w = 12;
+
+    std::cout << '\n'
+              << std::setw(w) << "Processo"
+              << std::setw(w) << "Burst"
+              << std::setw(w) << "Chegada"
+              << std::setw(w) << "Espera"
+              << std::setw(w) << "Turnaround"
+              << '\n';
+
     for (int i = 0; i < numProcesses; ++i)
     {
-        std::cout << "P" << i + 1 << '\t' << burstTimes[i] << '\t' << arrivalTimes[i] << '\t'
-                  << waitingTimes[i] << '\t' << turnaroundTimes[i] << '\n';
+        std::cout << std::setw(w) << ('P' + std::to_string(i + 1))
+                  << std::setw(w) << burstTimes[i]
+                  << std::setw(w) << arrivalTimes[i]
+                  << std::setw(w) << waitingTimes[i]
+                  << std::setw(w) << turnaroundTimes[i]
+                  << '\n';
     }
-    std::cout << "Tempo Médio de Espera: " << averageWaitingTime << '\n';
+
+    std::cout << '\n'
+              << "Tempo Médio de Espera:      " << averageWaitingTime << '\n';
     std::cout << "Tempo Médio de Turnaround: " << averageTurnaroundTime << '\n';
 }
 
@@ -93,51 +84,25 @@ void CPUScheduler::fcfs()
 {
     std::cout << "Simulando FCFS...\n";
 
-    std::vector<std::thread> threads;
-    std::vector<bool> completed(numProcesses, false);
-
-    // Ordem por tempo de chegada
     std::vector<int> order(numProcesses);
-    for (int i = 0; i < numProcesses; ++i)
-        order[i] = i;
+    std::iota(order.begin(), order.end(), 0);
 
     std::sort(order.begin(), order.end(), [&](int a, int b)
-    {
-        return arrivalTimes[a] < arrivalTimes[b];
-    });
+              { return arrivalTimes[a] < arrivalTimes[b]; });
 
-    // Thread do clock do sistema
-    std::thread scheduler([this]()
+    int time = 0;
+
+    for (int p : order)
     {
-        while (schedulerRunning)
+        if (time < arrivalTimes[p])
         {
-            std::unique_lock<std::mutex> lock(mtx);
-            currentTime++;
-            cv.notify_all();
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            time = arrivalTimes[p];
         }
-    });
 
-    auto onComplete = [this, &completed](int id)
-    {
-        completed[id] = true;
-        bool allDone = std::all_of(completed.begin(), completed.end(), [](bool c)
-        {
-            return c;
-        });
-
-        if (allDone)
-            schedulerRunning = false;
-    };
-
-    for (int idx : order)
-    {
-        threads.emplace_back(&CPUScheduler::processThread, this, idx, burstTimes[idx], arrivalTimes[idx], onComplete);
+        waitingTimes[p] = time - arrivalTimes[p];
+        time += burstTimes[p];
+        turnaroundTimes[p] = waitingTimes[p] + burstTimes[p];
     }
-
-    for (auto &th : threads)
-        th.join();
-    scheduler.join();
 
     calculateAverages();
     displayResults();
@@ -150,7 +115,38 @@ void CPUScheduler::sjfNonPreemptive()
 {
     std::cout << "Simulando SJF Não Preemptivo...\n";
 
-    // TODO: implementar de forma semelhante ao FCFS, mas escolhendo menor burst.
+    std::vector<bool> done(numProcesses, false);
+    int finished = 0;
+    int time = 0;
+
+    while (finished < numProcesses)
+    {
+        int idx = -1;
+        int bestBurst = 1e9;
+
+        for (int i = 0; i < numProcesses; ++i)
+        {
+            if (!done[i] && arrivalTimes[i] <= time && burstTimes[i] < bestBurst)
+            {
+                bestBurst = burstTimes[i];
+                idx = i;
+            }
+        }
+
+        if (idx == -1)
+        {
+            time++;
+            continue;
+        }
+
+        waitingTimes[idx] = time - arrivalTimes[idx];
+        time += burstTimes[idx];
+        turnaroundTimes[idx] = waitingTimes[idx] + burstTimes[idx];
+
+        done[idx] = true;
+        finished++;
+    }
+
     calculateAverages();
     displayResults();
 }
@@ -160,6 +156,57 @@ void CPUScheduler::sjfNonPreemptive()
  */
 void CPUScheduler::roundRobin(int quantum)
 {
-    std::cout << "Simulando Round Robin com quantum " << quantum << "...\n";
-    /// TODO: implementar round robin
+    std::cout << "Simulando Round Robin (quantum = " << quantum << ")...\n";
+
+    std::vector<int> remaining = burstTimes;
+    std::vector<int> ready;
+
+    int time = 0;
+    int completed = 0;
+
+    while (completed < numProcesses)
+    {
+        for (int i = 0; i < numProcesses; ++i)
+        {
+            if (arrivalTimes[i] == time)
+            {
+                ready.push_back(i);
+            }
+        }
+
+        if (ready.empty())
+        {
+            time++;
+            continue;
+        }
+
+        int p = ready.front();
+        ready.erase(ready.begin());
+
+        int exec = std::min(quantum, remaining[p]);
+        remaining[p] -= exec;
+        time += exec;
+
+        for (int i = 0; i < numProcesses; ++i)
+        {
+            if (arrivalTimes[i] > time - exec && arrivalTimes[i] <= time)
+            {
+                ready.push_back(i);
+            }
+        }
+
+        if (remaining[p] == 0)
+        {
+            turnaroundTimes[p] = time - arrivalTimes[p];
+            waitingTimes[p] = turnaroundTimes[p] - burstTimes[p];
+            completed++;
+        }
+        else
+        {
+            ready.push_back(p);
+        }
+    }
+
+    calculateAverages();
+    displayResults();
 }

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Cpu_Scheduler.hpp"
 
 /**
@@ -50,6 +49,7 @@ int main(int argc, char **argv)
             scheduler.roundRobin(q);
             break;
         }
+        
         case 5:
             break;
 
@@ -57,5 +57,12 @@ int main(int argc, char **argv)
             std::cout << "Opção inválida!\n";
         }
     } while (choice != 5);
+
+    /**
+     * Compile com
+     *
+     * g++ -std=c++23 -o cpu_scheduler cpu_main.cpp Cpu_Scheduler.cpp
+     * ./cpu_scheduler
+     */
     return 0;
 }

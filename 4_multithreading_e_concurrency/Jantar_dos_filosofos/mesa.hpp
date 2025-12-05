@@ -9,9 +9,9 @@ constexpr int NUM_FILOSOFOS = 5; // Número de filósofos (e garfos na mesa).
 constexpr int MAX_CICLOS = 50;   // Número máximo de ciclos de pensar/comer para cada filósofo.
 
 // Estados possíveis de um filósofo
-constexpr int PENSANDO = 2;
-constexpr int FAMINTO = 1;
 constexpr int COMENDO = 0;
+constexpr int FAMINTO = 1;
+constexpr int PENSANDO = 2;
 
 // Funções auxiliares para pegar vizinhos
 inline int ESQUERDA(int i) noexcept { return (i + NUM_FILOSOFOS - 1) % NUM_FILOSOFOS; }
@@ -32,7 +32,8 @@ inline std::mutex cout_mtx;
  * A mesa gerencia o estado de cada filósofo e usa variáveis de condição
  * para garantir que dois vizinhos não comam ao mesmo tempo.
  */
-class Mesa {
+class Mesa
+{
 private:
     std::array<int, NUM_FILOSOFOS> estados;                       // Estado de cada filósofo
     std::array<std::condition_variable, NUM_FILOSOFOS> condicoes; // Condições por filósofo
