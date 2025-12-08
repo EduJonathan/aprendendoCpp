@@ -10,7 +10,12 @@
 
 void square(int num, int &result)
 {
-    result = num * num;
+    auto compute = [](int n) -> int
+    {
+        return n * n;
+    };
+
+    result = compute(num);
 }
 
 int main(int argc, char **argv)

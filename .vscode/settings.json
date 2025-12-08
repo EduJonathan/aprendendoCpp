@@ -74,6 +74,8 @@
     "typeinfo": "cpp",
     "variant": "cpp",
     "ios": "cpp",
-    "filesystem": "cpp"
+    "filesystem": "cpp",
+    "spanstream": "cpp",
+    "text_encoding": "cpp"
   }
 }

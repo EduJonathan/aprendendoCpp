@@ -66,6 +66,7 @@ int getNumberOfElements(T t)
         // (1)
         return t.count();
     }
+    
     if constexpr (requires(T t) { { t.size() } -> std::convertible_to<int>; })
     {
         // (2)
@@ -100,12 +101,10 @@ int main(int argc, char **argv)
     Second second;
     std::cout << "getNumberOfElements(second): " << getNumberOfElements(second) << '\n';
 
-    int third;
+    int third = 0;
     std::cout << "getNumberOfElements(third): " << getNumberOfElements(third) << '\n';
 
-    std::cout << '\n';
-
-    std::cout << '\n';
+    std::cout << "\n\n";
 
     std::cout << "sum<20>(2000): " << sum<20>(2000) << '\n';
     // std::cout << "sum<23>(2000): " << sum<23>(2000) << '\n',  // ERROR

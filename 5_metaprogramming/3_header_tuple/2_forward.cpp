@@ -1,6 +1,6 @@
-#include <tuple>
-#include <utility>
 #include <iostream>
+#include <utility>
+#include <tuple>
 
 /**
  * std::forward: Esta função demonstra o uso de std::forward para manter as qualidades de valor (lvalue ou rvalue)

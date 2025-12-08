@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 // A expressão `if constexpr` é uma construção do C++17 que permite que escrevermos
 // códigos que se adaptam a diferentes tipos ou condições, sem sobrecarga de verificação

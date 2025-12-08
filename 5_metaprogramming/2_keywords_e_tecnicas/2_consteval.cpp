@@ -4,7 +4,11 @@
 
 consteval int square(int x)
 {
-    return x * x;
+    auto result = [&]() constexpr
+    {
+        return x * x;
+    };
+    return result();
 }
 
 int main(int argc, char **argv)

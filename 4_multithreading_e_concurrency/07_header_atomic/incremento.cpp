@@ -19,8 +19,8 @@ int main(int argc, char **argv)
 
     /**
      * Compile e execute
-     * g++ -std=c++17 razoes_e_fracoes.cpp -o razoes_e_fracoes -pthread
-     * ./razoes_e_fracoes
+     * g++ -std=c++17 rincrementoazoes_e_fracoes.cpp -o incremento -pthread
+     * ./incremento
      */
 
     return 0;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 /**
  * noexcept é uma especificação que indica que uma função não deve lançar exceções.

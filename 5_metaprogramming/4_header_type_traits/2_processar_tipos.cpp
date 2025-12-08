@@ -15,8 +15,9 @@ void process(T value)
 
 int main(int argc, char **argv)
 {
-    process(42);     // Imprime: Processando tipo inteiro: 42
-    process(3.14);   // Imprime: Processando tipo não-inteiro: 3.14
-    process("0.50"); // Imprime: Processando tipo não-inteiro: 0.50
+    process(42);                // Imprime: Processando tipo inteiro: 42
+    process(3.14);              // Imprime: Processando tipo não-inteiro: 3.14
+    process("0.50");            // Imprime: Processando tipo não-inteiro: 0.50
+    process(std::string{"LL"}); // Imprime: Processando tipo não-inteiro: LL
     return 0;
 }
