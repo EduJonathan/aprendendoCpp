@@ -15,8 +15,7 @@
  *    ou com o próprio código.
  *
  * 2. Menos clareza:
- *    `std::cout`, `std::string`, etc., deixam explícito que o identificador
- *    pertence à biblioteca padrão.
+ *    `std::cout`, `std::string`, etc., deixam explícito que o identificador pertence à biblioteca padrão.
  *
  * 3. Manutenção difícil:
  *    Em projetos grandes, `using namespace std;` aumenta a chance de ambiguidade
@@ -24,8 +23,7 @@
  *
  * Boas práticas:
  * - Em arquivos .cpp pequenos ou exemplos simples: pode ser usado com cautela.
- * - Em arquivos de cabeçalho (.h/.hpp): **evite sempre** para não poluir o
- *   namespace de quem incluir o arquivo.
+ * - Em arquivos de cabeçalho (.h/.hpp): **evite sempre** para não poluir o namespace de quem incluir o arquivo.
  *
  * Conclusão:
  * Use `using namespace std;` de forma consciente. Em geral, prefira `std::`

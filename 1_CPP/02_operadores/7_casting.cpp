@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
     std::cout << "2. STATIC_CAST - conversão numérica segura" << '\n';
 
-    int numero = 10;
+    int numero{10};
     double decimal = static_cast<double>(numero);
     std::cout << "static_cast: " << numero << " -> " << std::fixed << std::setprecision(2) << decimal << '\n';
 

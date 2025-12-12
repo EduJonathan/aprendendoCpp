@@ -10,25 +10,25 @@
  * ------------------------------------------------------------------------------------
  * BIBLIOTECA <iomanip> — Manipulação de Formatação de Saída:
  *
- * - std::hex → Exibe valores inteiros no formato hexadecimal.
- * - std::oct → Exibe valores inteiros no formato octal.
- * - std::dec → Retorna à exibição no formato decimal (padrão).
- * - std::showbase → Adiciona prefixo: "0x" para hex e "0" para octal.
- * - std::setw(n) → Define a largura mínima do campo de saída como 'n' caracteres.
- * - std::setfill(c) → Define o caractere 'c' como preenchimento para campos menores.
- * - std::fixed → Exibe números de ponto flutuante com casas decimais fixas.
+ * - std::hex             → Exibe valores inteiros no formato hexadecimal.
+ * - std::oct             → Exibe valores inteiros no formato octal.
+ * - std::dec             → Retorna à exibição no formato decimal (padrão).
+ * - std::showbase        → Adiciona prefixo: "0x" para hex e "0" para octal.
+ * - std::setw(n)         → Define a largura mínima do campo de saída como 'n' caracteres.
+ * - std::setfill(c)      → Define o caractere 'c' como preenchimento para campos menores.
+ * - std::fixed           → Exibe números de ponto flutuante com casas decimais fixas.
  * - std::setprecision(n) → Define o número de casas decimais ou dígitos significativos.
- * - std::scientific → Exibe números de ponto flutuante em notação científica.
- * - std::defaultfloat → Retorna à exibição padrão de ponto flutuante.
- * - std::showpos → Exibe o sinal '+' para números positivos.
- * - std::noshowpos → Não exibe o sinal '+' para números positivos.
- * - std::uppercase → Exibe letras maiúsculas em hexadecimais e notação científica.
- * - std::nouppercase → Exibe letras minúsculas em hexadecimais e notação científica.
- * - std::boolalpha → Exibe valores booleanos como 'true' ou 'false'.
- * - std::noboolalpha → Exibe valores booleanos como '1' ou '0'.
- * - std::left → Alinha o texto à esquerda dentro do campo.
- * - std::right → Alinha o texto à direita dentro do campo.
- * - std::internal → Alinha o texto à direita, mas mantém o sinal à esquerda.
+ * - std::scientific      → Exibe números de ponto flutuante em notação científica.
+ * - std::defaultfloat    → Retorna à exibição padrão de ponto flutuante.
+ * - std::showpos         → Exibe o sinal '+' para números positivos.
+ * - std::noshowpos       → Não exibe o sinal '+' para números positivos.
+ * - std::uppercase       → Exibe letras maiúsculas em hexadecimais e notação científica.
+ * - std::nouppercase     → Exibe letras minúsculas em hexadecimais e notação científica.
+ * - std::boolalpha       → Exibe valores booleanos como 'true' ou 'false'.
+ * - std::noboolalpha     → Exibe valores booleanos como '1' ou '0'.
+ * - std::left            → Alinha o texto à esquerda dentro do campo.
+ * - std::right           → Alinha o texto à direita dentro do campo.
+ * - std::internal        → Alinha o texto à direita, mas mantém o sinal à esquerda.
  *
  * ------------------------------------------------------------------------------------
  * BIBLIOTECA <bitset> — Representação Binária:
@@ -38,9 +38,8 @@
  * ------------------------------------------------------------------------------------
  * BIBLIOTECA <cstdint> — Tipos Inteiros com Tamanhos Fixos:
  *
- * - reinterpret_cast<std::uintptr_t>(ptr)
- * → Converte um ponteiro para um inteiro sem sinal com o mesmo tamanho do ponteiro,
- * de forma segura e portável (ideal para exibir endereços de memória em formato numérico).
+ * - reinterpret_cast<std::uintptr_t>(ptr) → Converte um ponteiro para um inteiro sem sinal
+ * com o mesmo tamanho do ponteiro, de forma segura e portável (ideal para exibir endereços de memória em formato numérico).
  */
 
 int main(int argc, char **argv)
@@ -54,7 +53,7 @@ int main(int argc, char **argv)
 
     std::cout << "Decimal: \t\t" << valor_binario << '\n';
     std::cout << "Binário (16 bits): \t" << std::bitset<16>(valor_binario) << '\n';
-    
+
     // O bitset é formatado como string, então setw e setfill só afetam o padding externo
     std::cout << "Binário (8 bits): \t0b" << std::bitset<8>(valor_binario) << '\n';
     std::cout << "Binário (32 bits): \t" << std::bitset<32>(valor_binario) << '\n';
@@ -93,7 +92,7 @@ int main(int argc, char **argv)
     std::cout << "Octal (c/ 0): \t" << std::showbase << valor_octal << '\n'; // showbase adiciona 0
     std::cout << std::dec << std::noshowbase;                                // Reset
     std::cout << "Valor resetado (Decimal): " << valor_octal << '\n';
-    
+
     // 4. FORMATAÇÃO DE PONTEIROS
     std::cout << "\n------------------------------------------------\n";
     std::cout << "\tFormatação de Ponteiros\n";
@@ -116,7 +115,7 @@ int main(int argc, char **argv)
     std::cout << "Valor da variável: \t" << num << '\n';
     std::cout << "Endereço da variável: \t" << ptr << '\n';
     std::cout << "Valor via ponteiro: \t" << *ptr << '\n';
-    
+
     // 5. FORMATAÇÃO DE ALINHAMENTO E PREENCHIMENTO
     std::cout << "\n================================================\n";
     std::cout << "\tAlinhamento e Preenchimento\n";

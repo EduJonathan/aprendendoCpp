@@ -24,13 +24,13 @@
  * -----------------
  *
  * `&`(AND bitwise): Compara os bits correspondentes de dois números.
- * O resultado será 1 apenas se ambos os bits forem 1.
+ *                   O resultado será 1 apenas se ambos os bits forem 1.
  *
  * `|` (OR bitwise): Compara os bits correspondentes de dois números.
- * O resultado será 1 se pelo menos um dos bits for 1.
+ *                   O resultado será 1 se pelo menos um dos bits for 1.
  *
  * `^` (XOR bitwise): Compara os bits correspondentes de dois números.
- * O resultado será 1 apenas se os bits forem diferentes(um é 1 e o outro é 0).
+ *                    O resultado será 1 apenas se os bits forem diferentes(um é 1 e o outro é 0).
  *
  * `~` (NOT bitwise): Inverte todos os bits de um número (1 vira 0 e 0 vira 1)
  *
