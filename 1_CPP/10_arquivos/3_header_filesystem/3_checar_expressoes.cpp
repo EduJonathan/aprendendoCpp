@@ -6,20 +6,46 @@
 #include <fstream>
 #include <filesystem>
 
+/**
+ * O programa lê linha por linha do arquivo "expressoes.txt" e determina se cada expressão aritmética
+ * é sintaticamente válida, considerando, e através do include <filesystem> irá obter o
+ * caminho até o arquivo(3_checar_expressoes.cpp):
+ *
+ * - Números inteiros
+ * - Operadores +, -, *, /
+ * - Parênteses corretamente balanceados
+ * - Regras básicas de sequência de tokens (ex.: não permite "2(3)", ")5", operador no início/fim etc.)
+ */
+
+/**
+ * @enum TokenTipo
+ * @brief Tipos possíveis de tokens na expressão aritmética.
+ */
 enum class TokenTipo
 {
-    NUMERO,
-    OPERADOR,
-    ABRE_PAR,
-    FECHA_PAR
+    NUMERO,   ///< Token representando um número inteiro
+    OPERADOR, ///< Token representando um operador (+, -, *, /)
+    ABRE_PAR, ///< Token de abertura de parênteses '('
+    FECHA_PAR ///< Token de fechamento de parênteses ')'
 };
 
+/**
+ * @struct Token
+ * @brief Representa um token lexico extraído da expressão.
+ */
 struct Token
 {
-    TokenTipo tipo;
-    std::string valor;
+    TokenTipo tipo;    ///< Tipo do token
+    std::string valor; ///< Valor literal do token (ex.: "42", "+", "(")
 };
 
+/**
+ * @brief Converte uma string em uma sequência de tokens.
+ *
+ * @param s A expressão aritmética como string.
+ * @return std::vector<Token> Vetor com os tokens identificados.
+ * @throw std::runtime_error Se encontrar um caractere inválido.
+ */
 std::vector<Token> tokenize(const std::string &s)
 {
     std::vector<Token> tokens;
@@ -74,6 +100,18 @@ std::vector<Token> tokenize(const std::string &s)
     return tokens;
 }
 
+/**
+ * @brief Verifica se uma expressão aritmética é sintaticamente válida.
+ *
+ * A validação inclui:
+ * - Balanceamento correto de parênteses
+ * - Sequências válidas de tokens (ex.: não permite operador no início/fim, número seguido de '(', etc.)
+ * - Ausência de caracteres inválidos
+ *
+ * @param expr A expressão a ser validada.
+ * @return true Se a expressão for válida.
+ * @return false Caso contrário.
+ */
 bool expressaoValida(const std::string &expr)
 {
     std::vector<Token> tokens;
@@ -145,6 +183,13 @@ bool expressaoValida(const std::string &expr)
     return parenteses == 0;
 }
 
+/**
+ * @brief Verifica se um caminho aponta para um arquivo regular existente.
+ *
+ * @param caminho O caminho do arquivo a ser verificado.
+ * @return true Se o arquivo existe e é regular.
+ * @return false Caso contrário.
+ */
 bool arquivoExiste(const std::filesystem::path &caminho)
 {
     return std::filesystem::exists(caminho) && std::filesystem::is_regular_file(caminho);
