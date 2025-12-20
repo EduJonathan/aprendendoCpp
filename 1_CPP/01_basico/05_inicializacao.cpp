@@ -68,10 +68,8 @@ int main(int argc, char **argv)
 
     std::cout << std::left << std::setw(25) << "variavel_copia (=): " << variavel_copia << '\n';
     std::cout << std::left << std::setw(25) << "variavel_direta (()): " << variavel_direta << '\n';
-    std::cout << std::left << std::setw(25) << "real (float): " << std::fixed
-              << std::setprecision(2) << real << '\n';
-    std::cout << std::left << std::setw(25) << "converter_copia: " << converter_copia
-              << "  ← narrowing silencioso!\n\n";
+    std::cout << std::left << std::setw(25) << "real (float): " << std::fixed << std::setprecision(2) << real << '\n';
+    std::cout << std::left << std::setw(25) << "converter_copia: " << converter_copia << "  ← narrowing silencioso!\n\n";
 
     std::cout << "==================================\n";
     std::cout << ">> INICIALIZAÇÃO UNIFORME (C++11+) <<\n";
@@ -81,8 +79,7 @@ int main(int argc, char **argv)
     float b{5.7f};
 
     std::cout << std::left << std::setw(25) << "a {4}: " << a << '\n';
-    std::cout << std::left << std::setw(25) << "b {5.7f}: " << std::fixed
-              << std::setprecision(2) << b << '\n';
+    std::cout << std::left << std::setw(25) << "b {5.7f}: " << std::fixed << std::setprecision(2) << b << '\n';
 
     // Estes 3 dão ERRO de compilação com {} → exatamente o que queremos!
     // int  c{b};          // ERRO: narrowing float → int
