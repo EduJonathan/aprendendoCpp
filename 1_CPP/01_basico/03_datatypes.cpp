@@ -99,7 +99,7 @@ int main(int argc, char **argv)
     std::cout << "unsigned char: 0 a " << (int)std::numeric_limits<unsigned char>::max() << '\n';
 
     std::cout << "\n----------------------------------------------";
-    std::cout << "\n========= LIMITES DE BOOL =========\n";
+    std::cout << "\n========= LIMITES DE BOOL E STD::SIZE_T =========\n";
     std::cout << "----------------------------------------------\n";
 
     // std::boolalpha para exibir como true/false

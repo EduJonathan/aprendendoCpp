@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     myString.printString();         // Imprime "Olá, Mundo!"
 
     // Alterando o conteúdo da string com getString
-    std::string newStr = "Adeus, Mundo!";
+    std::string newStr{"Adeus, Mundo!"};
     myString.getString(newStr); // Atualiza a string interna para "Adeus, Mundo!"
     myString.printString();     // Imprime "Adeus, Mundo!"
 

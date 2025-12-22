@@ -3,7 +3,8 @@
 
 // Construtor
 ExportacaoDeTijolos::ExportacaoDeTijolos(int qtdExportados, int qtdPedidos)
-    : quantidadeDeTijolos(qtdExportados), quantidadeDeTijolosPedidos(qtdPedidos),
+    : quantidadeDeTijolos(qtdExportados),
+      quantidadeDeTijolosPedidos(qtdPedidos),
       dimensaoDosTijolos("14x10")
 {
     verificaQuantidade();

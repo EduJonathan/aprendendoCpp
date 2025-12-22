@@ -8,12 +8,11 @@
  * O uso de std::endl em C++ não é necessariamente uma má prática, mas deve ser feito com
  * consciência, pois ele pode impactar o desempenho do programa em determinados contextos.
  *
- * O que é std::endl?
- * std::endl é um manipulador de fluxo da biblioteca <iostream> que executa duas ações:
+ * O que é std::endl? std::endl é um manipulador de fluxo da biblioteca <iostream> que executa duas ações:
  *
- * 1. Insere um caractere de nova linha ('\n') no fluxo de saída.
- * 2. Força o descarregamento (flush) do buffer de saída, escrevendo imediatamente os dados
- * no destino (como a tela, um arquivo ou outro dispositivo).
+ * - 1. Insere um caractere de nova linha ('\n') no fluxo de saída.
+ * - 2. Força o descarregamento (flush) do buffer de saída, escrevendo
+ *      imediatamente os dados no destino (como a tela, um arquivo ou outro dispositivo).
  *
  * Quando usar std::endl:
  * - Quando for necessário garantir que a saída apareça imediatamente, como ao solicitar
@@ -69,7 +68,7 @@ int main(int argc, char **argv)
     }
 
     std::cout << "--------------------------\n";
-    std::cout << "COMPARAÇÃO DE DESEMPENHO EM ARQUIVO\n";
+    std::cout << "COMPARAÇÃO DE DESEMPENHO EM DOIS ARQUIVOS DIFERENTES\n";
     std::cout << "--------------------------\n";
 
     // Metódos para medir a eficiência entre std::endl e '\n'

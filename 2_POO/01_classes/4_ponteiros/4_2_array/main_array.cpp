@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
     /**
      * Compile e execute o programa com:
-     * > g++ -std=c++17 .\main_array.cpp .\class_array.cpp -o nome_do_executavel
+     * > g++ -std=c++17 .\main_array.cpp .\criar_array.cpp -o nome_do_executavel
      * > .\nome_do_executavel.exe
      */
     return 0;

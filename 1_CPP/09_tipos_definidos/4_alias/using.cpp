@@ -151,19 +151,19 @@ int main(int argc, char **argv)
         {
             try
             {
-                 std::string texto = "Outro texto exemplo";
-                 if (texto.size() > max)
-                 {
+                std::string texto = "Outro texto exemplo";
+                if (texto.size() > max)
+                {
                     str = texto.substr(0, max);
-                 }
-                 else
-                 {
+                }
+                else
+                {
                     str = texto;
-                 }
+                }
              }
              catch (const std::exception& e)
              {
-                 throw std::runtime_error("Erro na lambda: " + std::string(e.what()));
+                throw std::runtime_error("Erro na lambda: " + std::string(e.what()));
              } 
         });
 

@@ -15,9 +15,9 @@
  */
 Livro::Livro(const char *titulo, const char *autor, const char *editora, const char *anoPublicacao)
 {
-    this->titulo = new char[std::strlen(titulo) + 1];               // +1 para o caractere nulo '\0'
-    this->autor = new char[std::strlen(autor) + 1];                 // +1 para o caractere nulo '\0'
-    this->editora = new char[std::strlen(editora) + 1];             // +1 para o caractere nulo '\0'
+    this->titulo        = new char[std::strlen(titulo) + 1];        // +1 para o caractere nulo '\0'
+    this->autor         = new char[std::strlen(autor) + 1];         // +1 para o caractere nulo '\0'
+    this->editora       = new char[std::strlen(editora) + 1];       // +1 para o caractere nulo '\0'
     this->anoPublicacao = new char[std::strlen(anoPublicacao) + 1]; // +1 para o caractere nulo '\0'
 
     std::strcpy(this->titulo, titulo);               // Copia o conteúdo para a variável alocada dinamicamente

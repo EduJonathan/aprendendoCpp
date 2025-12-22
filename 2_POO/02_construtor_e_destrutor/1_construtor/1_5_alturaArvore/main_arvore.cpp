@@ -56,11 +56,11 @@ int main(int argc, char **argv)
     //      /   / \
     //     4   5   6
 
-    auto root = std::make_unique<TreeNode>(1);
-    root->left = std::make_unique<TreeNode>(2);
-    root->right = std::make_unique<TreeNode>(3);
-    root->left->left = std::make_unique<TreeNode>(4);
-    root->right->left = std::make_unique<TreeNode>(5);
+    auto root          = std::make_unique<TreeNode>(1);
+    root->left         = std::make_unique<TreeNode>(2);
+    root->right        = std::make_unique<TreeNode>(3);
+    root->left->left   = std::make_unique<TreeNode>(4);
+    root->right->left  = std::make_unique<TreeNode>(5);
     root->right->right = std::make_unique<TreeNode>(6);
 
     std::vector<int> consultas = {2, 3, 4, 5, 6};

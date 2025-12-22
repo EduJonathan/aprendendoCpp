@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <utility>
 #include <algorithm>
 #include <memory>
 
@@ -12,9 +13,8 @@ struct CandidatosEleicao
 
     CandidatosEleicao(std::string nome, int numero)
         : nomeCandidato(std::move(nome)), // Usa move para maior eficiência
-          numeroDoCandidato(numero), quantidadeDeVotos(0)
-    {
-    }
+          numeroDoCandidato(numero),
+          quantidadeDeVotos(0) {}
 };
 
 class Urna

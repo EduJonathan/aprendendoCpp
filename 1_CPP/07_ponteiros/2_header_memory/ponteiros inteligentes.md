@@ -86,8 +86,7 @@ O recurso é destruído automaticamente quando a última referência é destruí
 ### Características do `shared_ptr`
 
 1. **Propriedade compartilhada**: Permite que múltiplos `shared_ptr` compartilhem o mesmo recurso.
-2. **Gerenciamento automático de memória**: A memória é gerenciada automaticamente por meio de
-   contagem de referência.
+2. **Gerenciamento automático de memória**: A memória é gerenciada automaticamente por meio de contagem de referência.
 3. **Destruição automática**: O recurso é liberado quando o último `shared_ptr` é destruído ou redefinido.
 
 ---
@@ -135,8 +134,7 @@ que **não participa da contagem de referências**. Ele é ideal para evitar
 ### Características do `weak_ptr`
 
 1. **Não impede a destruição do recurso**: Não afeta a contagem de referência.
-2. **Conversão em `shared_ptr`**: Pode ser convertido em um `shared_ptr` para acessar o recurso,
-   se ele ainda existir.
+2. **Conversão em `shared_ptr`**: Pode ser convertido em um `shared_ptr` para acessar o recurso, se ele ainda existir.
 3. **Prevenção de ciclos de referência**: Ideal para situações em que ciclos de referência
    podem surgir, como em grafos, árvores ou callbacks.
 
@@ -144,14 +142,10 @@ que **não participa da contagem de referências**. Ele é ideal para evitar
 
 ### QUANDO USAR
 
-1. **Evitar ciclos de referência**: Para quebrar ciclos entre objetos com `shared_ptr`,
-   usando `weak_ptr` em um dos objetos.
-2. **Cache de objetos**: Para manter uma referência opcional a objetos, permitindo que
-   sejam destruídos quando não necessários.
-3. **Estruturas de dados complexas**: Em grafos ou árvores para evitar ciclos que impedem a
-   liberação de memória.
-4. **Callbacks e observadores**: Permite acessar objetos sem impedir sua destruição,
-   evitando erros se o objeto for desalocado.
+1. **Evitar ciclos de referência**: Para quebrar ciclos entre objetos com `shared_ptr`, usando `weak_ptr` em um dos objetos.
+2. **Cache de objetos**: Para manter uma referência opcional a objetos, permitindo que sejam destruídos quando não necessários.
+3. **Estruturas de dados complexas**: Em grafos ou árvores para evitar ciclos que impedem a liberação de memória.
+4. **Callbacks e observadores**: Permite acessar objetos sem impedir sua destruição, evitando erros se o objeto for desalocado.
 
 ---
 

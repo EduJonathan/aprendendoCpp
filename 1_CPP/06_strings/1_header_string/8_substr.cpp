@@ -17,7 +17,7 @@
 
 int main(int argc, char **argv)
 {
-    std::string texto{"Aprendendo C++ é divertido!"};
+    std::string texto{"Aprendendo C++, é divertido!"};
 
     // Extraindo a palavra "C++"
     std::string sub = texto.substr(11, 3); // Começa na posição 11 e pega 3 caracteres

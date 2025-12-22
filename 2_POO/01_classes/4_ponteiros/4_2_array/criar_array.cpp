@@ -56,7 +56,7 @@ void Array::printArray(const std::unique_ptr<int[]> &arr, std::size_t size)
     }
 
     std::cout << "Conteúdo do array: ";
-    std::cout << "[";
+    std::cout << '[';
     for (std::size_t i = 0ull; i < size; ++i)
     {
         std::cout << arr[i]; // Exibe o valor de cada elemento

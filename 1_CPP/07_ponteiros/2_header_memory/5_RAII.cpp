@@ -59,4 +59,5 @@ int main(int argc, char **argv)
     } // <- std::unique_ptr libera o objeto automaticamente aqui
 
     std::cout << "Fim do programa\n";
+    return 0;
 }

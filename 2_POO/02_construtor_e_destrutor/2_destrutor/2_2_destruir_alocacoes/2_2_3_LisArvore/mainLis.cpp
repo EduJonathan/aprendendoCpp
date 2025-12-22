@@ -27,11 +27,11 @@ LargestIndependentSet::LargestIndependentSet() : root(nullptr) {}
  */
 void LargestIndependentSet::construirExemplo(void)
 {
-    root = std::make_unique<Node>(10);
-    root->left = std::make_unique<Node>(20);
-    root->right = std::make_unique<Node>(30);
-    root->left->left = std::make_unique<Node>(40);
-    root->right->left = std::make_unique<Node>(50);
+    root               = std::make_unique<Node>(10);
+    root->left         = std::make_unique<Node>(20);
+    root->right        = std::make_unique<Node>(30);
+    root->left->left   = std::make_unique<Node>(40);
+    root->right->left  = std::make_unique<Node>(50);
     root->right->right = std::make_unique<Node>(60);
 }
 
@@ -41,8 +41,8 @@ void LargestIndependentSet::construirExemplo(void)
  * @return Um inteiro representando o tamanho do conjunto.
  *
  * @note Se você estiver estranhando o retorno de uma função que não foi
- * declarado antes e sim logo após, tenha calma, na linguagem C++ é normal
- * este tipo de caso em POO, não em programação estruturada funcional.
+ * declarado antes e sim logo após, tenha calma, é normal este tipo de caso em POO,
+ * mas não em programação estruturada funcional.
  */
 int LargestIndependentSet::calcularLIS(void)
 {

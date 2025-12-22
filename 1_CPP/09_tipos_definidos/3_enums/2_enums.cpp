@@ -5,8 +5,8 @@
 #define KING 13  /**< Define o valor da carta King como 13 */
 #define AS 1     /**< Define o valor da carta AS como 1 */
 
-#ifndef CARD_SUIT_H
-#define CARD_SUIT_H
+#ifndef CARD_SUIT
+#define CARD_SUIT
 
 /**
  * @enum CardSuit

@@ -15,8 +15,7 @@
  *
  * WHILE-TRUE:
  *   Um laço intencionalmente infinito, no qual a condição é sempre verdadeira.
- *   A repetição só é interrompida por instruções de controle, como `break`
- *   ou `return`.
+ *   A repetição só é interrompida por instruções de controle, como `break` ou `return`.
  */
 
 int main(int argc, char **argv)

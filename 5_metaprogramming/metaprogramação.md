@@ -34,8 +34,7 @@ Pode ser usada dentro de templates, mas `NÃO` é uma biblioteca de metaprograma
 
 ### Header `<tuple>`
 
-O `<tuple>` é fundamental quando se trabalha com coleções heterogêneas de tipos.
-Ele suporta:
+O `<tuple>` é fundamental quando se trabalha com coleções heterogêneas de tipos. Ele suporta:
 
 - Metaprogramação variádica,
 - Manipulação estática de sequências de tipos,
@@ -48,8 +47,7 @@ Ele suporta:
 
 ### Header `<type_traits>`
 
-Uma das bibliotecas centrais da metaprogramação moderna em C++.
-Ela fornece uma vasta coleção de templates que permitem:
+Uma das bibliotecas centrais da metaprogramação moderna em C++. Ela fornece uma vasta coleção de templates que permitem:
 
 - Consultar propriedades de tipos (std::is_integral, std::is_pointer, std::is_same, etc.)
 - Modificar tipos (std::remove_const, std::add_pointer, std::decay, ...)
@@ -93,8 +91,7 @@ O `<chrono>` combina conceitos como:
 ### Header `<concepts>`
 
 A biblioteca `<concepts>`, introduzida no C++20, Introduz um sistema moderno para
-expressar restrições em templates de maneira clara e legível.
-Com ele, é possível definir requisitos como:
+expressar restrições em templates de maneira clara e legível. Com ele, é possível definir requisitos como:
 
 - "O tipo deve ser integral"
 - "O tipo deve ser iterável"

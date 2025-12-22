@@ -2,9 +2,9 @@
 #include <string>
 
 /**
- * CONSTRUTORES: Sao métodos especiais pois inicializa seus atributos os atributos de uma classe
- * ou estrutura (struct) quando um objeto da classe ou estrutura é criado. Eles ajudam a garantir
- * que os objetos sejam inicializados de maneira adequada e conveniente.
+ * CONSTRUTORES: Sao métodos especiais que inicializa os atributos de uma classe ou estrutura (struct)
+ * quando um objeto da classe ou estrutura é criado.
+ * Eles ajudam a garantir que os objetos sejam inicializados de maneira adequada e conveniente.
  * Normalmente sempre possuindo o mesmo nome da classe ou estrutura. Tendo ou não um bloco("{}").
  * E também possuindo ou não argumentos (Não sendo o mesmo nome que os atributos).
  *

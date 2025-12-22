@@ -53,10 +53,10 @@ public:
     void removerItem(const std::string &nomeItem)
     {
         auto it = std::find_if(itens.begin(), itens.end(),
-                               [&nomeItem](const std::shared_ptr<Item> &item)
-                               {
-                                   return item->getNome() == nomeItem;
-                               });
+        [&nomeItem](const std::shared_ptr<Item> &item)
+        {
+            return item->getNome() == nomeItem;
+        });
 
         if (it != itens.end())
         {
