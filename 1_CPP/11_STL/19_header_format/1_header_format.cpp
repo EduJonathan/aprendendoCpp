@@ -30,5 +30,12 @@ int main(int argc, char **argv)
     std::string nome = "Maria";
     int idade = 30;
     std::cout << std::format("Nome: {}, Idade: {}\n", nome, idade) << '\n';
+
+    /**
+     * Exemplo de comando de compilação com g++:
+     * g++ -std=c++20 -o format 1_header_format.cpp
+     *
+     * ./format
+     */
     return 0;
 }

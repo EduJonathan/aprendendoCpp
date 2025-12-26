@@ -15,8 +15,9 @@ void operacao(int valor)
 
 int main(int argc, char **argv)
 {
-    double valores[] = {
-#include "numbers.csv" // Irá incluir números de um arquivo CSV para preencher o array
+    double valores[] = 
+    {
+        #include "numbers.csv" // Irá incluir números de um arquivo CSV para preencher o array
     };
 
     for (const auto &target : valores)

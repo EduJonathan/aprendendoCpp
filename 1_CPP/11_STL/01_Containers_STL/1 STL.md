@@ -1,9 +1,11 @@
 # STL (Standard Template Library)
 
 A STL é um conjunto de headers com templates de classes, projetados para fornecer
-implementações eficientes de algoritmos e containers. Ela facilita o uso de estruturas de
-dados e algoritmos já prontos(para não ficar reiventando a roda), permitindo ao programador
-focar mais na lógica do programa.
+implementações eficientes de algoritmos e containers.
+Ela facilita o uso de estruturas de dados e algoritmos já prontos(para não ficar reiventando a roda),
+permitindo ao programador focar mais na lógica do programa.
+
+---
 
 ## CONTAINERS
 
@@ -11,8 +13,7 @@ São coleções de dados categorizadas em quatro tipos principais:
 
 ### 1º Adaptadores de Containers
 
-Não permitem acesso sequencial direto aos dados, mas fornecem uma interface
-especializada para manipulação dos dados.
+> Não permitem acesso sequencial direto aos dados, mas fornecem uma interface especializada para manipulação dos dados.
 
 **Exemplos:**
 
@@ -36,7 +37,7 @@ Permitem o acesso sequencial aos dados.
 
 ### 3º Containers Associativos
 
-Armazenam dados em pares chave-valor, geralmente em árvores binárias balanceadas.
+> Armazenam dados em pares chave-valor, geralmente em árvores binárias balanceadas.
 
 **Exemplos:**
 
@@ -49,7 +50,7 @@ Armazenam dados em pares chave-valor, geralmente em árvores binárias balancead
 
 ### 4º Containers Desordenados
 
-Usam tabelas hash para armazenar dados, proporcionando busca rápida (em média O(1)).
+> Usam tabelas hash para armazenar dados, proporcionando busca rápida (em média O(1)).
 
 **Exemplos:**
 
@@ -70,9 +71,11 @@ que têm construtores sobrecarregados.
 2. Previne narrowing conversions (conversões que perdem informação).
 3. Tem prioridade para construtores que aceitam std::initializer_list.
 
-`std::vector<int> v1{1, 2, 3};` // Inicializa um vector com 3 elementos: 1, 2, 3
-`std::map<std::string, int> m1{{"key1", 1}, {"key2", 2}};` // Inicializa um map com dois pares chave-valor
-`std::set<int> s1{10, 20, 30};` // Inicializa um set com 3 elementos
+```cpp
+std::vector<int> v1{1, 2, 3};                             // Inicializa um vector com 3 elementos: 1, 2, 3
+std::map<std::string, int> m1{{"key1", 1}, {"key2", 2}}; // Inicializa um map com dois pares chave-valor
+std::set<int> s1{10, 20, 30};                           // Inicializa um set com 3 elementos
+```
 
 ---
 
@@ -82,17 +85,13 @@ que têm construtores sobrecarregados.
 2. Pode permitir narrowing conversions.
 3. Chama os construtores normais da classe.
 
-// Cria um vector com 5 elementos, todos 0 (chama construtor com tamanho)
-`std::vector<int> v2(5);`
+```cpp
+std::vector<int> v2(5);      // Cria um vector com 5 elementos, todos 0 (chama construtor com tamanho)
+std::vector<int> v3(5, 100); // Cria um vector com 5 elementos, todos sendo 100
+std::set<int> s2();          // Declaração de função! (não de um set!)
+```
 
-// Cria um vector com 5 elementos, todos sendo 100
-`std::vector<int> v3(5, 100);`
-
-// Declaração de função! (não de um set!)
-`std::set<int> s2();`
-
-🔸 Nota: `std::set<int> s2();` é interpretado como declaração de função,
-conhecido com "Most Vexing Parse".
+> Nota: `std::set<int> s2();` é interpretado como declaração de função, conhecido como `Most Vexing Parse`.
 
 ---
 

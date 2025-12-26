@@ -45,14 +45,14 @@ int main(int argc, char **argv)
 
     /**
      * Graças ao <print>, Execute comando de compilação com g++:
-     * g++ -std=c++23 -o header_print 3_header_format_e_header_print.cpp
+     * g++ -std=c++23 -o prints 3_header_format_e_header_print.cpp
      *
      * ou
      *
-     * g++-14 -std=c++23 -o header_print 3_header_format_e_header_print.cpp
+     * g++-14 -std=c++23 -o prints 3_header_format_e_header_print.cpp
      *
      * Depois de compilar, execute o programa:
-     * ./header_print
+     * ./prints
      */
     return 0;
 }
