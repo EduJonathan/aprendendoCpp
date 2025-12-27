@@ -41,16 +41,26 @@ bool criarArquivoHtml(const std::string &filename, double latitude, double longi
         return false;
     }
 
-    mapa_html << "<html>\n"
+    mapa_html << "<!DOCTYPE html>\n"
+              << "<html>\n"
               << "<head>\n"
+              << "<meta charset=\"UTF-8\">\n"
               << "<title>Mapa de coordenada aleatória</title>\n"
+              << "<style>body { font-family: sans-serif; text-align: center; padding: 20px; }</style>\n"
               << "</head>\n"
               << "<body>\n"
-              << "<p>Latitude: " << latitude << "<br>\n"
-              << "Longitude: " << longitude << "<br>\n"
-              << "Zoom: " << zoom << "</p>\n"
-              << "<iframe width=\"600\" height=\"400\" src=\"https://www.google.com/maps/embed/v1/view?key=INSIRA_SUA_API_KEY_AQUI&center="
-              << latitude << ',' << longitude << "&zoom=" << zoom << "\" frameborder=\"0\" style=\"border:0;\" allowfullscreen></iframe>\n"
+              << "<h2>Mapa de Coordenada Aleatória</h2>\n"
+              << "<p><strong>Latitude:</strong> " << latitude << "<br>\n"
+              << "<strong>Longitude:</strong> " << longitude << "<br>\n"
+              << "<strong>Zoom:</strong> " << zoom << "</p>\n"
+
+              // URL QUE NÃO REQUER API KEY:
+              << "<iframe width=\"800\" height=\"500\" "
+              << "src=\"https://maps.google.com/maps?q=" << latitude << "," << longitude
+              << "&z=" << zoom << "&output=embed\" "
+              << "frameborder=\"0\" style=\"border:0; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);\" allowfullscreen></iframe>\n"
+
+              << "<p><small>Gerado automaticamente via C++</small></p>\n"
               << "</body>\n"
               << "</html>\n";
 
@@ -60,58 +70,55 @@ bool criarArquivoHtml(const std::string &filename, double latitude, double longi
 
 int main(int argc, char **argv)
 {
-    // Configurações padrão
+    // Inicializa a semente do número aleatório com o tempo atual
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    // Configurações de limites aproximados do Brasil
+    double latMin = -33.75; // Extremo Sul (RS)
+    double latMax = 5.27;   // Extremo Norte (AP)
+    double lonMin = -73.98; // Extremo Oeste (AC)
+    double lonMax = -34.79; // Extremo Leste (PB)
+
     std::string filename = "mapa_coordenada_random.html";
     int zoom = 10;
 
-    // Verifica argumentos da linha de comando
     if (argc > 1)
-    {
-        filename = argv[1]; // Nome do arquivo de saída
-    }
-
+        filename = argv[1];
     if (argc > 2)
     {
         try
         {
-            zoom = std::stoi(argv[2]); // Nível de zoom
-            if (zoom < 0 || zoom > 20)
-            {
-                std::cerr << "Nível de zoom inválido. Usando padrão (10)." << '\n';
+            zoom = std::stoi(argv[2]);
+            if (zoom < 1 || zoom > 20)
                 zoom = 10;
-            }
         }
-        catch (const std::exception &e)
+        catch (...)
         {
-            std::cerr << "Erro ao converter nível de zoom. Usando padrão (10)." << '\n';
+            zoom = 10;
         }
     }
 
-    // Gera coordenadas aleatórias
-    double latitude = gerarCoordenadaRandom(-90.0, 90.0);
-    double longitude = gerarCoordenadaRandom(-180.0, 180.0);
+    // Gera coordenadas dentro desse retângulo
+    double latitude = gerarCoordenadaRandom(latMin, latMax);
+    double longitude = gerarCoordenadaRandom(lonMin, lonMax);
 
-    // Exibe as coordenadas geradas
-    std::cout << "Coordenadas aleatórias geradas: Latitude = " << latitude
-              << ", Longitude = " << longitude << ", Zoom = " << zoom << '\n';
+    std::cout << "Gerando mapa para: " << latitude << ", " << longitude << " (Zoom: " << zoom << ")\n";
 
-    // Cria o arquivo HTML
     if (criarArquivoHtml(filename, latitude, longitude, zoom))
     {
-        std::cout << "Arquivo HTML com o mapa gerado: " << filename << '\n';
+        std::cout << "Sucesso! Abra o arquivo '" << filename << "' no seu navegador.\n";
     }
     else
     {
-        std::cout << "Falha ao gerar o arquivo HTML." << '\n';
         return 1;
     }
 
     /**
      *
      * INSTRUÇÕES:
-     * 1. Substitua "INSIRA_SUA_API_KEY_AQUI" pela sua chave de API do Google Maps.
+     * 1. Substitua "INSIRA_SUA_API_KEY_AQUI" pela sua chave de API do Google Maps(REMOVIDA).
      * 2. Compile e execute o programa.
-     * 3. Abra o arquivo HTML gerado em um navegador para visualizar o mapa.
+     * 3. Abra o arquivo HTML gerado em um navegador(firefox, Google Chrome) para visualizar o mapa.
      *
      * Para compilar:
      * g++ -o fstream 3_fstream.cpp
