@@ -65,7 +65,7 @@ int main(int argc, char **argv)
     /** expressão lambda que imprime "Olá Função Lambda!" */
     auto ola = []()
     {
-        std::cout << "Olá Função Lambda!" << "\n";
+        std::cout << "Olá Função Lambda!" << '\n';
     };
 
     // Chama a função lambda

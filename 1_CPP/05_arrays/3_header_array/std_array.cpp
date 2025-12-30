@@ -38,7 +38,7 @@ int main(int argc, char const **argv)
 
     std::cout << "-------------------------------------------" << '\n';
 
-    std::array<int, 8> arr = {10, 3, 2, 10, 2, 8, 8, 7};
+    std::array<int, 8> arr{10, 3, 2, 10, 2, 8, 8, 7};
 
     // CalcularXOR de todos os elementos
     int xor_all = arr[0];

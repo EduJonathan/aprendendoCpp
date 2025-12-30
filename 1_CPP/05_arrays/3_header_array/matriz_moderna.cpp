@@ -20,19 +20,19 @@ int main(int argc, char **argv)
 
     // Definindo uma matriz 3x3 usando std::array e valores já definidos
     // A sintaxe com chaves aninhadas '{{...}, {...}, {...}}' é essencial.
-    std::array<std::array<double, 3>, 3> matriz = {
+    std::array<std::array<double, 3>, 3> matriz_moderna{
         {{1.1, 1.2, 1.3},
          {2.1, 2.2, 2.3},
          {3.1, 3.2, 3.3}}};
 
-    // Modificando elementos da matriz
+    // Modificando elementos da matriz_moderna
     std::cout << "Modificando: Incrementando cada elemento em 1.0" << '\n';
-    for (std::size_t i = 0ull; i < matriz.size(); ++i) // Percorre as Linhas
+    for (std::size_t i = 0ull; i < matriz_moderna.size(); ++i) // Percorre as Linhas
     {
-        for (std::size_t j = 0ull; j < matriz[i].size(); ++j) // Percorre as Colunas
+        for (std::size_t j = 0ull; j < matriz_moderna[i].size(); ++j) // Percorre as Colunas
         {
             // Usamos o operator[] para acesso eficiente (sem verificação de limites)
-            matriz[i][j] += 1.0;
+            matriz_moderna[i][j] += 1.0;
         }
     }
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
     // O uso de std::setw(4) alinha a saída para melhor legibilidade.
     std::cout << std::fixed << std::setprecision(1); // Garante 1 casa decimal
 
-    for (const auto &linha : matriz)
+    for (const auto &linha : matriz_moderna)
     {
         for (const auto &elemento : linha)
         {

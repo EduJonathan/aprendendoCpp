@@ -30,39 +30,39 @@
 int main(int argc, char **argv)
 {
     // Declaração e inicialização de um std::array com 5 elementos
-    std::array<int, 5> cpp_array = {10, 20, 30, 40, 50};
+    std::array<int, 5> array_moderno_cpp = {10, 20, 30, 40, 50};
 
     std::cout << "[std::array]\n";
 
     // Tamanho do array, .size() e .max_size() retornam o mesmo valor
-    std::cout << "Tamanho (.size()): " << cpp_array.size() << " elementos\n";
-    std::cout << "Tamanho (.max_size()): " << cpp_array.max_size() << " elementos\n\n";
+    std::cout << "Tamanho (.size()): " << array_moderno_cpp.size() << " elementos\n";
+    std::cout << "Tamanho (.max_size()): " << array_moderno_cpp.max_size() << " elementos\n\n";
 
     std::cout << "Valores e endereços:\n";
-    for (std::size_t i = 0; i < cpp_array.size(); ++i)
+    for (std::size_t i = 0; i < array_moderno_cpp.size(); ++i)
     {
-        std::cout << "  cpp_array[" << i << "] = "
-                  << std::setw(2) << cpp_array[i]
-                  << " | Endereço: " << &cpp_array[i] << '\n';
+        std::cout << "  array_moderno_cpp[" << i << "] = "
+                  << std::setw(2) << array_moderno_cpp[i]
+                  << " | Endereço: " << &array_moderno_cpp[i] << '\n';
     }
-    std::cout << "Endereço base do container: " << cpp_array.data() << '\n';
+    std::cout << "Endereço base do container: " << array_moderno_cpp.data() << '\n';
 
     std::cout << "\n[Iteração com range-based for]\n  ";
-    for (auto valor : cpp_array)
+    for (auto valor : array_moderno_cpp)
         std::cout << valor << ' ';
     std::cout << '\n';
 
     std::cout << "--------------------------------\n";
 
     // Declaração de um std::array com 5 elementos
-    std::array<int, 5> array2 = {1, 2, 3, 4, 5}; // É igual a declaração: int array2[5];
-    std::size_t size2 = array2.size();           // Obtendo o tamanho do std::array
+    std::array<int, 5> array_moderno{1, 2, 3, 4, 5}; // É igual a declaração: int array_moderno[5];
+    std::size_t size2 = array_moderno.size();        // Obtendo o tamanho do std::array
     std::size_t index2 = 4ull;
 
     if (index2 < size2)
     {
         // Usando o método .at() para acessar elementos com verificação de limites
-        std::cout << "Valor no índice " << index2 << ": " << array2.at(index2) << '\n';
+        std::cout << "Valor no índice " << index2 << ": " << array_moderno.at(index2) << '\n';
     }
     else
     {
