@@ -40,19 +40,14 @@ Str::Str(const char *cstr)
 }
 
 // Construtor de cópia (preserva capacidade)
-Str::Str(const Str &other)
-    : strLength(other.strLength),
-      bufferLength(other.bufferLength)
+Str::Str(const Str &other) : strLength(other.strLength), bufferLength(other.bufferLength)
 {
     buffer = new char[bufferLength];
     std::strcpy(buffer, other.buffer);
 }
 
 // Construtor de movimento (estado válido após mover)
-Str::Str(Str &&other) noexcept
-    : buffer(other.buffer),
-      strLength(other.strLength),
-      bufferLength(other.bufferLength)
+Str::Str(Str &&other) noexcept : buffer(other.buffer), strLength(other.strLength), bufferLength(other.bufferLength)
 {
     other.buffer = new char[1];
     other.buffer[0] = '\0';

@@ -1,6 +1,5 @@
-#include "RomanConverter.hpp"
-#include "policies.hpp"
-#include "RomanAnyConverter.hpp"
+#include "../include/roman_converter.hpp"
+#include "../include/roman_any_converter.hpp"
 #include <iostream>
 #include <array>
 
@@ -39,6 +38,12 @@ int main(int argc, char **argv)
 
         std::cout << '\n';
     }
+
+    /**
+     * Para Compilar:
+     * g++ -std=c++17 ./main.cpp ./policies.cpp ./RomanAnyConverter.cpp ./RomanConverter.cpp -o nome_executavel
+     * ./nome_do_executavel
+     */
 
     return 0;
 }

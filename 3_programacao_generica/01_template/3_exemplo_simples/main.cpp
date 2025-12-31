@@ -5,6 +5,9 @@
 
 // Função para imprimir qualquer contêiner de strings
 template <typename T>
+void print(const T &container);
+
+template <typename T>
 void print(const T &container)
 {
     for (const auto &elem : container)
@@ -17,8 +20,8 @@ void print(const T &container)
 int main(int argc, char **argv)
 {
     // Inicialização direta dos vetores
-    std::vector<std::string> grupoCaracteres1 = {"A", "B", "C"};
-    std::vector<std::string> grupoCaracteres2 = {"D", "E", "F", "G"};
+    std::vector<char> grupoCaracteres1{'A', 'B', 'C'};
+    std::vector<char> grupoCaracteres2{'D', 'E', 'F', 'G'};
 
     std::cout << "Grupo 1 inicial:\n";
     print(grupoCaracteres1);
