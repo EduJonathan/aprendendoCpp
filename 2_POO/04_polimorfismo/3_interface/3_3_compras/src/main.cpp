@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
     /**
      * Compile e execute com:
-     * g++ -std=c++14 .\carrinho.cpp .\cupom.cpp .\main.cpp .\pagamento.cpp .\produto.cpp -o nome_do_executavel
+     * g++ -std=c++17 .\carrinho.cpp .\cupom.cpp .\main.cpp .\pagamento.cpp .\produto.cpp -o nome_do_executavel
      * .\nome_do_executavel
      */
 
