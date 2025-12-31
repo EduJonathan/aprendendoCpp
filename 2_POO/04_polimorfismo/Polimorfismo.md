@@ -109,7 +109,7 @@ sejam tratados de forma uniforme através de uma classe base comum.
 
 ## Entendendo Polimorfismo
 
-Polimorfismo (poli significa muitos e morfismo significa formas) é a capacidade de um mesmo tipo abstrato
+Polimorfismo (poli significa _muitos_ e morfismo significa _formas_) é a capacidade de um mesmo tipo abstrato
 representar diferentes comportamentos, de acordo com a implementação concreta associada a ele.
 Em outras palavras, o polimorfismo permite que objetos de classes diferentes sejam tratados de forma uniforme
 por meio de uma classe base ou interface comum.
