@@ -4,23 +4,6 @@
 #include <stdexcept>
 
 /**
- * Design Patterns (Padrões de Projeto): São soluções reutilizáveis para problemas
- * comuns no desenvolvimento de software. Eles representam melhores práticas consolidadas
- * pela experiência de desenvolvedores ao longo dos anos. Não é exatamente um assunto para
- * POO, mas decidi incluir aqui por ser um tema importante na engenharia de software, pois
- * apesar de não ser um conceito exclusivo de POO, ele se aplica muito bem a esse contexto.
- *
- * Quando Usar Design Patterns? Quando você identifica um problema que um padrão
- * específico resolve. Para evitar soluções complexas desnecessárias. Quando precisa
- * melhorar a comunicação no time (usando vocabulário comum). Em sistemas que precisam
- * evoluir e se manter flexíveis.
- *
- * Quando Não Usar? Quando o problema é simples e não justifica a complexidade do padrão.
- * Se o padrão for aplicado apenas por modismo, sem necessidade real.
- * Quando o padrão torna o código menos legível para sua equipe específica.
- */
-
-/**
  * fabricante de transporte (Factory Method): É um padrão de criação que define uma
  * interface para criar objetos em uma superclasse, mas permite que as subclasses
  * decidam qual classe instanciar. Ele permite que uma classe delegue a responsabilidade
