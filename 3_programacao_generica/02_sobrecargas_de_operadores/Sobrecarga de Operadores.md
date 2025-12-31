@@ -5,7 +5,7 @@
 ## O que é?
 
 Uma visão importante antes de começar, C++ oferece uma enorme quantidade de abstrações poderosas:
-classes, herança, templates, structs, métodos, etc. É fácil se perder em meio a essa complexidade:
+**classes**, **herança**, **templates**, **structs**, **métodos**, etc. É fácil se perder em meio a essa complexidade:
 
 > **No fundo, tudo em C++ (e na maioria das linguagens) se resume a funções que recebem entradas, processam dados e retornam um resultado ou modificam algum estado.**
 
