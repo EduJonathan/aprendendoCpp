@@ -24,16 +24,16 @@
  *    std::ratio_divide<R1, R2>    → R1 ÷ R2
  *
  * Comparações (retornam std::true_type ou std::false_type):
- *    std::ratio_equal<R1, R2>     → R1 == R2
- *    std::ratio_not_equal<R1, R2> → R1 != R2
- *    std::ratio_less<R1, R2>      → R1 <  R2
- *    std::ratio_less_equal<R1,R2> → R1 ≤  R2
- *    std::ratio_greater<R1, R2>   → R1 >  R2
- *    std::ratio_greater_equal<R1,R2> → R1 ≥ R2
+ *    std::ratio_equal<R1, R2>        → R1 == R2
+ *    std::ratio_not_equal<R1, R2>    → R1 != R2
+ *    std::ratio_less<R1, R2>         → R1 <  R2
+ *    std::ratio_less_equal<R1,R2>    → R1 ≤  R2
+ *    std::ratio_greater<R1, R2>      → R1 >  R2
+ *    std::ratio_greater_equal<R1,R2> → R1 ≥  R2
  *
  * Cada especialização std::ratio<Num, Den> possui dois membros constexpr públicos:
- *    static constexpr intmax_t num;  // numerador já reduzido
- *    static constexpr intmax_t den;  // denominador já reduzido e positivo
+ *    static constexpr intmax_t num; // numerador já reduzido
+ *    static constexpr intmax_t den; // denominador já reduzido e positivo
  *
  * Uso mais comum: definir unidades de tempo com <chrono>
  *    std::milli  → std::ratio<1, 1000>
