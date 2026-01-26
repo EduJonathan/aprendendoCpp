@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # METAPROGRAMMING (METAPROGRAMAÇÃO)
 
 Uma das grandes invenções e elementos-chave do C++ é a metaprogramação (metaprogramming), que consiste em
@@ -169,7 +171,7 @@ e o compilador usa suas definições para gerar novos tipos antes da execução.
 
 ### **Templates** (Templates de Funções e Classes)
 
-Templates são o fundamento absoluto da metaprogramação em C++. Permitem escrever:
+`Templates` são o fundamento absoluto da metaprogramação em C++. Permitem escrever:
 
 - Código genérico
 - Funções parametrizadas por tipos
@@ -181,7 +183,7 @@ Templates são o fundamento absoluto da metaprogramação em C++. Permitem escre
 
 ### **constexpr**
 
-constexpr permite definir funções, variáveis e expressões que podem ser avaliadas em tempo de compilação. É essencial para:
+`constexpr` permite definir funções, variáveis e expressões que podem ser avaliadas em tempo de compilação. É essencial para:
 
 - Validações estáticas
 - Cálculos pré-executados
@@ -201,7 +203,7 @@ eliminando código inválido dependendo do tipo.
 
 ### **noexcept** E **const noexcept**
 
-noexcept indica que uma função garante não lançar exceções. Em metaprogramação, ele auxilia:
+`noexcept` indica que uma função garante não lançar exceções. Em metaprogramação, ele auxilia:
 
 - otimizações do compilador
 - seleção de overloads baseada em exception guarantees
@@ -231,7 +233,7 @@ Ideal para:
 
 ### **decltype**
 
-decltype produz o tipo exato de uma expressão sem avaliá-la. É crucial em:
+`decltype` produz o tipo exato de uma expressão sem avaliá-la. É crucial em:
 
 - Dedução de tipos complexos
 - auto avançado
@@ -242,7 +244,7 @@ decltype produz o tipo exato de uma expressão sem avaliá-la. É crucial em:
 
 ### **mutable**
 
-mutable permite que um membro seja modificado mesmo dentro de funções const. Isso é útil em metaprogramação quando:
+`mutable` permite que um membro seja modificado mesmo dentro de funções const. Isso é útil em metaprogramação quando:
 
 - Implementando caches internos para cálculos constexpr
 - Medindo estatísticas internas de templates
@@ -253,7 +255,7 @@ mutable permite que um membro seja modificado mesmo dentro de funções const. I
 
 ### **requires**
 
-requires(C++20) permite expressar restrições sobre tipos, substituindo técnicas complexas como SFINAE e enable_if.
+`requires(C++20)` permite expressar restrições sobre tipos, substituindo técnicas complexas como SFINAE e enable_if.
 Pode ser usado como:
 
 - Cláusula pós-parâmetros
@@ -262,14 +264,24 @@ Pode ser usado como:
 
 ---
 
+### **tuples e applys**
+
+**std::tuple e std::apply**: `std::tuple` é uma estrutura de dados que permite armazenar diferentes
+tipos de dados em uma única estrutura. Já `std::apply` aplica uma função a todos os elementos de
+uma tupla.
+
+---
+
 ## Técnicas
 
 ### **SFINAE**
 
-SFINAE é um princípio fundamental da metaprogramação em C++ que permite criar overloads de funções ou
+`SFINAE` é um princípio fundamental da metaprogramação em C++ que permite criar overloads de funções ou
 especializações de templates baseadas em características de tipos. Se uma substituição de tipo falhar,
 isso não gera um erro de compilação, mas apenas impede que aquela especialização ou
 função seja usada (Ex.: `std::enable_if<std::is_integral<T>::value, void>::type`).
+
+---
 
 | Técnica                                | Descrição                                                                                                       | Exemplo                                                            |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -286,17 +298,39 @@ função seja usada (Ex.: `std::enable_if<std::is_integral<T>::value, void>::typ
 
 ---
 
-**std::tuple e std::apply**: `std::tuple` é uma estrutura de dados que permite armazenar diferentes
-tipos de dados em uma única estrutura. Já `std::apply` aplica uma função a todos os elementos de
-uma tupla.
-
----
-
 ## Como Aplicar Metaprogramação
 
 A metaprogramação em C++ é usada para:
 
-- Otimizar desempenho: Avaliar cálculos complexos em tempo de compilação, como no exemplo do fatorial.
-- Aumentar reutilização: Criar funções e classes genéricas que funcionam com múltiplos tipos.
-- Garantir segurança de tipos: Usar `<type_traits>` e `<concepts>` para restringir templates e evitar erros.
-- Reduzir código repetitivo: Técnicas como if constexpr e SFINAE eliminam a necessidade de múltiplas implementações.
+- **Otimizar desempenho:** Avaliar cálculos complexos em tempo de compilação, como no exemplo do fatorial.
+- **Aumentar reutilização:** Criar funções e classes genéricas que funcionam com múltiplos tipos.
+- **Garantir segurança de tipos:** Usar `<type_traits>` e `<concepts>` para restringir templates e evitar erros.
+- **Reduzir código repetitivo:** Técnicas como if constexpr e SFINAE eliminam a necessidade de múltiplas implementações.
+
+---
+
+## Metaprogramação na compilação
+
+Embora C e C++ compartilhem etapas semelhantes no processo de compilação
+
+> **Pré-processamento** ⇒ **Análise léxica** ⇒ **Análise Sintática** ⇒ **Análise Semântica** ⇒ **Geração de Código Intermediário** ⇒ **Otimização de Código** ⇒ **Geração de Código Final (Objeto)**
+
+o C++ introduz maior complexidade devido ao suporte à metaprogramação, especialmente por meio de templates.
+
+---
+
+Em C++, templates não representam código executável, mas sim **moldes parametrizados**.
+O compilador apenas gera o código concreto quando o template é efetivamente utilizado, processo conhecido como **instanciação**.
+Essa instanciação está fortemente associada à análise semântica, quando os tipos são resolvidos, podendo exigir múltiplas
+passagens do compilador antes da geração do código intermediário.
+
+Esse modelo torna o processo de compilação em C++ mais custoso do que em C, especialmente em projetos de grande escala
+ou com uso intensivo de templates, o que pode resultar em **tempos de compilação** significativamente maiores,
+podendo atingir vários minutos em cenários reais.
+
+---
+
+Entretanto, é importante destacar que esse custo existe apenas em **tempo de compilação**.
+Após a geração do código final, o desempenho em tempo de execução não é impactado negativamente pela metaprogramação.
+Pelo contrário, como decisões e cálculos são resolvidos em tempo de compilação, o código gerado tende a ser altamente otimizado,
+sem sobrecarga adicional durante a execução.
