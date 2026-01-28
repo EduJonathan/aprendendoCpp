@@ -151,8 +151,7 @@ C++20 e C++23, além de está se encaminhando para o C++26, teremos novidades re
 
 ## 🔮 Futuro da Linguagem C++
 
-Apesar da concorrência de linguagens mais seguras ou simples (como Rust, Go e Python),
-C++ continua essencial para áreas como:
+Apesar da concorrência de linguagens mais seguras ou simples (como Rust, Go e Python), C++ continua essencial para áreas como:
 
 - Desenvolvimento de jogos.
 - Sistemas embarcados e de tempo real.

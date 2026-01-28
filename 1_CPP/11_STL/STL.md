@@ -93,7 +93,7 @@ std::vector<int> v3(5, 100); // Cria um vector com 5 elementos, todos sendo 100
 std::set<int> s2();          // Declaração de função! (não de um set!)
 ```
 
-> Nota: `std::set<int> s2();` é interpretado como declaração de função, conhecido como `Most Vexing Parse`.
+> **Nota:** `std::set<int> s2();` é interpretado como declaração de função, conhecido como `Most Vexing Parse`.
 
 ---
 

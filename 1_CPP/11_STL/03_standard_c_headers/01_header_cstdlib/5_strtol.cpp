@@ -1,32 +1,104 @@
 #include <iostream>
 #include <cstdlib>
+#include <cerrno>
 
-// std::strtol() Função de conversão para inteiros com base.
-
-int main(int argc, char **argv)
+enum class Formato
 {
-    const char *str_int = "-12345";
-    const char *str_long = "9876543210";
-    const char *str_long_long = "-9876543210987654321";
+    Decimal = 10,
+    Hexadecimal = 16,
+    Octal = 8,
+    Auto = 0
+};
 
-    // Usando strtol para converter para long
-    long l = std::strtol(str_long, nullptr, 10); // Base 10
-    std::cout << "strtol: " << l << '\n';
+struct Conversor
+{
+private:
+    static bool conversaoValida(const char *inicio, const char *fim)
+    {
+        return inicio != fim && errno != ERANGE;
+    }
 
-    // Usando strtoll para converter para long long
-    long long ll = std::strtoll(str_long_long, nullptr, 10); // Base 10
-    std::cout << "strtoll: " << ll << '\n';
+public:
+    // --- Inteiros Sinalizados ---
+    static bool paraInt(const char *str, int &out)
+    {
+        errno = 0;
+        char *end;
+        long valor = std::strtol(str, &end, 10);
 
-    const char *str_ulong = "1234567890";
-    const char *str_ulong_long = "1234567890123456789";
+        if (!conversaoValida(str, end))
+            return false;
 
-    // Usando strtoul para converter para unsigned long
-    unsigned long ul = std::strtoul(str_ulong, nullptr, 10); // Base 10
-    std::cout << "strtoul: " << ul << '\n';
+        out = static_cast<int>(valor);
+        return true;
+    }
 
-    // Usando strtoull para converter para unsigned long long
-    unsigned long long ull = std::strtoull(str_ulong_long, nullptr, 10); // Base 10
-    std::cout << "strtoull: " << ull << '\n';
+    static bool paraLong(const char *str, long &out, Formato base = Formato::Decimal)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtol(str, &end, static_cast<int>(base));
+        return conversaoValida(str, end);
+    }
+
+    static bool paraLongLong(const char *str, long long &out, Formato base = Formato::Decimal)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtoll(str, &end, static_cast<int>(base));
+        return conversaoValida(str, end);
+    }
+
+    // --- Inteiros Não Sinalizados ---
+    static bool paraULong(const char *str, unsigned long &out, Formato base = Formato::Decimal)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtoul(str, &end, static_cast<int>(base));
+        return conversaoValida(str, end);
+    }
+
+    static bool paraULongLong(const char *str, unsigned long long &out, Formato base = Formato::Decimal)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtoull(str, &end, static_cast<int>(base));
+        return conversaoValida(str, end);
+    }
+
+    // --- Ponto Flutuante ---
+    static bool paraDouble(const char *str, double &out)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtod(str, &end);
+        return conversaoValida(str, end);
+    }
+
+    static bool paraLongDouble(const char *str, long double &out)
+    {
+        errno = 0;
+        char *end;
+        out = std::strtold(str, &end);
+        return conversaoValida(str, end);
+    }
+};
+
+int main()
+{
+    int i;
+    long h;
+    double d;
+
+    // Exemplo de uso prático:
+    if (Conversor::paraInt("42", i))
+        std::cout << "Int: " << i << '\n';
+
+    if (Conversor::paraLong("0x2A", h, Formato::Auto))
+        std::cout << "Hex: " << h << '\n';
+
+    if (!Conversor::paraDouble("abc", d))
+        std::cout << "Erro ao converter double\n";
 
     return 0;
 }
