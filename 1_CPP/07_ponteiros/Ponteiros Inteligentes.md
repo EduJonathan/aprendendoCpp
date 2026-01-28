@@ -3,7 +3,7 @@
 # Smart Pointers (Ponteiros Inteligentes) em C++
 
 A partir do C++11(2011), antes dessa versão era utilizada alocação com `new/delete`, os **smart pointers**
-(ponteiros inteligentes) foram introduzidos, eles classes de templates da biblioteca **(STL)** que gerenciam
+(ponteiros inteligentes) foram introduzidos, eles são classes de templates da biblioteca **(STL)** que gerenciam
 **automaticamente a alocação e liberação de memória**.
 
 Eles ajudam a evitar erros comuns como _memory leaks_, uso de ponteiros inválidos e
