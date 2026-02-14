@@ -1,8 +1,10 @@
+<!-- @format -->
+
 # OPERAÇÕES E COMPLEXIDADE DE ESTRUTRURA DE DADOS STL
 
 ## Adaptadores de Containers
 
-> `std::Stack<T>` - Pilha
+- > `std::Stack<T>` - Pilha
 
 | **Operação**  | **Descrição**                          | **Complexidade** |
 | ------------- | -------------------------------------- | ---------------- |
@@ -25,7 +27,7 @@
 
 ---
 
-> `std::queue<T>` - Fila
+- > `std::queue<T>` - Fila
 
 | **Operação**  | **Descrição**                          | **Complexidade** |
 | ------------- | -------------------------------------- | ---------------- |
@@ -47,7 +49,7 @@
 
 ---
 
-> `std::priority_queue<T>` - Fila de prioridade
+- > `std::priority_queue<T>` - Fila de prioridade
 
 | **Operação**  | **Descrição**                                           | **Complexidade** |
 | ------------- | ------------------------------------------------------- | ---------------- |
@@ -71,7 +73,7 @@
 
 ## CONTAINERS DE SEQUÊNCIA
 
-> `std::vector<T>` - Vetor dinâmico com acesso rápido por índice
+- > `std::vector<T>` - Vetor dinâmico com acesso rápido por índice
 
 | **Operação**       | **Descrição**                                | **Complexidade** |
 | ------------------ | -------------------------------------------- | ---------------- |
@@ -102,7 +104,7 @@
 
 ---
 
-> `std::deque<T>` - Fila dupla com acesso eficiente nas extremidades
+- > `std::deque<T>` - Fila dupla com acesso eficiente nas extremidades
 
 | **Operação**        | **Descrição**                    | **Complexidade** |
 | ------------------- | -------------------------------- | ---------------- |
@@ -131,7 +133,7 @@
 
 ---
 
-> `std::list<T>` - Lista duplamente encadeada
+- > `std::list<T>` - Lista duplamente encadeada
 
 | **Operação**        | **Descrição**                            | **Complexidade** |
 | ------------------- | ---------------------------------------- | ---------------- |
@@ -164,7 +166,7 @@
 
 ---
 
-> `std::foward_list<T>` - Lista simplesmente encadeada
+- > `std::foward_list<T>` - Lista simplesmente encadeada
 
 | **Operação**            | **Descrição**                               | **Complexidade** |
 | ----------------------- | ------------------------------------------- | ---------------- |
@@ -196,7 +198,7 @@
 
 ---
 
-> `std::array<T, N>` - Array de tamanho fixo em tempo de compilação
+- > `std::array<T, N>` - Array de tamanho fixo em tempo de compilação
 
 | **Operação**   | **Descrição**                               | **Complexidade** |
 | -------------- | ------------------------------------------- | ---------------- |
@@ -219,7 +221,7 @@
 
 ---
 
-> `std::string` - Cadeia de caracteres (baseado em `std::vector<char>`)
+- > `std::string` - Cadeia de caracteres (baseado em `std::vector<char>`)
 
 | **Operação**      | **Descrição**                                         | **Complexidade** |
 | ----------------- | ----------------------------------------------------- | ---------------- |
@@ -248,7 +250,7 @@
 
 ## CONTAINERS ASSOCIATIVOS
 
-> `std::set<T>` – Conjunto ordenado (sem duplicatas)
+- > `std::set<T>` – Conjunto ordenado (sem duplicatas)
 
 | **Operação**  | **Descrição**                              | **Complexidade** |
 | ------------- | ------------------------------------------ | ---------------- |
@@ -271,7 +273,7 @@
 
 ---
 
-> `std::map<KEY, T>` – Mapa ordenado (chave única)
+- > `std::map<KEY, T>` – Mapa ordenado (chave única)
 
 | **Operação**     | **Descrição**                                                | **Complexidade** |
 | ---------------- | ------------------------------------------------------------ | ---------------- |
@@ -295,7 +297,7 @@
 
 ---
 
-> `std::multiset<KEY, T>` – Conjunto ordenado com duplicata
+- > `std::multiset<KEY, T>` – Conjunto ordenado com duplicata
 
 | **Operação**  | **Descrição**                            | **Complexidade** |
 | ------------- | ---------------------------------------- | ---------------- |
@@ -318,7 +320,7 @@
 
 ---
 
-> `std::multimap<KEY, T>` – Mapa ordenado com múltiplas chaves repetidas
+- > `std::multimap<KEY, T>` – Mapa ordenado com múltiplas chaves repetidas
 
 | **Operação**      | **Descrição**                                                | **Complexidade** |
 | ----------------- | ------------------------------------------------------------ | ---------------- |
@@ -344,7 +346,7 @@
 
 ## CONTAINERS DESORDENADOS
 
-> `std::unordered_set<T>` – Conjunto não ordenado (sem duplicatas)
+- > `std::unordered_set<T>` – Conjunto não ordenado (sem duplicatas)
 
 | **Operação**  | **Descrição**                     | **Complexidade Média** | **Pior Caso**      |
 | ------------- | --------------------------------- | ---------------------- | ------------------ |
@@ -367,7 +369,7 @@
 
 ---
 
-> `std::unordered_map<Key, T>` – Mapa não ordenado (chave única)
+- > `std::unordered_map<Key, T>` – Mapa não ordenado (chave única)
 
 | **Operação**     | **Descrição**                                         | **Complexidade Média** | **Pior Caso**      |
 | ---------------- | ----------------------------------------------------- | ---------------------- | ------------------ |
@@ -390,7 +392,7 @@
 
 ---
 
-> `std::unordered_multiset<T>` – Conjunto não ordenado com duplicatas
+- > `std::unordered_multiset<T>` – Conjunto não ordenado com duplicatas
 
 | **Operação**  | **Descrição**                            | **Complexidade Média** | **Pior Caso**      |
 | ------------- | ---------------------------------------- | ---------------------- | ------------------ |
@@ -413,7 +415,7 @@
 
 ---
 
-> `std::unordered_multimap<Key, T>` – Mapa não ordenado com múltiplas chaves repetidas
+- > `std::unordered_multimap<Key, T>` – Mapa não ordenado com múltiplas chaves repetidas
 
 | **Operação**      | **Descrição**                                           | **Complexidade Média** | **Pior Caso**      |
 | ----------------- | ------------------------------------------------------- | ---------------------- | ------------------ |
