@@ -26,15 +26,15 @@ Em qualquer paradigma ou linguagem, toda operação em um programa envolve proce
 ## Onde isso se conecta com a sobrecarga de operadores?
 
 Em C++, **operadores também são funções**, apenas com uma sintaxe especial.  
-A **sobrecarga de operadores** permite redefinir esses operadores usando a palavra-chave `operator` seguida do operador desejado.
-Com isso, você pode fazer com que operadores como `+`, `-`, `==`, `[]`, `()`, `<<` e muitos outros funcionem de forma personalizada para seus tipos.
+A **sobrecarga de operadores** permite redefinir esses operadores usando a palavra-chave `operator`
+seguida do operador desejado. Com isso, você pode fazer com que operadores como `+`, `-`, `==`, `[]`, `()`, `<<`
+e muitos outros funcionem de forma personalizada para seus tipos.
 
 ---
 
 ## Por que isso é útil?
 
-Porque você pode escrever código mais claro e natural.  
-Compare:
+Porque você pode escrever código mais claro e natural. Compare:
 
 ```cpp
 // Mais verboso
@@ -91,8 +91,8 @@ Vetor resultado = vetor1 + vetor2; // c será (4, 6)
 
 ### OBSERVAÇÕES SOBRE AS SOBRECARGAS
 
-Como visto no exemplo, com as sobrecargas de operadores percebemos o quão melhor fica visualmente o nosso código no
-quesito de sintaxe, onde sem o uso
+Como visto no exemplo, com as sobrecargas de operadores percebemos o quão melhor
+fica visualmente o nosso código no quesito de sintaxe, onde sem o uso
 
 ### ❌ Exemplo sem sobrecarga de operador
 
@@ -165,7 +165,7 @@ Vetor c = a + b; // c será (4, 6)
 - **Retorne `const` quando não modifica o objeto** (ex: operador `+`).
 - **Implemente `==` e `!=` juntos**, e se possível forneça `operator<=>` (C++20 spaceship operator) para ganhar os outros automaticamente.
 - **Evite sobrecarregar `&&` e `||`**: eles usam short-circuit evaluation que não pode ser replicado em funções.
-- **Para `[]`**, forneça versão const e não-const quando fizer sentido.
+- **Para `[]`**, forneça versão **const** e **não-const** quando fizer sentido.
 
 ---
 

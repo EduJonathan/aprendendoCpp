@@ -22,5 +22,15 @@ int main(int argc, char **argv)
     std::cout << "\nApós remover 10:\n";
     t.printTreePretty();
 
+    std::string("=", 40);
+
+    AVLTree<std::string> strTree("NOT_FOUND");
+    strTree.insert("banana");
+    strTree.insert("apple");
+    strTree.insert("cherry");
+
+    std::cout << "\nÁrvore de strings (ordem):\n";
+    strTree.printTreePretty();
+
     return 0;
 }
