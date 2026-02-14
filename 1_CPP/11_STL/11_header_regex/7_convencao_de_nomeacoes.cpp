@@ -18,6 +18,9 @@ enum class Convencoes
 
 /**
  * @brief Converte o enum Convencoes em uma string legível.
+ * 
+ * @param conv A convenção a ser convertida.
+ * @return std::string_view Representação em string da convenção.
  */
 std::string_view to_string(Convencoes conv)
 {
@@ -55,6 +58,7 @@ struct Classificar
 
     /**
      * @brief Classifica o tipo de convenção de nomenclatura usada.
+     * 
      * @return Convencoes Tipo de convenção detectada.
      */
     Convencoes classificar() const
@@ -74,14 +78,17 @@ struct Classificar
         {
             return Convencoes::camelCase;
         }
+
         if (std::regex_match(nomeclatura, snake_case))
         {
             return Convencoes::snake_case;
         }
+
         if (std::regex_match(nomeclatura, PascalCase))
         {
             return Convencoes::PascalCase;
         }
+
         if (std::regex_match(nomeclatura, kebab_case))
         {
             return Convencoes::kebab_case;

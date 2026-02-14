@@ -13,7 +13,13 @@ struct BD
     std::string CPF;
 };
 
-// === Validação dos dígitos verificadores do CPF (apenas números) ===
+/**
+ * @brief Valida os dígitos verificadores de um CPF.
+ *
+ * @param numeros String contendo apenas os dígitos do CPF (11 dígitos).
+ * @return true Se os dígitos verificadores estiverem corretos.
+ * @return false Caso contrário.
+ */
 bool validarDigitosCPF(const std::string &numeros)
 {
     if (numeros.length() != 11)
@@ -51,6 +57,11 @@ bool validarDigitosCPF(const std::string &numeros)
     return true;
 }
 
+/**
+ * @brief Realiza o cadastro de uma pessoa, solicitando nome e CPF.
+ *
+ * @return std::unique_ptr<BD> Ponteiro único para a estrutura BD preenchida.
+ */
 std::unique_ptr<BD> cadastro()
 {
     static uint16_t proximo_id = 1;
@@ -142,6 +153,11 @@ std::unique_ptr<BD> cadastro()
     return pessoa;
 }
 
+/**
+ * @brief Exibe os dados de uma pessoa cadastrada.
+ *
+ * @param p Referência constante para a estrutura BD a ser exibida.
+ */
 void exibir(const BD &p)
 {
     std::cout << "ID: " << p.id << '\n';
