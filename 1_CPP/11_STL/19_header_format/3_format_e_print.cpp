@@ -11,11 +11,8 @@
  * Em termos de funcionalidade, tanto <format> quanto <print> fornecem capacidades de formatação de strings
  * No entanto, a principal diferença está na forma como são usadas:
  *
- * - <format>:
- * Implementada no C++20 ele requer duas etapas - primeiro, você cria uma string formatada usando std::format, e depois imprime essa string.
- * - <print>:
- * Implementada no C++23 Permite imprimir diretamente com formatação em uma única etapa usando std::print.
- *
+ * - <format>: Implementada no C++20 ele requer duas etapas, primeiro, você cria uma string formatada usando std::format, e depois imprime essa string.
+ * - <print>: Implementada no C++23 Permite imprimir diretamente com formatação em uma única etapa usando std::print.
  */
 
 int main(int argc, char **argv)

@@ -8,6 +8,12 @@
  * formatação e impressão de texto de maneira mais simples e eficiente.
  */
 
+/**
+ * @brief A função std::println é uma extensão do std::print que adiciona automaticamente um caractere de nova linha ('\n')
+ * ao final da string formatada. Exemplo: std::println("Hello, {}!", "World") produzirá "Hello, World!\n".
+ *
+ * @param valor O valor a ser processado e impresso
+ */
 void operacao(int valor)
 {
     std::println("{}", valor / std::sqrt(valor));
@@ -15,7 +21,7 @@ void operacao(int valor)
 
 int main(int argc, char **argv)
 {
-    double valores[] = 
+    double valores[] =
     {
         #include "numbers.csv" // Irá incluir números de um arquivo CSV para preencher o array
     };
