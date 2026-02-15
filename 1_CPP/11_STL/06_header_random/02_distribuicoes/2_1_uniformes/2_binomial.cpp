@@ -17,7 +17,15 @@
  * - Normalizar resultados entre 0 e 1
  */
 
-// Função para avaliar polinômio: p(x) = a_n*x^n + ... + a_0
+/**
+ * @brief Avalia um polinômio no ponto x.
+ * O polinômio é representado por um vetor de coeficientes, onde coef[i] é o coeficiente de x^i.
+ * O valor do polinômio p(x) = a_n*x^n + ... + a_0 é calculado como p(x) = a_0 + a_1*x + a_2*x^2 + ... + a_n*x^n.
+ *
+ * @param coef Coeficientes do polinômio, onde coef[i] é o coeficiente de x^i.
+ * @param x Ponto onde o polinômio será avaliado.
+ * @return Valor do polinômio p(x) no ponto x.
+ */
 double evaluate(const std::vector<double> &coef, double x)
 {
     double result = 0.0;
@@ -28,7 +36,15 @@ double evaluate(const std::vector<double> &coef, double x)
     return result;
 }
 
-// Derivada: p'(x)
+/**
+ * @brief Calcula a derivada de um polinômio no ponto x.
+ * O polinômio é representado por um vetor de coeficientes, onde coef[i] é o coeficiente de x^i.
+ * A derivada de um polinômio p(x) = a_n*x^n + ... + a_0 é dada por p'(x) = n*a_n*x^(n-1) + ... + 1*a_1.
+ *
+ * @param coef Coeficientes do polinômio, onde coef[i] é o coeficiente de x^i.
+ * @param x Ponto onde a derivada será avaliada.
+ * @return Valor da derivada p'(x) no ponto x.
+ */
 double derivative(const std::vector<double> &coef, double x)
 {
     if (coef.size() <= 1)
@@ -42,7 +58,18 @@ double derivative(const std::vector<double> &coef, double x)
     return result;
 }
 
-// Newton-Raphson
+/**
+ * @brief Método de Newton-Raphson para encontrar raízes de um polinômio.
+ *
+ * O método de Newton-Raphson é um algoritmo iterativo para encontrar aproximações de raízes de funções reais.
+ * Ele utiliza a fórmula: x_{n+1} = x_n - f(x_n) / f'(x_n), onde f é a função e f' é a sua derivada.
+ *
+ * @param coef Coeficientes do polinômio, onde coef[i] é o coeficiente de x^i.
+ * @param x0 Chute inicial para a raiz.
+ * @param tol Tolerância para convergência (padrão: 1e-4).
+ * @param max_iter Número máximo de iterações (padrão: 100).
+ * @return Aproximação da raiz encontrada.
+ */
 double newton_raphson(const std::vector<double> &coef, double x0, double tol = 1e-4, int max_iter = 100)
 {
     double x = x0;
@@ -80,7 +107,14 @@ double newton_raphson(const std::vector<double> &coef, double x0, double tol = 1
     return x;
 }
 
-// Gera polinômio com coeficientes uniformes em [min, max]
+/**
+ * @brief Gera um polinômio com coeficientes uniformemente distribuídos em um intervalo [min, max].
+ *
+ * @param degree Grau do polinômio.
+ * @param min Valor mínimo para os coeficientes (padrão: -10.0).
+ * @param max Valor máximo para os coeficientes (padrão: 10.0).
+ * @return Vetor de coeficientes do polinômio, onde coef[i] é o coeficiente de x^i.
+ */
 std::vector<double> generate_uniform_poly(int degree, double min = -10.0, double max = 10.0)
 {
     std::random_device rd;
@@ -95,7 +129,21 @@ std::vector<double> generate_uniform_poly(int degree, double min = -10.0, double
     return coef;
 }
 
-// Gera polinômio com coeficientes binomiais (inteiros não-negativos)
+/**
+ * @brief Gera um polinômio com coeficientes seguindo uma distribuição binomial. O número de tentativas `n_trials`
+ * e a probabilidade de sucesso `p` podem ser * ajustados para controlar a forma da distribuição dos coeficientes.
+ * Ideal para criar polinômios com coeficientes que tendem a ser mais próximos de zero ou mais dispersos,
+ * dependendo dos parâmetros escolhidos.
+ *
+ * @param degree Grau do polinômio.
+ * @param n_trials Número de tentativas para a distribuição binomial (ex: 10).
+ * @param p Probabilidade de sucesso em cada tentativa (ex: 0.5).
+ * @return Vetor de coeficientes do polinômio, onde coef[i] é o coeficiente de x^i, gerados a partir de uma distribuição binomial.
+ *
+ * Ideal para:
+ * - Criar polinômios com coeficientes que tendem a ser mais próximos de zero ou mais dispersos, dependendo dos parâmetros escolhidos.
+ * - Simulações onde a distribuição dos coeficientes deve seguir um padrão específico (ex: mais valores próximos de zero).
+ */
 std::vector<double> generate_binomial_poly(int degree, int n_trials = 10, double p = 0.5)
 {
     std::random_device rd;
@@ -118,6 +166,14 @@ std::vector<double> generate_binomial_poly(int degree, int n_trials = 10, double
     return coef;
 }
 
+/**
+ * @brief Imprime um polinômio no formato legível, por exemplo: "3x^2 - 2x + 1".
+ *
+ * O polinômio é representado por um vetor de coeficientes, onde coef[i] é o coeficiente de x^i.
+ * O formato de saída é construído considerando os sinais, os coeficientes e as potências de x.
+ *
+ * @param coef Coeficientes do polinômio, onde coef[i] é o coeficiente de x^i.
+ */
 void print_poly(const std::vector<double> &coef)
 {
     std::cout << " O POLINÔMIO É: ";

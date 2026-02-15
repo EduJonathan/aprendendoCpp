@@ -9,6 +9,7 @@
 
 /**
  * @brief Lê um número inteiro positivo.
+ * 
  * @param mensagem Texto exibido ao usuário.
  * @return Número válido ou -1.
  */
@@ -29,6 +30,7 @@ int ler(const std::string &mensagem)
 
 /**
  * @brief Pergunta se deseja continuar.
+ * 
  * @return true para sim, false para não.
  */
 bool continuar()
@@ -37,11 +39,10 @@ bool continuar()
     std::cout << "Deseja lançar o dado novamente? (s/n): ";
     std::getline(std::cin, entrada);
 
-    std::transform(entrada.begin(), entrada.end(), entrada.begin(),
-                   [](unsigned char c)
-                   {
-                       return std::tolower(c);
-                   });
+    std::transform(entrada.begin(), entrada.end(), entrada.begin(), [](unsigned char c)
+    {
+        return std::tolower(c);
+    });
 
     return (entrada == "s" || entrada == "sim");
 }
