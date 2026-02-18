@@ -28,18 +28,30 @@
  * a função `printf` diretamente com `extern "C"`.
  */
 
-extern "C"
-{
-    // Declara a função printf conforme a convenção de chamada da linguagem C
-    int printf(const char *format, ...);
+// Com verificação de compatibilidade, podemos usar a diretiva de pré-processamento para garantir que o código
+// seja compilado apenas em ambientes compatíveis com C++:
+#if defined(__cplusplus)
+    // O código dentro deste bloco só será compilado se o compilador for compatível com C++
+    extern "C"
+    {
+        // Declara a função printf conforme a convenção de chamada da linguagem C
+        int printf(const char *format, ...);
 
-    // Da mesma forma, outras funções como scanf podem ser declaradas, se necessário:
-    // int scanf(const char *format, ...);
-}
+        // Da mesma forma, outras funções como scanf podem ser declaradas, se necessário:
+        // int scanf(const char *format, ...);
+    }
+
+    #include <cstdio> // Opcional, para garantir que a função printf seja reconhecida pelo compilador
+#else
+    #error "Este código deve ser compilado com um compilador C++"
+#endif
 
 int main(int argc, char **argv)
 {
     // Chama a função printf (declarada externamente) para imprimir uma mensagem
     printf("Utilizando a função printf em C++\n");
+
+    // O código pode continuar normalmente, utilizando outras funcionalidades do C++ ou C, conforme necessário.
+    std::printf("Outra mensagem usando std::printf\n");
     return 0;
 }

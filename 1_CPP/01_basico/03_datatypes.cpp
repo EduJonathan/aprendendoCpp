@@ -5,8 +5,14 @@
 #include <cfloat>  // Para constantes relacionadas a valores flutuantes (Relacionado ao float.h de C)
 
 /**
- * DATATYPES: Este código demonstra os tamanhos em bytes e os limites de valores
- * dos tipos de dados fundamentais em C++.
+ * DATATYPES: Este código demonstra os tamanhos em bytes e os limites de valores dos tipos de dados fundamentais em C++.
+ *
+ * Datatypes são categorias de dados que definem o tipo de valor que uma variável pode armazenar e as operaçõesconst
+ * que podem ser realizadas sobre esses valores. Em C++, os tipos de dados são divididos em várias categorias,
+ * incluindo tipos inteiros, tipos de ponto flutuante, caracteres e outros tipos como bool e std::string(em C++).
+ *
+ * C++ opera com os mesmo tipos de dados primitivos do C, mas também introduz tipos adicionais e classes como std::string
+ * para manipulação de texto, dentre outros.
  *
  * @note Os tamanhos dos tipos (como int, long) podem variar dependendo da arquitetura
  * e do compilador, mas os limites são sempre consistentes para um dado tamanho (ex: int de 4 bytes).

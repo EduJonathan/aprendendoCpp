@@ -21,7 +21,7 @@
  * inteiros, floats, etc. Isso permite usar o mesmo operador para imprimir diferentes
  * tipos sem precisar de formatadores, como ocorre em C (ex: printf("%d %s %f")).
  *
- * - using namespace std;: Permite omitir o prefixo 'std::' em elementos do namespace std.
+ * - using namespace std:: Permite omitir o prefixo 'std::' em elementos do namespace std.
  * Torna o código mais limpo em exemplos pequenos, mas deve ser evitado em projetos grandes
  * para prevenir conflitos de nomes.
  */

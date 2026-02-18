@@ -16,7 +16,7 @@
  * - std (namespace): Assim como outros componentes da biblioteca padrão (como cout, cerr, endl),
  * o cin também está dentro do namespace std.
  *
- * - using namespace std;: Permite usar apenas `cin` em vez de `std::cin`.
+ * - using namespace std:: Permite usar apenas `cin` em vez de `std::cin`.
  * Exemplo: cin >> nome;
  * No entanto, deve ser usado com cuidado em projetos maiores para evitar conflitos de nomes.
  */
