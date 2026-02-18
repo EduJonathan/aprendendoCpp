@@ -70,6 +70,135 @@ evitando a necessidade de especificar tipos explicitamente em todas as situaçõ
 
 ---
 
+## Separando arquivos de templates em C++
+
+> **Templates precisam ter sua implementação visível no momento da compilação.**
+
+Diferente de funções comuns:
+
+- Templates **não são compilados separadamente**
+- Eles são **instanciados quando utilizados**
+- Por isso, o compilador deve enxergar a definição completa
+
+---
+
+> Imagine a seguinte estrutura de **arquivos**
+
+## 📂 Estrutura recomendada
+
+```text
+math/
+├── math.hpp
+└── math.tpp
+```
+
+- 📄 Arquivo math.hpp (Interface)
+
+Responsável por:
+
+- Declarar os templates
+- Incluir o arquivo `.tpp`
+
+```cpp
+#ifndef MATH_HPP
+#define MATH_HPP
+
+// Declaração do template
+template<typename T>
+T soma(T a, T b);
+
+// Especializado para bool
+template<>
+bool soma<bool>(bool a, bool b);
+
+// Inclusão da implementação
+#include "math.tpp"
+
+#endif // MATH_HPP
+```
+
+### 📌 Observação importante
+
+- O `.tpp` deve ser incluído aqui
+- Caso contrário, o compilador não verá a implementação
+
+---
+
+- 📄 Arquivo math.tpp (Implementação)
+
+Responsável por:
+
+- Definir o comportamento do template
+- Para implementar os templates utilizamos os arquivos de extensão `.tpp`
+
+```cpp
+template<typename T>
+T soma(T a, T b) {
+   return a + b;
+}
+
+template<>
+bool soma<bool>(bool a, bool b) {
+   return a || b;
+}
+```
+
+### 📌 Observações
+
+- Não usar `#include` e nem de **guard include** (**#ifndef** e **#define**)
+- Apenas implementações de template.
+
+---
+
+```cpp
+#include <iostream>
+#include "math.hpp"
+
+int main() {
+   std::cout << soma(2, 3) << '\n';
+   std::cout << soma(2.5, 3.1) << '\n';
+   std::cout << soma(true, false) << '\n';
+}
+```
+
+---
+
+> Nenhuma compilação manual é necessária para `.tpp`.
+
+```bash
+g++ main.cpp -o app
+```
+
+- O compilador processa tudo automaticamente
+- Templates são instanciados conforme o uso
+
+---
+
+## Conceitualmente
+
+- `.hpp` -> contrato
+- `.tpp` -> molde completo
+- `#include` -> torna o molde visível
+- Uso -> gera o código concreto
+
+---
+
+## Quando NÃO usar .tpp
+
+Você pode manter tudo no `.hpp` quando:
+
+- O template é pequeno
+- O projeto é simples
+- A leitura fica mais clara
+
+---
+
+- `.tpp` é uma convenção de organização
+- Templates não funcionam como `.cpp`
+- A implementação deve estar visível no `.hpp`
+
+---
+
 ## Conceitos Avançados em Templates
 
 ### Templates Variádicos (Variadic Templates)
