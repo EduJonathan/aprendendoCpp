@@ -42,9 +42,12 @@ T Max(T first_value, T second_value)
     return (first_value > second_value) ? first_value : second_value;
 }
 
-template <typename T>
-void print(const T &container);
-
+/**
+ * @brief Função genérica para imprimir os elementos de um container (como std::vector)
+ *
+ * @tparam T O tipo do container (por exemplo, std::vector<char>)
+ * @param container O container cujos elementos serão impressos
+ */
 template <typename T>
 void print(const T &container)
 {
