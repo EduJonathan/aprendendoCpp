@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     /**
      * Para Compilar:
-     * g++ -std=c++17 ./main.cpp ./policies.cpp ./RomanAnyConverter.cpp ./RomanConverter.cpp -o nome_executavel
+     * g++ -std=c++17 ./main.cpp ./policies.cpp -o nome_executavel
      * ./nome_do_executavel
      */
 

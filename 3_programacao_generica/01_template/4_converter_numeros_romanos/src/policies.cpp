@@ -7,6 +7,7 @@ std::string StandardRomanPolicy::to_roman_impl(int value) const
     if (value < 1 || value > 3999)
         return {};
 
+    // Tabela de valores e símbolos romanos, ordenada do maior para o menor, para facilitar a conversão.
     constexpr std::array<std::pair<int, const char *>, 13> table{
         {{1000, "M"},
          {900, "CM"},
@@ -36,6 +37,16 @@ std::string StandardRomanPolicy::to_roman_impl(int value) const
 
 int StandardRomanPolicy::from_roman_impl(std::string_view s) const
 {
+    /**
+     * @brief Função lambda para obter o valor inteiro correspondente a um símbolo romano.
+     *
+     * O `valueOf` é uma função lambda que recebe um caractere representando um símbolo romano e retorna seu valor inteiro correspondente.
+     * Ele utiliza uma estrutura de controle `switch` para mapear cada símbolo romano (como `M`, `D`, `C`, etc.)
+     * para seu valor inteiro (1000, 500, 100, etc.). Se o caractere não corresponder a um símbolo romano válido, a função retorna 0.
+     *
+     * @param c O caractere representando o símbolo romano a ser convertido.
+     * @return O valor inteiro correspondente ao símbolo romano fornecido, ou 0 se o caractere não for um símbolo romano válido.
+     */
     auto valueOf = [](char c) -> int
     {
         switch (c)
@@ -88,6 +99,7 @@ std::string AdditiveRomanPolicy::to_roman_impl(int value) const
     if (value < 1 || value > 3999)
         return {};
 
+    // Tabela de valores e símbolos romanos, ordenada do maior para o menor, para facilitar a conversão.
     constexpr std::array<std::pair<int, const char *>, 7> table{
         {{1000, "M"},
          {500, "D"},

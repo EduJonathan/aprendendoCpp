@@ -2,9 +2,7 @@
 #include "../include/roman_converter.hpp" // necessário para usar RomanConverter nas instanciações
 
 template <typename Converter>
-RomanAnyConverter::RomanAnyConverter(const Converter &conv) : self(std::make_shared<Model<Converter>>(conv))
-{
-}
+RomanAnyConverter::RomanAnyConverter(const Converter &conv) : self(std::make_shared<Model<Converter>>(conv)) {}
 
 template <typename T>
 std::string RomanAnyConverter::Model<T>::toRoman(int v) const
