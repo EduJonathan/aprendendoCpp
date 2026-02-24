@@ -26,6 +26,7 @@ CaesarCipher &CaesarCipher::requestPassword(int argc, char **argv)
         std::cout << "Enter password: ";
         std::getline(std::cin, password); // Use getline to handle spaces
     }
+    
     if (password.empty())
     {
         std::cerr << "Error: Password cannot be empty.\n";
