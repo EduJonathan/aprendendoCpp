@@ -47,7 +47,7 @@ public:
 // Definição do membro estático const
 const Exemplo::Ponto Exemplo::pontoConst = {50, 60};
 
-int main()
+int main(int argc, char **argv)
 {
     std::cout << "Static const int: " << Exemplo::valorConst << '\n';
     std::cout << "Static constexpr int: " << Exemplo::valorConstexpr << '\n';
