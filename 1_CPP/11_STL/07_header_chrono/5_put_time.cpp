@@ -38,7 +38,14 @@
  * - std::put_time respeita o locale configurado no stream, permitindo exibir nomes de meses e dias em diferentes idiomas.
  */
 
-// Função para configurar locale global (opcional, mas recomendado)
+/**
+ * @brief Configura o locale para português brasileiro (pt_BR) para formatação de datas e horas.
+ * 
+ * A função tenta configurar o locale para "pt_BR.UTF-8" (comum em Linux/macOS) e
+ * "Portuguese_Brazil" (comum em Windows). Se ambos falharem, exibe um aviso e mantém o locale padrão (inglês).
+ * Após configurar o locale global, a função também garante que o std::cout use o locale configurado,
+ * permitindo que as datas sejam formatadas corretamente em português.
+ */
 void configurarLocale()
 {
     try
@@ -61,8 +68,14 @@ void configurarLocale()
     std::cout.imbue(std::locale());
 }
 
-// Função para ler uma data/hora formatada do usuário
-// Função para ler data/hora SEM segundos
+/**
+ * @brief Lê uma data e hora do usuário no formato "dd/mm/aaaa HH:MM" e retorna um std::tm.
+ *
+ * A função valida o formato de entrada e os valores, garantindo que a data e hora sejam válidos.
+ * Se a entrada for inválida, o usuário será solicitado a tentar novamente.
+ *
+ * @return std::tm Estrutura contendo a data e hora lida do usuário, com segundos definidos como 0.
+ */
 std::tm lerDataHora()
 {
     std::tm tm = {};
@@ -124,7 +137,15 @@ std::tm lerDataHora()
     return tm;
 }
 
-// Função para formatar um std::tm como string
+/**
+ * @brief Formata um std::tm em uma string legível, usando o locale configurado.
+ * A função utiliza std::strftime para criar uma string formatada, removendo os segundos da saída.
+ *
+ * Exemplo de formato: "Quarta-feira, 29 de Outubro de 2025 às 15:03"
+ *
+ * @param tm Estrutura std::tm contendo a data e hora a ser formatada
+ * @return std::string String formatada representando a data e hora, respeitando o locale configurado
+ */
 std::string formatarDataHora(const std::tm &tm)
 {
     char buffer[256];

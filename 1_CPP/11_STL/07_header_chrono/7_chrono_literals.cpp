@@ -35,18 +35,39 @@
 
 using namespace std::chrono_literals; // Permite 2s, 500ms, etc.
 
-// Função de delay simples
+/**
+ * @brief Função de delay usando literais de tempo. Permite chamar delay(2s) ou delay(500ms) de forma intuitiva
+ *
+ * A função é sobrecarregada para aceitar tanto std::chrono::milliseconds quanto um valor em segundos (double).
+ * Isso demonstra a flexibilidade dos literais de tempo para criar durações de forma legível e fácil de entender.
+ *
+ * @param ms Duração em milissegundos (std::chrono::milliseconds)
+ */
 void delay(std::chrono::milliseconds ms)
 {
     std::this_thread::sleep_for(ms);
 }
 
+/**
+ * @brief Função de delay usando literais de tempo. Permite chamar delay(2s) ou delay(500ms) de forma intuitiva
+ *
+ * A função é sobrecarregada para aceitar tanto std::chrono::milliseconds quanto um valor em segundos (double).
+ * Isso demonstra a flexibilidade dos literais de tempo para criar durações de forma legível e fácil de entender.
+ *
+ * @param seconds Duração em segundos (double)
+ */
 void delay(double seconds)
 {
     std::this_thread::sleep_for(std::chrono::duration<double>(seconds));
 }
 
-// Barra de progresso animada
+/**
+ * @brief Exibe uma barra de progresso animada no console, usando um símbolo personalizado e um tempo total definido.
+ * A função divide o tempo total em partes iguais para cada símbolo da barra, criando uma animação suave de progresso.
+ *
+ * @param total_segundos Tempo total para completar a barra de progresso, em segundos
+ * @param simbolo Caractere a ser usado para preencher a barra de progresso (padrão: '#')
+ */
 void barraProgresso(int total_segundos, char simbolo = '#')
 {
     const int largura = 40;
@@ -60,8 +81,14 @@ void barraProgresso(int total_segundos, char simbolo = '#')
     }
     std::cout << "] Concluído!\n";
 }
-
-// Contagem regressiva
+/**
+ * @brief Exibe uma contagem regressiva no console, usando literais de tempo para definir os intervalos de espera entre cada número.
+ * A função imprime os números de forma decrescente, aguardando um segundo entre cada número, e finaliza com uma mensagem de "Vai!".
+ *
+ * @param segundos Número de segundos para a contagem regressiva, que define o ponto de partida da contagem.
+ * A função irá imprimir os números de forma decrescente até chegar a 1, aguardando um segundo entre cada número,
+ * e finaliza com uma mensagem de "Vai!".
+ */
 void contagemRegressiva(int segundos)
 {
     std::cout << "Iniciando em: ";
@@ -74,7 +101,10 @@ void contagemRegressiva(int segundos)
     std::cout << "Vai!\n";
 }
 
-// Exemplo de uso com animação
+/**
+ * @brief Função que demonstra o uso de delays e animações com literais de tempo.
+ * A função exibe uma série de animações e delays para ilustrar como os literais de tempo podem ser usados em aplicações práticas.
+ */
 void carragando()
 {
     std::cout << "=== EXEMPLO DE DELAYS E ANIMAÇÕES ===\n\n";
