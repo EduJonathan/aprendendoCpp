@@ -1,6 +1,6 @@
 #include <iostream>
-#include <regex>
 #include <string>
+#include <regex>
 
 /**
  * Este programa analisa um nome de arquivo fornecido pelo usuário, extrai o nome e a extensão,]
@@ -17,7 +17,7 @@ void analyzeFilename(const std::string &filename)
     if (std::regex_match(filename, matches, pattern))
     {
         std::string name = matches[1];
-        std::string ext = matches[2];
+        std::string ext  = matches[2];
 
         std::cout << "Nome do arquivo: " << name << '\n';
         std::cout << "Extensão: " << ext << '\n';
@@ -47,7 +47,7 @@ void analyzeFilename(const std::string &filename)
     }
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char **argv)
 {
     std::string filename;
     std::cout << "Digite o nome do arquivo (ex: foto.jpg): ";
