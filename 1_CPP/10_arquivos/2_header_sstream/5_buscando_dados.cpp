@@ -6,7 +6,7 @@
 #include <sstream>
 
 /**
- * Este código irá ler a base de dados do arquivo lista_alunos.txt, irá organizar os dados com o
+ * Este código irá ler a base de dados do arquivo lista_alunos.txt, organizar os dados com o
  * algoritmo Selection Sort e iremos poder escolher entre 2 algoritmos de buscas sendo a
  * busca linear e a busca binária, para sabermos qual dos dois algoritmos de busca terá melhor
  * desempenho de busca na base de dados, desempenho esse que será realizado pelos metódos da header chrono.
@@ -46,6 +46,7 @@ void selection_sort(std::string vetor[], int tamanho)
                 posicaoDoMenorValor = j;
             }
         }
+        
         if (posicaoDoMenorValor != i)
         {
             swap(vetor[i], vetor[posicaoDoMenorValor]);
@@ -139,7 +140,7 @@ int main(int argc, char **argv)
     // std::ifstream file("C:\\Users\\EDUARDO_OLIVEIRA\\Documents\\aprendendoCpp\\CPP\\10_arquivos\\2_header_sstream\\lista_alunos.txt");
 
     // Caminho absoluto no linux
-    std::ifstream file("/home/eduardo/Documentos/aprendendoCpp/1_CPP/10_arquivos/2_header_sstream/lista_alunos.txt");
+    std::ifstream file("/home/eduardo/Documentos/AprendendoCPP/1_CPP/10_arquivos/2_header_sstream/lista_alunos.txt");
     if (!file.is_open())
     {
         std::cerr << "Erro ao abrir o arquivo." << '\n';

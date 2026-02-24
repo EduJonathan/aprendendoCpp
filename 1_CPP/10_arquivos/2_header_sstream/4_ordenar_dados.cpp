@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 
-// Este código irá ler a base de dados do arquivo lista_alunos.txt, irá organizar os dados com base no algoritmo Selection Sort
+// Este código irá ler a base de dados do arquivo lista_alunos.txt e organizar os dados com base no algoritmo Selection Sort
 
 const int MAX_LINHAS = 50;  // Defina o número máximo de linhas da matriz
 const int MAX_COLUNAS = 50; // Defina o número máximo de colunas da matriz
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
     // std::ifstream file("C:\\Users\\EDUARDO_OLIVEIRA\\Documents\\aprendendoCpp\\CPP\\10_arquivos\\2_header_sstream\\lista_alunos.txt");
 
     // Abrindo o arquivo para leitura no linux
-    std::ifstream file("/home/eduardo/Documentos/aprendendoCpp/1_CPP/10_arquivos/2_header_sstream/lista_alunos.txt");
+    std::ifstream file("/home/eduardo/Documentos/AprendendoCPP/1_CPP/10_arquivos/2_header_sstream/lista_alunos.txt");
 
     // Verificando se houve erro ao abrir o arquivo
     if (!file.is_open())
